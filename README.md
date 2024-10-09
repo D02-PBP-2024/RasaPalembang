@@ -19,12 +19,12 @@ Dalam mencari restoran, wisatawan cenderung bertanya atau mengunjungi restoran y
 
 ## 📃 Daftar Modul 📃
 
-1. **Makanan 🍲**: Menyediakan berbagai pilihan makanan beserta kategorinya, seperti makanan pembuka, hidangan utama, dan makanan penutup. Pengguna dapat menjelajahi dan menemukan hidangan khas Palembang yang lezat.
-2. **Minuman 🍹**: Menampilkan berbagai pilihan minuman seperti minuman tradisional dan modern. Setiap kategori dilengkapi dengan deskripsi, bahan-bahan, dan rekomendasi.
-3. **Restoran 🍴**: Modul ini memberikan informasi lengkap tentang berbagai restoran di Palembang , termasuk jenis masakan, harga, jam operasional, dan lokasi. Pengguna dapat mencari restoran berdasarkan preferensi mereka, seperti vegetarian, seafood, atau restoran mewah.
-4. **Ulasan dan Rating 📝**: Setiap kategori dilengkapi dengan fitur ulasan dan rating, memungkinkan pengguna untuk memberikan feedback yang konstruktif. Ulasan ini membantu orang lain dalam membuat keputusan dan menemukan tempat terbaik berdasarkan pengalaman pengguna sebelumnya.
-5. **Forum Diskusi 💡**: Modul ini menciptakan ruang interaktif bagi pengguna untuk berdiskusi tentang setiap kategori. Pengguna dapat mengajukan pertanyaan, berbagi pengalaman, dan memberikan rekomendasi, membangun komunitas yang saling mendukung dan penuh informasi.
-6. **Favorit 🩷**: Modul untuk menyimpan dan menampilkan makanan dan minuman yang disukai serta daftar restoran yang ingin dikunjungi oleh pengguna. Pengguna dapat menambahkan catatan ke makanan, minuman, dan restoran yang masuk ke daftar favorit mereka. Pengguna juga dapat mengubah catatan dan menghapus daftar favorit yang telah mereka simpan sebelumnya.
+1. **Makanan 🍲 (Damar)**: Menyediakan berbagai pilihan makanan beserta kategorinya, seperti makanan pembuka, hidangan utama, dan makanan penutup. Pengguna dapat menjelajahi dan menemukan hidangan khas Palembang yang lezat.
+2. **Minuman 🍹 (Syauqi)**: Menampilkan berbagai pilihan minuman seperti minuman tradisional dan modern. Setiap kategori dilengkapi dengan deskripsi, bahan-bahan, dan rekomendasi.
+3. **Restoran 🍴 (Fawwaz)**: Modul ini memberikan informasi lengkap tentang berbagai restoran di Palembang , termasuk jenis masakan, harga, jam operasional, dan lokasi. Pengguna dapat mencari restoran berdasarkan preferensi mereka, seperti vegetarian, seafood, atau restoran mewah.
+4. **Ulasan dan Rating 📝 (Fazil)**: Setiap kategori dilengkapi dengan fitur ulasan dan rating, memungkinkan pengguna untuk memberikan feedback yang konstruktif. Ulasan ini membantu orang lain dalam membuat keputusan dan menemukan tempat terbaik berdasarkan pengalaman pengguna sebelumnya.
+5. **Forum Diskusi 💡 (Madeline)**: Modul ini menciptakan ruang interaktif bagi pengguna untuk berdiskusi tentang setiap kategori. Pengguna dapat mengajukan pertanyaan, berbagi pengalaman, dan memberikan rekomendasi, membangun komunitas yang saling mendukung dan penuh informasi.
+6. **Favorit 🩷 (Andi Aqsa)**: Modul untuk menyimpan dan menampilkan makanan dan minuman yang disukai serta daftar restoran yang ingin dikunjungi oleh pengguna. Pengguna dapat menambahkan catatan ke makanan, minuman, dan restoran yang masuk ke daftar favorit mereka. Pengguna juga dapat mengubah catatan dan menghapus daftar favorit yang telah mereka simpan sebelumnya.
 
 ## 📓 Sumber Initial Dataset Kategori Utama Produk 📓
 
