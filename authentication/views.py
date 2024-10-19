@@ -1,5 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
+from authentication.forms import CreateUserForm
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.contrib import messages
@@ -7,9 +8,9 @@ import datetime
 import django
 
 def signup(request):
-    form = UserCreationForm()
+    form = CreateUserForm()
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'Your account has been successfully created!')
