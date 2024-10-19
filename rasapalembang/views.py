@@ -1,4 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.contrib import messages
@@ -36,3 +37,8 @@ def logout(request):
     response = HttpResponseRedirect(reverse('rasapalembang:landing'))
     response.delete_cookie('last_login')
     return response
+
+
+@login_required(login_url='/login')
+def profile(request):
+    return render(request, 'profile/index.html', {})
