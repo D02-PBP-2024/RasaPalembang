@@ -33,6 +33,6 @@ urlpatterns = [
     path('login/', login, name='login'),
     path('logout/', logout, name='logout'),
     path('profile/', profile, name='profile'),
-    path('', include('restoran.urls')),
+    path('restoran/', include('restoran.urls')),
     path('forum/', include('forum.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
