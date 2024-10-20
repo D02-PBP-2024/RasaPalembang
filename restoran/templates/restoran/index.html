@@ -4,12 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Daftar Restoran</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto p-8">
         <h1 class="text-3xl font-bold text-center mb-10">Daftar Restoran</h1>
+
+        <!-- Tombol Tambah Restoran -->
+        <div class="flex justify-end mb-4">
+            <a href="{% url 'create_restoran' %}" class="px-4 py-2 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300">
+                + Tambah Restoran
+            </a>
+        </div>
 
         <!-- Tampilkan pesan jika tidak ada restoran -->
         {% if restoran_list %}
@@ -22,12 +30,17 @@
                         <p class="text-gray-500">Nomor Telepon: {{ restoran.nomor_telepon }}</p>
                         <p class="text-sm text-gray-400 mt-4">Pemilik: {{ restoran.user.username }}</p>
 
-                        <!-- Tautan untuk edit dan hapus restoran -->
-                        <div class="mt-4">
-                            <a href="{% url 'edit_restoran' restoran.id %}" class="text-blue-500 hover:text-blue-700">Edit</a>
-                            |
-                            <a href="{% url 'delete_restoran' restoran.id %}" class="text-red-500 hover:text-red-700">Hapus</a>
-                        </div>
+                        <!-- Tautan untuk edit dan hapus restoran hanya jika user adalah pemilik -->
+                        {% if request.user == restoran.user %}
+                            <div class="mt-4 flex gap-4">
+                                <a href="{% url 'edit_restoran' restoran.id %}" class="text-blue-500 hover:text-blue-700">Edit</a>
+                                |
+                                <form method="POST" action="{% url 'delete_restoran' restoran.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="text-red-500 hover:text-red-700">Hapus</button>
+                                </form>
+                            </div>
+                        {% endif %}
                     </div>
                 {% endfor %}
             </div>
