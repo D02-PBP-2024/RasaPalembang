@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
-from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 from minuman.models import Minuman
 from minuman.forms import MinumanForm
+from restoran.models import Restoran
 
 
-# Create your views here.
 def show_minuman(request):
     minuman = Minuman.objects.all()
     context = {"minuman": minuman}
@@ -13,39 +12,52 @@ def show_minuman(request):
 
 
 def show_minuman_by_id(request, id):
-    # minuman = Minuman.objects.get(pk=id)
-    context = {
-        # "minuman": minuman,
-        "id": id,
-    }
+    minuman = Minuman.objects.get(pk=id)
+    context = {"minuman": minuman}
     return render(request, "minuman_by_id/index.html", context)
 
 
-def create_minuman(request):
+@login_required(login_url="login")
+def tambah_minuman(request):
+    restoran = Restoran.objects.filter(user=request.user)
     if request.method == "POST":
         form = MinumanForm(request.POST, request.FILES)
         if form.is_valid():
             minuman = form.save(commit=False)
-            # minuman.restoran = request.restoran
             minuman.save()
             return redirect("minuman:show_minuman")
     else:
         form = MinumanForm()
 
-    context = {"form": form}
-    return render(request, "create/index.html", context)
-
-
-def edit_minuman(request, id):
-    # minuman = Minuman.objects.get(pk=id)
     context = {
-        # 'minuman': minuman,
-        'id': id,
+        "form": form,
+        "restoran": restoran,
+    }
+    return render(request, "tambah/index.html", context)
+
+
+@login_required(login_url="login")
+def edit_minuman(request, id):
+    minuman = Minuman.objects.get(pk=id)
+    restoran = Restoran.objects.filter(user=request.user)
+    if request.method == "POST":
+        form = MinumanForm(request.POST, request.FILES, instance=minuman)
+        if form.is_valid():
+            form.save()
+            return redirect("minuman:show_minuman")
+    else:
+        form = MinumanForm(instance=minuman)
+
+    context = {
+        "form": form,
+        "minuman": minuman,
+        "restoran": restoran,
     }
     return render(request, "edit/index.html", context)
 
 
+@login_required(login_url="login")
 def delete_minuman(request, id):
-    # minuman = Minuman.objects.get(pk=id)
-
-    return HttpResponseRedirect(reverse("minuman:show_minuman"))
+    minuman = Minuman.objects.get(pk=id)
+    minuman.delete()
+    return redirect("minuman:show_minuman")

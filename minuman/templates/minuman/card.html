@@ -1,0 +1,27 @@
+<div class="flex flex-col sm:flex-row">
+    <div class="sm:basis-5/12 w-full h-full">
+        <a href="/minuman/{{ minuman.id }}/">
+            <div class="overflow-hidden rounded-md shadow">
+                <div class="relative pt-[70%]">
+                    <img src="{{ minuman.gambar.url }}"
+                         class="object-cover absolute top-0 w-full h-full"
+                         alt="{{ minuman.nama }}">
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="sm:basis-7/12 sm:ml-8">
+        <div class="flex mt-4 sm:mt-0">
+            <a href="/minuman/{{ minuman.id }}/" class="pointer w-full">
+                <h1 class="font-bold text-3xl text-[#ff5757] hover:text-[#d04848]">{{ minuman.nama }}</h1>
+            </a>
+            <button class="border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-1 px-4 rounded-full focus:outline-none focus:bg-[#4f9da6] focus:text-white">Favorit</button>
+        </div>
+        <div class="mt-2">
+            <a href="/restoran/{{ minuman.restoran.id }}/">
+                {{ minuman.restoran.nama }}
+            </a>
+        </div>
+        <p class="mt-4">{{ minuman.deskripsi }}</p>
+    </div>
+</div>

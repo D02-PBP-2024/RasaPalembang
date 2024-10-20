@@ -32,4 +32,5 @@ urlpatterns = [
     path('logout/', logout, name='logout'),
     path('profile/', profile, name='profile'),
     path('minuman/', include('minuman.urls')),
+    path('restoran/', include('restoran.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
