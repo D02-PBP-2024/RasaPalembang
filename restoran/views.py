@@ -55,6 +55,6 @@ def hapus_restoran(request, id):
     else:
         return HttpResponseRedirect(reverse('restoran:restoran'))
 
-def view_restoran(request, id):
+def lihat_restoran(request, id):
     restoran = get_object_or_404(Restoran, id=id)
-    return render(request, 'view_restoran/index.html', {'restoran': restoran})
+    return render(request, 'detail/index.html', {'restoran': restoran})

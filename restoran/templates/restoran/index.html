@@ -26,7 +26,7 @@ Daftar Restoran
                     <p class="text-gray-500">Nomor Telepon: {{ restoran.nomor_telepon }}</p>
                     <p class="text-sm text-gray-400 mt-4">Pemilik: {{ restoran.user.username }}</p>
                     <!-- Tombol untuk melihat detail restoran -->
-                    <a href="{% url 'restoran:view_restoran' restoran.id %}" class="text-green-500 hover:text-green-700">Lihat Detail</a>
+                    <a href="{% url 'restoran:detail' restoran.id %}" class="text-green-500 hover:text-green-700">Lihat Detail</a>
 
 
                     <!-- Tautan untuk edit dan hapus restoran hanya jika user adalah pemilik -->
