@@ -46,3 +46,7 @@ def delete_restoran(request, id):
         return redirect('show_restoran')
     else:
         return HttpResponseRedirect(reverse('show_restoran'))
+
+def view_restoran(request, id):
+    restoran = get_object_or_404(Restoran, id=id)
+    return render(request, 'view_restoran/index.html', {'restoran': restoran})
