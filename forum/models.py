@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from authentication.models import User
 from restoran.models import Restoran
 from django.db import models
 import uuid
