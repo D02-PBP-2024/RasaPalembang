@@ -1,0 +1,88 @@
+{% load static %}
+<header class="z-50 fixed top-0 w-full">
+    <div class="border-b border-gray-100 backdrop-blur supports-[backdrop-filter]:bg-[#fafafa]/80">
+        <div
+            class="relative mx-auto flex h-[64px] w-[calc(100%-32px)] max-w-[1818px] items-center justify-between md:w-[calc(100%-72px)]">
+            <div class="flex flex-1 gap-3 md:gap-6 xl:gap-12">
+                <button class="md:hidden text-lg mobile-menu-button">
+                    <i class="fa-solid fa-bars -translate-y-[1.5px]"></i>
+                </button>
+                <a href="/" class="flex items-center">
+                    <img src="{% static 'images/logo.png' %}" alt="RasaPalembang" class="max-w-40 md:max-w-52">
+                </a>
+                <nav class="flex items-center justify-around gap-8 max-xl:hidden">
+                    <a href="" class="hover:text-neutral-600 transition flex gap-2.5 items-center">
+                        <i class="fa-solid fa-bowl-food scale-90"></i>
+                        <span>Makanan</span>
+                    </a>
+                    <a href="" class="hover:text-neutral-600 transition flex gap-2.5 items-center">
+                        <i class="fa-solid fa-martini-glass-citrus scale-90"></i>
+                        <span>Minuman</span>
+                    </a>
+                    <a href="{% url 'restoran:restoran' %}"
+                        class="hover:text-neutral-600 transition flex gap-2.5 items-center">
+                        <i class="fa-solid fa-utensils scale-90"></i>
+                        <span>Restoran</span>
+                    </a>
+                </nav>
+                <form class="flex max-md:hidden text-neutral-600 flex-1 text-sm">
+                    <button type="submit" class="px-4 py-1.5 rounded-l-lg bg-neutral-200/50">
+                        <i class="fa-solid fa-magnifying-glass scale-90"></i>
+                    </button>
+                    <input class="focus:outline-none rounded-r-lg bg-neutral-200/50 pr-4 py-1.5 max-xl:flex-1 xl:w-96"
+                        placeholder="Cari restoran, makanan, atau minuman apapun" type="text">
+                </form>
+            </div>
+            <div class="flex gap-1 md:gap-2 md:pl-4 xl:pl-0 max-md:text-sm">
+                {% if request.user.is_authenticated %}
+                <a href=""
+                    class="flex gap-2 items-center justify-center hover:bg-neutral-200/50 rounded-lg transition duration-300 rounded-lg-xl px-2 md:px-3 py-1.5 text-base font-semibold">
+                    <div
+                        class="bg-gradient-to-br from-[#ff0000] via-[#ff6600] to-[#ffba00] p-[2px] rounded-full max-md:scale-90">
+                        <div class="w-min rounded-full px-[7.5px] py-[0.5px] bg-white">
+                            <i
+                                class="-translate-y-[2.5px] md:-translate-y-[3.6px] md:translate-x-[0.4px] fa-solid fa-user text-xs bg-gradient-to-r from-[#ff0000] via-[#ff6600] to-[#ffba00] inline-block text-transparent bg-clip-text"></i>
+                        </div>
+                    </div>
+                    <span class="pb-1">
+                        {{ request.user.username }}
+                    </span>
+                </a>
+                {% else %}
+                <a href="{% url 'login' %}" class="flex items-center px-3 md:px-5 py-1.5 font-semibold text-[#ff5757]">
+                    <span>Masuk</span>
+                </a>
+                <a href="{% url 'signup' %}"
+                    class="flex items-center bg-[#ff5757] hover:bg-[#de4b4b] transition rounded-lg px-3 md:px-5 py-1.5 font-semibold text-white">
+                    <span>Daftar</span>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="hidden md:hidden bg-[#fafafa] py-2" id="mobile-menu">
+        <nav class="flex flex-col">
+            <a href="" class="mx-auto w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center">
+                <i class="fa-solid fa-bowl-food scale-90"></i>
+                <span>Makanan</span>
+            </a>
+            <a href=""
+                class="mx-auto border w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center">
+                <i class="fa-solid fa-martini-glass-citrus scale-90"></i>
+                <span>Minuman</span>
+            </a>
+            <a href="" class="mx-auto w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center">
+                <i class="fa-solid fa-utensils scale-90"></i>
+                <span>Restoran</span>
+            </a>
+        </nav>
+    </div>
+</header>
+<script>
+    const btn = document.querySelector("button.mobile-menu-button");
+    const menu = document.querySelector("#mobile-menu");
+
+    btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+    });
+</script>
