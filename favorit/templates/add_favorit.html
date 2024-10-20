@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Tambah Favorit</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Simpan Favorit</button>
+    </form>
+
+    <a href="{% url 'show_favorit' %}" class="btn btn-secondary">Kembali ke Daftar Favorit</a>
+
+{% endblock %}
