@@ -13,6 +13,10 @@ def restoran(request):
 
 @login_required(login_url="/login")
 def tambah_restoran(request):
+    # Pastikan yang menambah restoran adalah user dengan role pemilik_restoran
+    if request.user.peran != "pemilik_restoran":
+        return redirect("restoran:restoran")
+
     if request.method == "POST":
         form = RestoranForm(request.POST)
         if form.is_valid():
