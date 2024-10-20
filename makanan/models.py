@@ -2,7 +2,6 @@ from restoran.models import Restoran
 from django.db import models
 import uuid
 
-
 class Makanan(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
@@ -16,7 +15,6 @@ class Makanan(models.Model):
     
     def __str__(self):
         return self.nama
-
 
 class Kategori(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
