@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block meta %}
+<title>RasaPalembang | Daftar Restoran</title>
+{% endblock meta %}
+{% block content %}
+<main class="py-10 min-h-[720px]">
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-bold text-center mb-10">Daftar Restoran</h1>
+
+        <!-- Tombol Tambah Restoran -->
+        {% if request.user.peran == "pemilik_restoran" %}
+        <div class="flex justify-end mb-4">
+            <a href="{% url 'restoran:tambah' %}"
+                class="px-4 py-2 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300">
+                + Tambah Restoran
+            </a>
+        </div>
+        {% endif %}
+
+        <!-- Tampilkan pesan jika tidak ada restoran -->
+        {% if restoran_list %}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for restoran in restoran_list %}
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-xl font-semibold text-gray-700">{{ restoran.nama }}</h2>
+                <p class="text-gray-500 mt-2">{{ restoran.alamat }}</p>
+                <p class="text-gray-500">Jam Operasional: {{ restoran.jam_operasional }}</p>
+                <p class="text-gray-500">Nomor Telepon: {{ restoran.nomor_telepon }}</p>
+                <p class="text-sm text-gray-400 mt-4">Pemilik: {{ restoran.user.username }}</p>
+
+                <!-- Tautan untuk edit dan hapus restoran hanya jika user adalah pemilik -->
+                {% if request.user == restoran.user %}
+                <div class="mt-4 flex gap-4">
+                    <a href="{% url 'restoran:ubah' restoran.id %}" class="text-blue-500 hover:text-blue-700">Edit</a>
+                    |
+                    <form method="POST" action="{% url 'restoran:hapus' restoran.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="text-red-500 hover:text-red-700">Hapus</button>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-center text-gray-500">Belum ada restoran yang ditambahkan.</p>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}
