@@ -10,13 +10,11 @@ Detail Restoran - {{ restoran.nama }}
     <div class="container mx-auto py-8 flex-grow">
         <div class="text-center mb-8">
             <h1 class="text-4xl font-bold mb-4">{{ restoran.nama }}</h1>
-            <p class="text-gray-500 mb-2">{{ restoran.jenis_masakan }}</p>
         </div>
 
         <!-- Detail Restoran -->
         <div class="mx-auto max-w-4xl px-4">
             <h2 class="text-2xl font-semibold mb-4">Tentang</h2>
-            <p class="mb-6">{{ restoran.deskripsi }}</p>
             <div class="space-y-4 text-lg">
                 <p class="flex items-center">
                     <i class="fas fa-clock mr-2"></i>
@@ -41,7 +39,7 @@ Detail Restoran - {{ restoran.nama }}
     <!-- Tombol Kembali di bagian bawah halaman -->
     <div class="container mx-auto pb-10 mt-10">
         <div class="flex justify-end">
-            <a href="{% url 'show_restoran' %}" class="px-6 py-3 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300">
+            <a href="{% url 'restoran:restoran' %}" class="px-6 py-3 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300">
                 Kembali ke Daftar Restoran
             </a>
         </div>

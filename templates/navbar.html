@@ -4,11 +4,12 @@
         <div
             class="relative mx-auto flex h-[64px] w-[calc(100%-32px)] max-w-[1818px] items-center justify-between md:w-[calc(100%-72px)]">
             <div class="flex flex-1 gap-3 md:gap-6 xl:gap-12">
-                <button class="md:hidden text-lg mobile-menu-button">
+                <button class="xl:hidden text-base sm:text-lg mobile-menu-button">
                     <i class="fa-solid fa-bars -translate-y-[1.5px]"></i>
                 </button>
                 <a href="/" class="flex items-center">
-                    <img src="{% static 'images/logo.png' %}" alt="RasaPalembang" class="max-w-40 md:max-w-52">
+                    <img src="{% static 'images/logo.png' %}" alt="RasaPalembang"
+                        class="max-w-36 sm:max-w-40 md:max-w-52">
                 </a>
                 <nav class="flex items-center justify-around gap-8 max-xl:hidden">
                     <a href="" class="hover:text-neutral-600 transition flex gap-2.5 items-center">
@@ -19,7 +20,8 @@
                         <i class="fa-solid fa-martini-glass-citrus scale-90"></i>
                         <span>Minuman</span>
                     </a>
-                    <a href="" class="hover:text-neutral-600 transition flex gap-2.5 items-center">
+                    <a href="{% url 'restoran:restoran' %}"
+                        class="hover:text-neutral-600 transition flex gap-2.5 items-center">
                         <i class="fa-solid fa-utensils scale-90"></i>
                         <span>Restoran</span>
                     </a>
@@ -28,11 +30,12 @@
                     <button type="submit" class="px-4 py-1.5 rounded-l-lg bg-neutral-200/50">
                         <i class="fa-solid fa-magnifying-glass scale-90"></i>
                     </button>
-                    <input class="focus:outline-none rounded-r-lg bg-neutral-200/50 pr-4 py-1.5 max-xl:flex-1 xl:w-96"
+                    <input
+                        class="focus:outline-none rounded-r-lg bg-neutral-200/50 pr-4 py-1.5 max-xl:flex-1 xl:w-80 2xl:w-96"
                         placeholder="Cari restoran, makanan, atau minuman apapun" type="text">
                 </form>
             </div>
-            <div class="flex gap-1 md:gap-2 md:pl-4 xl:pl-0 max-md:text-sm">
+            <div class="flex gap-1 md:gap-2 md:pl-4 xl:pl-0 max-sm:text-xs max-md:text-sm">
                 {% if request.user.is_authenticated %}
                 <a href=""
                     class="flex gap-2 items-center justify-center hover:bg-neutral-200/50 rounded-lg transition duration-300 rounded-lg-xl px-2 md:px-3 py-1.5 text-base font-semibold">
@@ -59,9 +62,10 @@
             </div>
         </div>
     </div>
-    <div class="hidden md:hidden bg-[#fafafa] py-2" id="mobile-menu">
+    <div class="hidden xl:hidden bg-[#fafafa] py-2" id="mobile-menu">
         <nav class="flex flex-col">
-            <a href="" class="mx-auto w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center">
+            <a href=""
+                class="mx-auto border w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center">
                 <i class="fa-solid fa-bowl-food scale-90"></i>
                 <span>Makanan</span>
             </a>
@@ -70,7 +74,8 @@
                 <i class="fa-solid fa-martini-glass-citrus scale-90"></i>
                 <span>Minuman</span>
             </a>
-            <a href="" class="mx-auto w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center">
+            <a href="{% url 'restoran:restoran' %}"
+                class="mx-auto border w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center">
                 <i class="fa-solid fa-utensils scale-90"></i>
                 <span>Restoran</span>
             </a>
