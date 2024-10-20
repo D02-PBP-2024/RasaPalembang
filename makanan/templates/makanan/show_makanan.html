@@ -1,7 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>ini halaman utama makanan</h1>
-<a href="{% url 'makanan:create_makanan' %}">
-  <button>Add New Mood Entry</button>
+
+<a href="{% url 'makanan:tambah_makanan' %}">
+  <button>Add New Makanan</button>
 </a>
+<tr>
+  <td>
+      <a href="{% url 'makanan:edit_makanan' mood_entry.pk %}">
+          <button>
+              Edit
+          </button>
+      </a>
+  </td>
+  <td>
+      <a href="{% url 'main:delete_mood' mood_entry.pk %}">
+          <button>
+              Delete
+          </button>
+      </a>
+  </td>
+</tr>
 {% endblock content %}
