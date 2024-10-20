@@ -46,11 +46,15 @@ def ubah_restoran(request, id):
 @login_required(login_url="/login")
 def hapus_restoran(request, id):
     restoran = get_object_or_404(Restoran, id=id)
-    if request.user != restoran.user:  # Pastikan yang menghapus adalah pemilik
+    if request.user != restoran.user:  
         return HttpResponseRedirect(reverse("restoran:restoran"))
 
     if request.method == "POST":
         restoran.delete()
         return redirect("restoran:restoran")
     else:
-        return HttpResponseRedirect(reverse("restoran:restoran"))
+        return HttpResponseRedirect(reverse('restoran:restoran'))
+
+def view_restoran(request, id):
+    restoran = get_object_or_404(Restoran, id=id)
+    return render(request, 'view_restoran/index.html', {'restoran': restoran})
