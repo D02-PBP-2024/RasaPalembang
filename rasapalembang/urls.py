@@ -25,7 +25,6 @@ from authentication.views import (
     login,
     logout,
 )
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('signup/', signup, name='signup'),

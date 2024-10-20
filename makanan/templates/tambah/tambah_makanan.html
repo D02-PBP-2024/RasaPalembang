@@ -1,18 +1,108 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% block content %}
-<h1>Add Makanan Baru</h1>
 
-<form method="POST">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-    <tr>
-      <td></td>
-      <td>
-        <input type="submit" value="Add Makanan Entry" />
-      </td>
-    </tr>
-  </table>
-</form>
+<style>
+/* Styling untuk form */
+.form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-header {
+    text-align: center;
+    font-size: 28px;
+    font-family: 'Arial Black', sans-serif;
+    color: #333;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+    font-family: 'Arial', sans-serif;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-submit {
+    background-color: #20c997;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    background-color: #198754;
+}
+
+.btn-submit:active {
+    background-color: #145c41;
+}
+
+.btn-back {
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+    color: #dc3545;
+    font-family: 'Arial', sans-serif;
+    text-decoration: none;
+}
+
+.btn-back:hover {
+    text-decoration: underline;
+}
+</style>
+
+<div class="form-container">
+    <div class="form-header">
+        Tambah Makanan Baru
+    </div>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        <div class="form-actions">
+            <input type="submit" value="Simpan Makanan" class="btn-submit"/>
+        </div>
+    </form>
+
+    <a href="{% url 'makanan:show_makanan' %}" class="btn-back">Kembali ke Daftar Makanan</a>
+</div>
 
 {% endblock %}

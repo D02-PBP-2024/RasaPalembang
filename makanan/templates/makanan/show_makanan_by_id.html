@@ -19,7 +19,7 @@
             {% if makanan.gambar %}
             <img class="w-full h-48 object-cover" src="{{ makanan.gambar.url }}" alt="{{ makanan.nama }}">
             {% else %}
-                
+            <img class="w-full h-48 object-cover" src="{% static 'images/default-food.jpg' %}" alt="{{ makanan.nama }}">
             {% endif %}
 
             <div class="p-4">
@@ -36,11 +36,9 @@
         {% endfor %}
     </div>
 
-<!-- Pesan jika belum ada makanan -->
-{% if not makanan_list %}
-    <div class="flex items-center justify-center h-screen">
-        <p class="text-center text-gray-500">Belum ada makanan yang ditambahkan.</p>
-    </div>
-{% endif %}
+    <!-- Pesan jika belum ada makanan -->
+    {% if not makanan_list %}
+    <p class="text-center text-gray-500 mt-10">Belum ada makanan yang ditambahkan.</p>
+    {% endif %}
 </div>
 {% endblock content %}
