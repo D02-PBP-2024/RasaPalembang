@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from rasapalembang.views import landing
+from django.urls import path, include
 from authentication.views import (
     profile,
     signup,
@@ -24,7 +25,6 @@ from authentication.views import (
 )
 from django.contrib import admin
 from django.conf import settings
-from django.urls import path
 
 
 urlpatterns = [
@@ -34,4 +34,5 @@ urlpatterns = [
     path('login/', login, name='login'),
     path('logout/', logout, name='logout'),
     path('profile/', profile, name='profile'),
+    path('', include('restoran.urls')), 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
