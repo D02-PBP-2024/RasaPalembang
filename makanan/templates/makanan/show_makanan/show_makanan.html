@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="py-10 min-h-[720px]">
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-bold text-center mb-10">Daftar Makanan</h1>
+
+        <!-- Tombol Tambah Makanan -->
+        {% if request.user.peran == "pemilik_restoran" %}
+        <div class="flex justify-end mb-4">
+            <a href="{% url 'makanan:tambah_makanan' %}"
+                class="px-4 py-2 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300">
+                + Tambah Makanan
+            </a>
+        </div>
+        {% endif %}
+
+        <!-- Tampilkan pesan jika tidak ada makanan -->
+        {% if makanan_list %}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for makanan in makanan_list %}
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <!-- Menampilkan gambar makanan jika ada, jika tidak ada tampilkan placeholder -->
+                {% if makanan.gambar %}
+                <img class="w-full h-48 object-cover mb-4 rounded-lg" src="{{ makanan.gambar.url }}" alt="{{ makanan.nama }}">
+                {% else %}
+                <img class="w-full h-48 object-cover mb-4 rounded-lg" src="path/to/placeholder-image.jpg" alt="Makanan Default">
+                {% endif %}
+
+                <h2 class="text-xl font-semibold text-gray-700">{{ makanan.nama }}</h2>
+                <p class="text-gray-500 mt-2">Harga: Rp {{ makanan.harga }}</p>
+                <p class="text-gray-500">Kalori: {{ makanan.kalori }} kkal</p>
+                <p class="text-gray-500">{{ makanan.deskripsi }}</p>
+                <p class="text-sm text-gray-400 mt-4">Restoran: {{ makanan.restoran.nama }}</p>
+
+                <!-- Tautan untuk detail makanan -->
+                <div class="mt-4 flex justify-between items-center">
+                    <a href="{% url 'makanan:detail_makanan' makanan.id %}" class="text-blue-500 hover:text-blue-700">Detail</a>
+                    {% if request.user == makanan.restoran.user %}
+                    <div class="flex gap-4">
+                        <a href="{% url 'makanan:edit_makanan' makanan.id %}" class="text-blue-500 hover:text-blue-700">Edit</a>
+                        |
+                        <form method="POST" action="{% url 'makanan:delete_makanan' makanan.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="text-red-500 hover:text-red-700">Hapus</button>
+                        </form>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-center text-gray-500">Belum ada makanan yang ditambahkan.</p>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}

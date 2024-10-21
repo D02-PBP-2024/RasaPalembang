@@ -17,13 +17,14 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.conf import settings
-from django.urls import path
+from django.urls import path, include
 from authentication.views import (
     profile,
     signup,
     login,
     logout,
 )
+from rasapalembang.views import landing
 
 urlpatterns = [
     path("", landing, name="landing"),
