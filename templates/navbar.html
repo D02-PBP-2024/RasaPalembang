@@ -37,13 +37,13 @@
             </div>
             <div class="flex gap-1 md:gap-2 md:pl-4 xl:pl-0 max-sm:text-xs max-md:text-sm">
                 {% if request.user.is_authenticated %}
-                <a href=""
+                <a href="{% url 'detail_profile' request.user.username %}"
                     class="flex gap-2 items-center justify-center hover:bg-neutral-200/50 rounded-lg transition duration-300 rounded-lg-xl px-2 md:px-3 py-1.5 text-base font-semibold">
                     <div
                         class="bg-gradient-to-br from-[#ff0000] via-[#ff6600] to-[#ffba00] p-[2px] rounded-full max-md:scale-90">
                         <div class="w-min rounded-full px-[7.5px] py-[0.5px] bg-white">
                             <i
-                                class="-translate-y-[2.5px] md:-translate-y-[3.6px] md:translate-x-[0.4px] fa-solid fa-user text-xs bg-gradient-to-r from-[#ff0000] via-[#ff6600] to-[#ffba00] inline-block text-transparent bg-clip-text"></i>
+                                class="-translate-y-[2.5px] md:-translate-y-[3.2px] md:translate-x-[0.4px] fa-solid fa-user text-xs bg-gradient-to-r from-[#ff0000] via-[#ff6600] to-[#ffba00] inline-block text-transparent bg-clip-text"></i>
                         </div>
                     </div>
                     <span class="pb-1">
