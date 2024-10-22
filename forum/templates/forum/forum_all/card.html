@@ -1,0 +1,10 @@
+<div class="flex flex-col sm:flex-row">
+    <div class="bg-gray-100 rounded-lg px-4 py-4 w-full">
+        <div class="flex mt-2 sm:mt-0">
+            <a href="{% url 'forum:show_forum_by_id' forum.restoran.id forum.id %}" class="pointer w-full">
+                <h1 class="font-bold text-xl text-[#ff5757] hover:text-[#d04848]">{{ forum.topik }}</h1>
+            </a>
+        </div>
+        <p class="mt-2">{{ forum.pesan }}</p>
+    </div>
+</div>

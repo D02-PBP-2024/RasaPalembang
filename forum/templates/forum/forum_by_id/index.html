@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+    <title>Forum Diskusi</title>
+{% endblock meta %}
+
+{% block content %} 
+
+{% if forum %}
+<main class="px-5 md:px-10 lg:px-16 xl:px-24 py-5 md:py-10 w-full mx-auto">
+    <div class="mt-4 flex flex-col">
+        <div class="sm:ml-8">
+            <div class="flex mt-4 sm:mt-0">
+                <a href="{% url 'forum:show_forum_by_id' forum.restoran.id forum.id %}" class="pointer w-full">
+                    <h1 class="font-bold text-xl text-[#ff5757] hover:text-[#d04848]">{{ forum.topik }}</h1>
+                </a>
+            </div>
+            <p class="mt-4">{{ forum.pesan }}</p>
+            <a href="{% url 'forum:balas' forum.restoran.id forum.id %}" class="inline-flex items-center border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-1 px-4 mt-4 rounded-full focus:outline-none focus:bg-[#4f9da6] focus:text-white">
+                Balas
+            </a>
+            {% if balasan %}
+            <div class="ml-12 grid">
+                {% for item in balasan %}
+                    <div class="mt-2 bg-gray-100 rounded px-4 py-4 flex content-center">
+                        <span class="w-full">{{ item.pesan }}</span>
+                        <i class="fa-regular fa-thumbs-up self-center"></i>
+                        {% if request.user.id == forum.user.id %}
+                            <a href="{% url 'forum:delete' forum.restoran.id forum.id item.id %}" class="ml-2">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+            </div>
+            {% else %}
+                belum ada balasan untuk forum ini
+            {% endif %}
+        </div>
+    </div>    
+</main>
+{% else %}
+    belum ada forum
+{% endif %}
+{% endblock content %} 

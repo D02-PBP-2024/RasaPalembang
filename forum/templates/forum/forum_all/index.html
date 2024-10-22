@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+    <title>Forum Diskusi</title>
+{% endblock meta %}
+
+{% block content %} 
+
+{% if forum %}
+<main class="px-5 md:px-10 lg:px-16 xl:px-24 py-5 md:py-10 w-full mx-auto">
+    <div class="mt-4">
+        <h1 class="text-xl font-semibold">Forum Diskusi</h1>
+    </div>
+    <div class="mt-4 grid gap-4">
+        {% for item in forum reversed %}
+            {% include 'forum/forum_all/card.html' with forum=item %}
+        {% endfor %}
+    </div>
+</main>
+{% else %}
+    belum ada forum
+{% endif %}
+{% endblock content %} 
