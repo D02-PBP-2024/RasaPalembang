@@ -34,5 +34,5 @@ urlpatterns = [
     path('logout/', logout, name='logout'),
     path('profile/', profile, name='profile'),
     path('restoran/', include('restoran.urls')),
-    path('forum/', include('forum.urls')),
+    path('restoran/<uuid:id_restoran>/forum/', include('forum.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
