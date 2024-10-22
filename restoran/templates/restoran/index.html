@@ -1,46 +1,46 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 Daftar Restoran
 {% endblock %}
 
 {% block content %}
-<div class="min-h-screen flex flex-col mt-12"> 
+<div class="min-h-screen flex flex-col mt-12">
     <h1 class="text-3xl font-bold text-center mb-10">Daftar Restoran</h1>
 
-    <!-- Tombol Tambah Restoran -->
-    <div class="flex justify-end mb-4">
-        <a href="{% url 'restoran:tambah' %}" class="px-4 py-2 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300">
-            + Tambah Restoran
-        </a>
-    </div>
+    {% if request.user.is_authenticated and request.user.peran == "pemilik_restoran" %}
+        <div class="flex justify-end mb-4">
+            <a href="{% url 'restoran:tambah' %}" class="px-4 py-2 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300">
+                + Tambah Restoran
+            </a>
+        </div>
+    {% endif %}
 
-    <!-- Tampilkan pesan jika tidak ada restoran -->
-    {% if restoran_list %}
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {% for restoran in restoran_list %}
-                <div class="bg-white shadow-md rounded-lg p-6">
-                    <h2 class="text-xl font-semibold text-gray-700">{{ restoran.nama }}</h2>
-                    <p class="text-gray-500 mt-2">{{ restoran.alamat }}</p>
-                    <p class="text-gray-500">Jam Operasional: {{ restoran.jam_operasional }}</p>
-                    <p class="text-gray-500">Nomor Telepon: {{ restoran.nomor_telepon }}</p>
-                    <p class="text-sm text-gray-400 mt-4">Pemilik: {{ restoran.user.username }}</p>
-                    <!-- Tombol untuk melihat detail restoran -->
-                    <a href="{% url 'restoran:detail' restoran.id %}" class="text-green-500 hover:text-green-700">Lihat Detail</a>
+    {% if restoran_with_status %}
+        <div class="grid grid-cols-1 gap-6 max-w-3xl mx-auto">
+            {% for item in restoran_with_status %}
+                <a href="{% url 'restoran:detail' item.restoran.id %}" class="block bg-white shadow-md rounded-lg p-6 flex transition hover:shadow-lg hover:bg-gray-100 relative">
+                    <div class="w-1/3 mr-4">
+                        {% if item.restoran.gambar %}
+                            <img src="{{ item.restoran.gambar.url }}" alt="{{ item.restoran.nama }}" class="rounded-lg h-full object-cover">
+                        {% else %}
+                            <img src="{% static 'images/no-image.jpg' %}" alt="No image" class="rounded-lg h-full object-cover">
+                        {% endif %}
+                    </div>
 
-
-                    <!-- Tautan untuk edit dan hapus restoran hanya jika user adalah pemilik -->
-                    {% if request.user == restoran.user %}
-                        <div class="mt-4 flex gap-4">
-                            <a href="{% url 'restoran:ubah' restoran.id %}" class="text-blue-500 hover:text-blue-700">Edit</a>
-                            |
-                            <form method="POST" action="{% url 'restoran:hapus' restoran.id %}">
-                                {% csrf_token %}
-                                <button type="submit" class="text-red-500 hover:text-red-700">Hapus</button>
-                            </form>
-                        </div>
-                    {% endif %}
-                </div>
+                    <div class="w-2/3">
+                        <h2 class="text-xl font-semibold text-gray-700">{{ item.restoran.nama }}</h2>
+                        <p class="text-gray-500 mt-1">Jam Operasional: 
+                            {{ item.jam_buka }} - {{ item.jam_tutup }} 
+                            <span class="{% if item.status == 'Open now' %}text-green-500{% else %}text-red-500{% endif %}">
+                                {{ item.status }}
+                            </span>
+                        </p>
+                        <p class="text-gray-500 mt-1">{{ item.restoran.alamat }}</p>
+                        <p class="text-gray-500">Telp: {{ item.restoran.nomor_telepon }}</p>
+                    </div>
+                </a>
             {% endfor %}
         </div>
     {% else %}
