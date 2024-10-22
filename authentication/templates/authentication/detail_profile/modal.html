@@ -27,7 +27,7 @@
                         Nama Lengkap
                     </label>
                     <input type="text" name="nama" maxlength="255" required="" id="id_nama" value="{{ user.nama }}"
-                        class="mt-2 bg-gray-100 rounded-lg focus-visible:outline-none px-4 py-3.5 w-full md:min-w-[420px] placeholder:text-[#808080]">
+                        class="mt-2 bg-gray-100 rounded-lg focus-visible:outline-none px-4 py-3.5 w-full placeholder:text-[#808080]">
                 </div>
                 <div class="mt-4">
                     <label class="text-sm pl-3">
@@ -35,14 +35,14 @@
                     </label>
                     <textarea name="deskripsi" cols="40" rows="3" required="" id="id_deskripsi"
                         placeholder="Masukkan deskripsi singkat..."
-                        class="mt-2 bg-gray-100 rounded-lg focus-visible:outline-none px-4 py-3.5 w-full md:min-w-[420px] placeholder:text-[#808080]">{% if profile.deskripsi %} {{ profile.deskripsi }} {% endif %}</textarea>
+                        class="mt-2 bg-gray-100 rounded-lg focus-visible:outline-none px-4 py-3.5 w-full placeholder:text-[#808080]">{% if profile.deskripsi %} {{ profile.deskripsi }} {% endif %}</textarea>
                 </div>
                 <div class="mt-4">
                     <label class="text-sm pl-3">
                         Foto
                     </label>
                     <input type="file" name="foto" accept="image/*" required="" id="id_foto" value="{{ user.foto }}"
-                        class="mt-2 bg-gray-100 rounded-lg focus-visible:outline-none px-4 py-3.5 w-full md:min-w-[420px] placeholder:text-[#808080]">
+                        class="mt-2 bg-gray-100 rounded-lg focus-visible:outline-none px-4 py-3.5 w-full placeholder:text-[#808080]">
                 </div>
             </form>
         </div>
