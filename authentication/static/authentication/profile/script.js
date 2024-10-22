@@ -7,7 +7,7 @@ async function refreshProfile() {
     document.getElementById("nama").innerHTML = profile[0].fields.nama;
     document.getElementById("username").innerHTML = "@" + profile[0].fields.username;
     document.getElementById("deskripsi").innerHTML = profile[0].fields.deskripsi == "" ? "Belum ada bio." : profile[0].fields.deskripsi;
-    document.getElementById("avatar").src = "/media/" + profile[0].fields.foto;
+    document.getElementById("avatar").src = profile[0].fields.foto ? "/media/" + profile[0].fields.foto : "/static/images/avatar.png";
 }
 
 const modal = document.getElementById('modal');
