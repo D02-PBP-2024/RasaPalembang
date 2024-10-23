@@ -4,11 +4,37 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .forms import RestoranForm
 from .models import Restoran
-
+from django.utils import timezone
 
 def restoran(request):
+    current_time = timezone.localtime().time()
     restoran_list = Restoran.objects.all()
-    return render(request, "restoran/index.html", {"restoran_list": restoran_list})
+    restoran_with_status = []
+
+    for restoran in restoran_list:
+        jam_buka = restoran.jam_buka
+        jam_tutup = restoran.jam_tutup
+
+        if jam_buka < jam_tutup:
+            if jam_buka <= current_time <= jam_tutup:
+                status = "Open now"
+            else:
+                status = "Closed now"
+        else:
+            if current_time >= jam_buka or current_time <= jam_tutup:
+                status = "Open now"
+            else:
+                status = "Closed now"
+
+        restoran_with_status.append({
+            'restoran': restoran,
+            'status': status,
+            'jam_buka': jam_buka.strftime("%H:%M"), 
+            'jam_tutup': jam_tutup.strftime("%H:%M") 
+        })
+
+    return render(request, "restoran/index.html", {"restoran_with_status": restoran_with_status})
+
 
 
 @login_required(login_url="/login")
@@ -18,7 +44,7 @@ def tambah_restoran(request):
         return redirect("restoran:restoran")
 
     if request.method == "POST":
-        form = RestoranForm(request.POST)
+        form = RestoranForm(request.POST, request.FILES)
         if form.is_valid():
             restoran = form.save(commit=False)
             restoran.user = request.user
@@ -36,7 +62,7 @@ def ubah_restoran(request, id):
     if request.user != restoran.user:  # Pastikan yang mengedit adalah pemilik
         return HttpResponseRedirect(reverse("restoran:restoran"))
 
-    form = RestoranForm(request.POST or None, instance=restoran)
+    form = RestoranForm(request.POST or None, request.FILES or None, instance=restoran)
     if form.is_valid():
         form.save()
         return redirect("restoran:restoran")
