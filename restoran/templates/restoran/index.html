@@ -30,14 +30,14 @@ Daftar Restoran
                     </div>
                     <div class="w-2/3">
                         <h2 class="text-xl font-semibold text-gray-700">{{ item.restoran.nama }}</h2>
-                        <p class="text-gray-500 mt-1"><i class="fas fa-map-marker-alt mr-2"></i> Operasional: 
+                        <p class="text-gray-500 mt-1"><i class="fas fa-clock mr-2"></i> Operasional: 
                             {{ item.jam_buka }} - {{ item.jam_tutup }} 
                             <span class="{% if item.status == 'Open now' %}text-green-500{% else %}text-red-500{% endif %}">
                                 {{ item.status }}
                             </span>
                         </p>
-                        <p class="text-gray-500 mt-1"><i class="fas fa-phone mr-2"></i>{{ item.restoran.alamat }}</p>
-                        <p class="text-gray-500"><i class="fas fa-clock mr-2"></i>Telp: {{ item.restoran.nomor_telepon }}</p>
+                        <p class="text-gray-500 mt-1"><i class="fas fa-map-marker-alt mr-2"></i>{{ item.restoran.alamat }}</p>
+                        <p class="text-gray-500"><i class="fas fa-phone mr-2"></i>Telp: {{ item.restoran.nomor_telepon }}</p>
                     </div>
                 </a>
             {% endfor %}
