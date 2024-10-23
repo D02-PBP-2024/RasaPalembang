@@ -9,5 +9,5 @@ urlpatterns = [
     path('tambah/', tambah_restoran, name='tambah'),
     path('<uuid:id>/edit', ubah_restoran, name='ubah'),
     path('<uuid:id>/delete', hapus_restoran, name='hapus'),
-    path('<uuid:id>/', lihat_restoran, name='detail'), 
+    path('<uuid:id>', lihat_restoran, name='detail'), 
 ]

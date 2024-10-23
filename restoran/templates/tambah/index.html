@@ -27,48 +27,45 @@
 {% endblock meta %}
 {% block content %}
 <main class="py-10">
-    <!-- Progress Bar Animasi -->
     <div class="progress-bar"></div>
 
-    <!-- Menambahkan margin-top 5rem pada form container -->
     <div class="max-w-2xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-20">
         <h1 class="text-3xl font-bold text-center mb-6 text-gray-700">Tambah Restoran</h1>
 
-        <!-- Tambahkan ini untuk memuat widget_tweaks -->
         {% load widget_tweaks %}
 
-        <!-- Form untuk menambah restoran -->
-        <form method="post" class="grid grid-cols-1 gap-6">
+        <form method="post" enctype="multipart/form-data" class="grid grid-cols-1 gap-6">
             {% csrf_token %}
-
             <div>
                 <label for="nama" class="block text-lg text-gray-600 font-semibold">Nama Restoran</label>
                 {{ form.nama|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
             </div>
-
             <div>
                 <label for="alamat" class="block text-lg text-gray-600 font-semibold">Alamat Restoran</label>
                 {{ form.alamat|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
             </div>
-
             <div>
-                <label for="jam_operasional" class="block text-lg text-gray-600 font-semibold">Jam Operasional</label>
-                {{ form.jam_operasional|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+                <label for="jam_buka" class="block text-lg text-gray-600 font-semibold">Jam Buka</label>
+                {{ form.jam_buka|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
             </div>
-
+            <div>
+                <label for="jam_tutup" class="block text-lg text-gray-600 font-semibold">Jam Tutup</label>
+                {{ form.jam_tutup|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+            </div>
             <div>
                 <label for="nomor_telepon" class="block text-lg text-gray-600 font-semibold">Nomor Telepon</label>
                 {{ form.nomor_telepon|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
             </div>
-
-            <!-- Tombol Simpan -->
-            <button type="submit"
-                class="w-full py-3 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-bold rounded-md transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-green-300">
+            <div>
+                <label for="gambar" class="block text-lg text-gray-600 font-semibold">Gambar Restoran</label>
+                {{ form.gambar|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+            </div>
+            <button type="submit" class="w-full py-3 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-bold rounded-md transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-green-300">
                 Simpan Restoran
             </button>
         </form>
+        
 
-        <!-- Kembali ke Daftar Restoran -->
         <div class="mt-6 text-center">
             <a href="{% url 'restoran:restoran' %}"
                 class="text-lg text-[#d04848] hover:text-[#ff5757] transition-all duration-200">Kembali ke Daftar
