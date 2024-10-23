@@ -159,14 +159,14 @@
                     }
                 }
                 optionButtonHtml = `
-                    <div class="flex gap-2">
-                        <button onclick="showEditModal()" class="flex justify-center items-center w-fit bg-[#4f9da6] hover:bg-[#3b747a] transition text-white py-2 px-5 rounded-lg text-sm font-semibold">
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="showEditModal()" class="max-sm:flex-grow flex justify-center items-center w-fit bg-[#4f9da6] hover:bg-[#3b747a] transition text-white py-2 px-5 rounded-lg text-sm font-semibold">
                             <i class='fa-regular fa-pen-to-square text-xs mr-2'></i>
-                            Ubah ulasan
+                            <span class="text-center">Ubah ulasan</span>
                         </button>
-                        <a href="{% url 'restoran:ulasan:hapus_ulasan' restoran.id %}" class="flex justify-center items-center w-fit bg-[#ff5757] hover:bg-[#d04848] transition text-white py-2 px-5 rounded-lg text-sm font-semibold">
+                        <a href="{% url 'restoran:ulasan:hapus_ulasan' restoran.id %}" class="max-sm:flex-grow flex justify-center items-center w-fit bg-[#ff5757] hover:bg-[#d04848] transition text-white py-2 px-5 rounded-lg text-sm font-semibold">
                             <i class='fa-regular fa-trash-can text-xs mr-2'></i>
-                            Hapus ulasan
+                            <span class="text-center">Hapus ulasan</span>
                         </a>
                     </div>
                 `
