@@ -22,9 +22,9 @@
             <div class="bg-white shadow-md rounded-lg p-6">
                 <!-- Menampilkan gambar makanan jika ada, jika tidak ada tampilkan placeholder -->
                 {% if makanan.gambar %}
-                <img class="w-full h-48 object-cover mb-4 rounded-lg" src="{{ makanan.gambar.url }}" alt="{{ makanan.nama }}">
+                    <img class="w-full h-48 object-cover mb-4 rounded-lg" src="{{ makanan.gambar.url }}" alt="{{ makanan.nama }}">
                 {% else %}
-                <img class="w-full h-48 object-cover mb-4 rounded-lg" src="path/to/placeholder-image.jpg" alt="Makanan Default">
+                    <img class="w-full h-48 object-cover mb-4 rounded-lg" src="path/to/placeholder-image.jpg" alt="Makanan Default">
                 {% endif %}
 
                 <h2 class="text-xl font-semibold text-gray-700">{{ makanan.nama }}</h2>
@@ -51,7 +51,7 @@
             {% endfor %}
         </div>
         {% else %}
-        <p class="text-center text-gray-500">Belum ada makanan yang ditambahkan.</p>
+            <p class="text-center text-gray-500">Belum ada makanan yang ditambahkan.</p>
         {% endif %}
     </div>
 </main>
