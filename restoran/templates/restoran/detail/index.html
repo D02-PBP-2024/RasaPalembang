@@ -70,7 +70,7 @@
     {% endif %}
 
     <div class="mt-12">
-        <h1 class="text-4xl font-semibold">Ulasan</h1>
+        <h1 class="text-3xl font-bold">Ulasan</h1>
         <div id="ulasan"></div>
     </div>
 
@@ -109,7 +109,17 @@
 
         if (reviews.length === 0) {
             classNameString = "mt-4 flex justify-center items-center";
-            htmlString = ``;
+            htmlString = `
+                <div class="border border-neutral-200 shadow-lg rounded-xl px-4 py-10 w-full flex justify-center items-center gap-14">
+                    <div>
+                        <img src="{% static 'images/empty-review.png' %}" class="max-w-32">
+                    </div>
+                    <div>
+                        <h1 class="text-center text-2xl font-bold">Belum ada ulasan untuk restoran ini</h1>
+                        <h2 class="text-center">Kunjungi restoran ini dan jadilah yang pertama memberikan ulasan</h2>
+                    </div>
+                </div>
+            `;
         } else {
             classNameString = "mt-5 flex flex-col justify-center gap-4"
             reviews.forEach((item) => {
