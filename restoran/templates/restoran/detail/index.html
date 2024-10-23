@@ -7,12 +7,19 @@
 
 {% block content %}
 <main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-12 w-full mx-auto">
-    <div class="mt-8 mb-6">
+    <div class="w-full py-2">
+        <a href="{% url 'restoran:restoran' %}"
+            class="flex gap-2.5 justify-center items-center w-fit px-8 py-2 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300">
+            <i class="fa-solid fa-arrow-left text-sm"></i>
+            Kembali ke Daftar Restoran
+        </a>
+    </div>
+    <div class="my-6">
         <h1 class="text-4xl font-bold">{{ restoran.nama }}</h1>
-        <div class="text-gray-600 mt-2">
-            <p><i class="fas fa-map-marker-alt mr-2"></i>{{ restoran.alamat }}</p>
-            <p><i class="fas fa-phone mr-2"></i>{{ restoran.nomor_telepon }}</p>
-            <p><i class="fas fa-clock mr-2"></i>{{ restoran.jam_buka|date:"H:i" }} - {{ restoran.jam_tutup|date:"H:i" }}
+        <div class="text-gray-600 mt-3 flex flex-col gap-0.5">
+            <p><i class="fas fa-map-marker-alt mr-2.5"></i>{{ restoran.alamat }}</p>
+            <p><i class="fas fa-phone mr-2.5"></i>{{ restoran.nomor_telepon }}</p>
+            <p><i class="fas fa-clock mr-2.5"></i>{{ restoran.jam_buka|date:"H:i" }} - {{ restoran.jam_tutup|date:"H:i" }}
                 <span class="{% if status == 'Open now' %}text-green-500{% else %}text-red-500{% endif %}">
                     {{ status }}
                 </span>
@@ -39,21 +46,19 @@
         </div>
     </div>
 
-    <div class="mt-8 flex justify-between">
-        <a href="{% url 'restoran:restoran' %}"
-            class="px-4 py-2 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300">
-            Kembali ke Daftar Restoran
-        </a>
+    <div class="mt-6 flex justify-between">
         {% if request.user == restoran.user %}
-        <div class="flex gap-4 justify-end">
+        <div class="flex gap-3 justify-end">
             <a href="{% url 'restoran:ubah' restoran.id %}"
-                class="px-6 py-3 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition duration-300 flex-1 text-center">
-                Edit
+                class="flex gap-2.5 justify-center items-center px-8 py-2 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition duration-300 flex-1 text-center">
+                <i class="fa-regular fa-pen-to-square text-sm"></i>
+                Ubah
             </a>
             <form method="POST" action="{% url 'restoran:hapus' restoran.id %}">
                 {% csrf_token %}
                 <button type="submit"
-                    class="px-6 py-3 bg-red-500 hover:bg-red-700 text-white font-semibold rounded-lg shadow-md transition duration-300 flex-1 text-center">
+                    class="flex gap-2.5 justify-center items-center px-8 py-2 bg-red-500 hover:bg-red-700 text-white font-semibold rounded-lg shadow-md transition duration-300 flex-1 text-center">
+                    <i class="fa-regular fa-trash-can text-sm"></i>
                     Hapus
                 </button>
             </form>
@@ -63,7 +68,7 @@
 
     {% if mengulas %}
     <button id="reviewButton" data-modal-target="modal" data-modal-toggle="modal" onclick="showModal();"
-        class="mt-10 flex justify-center items-center gap-2 w-full sm:w-max px-4 sm:px-8 py-1.5 sm:py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
+        class="flex justify-center items-center gap-2 w-full sm:w-max px-4 sm:px-8 py-1.5 sm:py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
         <i class="fa-regular fa-star max-sm:scale-90"></i>
         Tulis sebuah ulasan
     </button>
@@ -131,6 +136,12 @@
                         ratingHtmlString += "<i class='fa-solid fa-star text-neutral-300'></i>";
                     }
                 }
+                deleteButtonHtml = `
+                    <a href='{% url 'restoran:ulasan:hapus_ulasan' restoran.id %}' class='flex justify-center items-center w-fit bg-[#ff5757] hover:bg-[#d04848] transition text-white py-2 px-5 rounded-lg text-sm font-semibold'>
+                        <i class='fa-regular fa-trash-can text-xs mr-2'></i>
+                        Hapus ulasan
+                    </a>
+                `
                 htmlString += `
                 <div class="w-full border border-neutral-100 py-4 px-6 shadow-lg shadow-neutral-100 hover:shadow-neutral-200 rounded-xl transition">
                     <div class="flex gap-3 items-center">
@@ -156,7 +167,7 @@
                         ${item.deskripsi}
                     </h3>
                     <div class="mt-4">
-                        ${item.user.username == "{{ user.username }}" ? "<a href='{% url 'restoran:ulasan:hapus_ulasan' restoran.id %}' class='bg-[#d04848] text-white py-2 px-4 rounded-lg text-sm font-semibold'>Hapus ulasan</a>" : ""}
+                        ${item.user.username == "{{ user.username }}" ? deleteButtonHtml : ""}
                     </div>
                 </div>
                 `;
