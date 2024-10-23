@@ -1,22 +1,94 @@
 {% extends 'base.html' %}
+{% block meta %}
+<title>RasaPalembang | Edit Makanan</title>
+<style>
+    /* Animasi untuk progress bar */
+    .progress-bar {
+        width: 0;
+        height: 4px;
+        background-color: #4f9da6;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 50;
+        animation: load 3s ease-out forwards;
+    }
 
-{% load static %}
+    @keyframes load {
+        0% {
+            width: 0;
+        }
+
+        100% {
+            width: 100%;
+        }
+    }
+</style>
+{% endblock meta %}
 
 {% block content %}
+<main class="py-10">
+    <!-- Progress Bar Animasi -->
+    <div class="progress-bar"></div>
 
-<h1>Edit Makanan</h1>
+    <!-- Menambahkan margin-top 5rem pada form container -->
+    <div class="max-w-2xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-20">
+        <h1 class="text-3xl font-bold text-center mb-6 text-gray-700">Edit Makanan</h1>
 
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-        <tr>
-            <td></td>
-            <td>
-                <input type="submit" value="Edit Makanan"/>
-            </td>
-        </tr>
-    </table>
-</form>
+        <!-- Tambahkan ini untuk memuat widget_tweaks -->
+        {% load widget_tweaks %}
 
+        <!-- Form untuk edit makanan -->
+        <form method="post" class="grid grid-cols-1 gap-6">
+            {% csrf_token %}
+            
+            <div>
+                <label for="nama" class="block text-lg text-gray-600 font-semibold">Nama Makanan</label>
+                {{ form.nama|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+            </div>
+
+            <div>
+                <label for="harga" class="block text-lg text-gray-600 font-semibold">Harga</label>
+                {{ form.harga|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+            </div>
+
+            <div>
+                <label for="deskripsi" class="block text-lg text-gray-600 font-semibold">Deskripsi</label>
+                {{ form.deskripsi|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+            </div>
+
+            <div>
+                <label for="gambar" class="block text-lg text-gray-600 font-semibold">Gambar</label>
+                {{ form.gambar|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+            </div>
+
+            <div>
+                <label for="kalori" class="block text-lg text-gray-600 font-semibold">Kalori</label>
+                {{ form.kalori|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+            </div>
+
+            <div>
+                <label for="restoran" class="block text-lg text-gray-600 font-semibold">Restoran</label>
+                {{ form.restoran|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+            </div>
+
+            <div>
+                <label for="kategori" class="block text-lg text-gray-600 font-semibold">Kategori</label>
+                {{ form.kategori|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+            </div>
+
+            <!-- Tombol Edit -->
+            <button type="submit"
+                class="w-full py-3 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-bold rounded-md transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-green-300">
+                Edit Makanan
+            </button>
+        </form>
+
+        <!-- Kembali ke Daftar Makanan -->
+        <div class="mt-6 text-center">
+            <a href="{% url 'makanan:show_makanan' %}"
+                class="text-lg text-[#d04848] hover:text-[#ff5757] transition-all duration-200">Kembali ke Daftar Makanan</a>
+        </div>
+    </div>
+</main>
 {% endblock %}
