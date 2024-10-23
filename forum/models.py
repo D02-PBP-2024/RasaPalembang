@@ -18,7 +18,13 @@ class Balasan(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     pesan = models.TextField()
-    vote = models.IntegerField(default=0)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     forum = models.ForeignKey(Forum, on_delete=models.CASCADE)
+
+
+class Vote(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    balasan = models.ForeignKey(Balasan, on_delete=models.CASCADE)

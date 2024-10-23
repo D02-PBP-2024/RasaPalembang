@@ -27,12 +27,12 @@
                         <span class="w-full">{{ item.pesan }}</span>
                         <i class="fa-regular fa-thumbs-up self-center"></i>
                         {% if request.user.id == forum.user.id %}
-                            <a href="{% url 'forum:delete' forum.restoran.id forum.id item.id %}" class="ml-2">
+                            <a href="{% url 'forum:delete_balasan' forum.restoran.id forum.id item.id %}" class="ml-2">
                                 <i class="fa-regular fa-trash-can"></i>
                             </a>
                         {% endif %}
                     </div>
-                    {% endfor %}
+                {% endfor %}
             </div>
             {% else %}
                 belum ada balasan untuk forum ini
