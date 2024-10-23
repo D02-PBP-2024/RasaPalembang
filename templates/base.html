@@ -5,11 +5,27 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RasaPalembang</title>
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+
+    <!-- Icons -->
+    <link rel="icon" href="{% static 'icons/favicon-16x16.png' %}" sizes="16x16" />
+    <link rel="icon" href="{% static 'icons/favicon-32x32.png' %}" sizes="32x32" />
+    <link rel="icon" href="{% static 'icons/favicon.ico' %}" />
+    <link rel="apple-touch-icon" href="{% static 'icons/apple-touch-icon.png' %}" />
+    <link rel="icon" href="{% static 'icons/android-chrome-192x192.png' %}" sizes="192x192" />
+    <link rel="icon" href="{% static 'icons/android-chrome-512x512.png' %}" sizes="512x512" />
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="{% static 'site.webmanifest' %}" />
+
+    <!-- Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/87a1ce9342.js" crossorigin="anonymous"></script>
+
     {% block meta %} {% endblock meta %}
+    <title>Jelajahi Kuliner Palembang | RasaPalembang</title>
 </head>
 
 <body class="text-neutral-700 pt-10 md:pt-6">

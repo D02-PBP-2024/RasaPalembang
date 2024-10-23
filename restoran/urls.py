@@ -1,9 +1,13 @@
 from django.urls import path
 from restoran.views import *
 
+
+app_name = "restoran"
+
 urlpatterns = [
-    path('restoran/', show_restoran, name='show_restoran'),
-    path('create/', create_restoran, name='create_restoran'),
-    path('edit-restoran/<uuid:id>', edit_restoran, name='edit_restoran'),
-    path('delete-restoran/<uuid:id>', delete_restoran, name='delete_restoran'),
+    path('', restoran, name='restoran'),
+    path('tambah/', tambah_restoran, name='tambah'),
+    path('ubah/<uuid:id>', ubah_restoran, name='ubah'),
+    path('hapus/<uuid:id>', hapus_restoran, name='hapus'),
+    path('detail/<uuid:id>', lihat_restoran, name='detail'), 
 ]

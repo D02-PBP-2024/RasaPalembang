@@ -18,6 +18,7 @@ from django.conf.urls.static import static
 from rasapalembang.views import landing
 from django.urls import path, include
 from authentication.views import (
+    detail_profile,
     profile,
     signup,
     login,
@@ -30,5 +31,6 @@ from django.conf import settings
 urlpatterns = [
     path("", landing, name="landing"),
     path('admin/', admin.site.urls),
-    path('', include('favorit.urls')),
+    path('profile/<slug:username>', detail_profile, name='detail_profile'),
+    path('restoran/', include('favorit.urls')),
 ]
