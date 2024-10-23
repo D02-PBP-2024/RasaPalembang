@@ -60,4 +60,4 @@ def delete_makanan(request, id):
         return redirect("makanan:delete_makanan")
     
     makanan.delete()
-    return redirect("makanan:show")
+    return redirect("makanan:show_makanan")
