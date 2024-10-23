@@ -1,0 +1,293 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>{{ restoran.nama }} | RasaPalembang</title>
+{% endblock meta %}
+
+{% block content %}
+<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-12 w-full mx-auto">
+    <div class="w-full py-2">
+        <a href="{% url 'restoran:restoran' %}"
+            class="flex gap-2.5 justify-center items-center w-fit px-8 py-2 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300">
+            <i class="fa-solid fa-arrow-left text-sm"></i>
+            Kembali ke Daftar Restoran
+        </a>
+    </div>
+    <div class="my-6">
+        <h1 class="text-4xl font-bold">{{ restoran.nama }}</h1>
+        <div class="text-gray-600 mt-3 flex flex-col gap-0.5">
+            <p><i class="fas fa-map-marker-alt mr-2.5"></i>{{ restoran.alamat }}</p>
+            <p><i class="fas fa-phone mr-2.5"></i>{{ restoran.nomor_telepon }}</p>
+            <p><i class="fas fa-clock mr-2.5"></i>{{ restoran.jam_buka|date:"H:i" }} - {{ restoran.jam_tutup|date:"H:i" }}
+                <span class="{% if status == 'Open now' %}text-green-500{% else %}text-red-500{% endif %}">
+                    {{ status }}
+                </span>
+            </p>
+        </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row justify-between items-start gap-4">
+        <div class="md:w-2/3 w-full">
+            {% if restoran.gambar %}
+            <img src="{{ restoran.gambar.url }}" alt="{{ restoran.nama }}" class="w-full h-96 object-cover rounded-lg">
+            {% else %}
+            <img src="{% static 'images/no-image.jpg' %}" alt="No image" class="w-full h-96 object-cover rounded-lg">
+            {% endif %}
+        </div>
+
+        <div class="bg-white shadow-md rounded-lg p-4 md:w-1/3 w-full">
+            <h2 class="text-2xl font-semibold mb-2">Details</h2>
+            <ul class="space-y-2 text-gray-600">
+                <li>Harga: -</li>
+                <li>Menu: -</li>
+                <li>Fasilitas: -</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="mt-6 flex justify-between">
+        {% if request.user == restoran.user %}
+        <div class="flex gap-3 justify-end">
+            <a href="{% url 'restoran:ubah' restoran.id %}"
+                class="flex gap-2.5 justify-center items-center px-8 py-2 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition duration-300 flex-1 text-center">
+                <i class="fa-regular fa-pen-to-square text-sm"></i>
+                Ubah
+            </a>
+            <form method="POST" action="{% url 'restoran:hapus' restoran.id %}">
+                {% csrf_token %}
+                <button type="submit"
+                    class="flex gap-2.5 justify-center items-center px-8 py-2 bg-red-500 hover:bg-red-700 text-white font-semibold rounded-lg shadow-md transition duration-300 flex-1 text-center">
+                    <i class="fa-regular fa-trash-can text-sm"></i>
+                    Hapus
+                </button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+
+    {% if mengulas %}
+    <button id="reviewButton" data-modal-target="modal" data-modal-toggle="modal" onclick="showAddModal();"
+        class="flex justify-center items-center gap-2 w-full sm:w-max px-4 sm:px-8 py-1.5 sm:py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
+        <i class="fa-regular fa-star max-sm:scale-90"></i>
+        Tulis sebuah ulasan
+    </button>
+    {% endif %}
+
+    <div class="mt-12">
+        <h1 class="text-3xl font-bold">Ulasan</h1>
+        <div id="ulasan"></div>
+    </div>
+
+    {% include 'restoran/detail/addReviewModal.html' %}
+    {% include 'restoran/detail/editReviewModal.html' %}
+</main>
+{% endblock %}
+{% block script %}
+<script>
+    function setEditRating(rating) {
+        const ratingInput = document.getElementById("id_nilai_edit");
+        ratingInput.value = rating;
+
+        const ratingButtons = document.getElementsByClassName("ratingEditButton");
+
+        for (let i = 0; i < ratingButtons.length; i++) {
+            if (i < rating) {
+                ratingButtons[i].classList.add("text-[#ffba00]");
+                ratingButtons[i].classList.remove("text-neutral-300");
+            } else {
+                ratingButtons[i].classList.add("text-neutral-300");
+                ratingButtons[i].classList.remove("text-[#ffba00]");
+            }
+        }
+    }
+
+    function setAddRating(rating) {
+        const ratingInput = document.getElementById("id_nilai_add");
+        ratingInput.value = rating;
+
+        const ratingButtons = document.getElementsByClassName("ratingAddButton");
+
+        for (let i = 0; i < ratingButtons.length; i++) {
+            if (i < rating) {
+                ratingButtons[i].classList.add("text-[#ffba00]");
+                ratingButtons[i].classList.remove("text-neutral-300");
+            } else {
+                ratingButtons[i].classList.add("text-neutral-300");
+                ratingButtons[i].classList.remove("text-[#ffba00]");
+            }
+        }
+    }
+
+    async function getReviews() {
+        return fetch("/restoran/{{ restoran.id }}/ulasan/").then((res) => res.json())
+    }
+
+    async function refreshReviews() {
+        document.getElementById("ulasan").innerHTML = "";
+        document.getElementById("ulasan").className = "";
+        const reviews = await getReviews();
+        let htmlString = "";
+        let classNameString = "";
+
+        if (reviews.length === 0) {
+            classNameString = "mt-4 flex justify-center items-center";
+            htmlString = `
+                <div class="border border-neutral-200 shadow-lg rounded-xl px-3 sm:px-6 py-10 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14">
+                    <div>
+                        <img src="{% static 'images/empty-review.png' %}" class="max-w-24 md:max-w-32">
+                    </div>
+                    <div>
+                        <h1 class="text-center text-xl md:text-2xl font-bold">Belum ada ulasan untuk restoran ini</h1>
+                        <h2 class="text-center max-md:text-sm max-md:mt-2">Kunjungi restoran ini dan jadilah yang pertama memberikan ulasan</h2>
+                    </div>
+                </div>
+            `;
+        } else {
+            classNameString = "mt-5 flex flex-col justify-center gap-4"
+            reviews.forEach((item) => {
+                created_at = new Date(item.created_at)
+                if (item.user.username == "{{ user.username }}") {
+                    document.querySelector('#editReviewForm textarea').innerHTML = item.deskripsi;
+                }
+                ratingHtmlString = ""
+                for (let i = 0; i < 5; i++) {
+                    if (i < item.nilai) {
+                        ratingHtmlString += "<i class='fa-solid fa-star'></i>";
+                    } else {
+                        ratingHtmlString += "<i class='fa-solid fa-star text-neutral-300'></i>";
+                    }
+                }
+                optionButtonHtml = `
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="showEditModal()" class="max-sm:flex-grow flex justify-center items-center w-fit bg-[#4f9da6] hover:bg-[#3b747a] transition text-white py-2 px-5 rounded-lg text-sm font-semibold">
+                            <i class='fa-regular fa-pen-to-square text-xs mr-2'></i>
+                            <span class="text-center">Ubah ulasan</span>
+                        </button>
+                        <a href="{% url 'restoran:ulasan:hapus_ulasan' restoran.id %}" class="max-sm:flex-grow flex justify-center items-center w-fit bg-[#ff5757] hover:bg-[#d04848] transition text-white py-2 px-5 rounded-lg text-sm font-semibold">
+                            <i class='fa-regular fa-trash-can text-xs mr-2'></i>
+                            <span class="text-center">Hapus ulasan</span>
+                        </a>
+                    </div>
+                `
+                htmlString += `
+                <div class="w-full border border-neutral-100 py-4 px-6 shadow-lg shadow-neutral-100 hover:shadow-neutral-200 rounded-xl transition">
+                    <div class="flex gap-3 items-center">
+                        <a href="/profile/${item.user.username}">
+                            <img src="{% static 'images/avatar.png' %}" class="w-10 h-10 rounded-full">
+                        </a>
+                        <div class="flex flex-col">
+                            <a href="/profile/${item.user.username}">
+                                <span class="font-semibold">${item.user.nama}</span>
+                            </a>
+                            <span class="text-neutral-500 text-sm flex items-center gap-1">
+                                <i class="fa-solid fa-coins text-neutral-500/70 text-xs"></i>
+                                ${item.user.poin} poin
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex gap-2 mt-4">
+                        <div class="text-[#ffba00] flex md:gap-1 items-center">${ratingHtmlString}</div>
+                        <span class="text-neutral-300">•</span>
+                        <h2 class="text-neutral-500">${created_at.toLocaleDateString()}</h2>
+                    </div>
+                    <h3 class="mt-3">
+                        ${item.deskripsi}
+                    </h3>
+                    <div class="mt-4">
+                        ${item.user.username == "{{ user.username }}" ? optionButtonHtml : ""}
+                    </div>
+                </div>
+                `;
+            });
+        }
+        document.getElementById("ulasan").className = classNameString;
+        document.getElementById("ulasan").innerHTML = htmlString;
+    }
+    refreshReviews();
+
+    function hideButton() {
+        const button = document.getElementById('reviewButton');
+
+        button.classList.add('hidden');
+    }
+
+    function showAddModal() {
+        const modal = document.getElementById('addReviewModal');
+        const modalContent = document.getElementById('addReviewModalContent');
+
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+            modalContent.classList.remove('opacity-0', 'scale-95');
+            modalContent.classList.add('opacity-100', 'scale-100');
+        }, 50);
+    }
+
+    function hideAddModal() {
+        const modal = document.getElementById('addReviewModal');
+        const modalContent = document.getElementById('addReviewModalContent');
+
+        modalContent.classList.remove('opacity-100', 'scale-100');
+        modalContent.classList.add('opacity-0', 'scale-95');
+
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 150);
+    }
+
+    function showEditModal() {
+        const modal = document.getElementById('editReviewModal');
+        const modalContent = document.getElementById('editReviewModalodalContent');
+
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+            modalContent.classList.remove('opacity-0', 'scale-95');
+            modalContent.classList.add('opacity-100', 'scale-100');
+        }, 50);
+    }
+
+    function hideEditModal() {
+        const modal = document.getElementById('editReviewModal');
+        const modalContent = document.getElementById('editReviewModalodalContent');
+
+        modalContent.classList.remove('opacity-100', 'scale-100');
+        modalContent.classList.add('opacity-0', 'scale-95');
+
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 150);
+    }
+
+    document.getElementById("cancelReviewButton").addEventListener("click", hideAddModal);
+    document.getElementById("closeAddReviewModalButton").addEventListener("click", hideAddModal);
+
+    document.getElementById("cancelEditButton").addEventListener("click", hideEditModal);
+    document.getElementById("closeEditReviewModalodalButton").addEventListener("click", hideEditModal);
+
+    function addReview() {
+        fetch("/restoran/{{ restoran.id }}/ulasan/tambah/", {
+            method: "POST",
+            body: new FormData(document.querySelector('#addReviewForm')),
+        }).then(response => refreshReviews())
+
+        hideButton();
+        hideAddModal();
+
+        return false;
+    }
+
+    function editReview() {
+        fetch("/restoran/{{ restoran.id }}/ulasan/ubah/", {
+            method: "POST",
+            body: new FormData(document.querySelector('#editReviewForm')),
+        }).then(response => refreshReviews())
+
+        hideEditModal();
+
+        return false;
+    }
+
+    document.getElementById("submitAddReviewForm").onclick = addReview
+    document.getElementById("submitEditReviewForm").onclick = editReview
+</script>
+{% endblock %}
