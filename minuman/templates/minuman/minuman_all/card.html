@@ -1,0 +1,42 @@
+<div class="flex flex-col sm:flex-row">
+    <div class="sm:basis-5/12 w-full h-full">
+        <a href="{% url 'minuman:show_minuman_by_id' minuman.id %}">
+            <div class="overflow-hidden rounded-lg shadow">
+                <div class="relative pt-[75%]">
+                    <img src="{{ minuman.gambar.url }}"
+                         class="object-cover absolute top-0 w-full h-full"
+                         alt="{{ minuman.nama }}">
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="sm:basis-7/12 sm:ml-8">
+        <div class="flex mt-4 sm:mt-0">
+            <a href="{% url 'minuman:show_minuman_by_id' minuman.id %}" class="pointer w-full">
+                <h1 class="font-bold text-3xl text-[#ff5757] hover:text-[#d04848]">{{ minuman.nama }}</h1>
+            </a>
+            <button class="flex place-items-center border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-2 px-[9px] sm:px-4 rounded-full focus:outline-none focus:bg-[#4f9da6] focus:text-white">
+                <i class="fa-regular fa-heart"></i><span class="ml-2 hidden sm:inline">Favorit</span>
+            </button>
+        </div>
+        <div class="mt-2">
+            {#HARAP DIUBAH#}
+            <a href="#" class="hover:underline">
+                <i class="fa-solid fa-location-dot"></i><span class="ml-2">{{ minuman.restoran.nama }}</span>
+            </a>
+        </div>
+        <p class="mt-4">{{ minuman.deskripsi }}</p>
+        <h2 class="mt-4 font-bold">Fakta ringkas</h2>
+        <div class="mt-4 flex flex-wrap gap-2">
+            <span class="bg-gray-100 rounded-full py-2 px-4 font-medium">
+                Rp.{{ minuman.harga }}
+            </span>
+            <span class="bg-gray-100 rounded-full py-2 px-4 font-medium">
+                Ukuran {{ minuman.ukuran }}
+            </span>
+            <span class="bg-gray-100 rounded-full py-2 px-4 font-medium">
+                Tingkat kemanisan: {{ minuman.tingkat_kemanisan }}
+            </span>
+        </div>
+    </div>
+</div>

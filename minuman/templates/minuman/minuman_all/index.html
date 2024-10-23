@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+    <title>Minuman</title>
+{% endblock meta %}
+
+{% block content %}
+<main class="px-5 md:px-10 lg:px-16 xl:px-24 py-5 md:py-10 w-full mx-auto">
+{% if minuman %}
+    <div class="grid gap-8 mt-8">
+        {% for item in minuman %}
+            {% include 'minuman/minuman_all/card.html' with minuman=item %}
+        {% endfor %}
+    </div>
+{% else %}
+    belum ada minuman
+{% endif %}
+</main>
+{% endblock content %}
