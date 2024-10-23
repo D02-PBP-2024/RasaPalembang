@@ -5,6 +5,7 @@ from django.urls import reverse
 from .forms import RestoranForm
 from .models import Restoran
 from django.utils import timezone
+from django.core.paginator import Paginator
 
 def restoran(request):
     current_time = timezone.localtime().time()
@@ -33,9 +34,11 @@ def restoran(request):
             'jam_tutup': jam_tutup.strftime("%H:%M") 
         })
 
-    return render(request, "restoran/index.html", {"restoran_with_status": restoran_with_status})
+    paginator = Paginator(restoran_with_status, 10)  
+    page_number = request.GET.get('page')  
+    page_obj = paginator.get_page(page_number)  
 
-
+    return render(request, "restoran/index.html", {"page_obj": page_obj})
 
 @login_required(login_url="/login")
 def tambah_restoran(request):
@@ -81,6 +84,26 @@ def hapus_restoran(request, id):
     else:
         return HttpResponseRedirect(reverse('restoran:restoran'))
 
+from django.utils import timezone
+
 def lihat_restoran(request, id):
     restoran = get_object_or_404(Restoran, id=id)
-    return render(request, 'detail/index.html', {'restoran': restoran})
+    current_time = timezone.localtime().time()
+
+    jam_buka = restoran.jam_buka
+    jam_tutup = restoran.jam_tutup
+
+    # Menghitung status buka/tutup
+    if jam_buka < jam_tutup:
+        if jam_buka <= current_time <= jam_tutup:
+            status = "Open now"
+        else:
+            status = "Closed now"
+    else:
+        if current_time >= jam_buka or current_time <= jam_tutup:
+            status = "Open now"
+        else:
+            status = "Closed now"
+
+    return render(request, 'detail/index.html', {'restoran': restoran, 'status': status})
+
