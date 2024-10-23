@@ -20,6 +20,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import path, include
 from authentication.views import (
+    detail_profile,
     profile,
     signup,
     login,
@@ -34,6 +35,7 @@ urlpatterns = [
     path('login/', login, name='login'),
     path('logout/', logout, name='logout'),
     path('profile/', profile, name='profile'),
+    path('profile/<slug:username>', detail_profile, name='detail_profile'),
     path('restoran/', include('restoran.urls')),
     path('minuman/', include('minuman.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
