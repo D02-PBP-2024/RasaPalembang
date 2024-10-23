@@ -1,13 +1,13 @@
-<div id="modal" tabindex="-1" aria-hidden="true"
+<div id="editReviewModal" tabindex="-1" aria-hidden="true"
     class="hidden fixed inset-0 z-50 w-full flex items-center justify-center bg-gray-800 bg-opacity-50 overflow-x-hidden overflow-y-auto transition-opacity duration-300 ease-out">
-    <div id="modalContent"
+    <div id="editReviewModalodalContent"
         class="relative bg-white rounded-lg shadow-lg w-5/6 sm:w-3/4 md:w-1/2 lg:w-1/3 mx-4 sm:mx-0 transform scale-95 opacity-0 transition-transform transition-opacity duration-300 ease-out">
         <!-- Modal header -->
         <div class="flex items-center justify-between p-4 border-b rounded-t">
-            <h3 class="text-xl font-semibold text-gray-900">Ulas restoran</h3>
+            <h3 class="text-xl font-semibold text-gray-900">Ubah ulasan</h3>
             <button type="button"
                 class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 transition rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
-                id="closeModalButton">
+                id="closeEditReviewModalodalButton">
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -19,7 +19,7 @@
         </div>
         <!-- Modal body -->
         <div class="px-6 py-4 space-y-6 form-style">
-            <form method="POST" enctype="multipart/form-data" id="reviewForm"
+            <form method="POST" id="editReviewForm"
                 class="w-full max-w-md md:max-w-2xl mx-auto px-2 md:px-8 py-2 md:py-4 rounded-2xl">
                 {% csrf_token %}
                 <div>
@@ -27,23 +27,23 @@
                         Nilai
                     </label>
                     <div class="mt-2 bg-gray-100 rounded-lg px-4 py-3.5 w-full text-lg flex gap-2">
-                        <div class="ratingButton text-[#ffba00] cursor-pointer" onclick="setRating(1)">
+                        <div class="ratingEditButton text-[#ffba00] cursor-pointer" onclick="setEditRating(1)">
                             <i class="fa-solid fa-star"></i>
                         </div>
-                        <div class="ratingButton text-[#ffba00] cursor-pointer" onclick="setRating(2)">
+                        <div class="ratingEditButton text-[#ffba00] cursor-pointer" onclick="setEditRating(2)">
                             <i class="fa-solid fa-star"></i>
                         </div>
-                        <div class="ratingButton text-[#ffba00] cursor-pointer" onclick="setRating(3)">
+                        <div class="ratingEditButton text-[#ffba00] cursor-pointer" onclick="setEditRating(3)">
                             <i class="fa-solid fa-star"></i>
                         </div>
-                        <div class="ratingButton text-neutral-300 cursor-pointer" onclick="setRating(4)">
+                        <div class="ratingEditButton text-neutral-300 cursor-pointer" onclick="setEditRating(4)">
                             <i class="fa-solid fa-star"></i>
                         </div>
-                        <div class="ratingButton text-neutral-300 cursor-pointer" onclick="setRating(5)">
+                        <div class="ratingEditButton text-neutral-300 cursor-pointer" onclick="setEditRating(5)">
                             <i class="fa-solid fa-star"></i>
                         </div>
                     </div>
-                    <input type="number" name="nilai" required="" id="id_nilai" value="3" class="hidden">
+                    <input type="number" name="nilai" required="" id="id_nilai_edit" value="3" class="hidden">
                 </div>
                 <div class="mt-4">
                     <label class="text-sm pl-3">
@@ -60,11 +60,11 @@
             class="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2 p-6 border-t border-gray-200 rounded-b justify-center md:justify-end">
             <button type="button"
                 class="bg-[#ff4545] hover:bg-[#e33b3b] hover:shadow transition text-white font-semibold px-8 py-2 rounded-lg"
-                id="cancelButton">
+                id="cancelEditButton">
                 <i class="fa-solid fa-xmark mr-2"></i>
                 Kembali
             </button>
-            <button type="submit" id="submitReviewForm" form="reviewForm"
+            <button type="submit" id="submitEditReviewForm" form="editReviewForm"
                 class="bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow transition text-white font-semibold px-8 py-2 rounded-lg">
                 <i class="fa-regular fa-floppy-disk mr-2"></i>
                 Simpan

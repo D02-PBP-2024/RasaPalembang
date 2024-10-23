@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404
 from django.utils.html import strip_tags
 from restoran.models import Restoran
 from django.http import JsonResponse
+from ulasan.forms import UlasanForm
 from ulasan.models import Ulasan
 
 
@@ -16,6 +17,7 @@ def ulasan(request, id):
         ulasan_data.append(
             {
                 "id": u.id,
+                "created_at": u.created_at,
                 "nilai": u.nilai,
                 "deskripsi": u.deskripsi,
                 "user": {
@@ -49,6 +51,17 @@ def tambah_ulasan(request, id):
     user.save()
 
     return HttpResponse(b"Berhasil menambah ulasan.", status=201)
+
+
+@login_required(login_url="/login")
+def ubah_ulasan(request, id):
+    if request.method == "POST":
+        restoran = get_object_or_404(Restoran, id=id)
+        ulasan = get_object_or_404(Ulasan, user=request.user, restoran=restoran)
+        form = UlasanForm(request.POST, instance=ulasan)
+        if form.is_valid():
+            form.save()
+            return HttpResponse(b"UPDATED", status=200)
 
 
 @login_required(login_url="/login")
