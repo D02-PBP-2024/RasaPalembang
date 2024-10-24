@@ -1,5 +1,5 @@
 {% load static %}
-<footer class="mt-5 border-t border-gray-100 bg-[#fafafa] px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-12 w-full mx-auto">
+<footer class="mt-5 border-t border-gray-100 bg-[#fafafa] px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
     <div class="flex max-sm:flex-col gap-4 justify-center items-center justify-between">
         <a href="">
             <img src="{% static 'images/logo.png' %}" alt="RasaPalembang" class="max-w-56">
@@ -23,21 +23,18 @@
         </div>
     </div>
     <nav
-        class="max-sm:mx-auto mt-8 flex flex-wrap items-center justify-center sm:justify-start gap-x-5 gap-y-1 max-w-56 sm:max-w-80 max-md:text-sm">
+        class="max-sm:mx-auto mt-8 flex flex-wrap items-center justify-center sm:justify-start gap-x-5 gap-y-1 max-w-56 sm:max-w-64 lg:max-w-72 max-md:text-sm">
         <a href="" class="hover:text-neutral-600 transition">
             <span>Makanan</span>
         </a>
-        <a href="" class="hover:text-neutral-600 transition">
+        <a href="{% url 'minuman:show_minuman' %}" class="hover:text-neutral-600 transition">
             <span>Minuman</span>
         </a>
-        <a href="" class="hover:text-neutral-600 transition">
+        <a href="{% url 'restoran:restoran' %}" class="hover:text-neutral-600 transition">
             <span>Restoran</span>
         </a>
-        <a href="" class="hover:text-neutral-600 transition">
+        <a href="{% url 'favorit:show_favorit' %}" class="hover:text-neutral-600 transition">
             <span>Favorit</span>
-        </a>
-        <a href="" class="hover:text-neutral-600 transition">
-            <span>Profil</span>
         </a>
     </nav>
     <div class="w-full border-t mt-8 pt-5 font-semibold flex max-sm:flex-col gap-3 justify-between items-center">
