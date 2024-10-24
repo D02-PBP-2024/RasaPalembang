@@ -15,27 +15,10 @@
         </div>
         {% endif %}
 
-        <!-- Filter Chips -->
-        <div class="relative mb-6">
-            <button id="filterButton" class="flex items-center px-4 py-2 bg-gray-200 rounded-lg shadow-md">
-                <i class="fa fa-filter text-gray-500 mr-2"></i>
-                <span class="text-gray-600">Filter by</span>
-            </button>
-
-            <!-- Dropdown menu -->
-            <div id="dropdownMenu" class="hidden absolute mt-2 bg-white rounded-lg shadow-lg py-2">
-                {% for kategori in kategoris %}
-                <a href="#" class="dropdown-item block px-4 py-2 text-gray-700 hover:bg-gray-200"
-                   data-kategori-id="{{ kategori.id }}">
-                    {{ kategori.nama }}
-                </a>
-                {% endfor %}
-            </div>
-        </div>
-
         <!-- Grid makanan -->
+        {% if page_obj.object_list %}
         <div id="makananList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {% for makanan in makanan_list %}
+            {% for makanan in page_obj %}
                 <a href="{% url 'makanan:detail_makanan' makanan.id %}" class="block bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 transform hover:scale-105 transition-transform duration-300">
                     {% if makanan.gambar %}
                         <img class="w-full h-48 object-cover mb-4 rounded-lg" src="{{ makanan.gambar.url }}" alt="{{ makanan.nama }}">
@@ -47,10 +30,23 @@
                 </a>
             {% endfor %}
         </div>
+        
+        <!-- Pagination Controls (hanya tampil jika ada produk) -->
+        <div class="pagination-container mt-8">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}" class="px-4 py-2 bg-gray-200 text-gray-600 hover:bg-gray-300 rounded-lg">Previous</a>
+            {% endif %}
+            <p class="text-gray-600 mx-4">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</p>
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="px-4 py-2 bg-gray-200 text-gray-600 hover:bg-gray-300 rounded-lg">Next</a>
+            {% endif %}
+        </div>
 
+        {% else %}
+        <p class="text-center text-gray-500">Belum ada produk yang ditambahkan.</p>
+        {% endif %}
     </div>
 </main>
-
 <script>
     // Toggle dropdown visibility
     document.getElementById("filterButton").addEventListener("click", function() {
@@ -80,10 +76,14 @@
                 makananList.innerHTML = '';  // Clear existing list
                 data.makanan.forEach(makanan => {
                     makananList.innerHTML += `
-                        <a href="/makanan/${makanan.id}/detail/" class="block bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 transform hover:scale-105 transition-transform duration-300">
+                        <div class="bg-white shadow-md rounded-lg p-6">
                             <img class="w-full h-48 object-cover mb-4 rounded-lg" src="${makanan.gambar}" alt="${makanan.nama}">
+                            <h2 class="text-xl font-semibold text-gray-700">${makanan.nama}</h2>
+                            <p class="text-gray-500 mt-2">Harga: Rp ${makanan.harga}</p>
+                            <p class="text-gray-500">Kalori: ${makanan.kalori} kkal</p>
+                            <p class="text-gray-500">${makanan.deskripsi}</p>
                             <p class="text-sm text-gray-400 mt-4">Restoran: ${makanan.restoran}</p>
-                        </a>
+                        </div>
                     `;
                 });
             });
