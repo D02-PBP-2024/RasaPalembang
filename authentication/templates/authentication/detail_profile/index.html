@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-12 w-full mx-auto min-h-[768px] max-w-screen-2xl">
+    <div class="rounded-2xl border mx-auto mt-5">
+        <img src="{% static 'images/banner.png' %}" alt="{{ profile.username }}"
+            class="w-full h-32 md:h-64 brightness-75 object-cover rounded-t-2xl">
+        <div class="flex justify-between w-full gap-6 px-3 sm:px-6 lg:px-10 pb-5">
+            <div class="flex items-center -mt-20 md:-mt-24 z-10">
+                {% if profile.foto %}
+                <img id="avatar" src="{{ profile.foto.url }}" alt="{{ profile.username }}"
+                    class="w-24 sm:w-32 lg:w-48 h-24 sm:h-32 lg:h-48 rounded-full object-cover">
+                {% else %}
+                <img id="avatar" src="{% static 'images/avatar.png' %}" alt="{{ profile.username }}"
+                    class="w-24 sm:w-32 lg:w-48 h-24 sm:h-32 lg:h-48 rounded-full object-cover">
+                {% endif %}
+            </div>
+            {% if profile.username == request.user.username %}
+            <div class="mt-4 flex max-sm:flex-col max-sm:items-center h-min gap-1 sm:gap-2">
+                <a href="{% url 'logout' %}"
+                    class="flex justify-center items-center gap-2 w-full sm:w-max px-4 sm:px-8 py-1.5 sm:py-2 bg-[#ff4545] hover:bg-[#e33b3b] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
+                    <i class="fa-solid fa-arrow-right-from-bracket max-sm:scale-90"></i>
+                    Keluar
+                </a>
+                <button data-modal-target="modal" data-modal-toggle="modal" onclick="showModal();"
+                    class="flex justify-center items-center gap-2 w-full sm:w-max px-4 sm:px-8 py-1.5 sm:py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
+                    <i class="fa-regular fa-pen-to-square max-sm:scale-90"></i>
+                    Ubah Profil
+                </button>
+            </div>
+            {% endif %}
+        </div>
+        <div class="px-3 sm:px-6 lg:px-10 pb-5">
+            <h1 id="nama" class="text-2xl font-semibold">{{ profile.nama }}</h1>
+            <h1 id="username" class="text-neutral-500">@{{ profile.username }}</h1>
+            <h1 id="deskripsi" class="mt-2.5">
+                {% if profile.deskripsi %} {{ profile.deskripsi }} {% else %} Belum ada bio. {% endif %}
+            </h1>
+            <div class="flex flex-wrap gap-2.5 md:gap-6 mt-3 max-sm:text-sm">
+                <h1 class="text-neutral-500 flex items-center gap-2">
+                    <i class="fa-solid fa-user-tag text-neutral-500/70 max-sm:scale-90"></i>
+                    {% if profile.peran == 'pengulas' %}
+                    Pengulas
+                    {% endif %}
+                    {% if profile.peran == 'pemilik_restoran' %}
+                    Pemilik Restoran
+                    {% endif %}
+                </h1>
+                <h1 class="text-neutral-500 flex items-center gap-1.5 sm:gap-2 max-sm:hidden">
+                    <i class="fa-solid fa-calendar-days text-neutral-500/70 max-sm:scale-90"></i>
+                    Bergabung {{ profile.date_joined | date:"d M, Y" }}
+                </h1>
+                <h1 class="text-neutral-500 flex items-center gap-1.5 sm:gap-2">
+                    <i class="fa-solid fa-coins text-neutral-500/70 max-sm:scale-90"></i>
+                    {{ profile.poin }} Poin
+                </h1>
+            </div>
+        </div>
+    </div>
+    {% include 'authentication/detail_profile/modal.html' %}
+</main>
+{% endblock %}
+{% block script %}
+<script type="text/javascript" src="{% static 'authentication/profile/script.js' %}"></script>
+{% endblock script %}
