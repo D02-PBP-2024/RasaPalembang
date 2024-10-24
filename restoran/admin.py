@@ -1,4 +1,5 @@
 from django.contrib import admin
-from .models import Restoran
+from restoran.models import Restoran
+
 
 admin.site.register(Restoran)
