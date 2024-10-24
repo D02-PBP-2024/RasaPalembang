@@ -66,13 +66,19 @@
         {% endif %}
     </div>
 
-    {% if mengulas %}
-    <button id="reviewButton" data-modal-target="modal" data-modal-toggle="modal" onclick="showAddModal();"
-        class="flex justify-center items-center gap-2 w-full sm:w-max px-4 sm:px-8 py-1.5 sm:py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
-        <i class="fa-regular fa-star max-sm:scale-90"></i>
-        Tulis sebuah ulasan
-    </button>
-    {% endif %}
+    <div class="mt-6 flex items-center">
+        {% if mengulas %}
+        <button id="reviewButton" data-modal-target="modal" data-modal-toggle="modal" onclick="showAddModal();"
+            class="flex justify-center items-center gap-2 w-full sm:w-max px-4 sm:px-8 py-1.5 sm:py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
+            <i class="fa-regular fa-star max-sm:scale-90"></i>
+            Tulis sebuah ulasan
+        </button>
+        {% endif %}
+    
+        <a href="{% url 'forum:show_forum' restoran.id %}" class="flex justify-center items-center gap-2 ml-4 w-full sm:w-max px-4 sm:px-8 py-1.5 sm:py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
+            <i class="fa-solid fa-comments max-sm:scale-90"></i>Lihat Forum
+        </a>
+    </div>
 
     <div class="mt-12">
         <h1 class="text-3xl font-bold">Ulasan</h1>
