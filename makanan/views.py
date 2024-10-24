@@ -1,8 +1,11 @@
+import json
 from django.shortcuts import render, redirect, get_object_or_404
 from makanan.forms import MakananForm
 from makanan.models import Makanan, Kategori
+from restoran.models import Restoran
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.http import JsonResponse
 
 def show_makanan(request):
     makanan = Makanan.objects.all()
@@ -39,7 +42,13 @@ def tambah_makanan(request):
 def detail_makanan(request, id):
     makanan = get_object_or_404(Makanan, pk=id)
     list_kategori = Kategori.objects.filter(makanan=makanan)
-    context = {'makanan': makanan, 'list_kategori': list_kategori}
+    restoran = Restoran.objects.get(pk=makanan.restoran.id)
+
+    context = {
+        'makanan': makanan, 
+        'list_kategori': list_kategori,
+        'restoran': restoran
+        }
     return render(request, 'makanan/detail/detail_makanan.html', context)
 
 @login_required(login_url="/login")
@@ -71,14 +80,31 @@ def delete_makanan(request, id):
     makanan.delete()
     return redirect("makanan:show_makanan")
 
-def filter_by_kategori(request, kategori_id):
-    kategori = get_object_or_404(Kategori, pk=kategori_id)
-    makanan_list = Makanan.objects.filter(kategori=kategori)
-    
-    context = {
-        'kategoris': Kategori.objects.all(),
-        'makanan_list': makanan_list,
-        'selected_kategori': kategori
-    }
+def filter_by_kategori(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)  # Ambil data JSON dari request body
+            kategori_id = data.get('kategori_id')  # Dapatkan kategori ID dari request body
 
-    return render(request, 'makanan/show_makanan.html', context)
+            # Filter makanan berdasarkan kategori yang dipilih
+            makanan_list = Makanan.objects.filter(kategori__id=kategori_id)
+
+            # Persiapkan data makanan untuk dikirim kembali sebagai response JSON
+            makanan_data = []
+            for makanan in makanan_list:
+                makanan_data.append({
+                    'id': makanan.id,
+                    'nama': makanan.nama,
+                    'gambar': makanan.gambar.url if makanan.gambar else '',
+                    'harga': makanan.harga,
+                    'kalori': makanan.kalori,
+                    'deskripsi': makanan.deskripsi,
+                    'restoran': makanan.restoran.nama,
+                })
+
+            # Kirim response JSON ke frontend
+            return JsonResponse({'makanan': makanan_data})
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=400)
+    else:
+        return JsonResponse({'error': 'Invalid request method.'}, status=405)
