@@ -24,6 +24,7 @@ def ulasan(request, id):
                     "id": u.user.id,
                     "username": u.user.username,
                     "nama": u.user.nama,
+                    "foto": u.user.foto.url if u.user.foto else "/static/images/avatar.png",
                     "poin": u.user.poin,
                 },
             }
