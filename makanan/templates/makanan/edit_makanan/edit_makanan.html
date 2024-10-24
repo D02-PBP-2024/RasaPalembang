@@ -23,6 +23,36 @@
             width: 100%;
         }
     }
+
+    /* Chips design */
+    .chips-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .chip {
+        padding: 10px 15px;
+        background-color: #4f9da6;
+        color: white;
+        border-radius: 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .chip:hover {
+        background-color: #3b747a;
+    }
+
+    .chip.active {
+        background-color: #ff5757; /* Warna ketika kategori dipilih */
+    }
+
+    .hidden-input {
+        display: none;
+    }
 </style>
 {% endblock meta %}
 
@@ -30,7 +60,7 @@
 <main class="py-10">
     <!-- Progress Bar Animasi -->
     <div class="progress-bar"></div>
-
+    
     <!-- Menambahkan margin-top 5rem pada form container -->
     <div class="max-w-2xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-20">
         <h1 class="text-3xl font-bold text-center mb-6 text-gray-700">Edit Makanan</h1>
@@ -39,9 +69,8 @@
         {% load widget_tweaks %}
 
         <!-- Form untuk edit makanan -->
-        <form method="post" class="grid grid-cols-1 gap-6">
+        <form method="post" enctype="multipart/form-data" class="grid grid-cols-1 gap-6">
             {% csrf_token %}
-            
             <div>
                 <label for="nama" class="block text-lg text-gray-600 font-semibold">Nama Makanan</label>
                 {{ form.nama|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
@@ -72,9 +101,15 @@
                 {{ form.restoran|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
             </div>
 
+            <!-- Chips Design untuk Kategori -->
             <div>
-                <label for="kategori" class="block text-lg text-gray-600 font-semibold">Kategori</label>
-                {{ form.kategori|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+                <label class="block text-lg text-gray-600 font-semibold">Kategori</label>
+                <div class="chips-wrapper">
+                    {% for kategori in form.kategori.field.queryset %}
+                    <span class="chip" data-id="{{ kategori.id }}">{{ kategori.nama }}</span>
+                    <input type="checkbox" name="kategori" value="{{ kategori.id }}" class="hidden-input">
+                    {% endfor %}
+                </div>
             </div>
 
             <!-- Tombol Edit -->
@@ -91,4 +126,15 @@
         </div>
     </div>
 </main>
+
+<script>
+    // JS untuk handle chips selection
+    document.querySelectorAll('.chip').forEach(function(chip) {
+        chip.addEventListener('click', function() {
+            const input = this.nextElementSibling;  // Menghubungkan dengan input checkbox di sebelahnya
+            this.classList.toggle('active');  // Toggle class active (highlight chip)
+            input.checked = !input.checked;  // Toggle checkbox state
+        });
+    });
+</script>
 {% endblock %}

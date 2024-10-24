@@ -36,32 +36,15 @@
         <!-- Grid makanan -->
         <div id="makananList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {% for makanan in makanan_list %}
-            <div class="bg-white shadow-md rounded-lg p-6">
-                {% if makanan.gambar %}
-                    <img class="w-full h-48 object-cover mb-4 rounded-lg" src="{{ makanan.gambar.url }}" alt="{{ makanan.nama }}">
-                {% else %}
-                    <img class="w-full h-48 object-cover mb-4 rounded-lg" src="path/to/placeholder-image.jpg" alt="Makanan Default">
-                {% endif %}
-                <h2 class="text-xl font-semibold text-gray-700">{{ makanan.nama }}</h2>
-                <p class="text-gray-500 mt-2">Harga: Rp {{ makanan.harga }}</p>
-                <p class="text-gray-500">Kalori: {{ makanan.kalori }} kkal</p>
-                <p class="text-gray-500">{{ makanan.deskripsi }}</p>
-                <p class="text-sm text-gray-400 mt-4">Restoran: {{ makanan.restoran.nama }}</p>
-
-                <!-- Tautan untuk detail makanan -->
-                <div class="mt-4 flex justify-between items-center">
-                    <a href="{% url 'makanan:detail_makanan' makanan.id %}" class="text-blue-500 hover:text-blue-700">Detail</a>
-                    {% if request.user == makanan.restoran.user %}
-                    <div class="flex gap-4">
-                        <a href="{% url 'makanan:edit_makanan' makanan.id %}" class="text-blue-500 hover:text-blue-700">Edit</a>
-                        <form method="POST" action="{% url 'makanan:delete_makanan' makanan.id %}">
-                            {% csrf_token %}
-                            <button type="submit" class="text-red-500 hover:text-red-700">Hapus</button>
-                        </form>
-                    </div>
+                <a href="{% url 'makanan:detail_makanan' makanan.id %}" class="block bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 transform hover:scale-105 transition-transform duration-300">
+                    {% if makanan.gambar %}
+                        <img class="w-full h-48 object-cover mb-4 rounded-lg" src="{{ makanan.gambar.url }}" alt="{{ makanan.nama }}">
+                    {% else %}
+                        <img class="w-full h-48 object-cover mb-4 rounded-lg" src="path/to/placeholder-image.jpg" alt="Makanan Default">
                     {% endif %}
-                </div>
-            </div>
+                    <h2 class="text-xl font-semibold text-gray-700">{{ makanan.nama }}</h2>
+                    <p class="text-sm text-gray-400 mt-4">Restoran: {{ makanan.restoran.nama }}</p>
+                </a>
             {% endfor %}
         </div>
 
@@ -82,7 +65,7 @@
             var kategoriId = this.getAttribute('data-kategori-id');
 
             // AJAX request to filter makanan
-            fetch(/filter_makanan_by_kategori/, {
+            fetch('/filter_makanan_by_kategori/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -97,14 +80,10 @@
                 makananList.innerHTML = '';  // Clear existing list
                 data.makanan.forEach(makanan => {
                     makananList.innerHTML += `
-                        <div class="bg-white shadow-md rounded-lg p-6">
+                        <a href="/makanan/${makanan.id}/detail/" class="block bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 transform hover:scale-105 transition-transform duration-300">
                             <img class="w-full h-48 object-cover mb-4 rounded-lg" src="${makanan.gambar}" alt="${makanan.nama}">
-                            <h2 class="text-xl font-semibold text-gray-700">${makanan.nama}</h2>
-                            <p class="text-gray-500 mt-2">Harga: Rp ${makanan.harga}</p>
-                            <p class="text-gray-500">Kalori: ${makanan.kalori} kkal</p>
-                            <p class="text-gray-500">${makanan.deskripsi}</p>
                             <p class="text-sm text-gray-400 mt-4">Restoran: ${makanan.restoran}</p>
-                        </div>
+                        </a>
                     `;
                 });
             });
