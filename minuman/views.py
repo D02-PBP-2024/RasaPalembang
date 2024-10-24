@@ -14,7 +14,11 @@ def show_minuman(request):
 
 def show_minuman_by_id(request, id):
     minuman = Minuman.objects.get(pk=id)
-    context = {"minuman": minuman}
+    restoran = Restoran.objects.get(pk=minuman.restoran.id)
+    context = {
+        "minuman": minuman,
+        "restoran": restoran,
+    }
     return render(request, "minuman/minuman_by_id/index.html", context)
 
 
