@@ -88,7 +88,7 @@
                             </span>
                             <span>
                                 <strong class="font-semibold text-gray-900">Jam operasional: </strong>
-                                {{ restoran.jam_buka }} - {{ restoran.jam_tutup }}
+                                {{ restoran.jam_buka|date:"H:i" }} - {{ restoran.jam_tutup|date:"H:i" }}
                             </span>
                         </li>
                     </ul>
