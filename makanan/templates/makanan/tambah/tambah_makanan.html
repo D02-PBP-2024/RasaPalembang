@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
 
 {% block meta %}
 <title>RasaPalembang | Tambah Makanan</title>
@@ -25,12 +26,64 @@
         }
     }
 
+    /* Styling untuk layout form */
+    .form-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;  /* Menambah jarak antar kolom */
+    }
+
+    .full-span {
+        grid-column: span 2;
+    }
+
+    /* Styling untuk label dan input */
+    label {
+        font-size: 1rem;
+        color: #4a4a4a;
+        padding-left: 0.5rem;
+        font-weight: 600;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        margin-top: 0.5rem;
+        background-color: #f5f5f5;
+        border-radius: 0.5rem;  /* Membuat input lebih rounded */
+        padding: 0.875rem;
+        border: 1px solid #d1d5db;
+        font-size: 1rem;  /* Memperbesar font */
+    }
+
+    input:focus, select:focus, textarea:focus {
+        outline: none;
+        border-color: #4f9da6;
+        box-shadow: 0 0 0 2px rgba(79, 157, 166, 0.3);
+    }
+
+    /* Styling untuk button upload gambar */
+    .upload-btn {
+        display: inline-block;
+        width: 100%;
+        background-color: #f5f5f5;
+        border-radius: 0.5rem;
+        padding: 0.875rem;
+        text-align: center;
+        color: #4f9da6;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .upload-btn:hover {
+        background-color: #e2e8f0;
+    }
+
     /* Chips design */
     .chips-wrapper {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-        justify-content: center;
+        justify-content: start;  /* Justifikasi ke kiri */
     }
 
     .chip {
@@ -48,7 +101,7 @@
     }
 
     .chip.active {
-        background-color: #ff5757; /* Warna ketika kategori dipilih */
+        background-color: #ff5757;
     }
 
     .hidden-input {
@@ -58,95 +111,74 @@
 {% endblock meta %}
 
 {% block content %}
-<main class="py-10">
-    <!-- Progress Bar Animasi -->
-    <div class="progress-bar"></div>
-
-    <!-- Menambahkan margin-top 5rem pada form container -->
-    <div class="max-w-2xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-20">
-        <h1 class="text-3xl font-bold text-center mb-6 text-gray-700">Tambah Makanan</h1>
-
-        <!-- Tambahkan ini untuk memuat widget_tweaks -->
-        {% load widget_tweaks %}
-
-        <!-- Form untuk edit makanan -->
-        <form method="post" enctype="multipart/form-data" class="grid grid-cols-1 gap-6">
-            {% csrf_token %}
-            <div>
-                <label for="nama" class="block text-lg text-gray-600 font-semibold">Nama Makanan</label>
-                {{ form.nama|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+<main class="px-5 md:px-10 lg:px-16 xl:px-24 py-5 md:py-10 w-full mx-auto">
+    <h2 class="mt-8 text-xl font-semibold">Tambah Makanan Baru</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="grid grid-cols-2 sm:gap-x-4 w-full">
+            <div class="mt-4 col-span-2 sm:col-span-1">
+                <label class="text-sm pl-3" for="nama">Nama Makanan</label>
+                {{ form.nama|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
             </div>
-
-            <div>
-                <label for="harga" class="block text-lg text-gray-600 font-semibold">Harga</label>
-                {{ form.harga|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+            <div class="mt-4 col-span-2 sm:col-span-1">
+                <label class="text-sm pl-3" for="harga">Harga</label>
+                {{ form.harga|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
             </div>
-
-            <div>
-                <label for="deskripsi" class="block text-lg text-gray-600 font-semibold">Deskripsi</label>
-                {{ form.deskripsi|add_class:"w-full resize-none h-36 mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+        </div>
+        <div class="mt-4">
+            <label class="text-sm pl-3" for="deskripsi">Deskripsi</label>
+            {{ form.deskripsi|add_class:"w-full resize-none h-36 mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
+        </div>
+        <div class="grid grid-cols-2 sm:gap-x-4 w-full">
+            <div class="mt-4 col-span-2 sm:col-span-1">
+                <label class="text-sm pl-3" for="kalori">Kalori</label>
+                {{ form.kalori|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
             </div>
-
-            <div>
-                <label for="gambar" class="block text-lg text-gray-600 font-semibold">Gambar</label>
+            <div class="mt-4 col-span-2 sm:col-span-1">
+                <label class="text-sm pl-3" for="gambar">Gambar</label>
                 <div class="mt-2 flex items-center">
-                    <label for="gambar" class="w-full overflow-hidden relative cursor-pointer bg-gray-100 rounded font-medium text-[#4f9da6] hover:text-[#3b747a] px-4 py-3.5 text-center focus-visible:outline-[#4f9da6]">
+                    <label for="id_gambar"
+                        class="w-full overflow-hidden relative cursor-pointer bg-gray-100 rounded font-medium text-[#4f9da6] hover:text-[#3b747a] px-4 py-3.5 text-center focus-visible:outline-[#4f9da6]">
                         <span id="gambar-file">Upload gambar</span>
-                        <input id="gambar" name="gambar" type="file" class="sr-only">
+                        {{ form.gambar|add_class:"sr-only" }}
                     </label>
                 </div>
             </div>
-
-            <div>
-                <label for="kalori" class="block text-lg text-gray-600 font-semibold">Kalori</label>
-                {{ form.kalori|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+            <div class="mt-4 col-span-2 sm:col-span-1">
+                <label class="text-sm pl-3" for="restoran">Restoran</label>
+                {{ form.restoran|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
             </div>
-
-            <div>
-                <label for="restoran" class="block text-lg text-gray-600 font-semibold">Restoran</label>
-                {{ form.restoran|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
-            </div>
-
-            <!-- Chips Design untuk Kategori -->
-            <div>
-                <label class="block text-lg text-gray-600 font-semibold">Kategori</label>
-                <div class="chips-wrapper">
+            <div class="mt-4 col-span-2 sm:col-span-1">
+                <label class="text-sm pl-3">Kategori</label>
+                <div class="chips-wrapper mt-2">
                     {% for kategori in form.kategori.field.queryset %}
-                    <span class="chip" data-id="{{ kategori.id }}">{{ kategori.nama }}</span>
-                    <input type="checkbox" name="kategori" value="{{ kategori.id }}" class="hidden-input">
+                        <span class="chip" data-id="{{ kategori.id }}">{{ kategori.nama }}</span>
+                        <input type="checkbox" name="kategori" value="{{ kategori.id }}" class="hidden-input">
                     {% endfor %}
                 </div>
             </div>
-
-            <!-- Tombol Edit -->
-            <button type="submit"
-                class="w-full py-3 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-bold rounded-md transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-green-300">
-                Tambah Makanan
-            </button>
-        </form>
-
-        <!-- Kembali ke Daftar Makanan -->
-        <div class="mt-6 text-center">
-            <a href="{% url 'makanan:show_makanan' %}"
-                class="text-lg text-[#d04848] hover:text-[#ff5757] transition-all duration-200">Kembali ke Daftar Makanan</a>
         </div>
-    </div>
+        <button
+            class="mt-8 shadow hover:shadow-lg bg-[#4f9da6] hover:bg-[#3b747a] transition focus:shadow-outline focus:bg-[#3b747a] focus:outline-none text-white font-semibold py-2 px-4 rounded"
+            type="submit">
+            Simpan
+        </button>
+    </form>
 </main>
-
 <script>
-var gambarUpload = document.getElementById('gambar')
-var gambarFile = document.getElementById('gambar-file')
-gambarUpload.addEventListener('change', function() {
-    gambarFile.innerText = gambarUpload.files[0].name
-})
-
-// JS untuk handle chips selection
-document.querySelectorAll('.chip').forEach(function(chip) {
-    chip.addEventListener('click', function() {
-        const input = this.nextElementSibling;  // Menghubungkan dengan input checkbox di sebelahnya
-        this.classList.toggle('active');  // Toggle class active (highlight chip)
-        input.checked = !input.checked;  // Toggle checkbox state
+    var gambarUpload = document.getElementById('id_gambar');
+    var gambarFile = document.getElementById('gambar-file');
+    gambarUpload.addEventListener('change', function () {
+        gambarFile.innerText = gambarUpload.files[0].name;
     });
-});
+
+    // JS untuk handle chips selection
+    document.querySelectorAll('.chip').forEach(function(chip) {
+        chip.addEventListener('click', function() {
+            const input = this.nextElementSibling;  // Menghubungkan dengan input checkbox di sebelahnya
+            this.classList.toggle('active');  // Toggle class active (highlight chip)
+            input.checked = !input.checked;  // Toggle checkbox state
+        });
+    });
 </script>
-{% endblock %}
+{% endblock content %}
