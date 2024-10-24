@@ -12,6 +12,12 @@ class Favorit(models.Model):
     catatan = models.TextField()
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    makanan = models.ForeignKey(Makanan, on_delete=models.CASCADE, blank=True, null=True)
-    minuman = models.ForeignKey(Minuman, on_delete=models.CASCADE, blank=True, null=True)
-    restoran = models.ForeignKey(Restoran, on_delete=models.CASCADE, blank=True, null=True)
+    makanan = models.ForeignKey(
+        Makanan, on_delete=models.CASCADE, blank=True, null=True
+    )
+    minuman = models.ForeignKey(
+        Minuman, on_delete=models.CASCADE, blank=True, null=True
+    )
+    restoran = models.ForeignKey(
+        Restoran, on_delete=models.CASCADE, blank=True, null=True
+    )
