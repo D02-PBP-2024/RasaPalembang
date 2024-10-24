@@ -3,7 +3,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from authentication.forms import CreateUserForm, UserForm
 from django.contrib.auth.forms import AuthenticationForm
-from django.utils.html import strip_tags
 from authentication.models import User
 from django.contrib import messages
 from django.core import serializers
