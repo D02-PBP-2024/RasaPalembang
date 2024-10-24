@@ -1,3 +1,5 @@
 from django.contrib import admin
+from minuman.models import Minuman
 
-# Register your models here.
+
+admin.site.register(Minuman)

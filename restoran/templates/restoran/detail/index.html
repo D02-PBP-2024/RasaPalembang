@@ -169,7 +169,7 @@
             htmlString = `
                 <div class="border border-neutral-200 shadow-lg rounded-xl px-3 sm:px-6 py-10 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14">
                     <div>
-                        <img src="{% static 'images/empty-review.png' %}" class="max-w-24 md:max-w-32">
+                        <img src="{% static 'images/empty-review.png' %}" alt="Empty Review" class="max-w-24 md:max-w-32">
                     </div>
                     <div>
                         <h1 class="text-center text-xl md:text-2xl font-bold">Belum ada ulasan untuk restoran ini</h1>
@@ -208,7 +208,7 @@
                 <div class="w-full border border-neutral-100 py-4 px-6 shadow-lg shadow-neutral-100 hover:shadow-neutral-200 rounded-xl transition">
                     <div class="flex gap-3 items-center">
                         <a href="/profile/${item.user.username}">
-                            <img src="{% static 'images/avatar.png' %}" class="w-10 h-10 rounded-full">
+                            <img src="${item.user.foto}" alt="avatar" class="w-10 h-10 rounded-full">
                         </a>
                         <div class="flex flex-col">
                             <a href="/profile/${item.user.username}">
