@@ -5,4 +5,12 @@ from minuman.models import Minuman
 class MinumanForm(ModelForm):
     class Meta:
         model = Minuman
-        fields = ["nama", "harga", "deskripsi", "gambar", "ukuran", "tingkat_kemanisan", "restoran"]
+        fields = [
+            "nama",
+            "harga",
+            "deskripsi",
+            "gambar",
+            "ukuran",
+            "tingkat_kemanisan",
+            "restoran",
+        ]
