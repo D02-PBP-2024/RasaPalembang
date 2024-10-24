@@ -5,7 +5,7 @@ from .forms import FavoritForm
 from django.contrib import messages
 
 
-@login_required
+@login_required(login_url="/login")
 def show_favorit(request):
     """
     Menampilkan daftar favorit untuk pengguna yang sedang login.
@@ -14,7 +14,7 @@ def show_favorit(request):
     return render(request, 'favorit/favorit_show.html', {'favorit_show': favorit_show})
 
 
-@login_required
+@login_required(login_url="/login")
 def add_favorit(request):
     """
     Menambahkan makanan, minuman, atau restoran ke dalam daftar favorit.
@@ -33,7 +33,7 @@ def add_favorit(request):
     return render(request, 'favorit/add_favorit.html', {'form': form})
 
 
-@login_required
+@login_required(login_url="/login")
 def edit_favorit(request, favorit_id):
     """
     Mengedit catatan favorit yang sudah ada.
@@ -52,7 +52,7 @@ def edit_favorit(request, favorit_id):
     return render(request, 'favorit/edit_favorit.html', {'form': form})
 
 
-@login_required
+@login_required(login_url="/login")
 def delete_favorit(request, favorit_id):
     """
     Menghapus favorit dari daftar.
