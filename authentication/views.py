@@ -16,7 +16,7 @@ def signup(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "Your account has been successfully created!")
+            messages.success(request, "Akun Anda telah berhasil dibuat! Silakan login.")
             return redirect("login")
     return render(request, "authentication/signup/index.html", {"form": form})
 
