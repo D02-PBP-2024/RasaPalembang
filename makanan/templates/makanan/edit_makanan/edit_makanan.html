@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% block meta %}
 <title>RasaPalembang | Edit Makanan</title>
 <style>
@@ -60,7 +61,7 @@
 <main class="py-10">
     <!-- Progress Bar Animasi -->
     <div class="progress-bar"></div>
-    
+
     <!-- Menambahkan margin-top 5rem pada form container -->
     <div class="max-w-2xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-20">
         <h1 class="text-3xl font-bold text-center mb-6 text-gray-700">Edit Makanan</h1>
@@ -73,32 +74,37 @@
             {% csrf_token %}
             <div>
                 <label for="nama" class="block text-lg text-gray-600 font-semibold">Nama Makanan</label>
-                {{ form.nama|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+                {{ form.nama|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
             </div>
 
             <div>
                 <label for="harga" class="block text-lg text-gray-600 font-semibold">Harga</label>
-                {{ form.harga|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+                {{ form.harga|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
             </div>
 
             <div>
                 <label for="deskripsi" class="block text-lg text-gray-600 font-semibold">Deskripsi</label>
-                {{ form.deskripsi|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+                {{ form.deskripsi|add_class:"w-full resize-none h-36 mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
             </div>
 
             <div>
                 <label for="gambar" class="block text-lg text-gray-600 font-semibold">Gambar</label>
-                {{ form.gambar|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+                <div class="mt-2 flex items-center">
+                    <label for="gambar" class="w-full overflow-hidden relative cursor-pointer bg-gray-100 rounded font-medium text-[#4f9da6] hover:text-[#3b747a] px-4 py-3.5 text-center focus-visible:outline-[#4f9da6]">
+                        <span id="gambar-file">Upload gambar</span>
+                        <input id="gambar" name="gambar" type="file" class="sr-only">
+                    </label>
+                </div>
             </div>
 
             <div>
                 <label for="kalori" class="block text-lg text-gray-600 font-semibold">Kalori</label>
-                {{ form.kalori|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+                {{ form.kalori|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
             </div>
 
             <div>
                 <label for="restoran" class="block text-lg text-gray-600 font-semibold">Restoran</label>
-                {{ form.restoran|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
+                {{ form.restoran|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
             </div>
 
             <!-- Chips Design untuk Kategori -->
@@ -128,13 +134,19 @@
 </main>
 
 <script>
-    // JS untuk handle chips selection
-    document.querySelectorAll('.chip').forEach(function(chip) {
-        chip.addEventListener('click', function() {
-            const input = this.nextElementSibling;  // Menghubungkan dengan input checkbox di sebelahnya
-            this.classList.toggle('active');  // Toggle class active (highlight chip)
-            input.checked = !input.checked;  // Toggle checkbox state
-        });
+var gambarUpload = document.getElementById('gambar')
+var gambarFile = document.getElementById('gambar-file')
+gambarUpload.addEventListener('change', function() {
+    gambarFile.innerText = gambarUpload.files[0].name
+})
+
+// JS untuk handle chips selection
+document.querySelectorAll('.chip').forEach(function(chip) {
+    chip.addEventListener('click', function() {
+        const input = this.nextElementSibling;  // Menghubungkan dengan input checkbox di sebelahnya
+        this.classList.toggle('active');  // Toggle class active (highlight chip)
+        input.checked = !input.checked;  // Toggle checkbox state
     });
+});
 </script>
 {% endblock %}
