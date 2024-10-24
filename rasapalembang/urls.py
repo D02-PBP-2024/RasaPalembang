@@ -39,7 +39,8 @@ urlpatterns = (
         path("profile/<slug:username>", detail_profile, name="detail_profile"),
         path("restoran/", include("restoran.urls")),
         path("minuman/", include("minuman.urls")),
-        path('restoran/<uuid:id_restoran>/forum/', include('forum.urls')),
+        path("restoran/<uuid:id_restoran>/forum/", include("forum.urls")),
+        path("favorit/", include("favorit.urls")),
         re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
         re_path(
             r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}
