@@ -6,33 +6,24 @@
 {% endblock meta %}
 
 {% block content %} 
-
 <main class="px-5 md:px-10 lg:px-16 xl:px-24 py-5 md:py-10 w-full mx-auto">
-    {% if request.user.peran == 'pengulas' %}
-    <a href="{% url 'forum:create_forum' restoran.id %}" class="inline-flex items-center border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-1 px-4 mt-4 rounded-full focus:outline-none focus:bg-[#4f9da6] focus:text-white">
+    <div class="mt-8 mx-auto max-w-2xl lg:mx-0">
+        <h2 class="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Forum Diskusi</h2>
+        <p class="mt-2 text-lg leading-8 text-gray-600">Silakan berdiskusi!</p>
+    </div>
+    <div class="border-t border-gray-200 pt-10 sm:mt-2 sm:pt-4"></div>
+
+    {% if request.user.peran != "pemilik_restoran" %}
+    <a href="{% url 'forum:create_forum' restoran.id %}" class="inline-flex items-center border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-1 px-4 rounded-xl focus:outline-none focus:bg-[#4f9da6] focus:text-white">
         Tambah Forum
     </a>
     {% endif %}
     {% if forum %}
-        <div class="mt-4">
-            <h1 class="text-xl font-semibold">Forum Diskusi</h1>
-        </div>
-        <div class="mt-4 grid gap-4">
-            {% for item in forum reversed %}
-            <div class="bg-gray-100 rounded px-2 py-2 flex content-center">
-                <span class="w-full ">{% include 'forum/forum_all/card.html' with forum=item %}</span>
-                {% if request.user.id == item.user.id %}
-                <div class="self-center px-2">
-                    <a href="{% url 'forum:delete_forum' item.restoran.id item.id %}" class="ml-2">
-                        <i class="fa-regular fa-trash-can"></i>
-                    </a>
-                </div>
-                {% endif %}
-            </div>
-            {% endfor %}
-        </div>
-    {% else %}
-    belum ada forum
+    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3 lg:mx-0 lg:max-w-none">
+        {% for item in forum reversed %}
+            {% include 'forum/forum_all/card.html' with forum=item %}
+        {% endfor %}
+    </div>
     {% endif %}
 </main>
 {% endblock content %} 
