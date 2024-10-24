@@ -14,11 +14,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.urls import path, include, re_path
 from django.conf.urls.static import static
 from rasapalembang.views import landing
 from django.contrib import admin
 from django.conf import settings
-from django.urls import path, include
+from django.views.static import serve
 from authentication.views import (
     detail_profile,
     profile,
@@ -26,18 +27,27 @@ from authentication.views import (
     login,
     logout,
 )
-from rasapalembang.views import landing
 
-urlpatterns = [
-    path("", landing, name="landing"),
-    path('admin/', admin.site.urls),
-    path('signup/', signup, name='signup'),
-    path('login/', login, name='login'),
-    path('logout/', logout, name='logout'),
-    path('profile/', profile, name='profile'),
-    path('profile/<slug:username>', detail_profile, name='detail_profile'),
-    path('restoran/', include('restoran.urls')), 
-    path('makanan/', include('makanan.urls')),
-    path('restoran/', include('restoran.urls')),
-    path('minuman/', include('minuman.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns = (
+    [
+        path("", landing, name="landing"),
+        path("admin/", admin.site.urls),
+        path("signup/", signup, name="signup"),
+        path("login/", login, name="login"),
+        path("logout/", logout, name="logout"),
+        path("profile/", profile, name="profile"),
+        path("profile/<slug:username>", detail_profile, name="detail_profile"),
+        path("restoran/", include("restoran.urls")),
+        path('makanan/', include('makanan.urls')),
+        path("minuman/", include("minuman.urls")),
+        path("restoran/<uuid:id_restoran>/forum/", include("forum.urls")),
+        path("favorit/", include("favorit.urls")),
+        re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
+        re_path(
+            r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}
+        ),
+    ]
+    + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+)
