@@ -1,5 +1,5 @@
 from django.urls import path
-from forum.views import show_forum, balas, show_forum_by_id, create_forum, delete_forum, delete_balasan
+from forum.views import show_forum, balas, show_forum_by_id, create_forum, delete_forum, delete_balasan, edit_balasan, edit_forum
 
 app_name = "forum"
 
@@ -10,4 +10,6 @@ urlpatterns = [
     path('tambah/', create_forum, name='create_forum'),
     path('<uuid:id_forum>/delete_balasan/<uuid:id_balasan>', delete_balasan, name='delete_balasan'),
     path('<uuid:id_forum>/delete_forum', delete_forum, name='delete_forum'),
+    path('<uuid:id_forum>/edit_balasan/<uuid:id_balasan>', edit_balasan, name='edit_balasan'),
+    path('<uuid:id_forum>/edit_forum', edit_forum, name="edit_forum"),
 ]
