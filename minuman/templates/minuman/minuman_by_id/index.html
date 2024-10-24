@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load humanize %}
 {% block content %}
 <main class="px-5 md:px-10 lg:px-16 xl:px-24 py-5 md:py-10 w-full mx-auto">
     <div class="mt-8 mx-auto grid grid-cols-1 gap-x-8 gap-y-8 lg:grid-cols-2 lg:items-start">
@@ -30,19 +30,19 @@
                             <span class="h-5 w-5 flex-none text-[#4f9da6]">
                                 <i class="fa-solid fa-rupiah-sign"></i>
                             </span>
-                            <span><strong class="font-semibold text-gray-900">Harga: </strong>{{ minuman.harga }}</span>
+                            <span><strong class="font-semibold text-gray-900">Harga: </strong>Rp{{ minuman.harga|intcomma }}</span>
                         </li>
                         <li class="flex gap-x-3">
                             <span class="h-5 w-5 flex-none text-[#4f9da6]">
                                 <i class="fa-solid fa-martini-glass-citrus"></i>
                             </span>
-                            <span><strong class="font-semibold text-gray-900">Ukuran: </strong>{{ minuman.ukuran }}</span>
+                            <span><strong class="font-semibold text-gray-900">Ukuran: </strong>{{ minuman.ukuran|title }}</span>
                         </li>
                         <li class="flex gap-x-3">
                             <span class="h-5 w-5 flex-none text-[#4f9da6]">
                                 <i class="fa-solid fa-cubes-stacked"></i>
                             </span>
-                            <span><strong class="font-semibold text-gray-900">Tingkat kemanisan: </strong>{{ minuman.tingkat_kemanisan }}</span>
+                            <span><strong class="font-semibold text-gray-900">Tingkat kemanisan: </strong>{{ minuman.tingkat_kemanisan }}%</span>
                         </li>
                     </ul>
                     <p class="mt-8">Minuman ini tersedia di restoran <a href="{% url 'restoran:detail' restoran.id %}" class="hover:underline">{{ restoran.nama }}</a>.</p>
@@ -66,7 +66,7 @@
                             <span class="h-5 w-5 flex-none text-[#4f9da6]">
                                 <i class="fa-solid fa-clock"></i>
                             </span>
-                            <span><strong class="font-semibold text-gray-900">Jam operasional: </strong>{{ restoran.jam_buka }} - {{ restoran.jam_tutup }}</span>
+                            <span><strong class="font-semibold text-gray-900">Jam operasional: </strong>{{ restoran.jam_buka|date:"H:i" }} - {{ restoran.jam_tutup|date:"H:i" }}</span>
                         </li>
                     </ul>
                 </div>

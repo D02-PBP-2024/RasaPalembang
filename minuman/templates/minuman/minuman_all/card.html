@@ -1,3 +1,4 @@
+{% load humanize %}
 <div class="flex flex-col sm:flex-row">
     <div class="sm:basis-5/12 w-full h-full">
         <a href="{% url 'minuman:show_minuman_by_id' minuman.id %}">
@@ -25,17 +26,25 @@
             </a>
         </div>
         <p class="mt-4">{{ minuman.deskripsi }}</p>
-        <h2 class="mt-4 font-bold">Fakta ringkas</h2>
-        <div class="mt-4 flex flex-wrap gap-2">
-            <span class="bg-gray-100 rounded-full py-2 px-4 font-medium">
-                Rp.{{ minuman.harga }}
-            </span>
-            <span class="bg-gray-100 rounded-full py-2 px-4 font-medium">
-                Ukuran {{ minuman.ukuran }}
-            </span>
-            <span class="bg-gray-100 rounded-full py-2 px-4 font-medium">
-                Tingkat kemanisan: {{ minuman.tingkat_kemanisan }}
-            </span>
-        </div>
+        <ul role="list" class="space-y-4 text-gray-600 mt-4">
+            <li class="flex gap-x-3">
+                <span class="h-5 w-5 flex-none text-[#4f9da6]">
+                    <i class="fa-solid fa-rupiah-sign"></i>
+                </span>
+                <span><strong class="font-semibold text-gray-900">Harga: </strong>Rp{{ minuman.harga|intcomma }}</span>
+            </li>
+            <li class="flex gap-x-3">
+                <span class="h-5 w-5 flex-none text-[#4f9da6]">
+                    <i class="fa-solid fa-martini-glass-citrus"></i>
+                </span>
+                <span><strong class="font-semibold text-gray-900">Ukuran: </strong>{{ minuman.ukuran|title }}</span>
+            </li>
+            <li class="flex gap-x-3">
+                <span class="h-5 w-5 flex-none text-[#4f9da6]">
+                    <i class="fa-solid fa-cubes-stacked"></i>
+                </span>
+                <span><strong class="font-semibold text-gray-900">Tingkat kemanisan: </strong>{{ minuman.tingkat_kemanisan }}%</span>
+            </li>
+        </ul>
     </div>
 </div>
