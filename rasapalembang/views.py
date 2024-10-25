@@ -1,5 +1,6 @@
 from restoran.models import Restoran
 from django.shortcuts import render
+from minuman.models import Minuman
 from django.utils import timezone
 import random
 
@@ -33,4 +34,9 @@ def landing(request):
             }
         )
 
-    return render(request, "landing/index.html", {"restoran": restoran_with_status})
+    minuman = random.sample(list(Minuman.objects.all()), 4)
+
+    return render(request, "landing/index.html", {
+        "restoran": restoran_with_status,
+        "minuman": minuman,
+    })
