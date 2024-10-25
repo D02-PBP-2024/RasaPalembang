@@ -4,11 +4,14 @@ from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator
 from restoran.forms import RestoranForm
 from restoran.models import Restoran
+from makanan.models import Makanan
+from minuman.models import Minuman
 from django.utils import timezone
 from ulasan.models import Ulasan
 from django.urls import reverse
 from .forms import RestoranForm
 from .models import Restoran
+from django.db.models import Avg
 
 
 def restoran(request):
@@ -20,16 +23,19 @@ def restoran(request):
         jam_buka = restoran.jam_buka
         jam_tutup = restoran.jam_tutup
 
+        ulasan = Ulasan.objects.filter(restoran=restoran)
+        if ulasan.exists():
+                rata_bintang = ulasan.aggregate(Avg('nilai'))['nilai__avg']
         if jam_buka < jam_tutup:
             if jam_buka <= current_time <= jam_tutup:
-                status = "Open now"
+                status = "Buka"
             else:
-                status = "Closed now"
+                status = "Tutup"
         else:
             if current_time >= jam_buka or current_time <= jam_tutup:
-                status = "Open now"
+                status = "Buka"
             else:
-                status = "Closed now"
+                status = "Tutup"
 
         restoran_with_status.append(
             {
@@ -37,6 +43,8 @@ def restoran(request):
                 "status": status,
                 "jam_buka": jam_buka.strftime("%H:%M"),
                 "jam_tutup": jam_tutup.strftime("%H:%M"),
+                "rata_bintang": round(rata_bintang, 1), 
+                "ulasan_terbaik": ulasan.order_by('-nilai')[:2],  
             }
         )
 
@@ -97,6 +105,8 @@ from django.utils import timezone
 
 def lihat_restoran(request, id):
     restoran = get_object_or_404(Restoran, id=id)
+    makanan = Makanan.objects.filter(restoran=restoran)
+    minuman = Minuman.objects.filter(restoran=restoran)
     mengulas = False
 
     if request.user.is_authenticated and request.user.peran == "pengulas":
@@ -112,20 +122,23 @@ def lihat_restoran(request, id):
     # Menghitung status buka/tutup
     if jam_buka < jam_tutup:
         if jam_buka <= current_time <= jam_tutup:
-            status = "Open now"
+            status = "Buka"
         else:
-            status = "Closed now"
+            status = "Tutup"
     else:
         if current_time >= jam_buka or current_time <= jam_tutup:
-            status = "Open now"
+            status = "Buka"
         else:
-            status = "Closed now"
+            status = "Tutup"
 
     return render(
         request,
         "restoran/detail/index.html",
         {
             "restoran": restoran,
+            "makanan": makanan,
+            "minuman": minuman,
             "mengulas": mengulas,
+            "status": status,
         },
     )
