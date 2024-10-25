@@ -1,35 +1,12 @@
 {% extends 'base.html' %}
+
 {% block meta %}
 <title>RasaPalembang | Tambah restoran</title>
-<style>
-    /* Animasi untuk progress bar */
-    .progress-bar {
-        width: 0;
-        height: 4px;
-        background-color: #4f9da6;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 50;
-        animation: load 3s ease-out forwards;
-    }
-
-    @keyframes load {
-        0% {
-            width: 0;
-        }
-
-        100% {
-            width: 100%;
-        }
-    }
-</style>
 {% endblock meta %}
-{% block content %}
-<main class="py-10">
-    <div class="progress-bar"></div>
 
-    <div class="max-w-2xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-20">
+{% block content %}
+<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
+    <div class="max-w-2xl mx-auto p-8 bg-white shadow-lg rounded-lg">
         <h1 class="text-3xl font-bold text-center mb-6 text-gray-700">Tambah Restoran</h1>
 
         {% load widget_tweaks %}
@@ -60,16 +37,18 @@
                 <label for="gambar" class="block text-lg text-gray-600 font-semibold">Gambar Restoran</label>
                 {{ form.gambar|add_class:"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4f9da6] focus:border-transparent" }}
             </div>
-            <button type="submit" class="w-full py-3 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-bold rounded-md transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-green-300">
+            <button type="submit"
+                class="w-full py-3 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-bold rounded-md transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-green-300">
                 Simpan Restoran
             </button>
         </form>
-        
+
 
         <div class="mt-6 text-center">
             <a href="{% url 'restoran:restoran' %}"
-                class="text-lg text-[#d04848] hover:text-[#ff5757] transition-all duration-200">Kembali ke Daftar
-                Restoran</a>
+                class="text-lg text-[#d04848] hover:text-[#ff5757] transition-all duration-200">
+                Kembali ke Daftar Restoran
+            </a>
         </div>
     </div>
 </main>
