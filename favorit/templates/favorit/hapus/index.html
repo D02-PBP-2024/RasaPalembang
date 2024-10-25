@@ -1,26 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div style="max-width: 600px; margin: 0 auto; padding: 30px; background-color: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); font-family: Arial, sans-serif;">
-    <h1 style="color: #d04848; font-size: 2rem; text-align: center; font-weight: bold; margin-bottom: 20px;">Hapus Favorit</h1>
+<div class="max-w-lg mx-auto p-8 bg-white border border-gray-300 rounded-lg shadow-lg font-sans">
+    <h1 class="text-[#d04848] text-2xl font-bold text-center mb-5">Hapus Favorit</h1>
 
-    <p style="text-align: center; color: #3b747a; margin-bottom: 20px;">Apakah Anda yakin ingin menghapus favorit berikut?</p>
-    <ul style="list-style-type: none; padding: 0; color: #555; font-size: 1rem; margin-bottom: 20px;">
-        <li style="margin-bottom: 8px;"><strong>Makanan:</strong> {{ favorit.makanan }}</li>
-        <li style="margin-bottom: 8px;"><strong>Minuman:</strong> {{ favorit.minuman }}</li>
-        <li style="margin-bottom: 8px;"><strong>Restoran:</strong> {{ favorit.restoran }}</li>
-        <li style="margin-bottom: 8px;"><strong>Catatan:</strong> {{ favorit.catatan }}</li>
+    <p class="text-center text-[#3b747a] mb-5">Apakah Anda yakin ingin menghapus favorit berikut?</p>
+    <ul class="list-none p-0 text-gray-600 text-base mb-5">
+        <li class="mb-2"><strong>Makanan:</strong> {{ favorit.makanan }}</li>
+        <li class="mb-2"><strong>Minuman:</strong> {{ favorit.minuman }}</li>
+        <li class="mb-2"><strong>Restoran:</strong> {{ favorit.restoran }}</li>
+        <li class="mb-2"><strong>Catatan:</strong> {{ favorit.catatan }}</li>
     </ul>
 
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-        <form method="POST" style="display: inline;">
+    <div class="flex justify-between items-center">
+        <form method="POST" class="inline">
             {% csrf_token %}
-            <button type="submit" style="background-color: #d04848; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+            <button type="submit" class="bg-[#d04848] text-white px-5 py-2 rounded-md font-bold transition duration-200 hover:bg-[#a83030]">
                 Hapus
             </button>
         </form>
-        <a href="{% url 'favorit:show_favorit' %}" style="background-color: #4f9da6; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">
-            Batal
+        <a href="{% url 'favorit:show_favorit' %}" 
+           class="bg-[#4f9da6] text-white px-5 py-2 rounded-md font-bold transition duration-200 hover:bg-[#3b747a]">
+           Batal
         </a>
     </div>
 </div>

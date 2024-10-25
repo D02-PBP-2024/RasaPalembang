@@ -1,21 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div style="max-width: 600px; margin: 0 auto; padding: 30px; background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); font-family: Arial, sans-serif;">
-    <h1 style="color: #3b747a; font-size: 2rem; text-align: center; font-weight: bold; margin-bottom: 20px;">Tambah Favorit</h1>
+<div class="max-w-lg mx-auto p-8 bg-gray-100 border border-gray-300 rounded-lg shadow-lg font-sans">
+    <h1 class="text-[#3b747a] text-2xl font-bold text-center mb-5">Tambah Favorit</h1>
 
-    <form method="POST" style="margin-bottom: 20px;">
+    <form method="POST" class="mb-5">
         {% csrf_token %}
-        <div style="display: flex; flex-direction: column; gap: 15px;">
+        <div class="flex flex-col gap-4">
             {{ form.as_p }}
         </div>
-        <button type="submit" style="width: 100%; background-color: #4f9da6; color: white; padding: 10px 0; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; margin-top: 15px;">
+        <button type="submit" 
+                class="w-full bg-[#4f9da6] text-white py-2 rounded-md font-bold mt-4 transition duration-200 hover:bg-[#3b747a]">
             Simpan Favorit
         </button>
     </form>
 
     <a href="{% url 'favorit:show_favorit' %}" 
-       style="display: block; text-align: center; background-color: #d04848; color: white; padding: 10px 0; border-radius: 5px; text-decoration: none; font-weight: bold;">
+       class="block text-center bg-[#d04848] text-white py-2 rounded-md font-bold transition duration-200 hover:bg-[#a83030]">
        Kembali ke Daftar Favorit
     </a>
 </div>
