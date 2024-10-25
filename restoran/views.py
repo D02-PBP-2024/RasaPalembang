@@ -4,6 +4,8 @@ from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator
 from restoran.forms import RestoranForm
 from restoran.models import Restoran
+from makanan.models import Makanan
+from minuman.models import Minuman
 from django.utils import timezone
 from ulasan.models import Ulasan
 from django.urls import reverse
@@ -22,14 +24,14 @@ def restoran(request):
 
         if jam_buka < jam_tutup:
             if jam_buka <= current_time <= jam_tutup:
-                status = "Open now"
+                status = "Buka"
             else:
-                status = "Closed now"
+                status = "Tutup"
         else:
             if current_time >= jam_buka or current_time <= jam_tutup:
-                status = "Open now"
+                status = "Buka"
             else:
-                status = "Closed now"
+                status = "Tutup"
 
         restoran_with_status.append(
             {
@@ -97,6 +99,8 @@ from django.utils import timezone
 
 def lihat_restoran(request, id):
     restoran = get_object_or_404(Restoran, id=id)
+    makanan = Makanan.objects.filter(restoran=restoran)
+    minuman = Minuman.objects.filter(restoran=restoran)
     mengulas = False
 
     if request.user.is_authenticated and request.user.peran == "pengulas":
@@ -112,20 +116,22 @@ def lihat_restoran(request, id):
     # Menghitung status buka/tutup
     if jam_buka < jam_tutup:
         if jam_buka <= current_time <= jam_tutup:
-            status = "Open now"
+            status = "Buka"
         else:
-            status = "Closed now"
+            status = "Tutup"
     else:
         if current_time >= jam_buka or current_time <= jam_tutup:
-            status = "Open now"
+            status = "Buka"
         else:
-            status = "Closed now"
+            status = "Tutup"
 
     return render(
         request,
         "restoran/detail/index.html",
         {
             "restoran": restoran,
+            "makanan": makanan,
+            "minuman": minuman,
             "mengulas": mengulas,
             "status": status,
         },
