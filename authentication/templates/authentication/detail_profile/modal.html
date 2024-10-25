@@ -20,7 +20,7 @@
         <!-- Modal body -->
         <div class="px-6 py-4 space-y-6 form-style">
             <form method="POST" enctype="multipart/form-data" id="profileForm"
-                class="w-full max-w-md md:max-w-2xl mx-auto px-2 md:px-8 py-2 md:py-4 rounded-2xl">
+                class="w-full max-w-md md:max-w-2xl mx-auto px-2 py-2 md:py-2 rounded-2xl">
                 {% csrf_token %}
                 <div>
                     <label class="text-sm pl-3">
@@ -35,14 +35,23 @@
                     </label>
                     <textarea name="deskripsi" cols="40" rows="3" required="" id="id_deskripsi"
                         placeholder="Masukkan deskripsi singkat..."
-                        class="mt-2 bg-gray-100 rounded-lg focus-visible:outline-none px-4 py-3.5 w-full placeholder:text-[#808080]">{% if profile.deskripsi %} {{ profile.deskripsi }} {% endif %}</textarea>
+                        class="resize-none mt-2 bg-gray-100 rounded-lg focus-visible:outline-none px-4 py-3.5 w-full placeholder:text-[#808080]">{% if profile.deskripsi %} {{ profile.deskripsi }} {% endif %}</textarea>
                 </div>
-                <div class="mt-4">
+                <div class="mt-4 flex flex-col">
                     <label class="text-sm pl-3">
                         Foto
                     </label>
-                    <input type="file" name="foto" accept="image/*" required="" id="id_foto" value="{{ user.foto }}"
-                        class="mt-2 bg-gray-100 rounded-lg focus-visible:outline-none px-4 py-3.5 w-full placeholder:text-[#808080]">
+                    <label for="id_foto"
+                        class="w-full mt-2 overflow-hidden relative cursor-pointer bg-gray-100 rounded font-medium text-[#4f9da6] hover:text-[#3b747a] px-4 py-3.5 text-center text-nowrap">
+                        <span id="gambar-file">
+                            {% if user.foto %}
+                            {{ user.foto }}
+                            {% else %}
+                            Upload foto
+                            {% endif %}
+                        </span>
+                        <input type="file" name="foto" accept="image/*" required="" id="id_foto" class="sr-only">
+                    </label>
                 </div>
             </form>
         </div>
@@ -50,7 +59,7 @@
         <div
             class="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2 p-6 border-t border-gray-200 rounded-b justify-center md:justify-end">
             <button type="button"
-                class="bg-[#ff4545] hover:bg-[#e33b3b] hover:shadow transition text-white font-semibold px-8 py-2 rounded-lg"
+                class="bg-[#eb4b4b] hover:bg-[#c93e3e] hover:shadow transition text-white font-semibold px-8 py-2 rounded-lg"
                 id="cancelButton">
                 <i class="fa-solid fa-xmark mr-2"></i>
                 Kembali
@@ -63,3 +72,10 @@
         </div>
     </div>
 </div>
+<script>
+    var gambarUpload = document.getElementById('id_foto');
+    var gambarFile = document.getElementById('gambar-file');
+    gambarUpload.addEventListener('change', function () {
+        gambarFile.innerText = gambarUpload.files[0].name;
+    });
+</script>
