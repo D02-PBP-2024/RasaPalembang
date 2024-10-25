@@ -127,5 +127,6 @@ def lihat_restoran(request, id):
         {
             "restoran": restoran,
             "mengulas": mengulas,
+            "status": status,
         },
     )

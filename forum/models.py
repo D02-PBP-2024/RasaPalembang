@@ -9,6 +9,7 @@ class Forum(models.Model):
 
     topik = models.CharField(max_length=255)
     pesan = models.TextField()
+    tanggal_posting = models.DateTimeField(auto_now_add=True)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     restoran = models.ForeignKey(Restoran, on_delete=models.CASCADE)
@@ -18,7 +19,15 @@ class Balasan(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     pesan = models.TextField()
-    vote = models.IntegerField(default=0)
+    tanggal_posting = models.DateTimeField(auto_now_add=True)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     forum = models.ForeignKey(Forum, on_delete=models.CASCADE)
+
+
+class Vote(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    balasan = models.ForeignKey(Balasan, on_delete=models.CASCADE)
+    nilai = models.IntegerField(default=0)

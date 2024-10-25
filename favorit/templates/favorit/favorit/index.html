@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Daftar Favorit</h1>
+
+<a href="{% url 'favorit:tambah_favorit' %}" class="btn btn-primary mb-3">Tambah Favorit</a>
+
+<ul class="show-group">
+    {% for item in show_favorit %}
+    <li class="show-group-item">
+        <strong>{{ item.makanan }} {{ item.minuman }} {{ item.restoran }}</strong>
+        <p>{{ item.catatan }}</p>
+        <a href="{% url 'favorit:ubah_favorit' item.id %}" class="btn btn-secondary btn-sm">Edit</a>
+        <a href="{% url 'favorit:hapus_favorit' item.id %}" class="btn btn-danger btn-sm">Hapus</a>
+    </li>
+    {% empty %}
+    <li class="list-group-item">Anda belum menambahkan favorit apapun.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
