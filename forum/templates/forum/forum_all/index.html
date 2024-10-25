@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block meta %}
-    <title>Forum Diskusi</title>
+    <title>RasaPalembang | Forum Diskusi</title>
 {% endblock meta %}
 
 {% block content %} 
@@ -18,7 +18,7 @@
         </a>
     {% endif %}
     {% if forum %}
-        <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3 lg:mx-0 lg:max-w-none">
+        <div class="mt-4 mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3 lg:mx-0 lg:max-w-none">
             {% for item in forum reversed %}
                 {% include 'forum/forum_all/card.html' with forum=item %}
             {% endfor %}
@@ -30,7 +30,7 @@
             </div>
             <div>
                 <h1 class="text-center text-xl md:text-2xl font-bold">Belum ada forum untuk restoran ini</h1>
-                <p class="text-center text-gray-900 max-md:text-sm max-md:mt-2">Mari berbagi pengalaman atau pertanyaanmu dengan menulis di forum!</p>
+                <label class="text-center text-gray-900 max-md:text-sm max-md:mt-2">Mari berbagi pengalaman atau pertanyaanmu dengan menulis di forum!</label>
             </div>
         </div>
     {% endif %}
