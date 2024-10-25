@@ -51,3 +51,15 @@ function editProfile() {
 }
 
 document.getElementById("submitProfileForm").onclick = editProfile
+
+window.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+        hideModal();
+    }
+})
+
+window.addEventListener('click', function (event) {
+    if (event.target === modal && !modal.classList.contains('hidden')) {
+        hideModal();
+    }
+})

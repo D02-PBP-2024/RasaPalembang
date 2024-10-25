@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block meta %}
-<title>Edit Minuman</title>
+<title>RasaPalembang | Edit Minuman</title>
 {% endblock meta %}
 
 {% block content %}
-<main class="px-5 md:px-10 lg:px-16 xl:px-24 py-5 md:py-10 w-full mx-auto">
-    <h2 class="mt-8 text-xl font-semibold">Edit Minuman</h2>
+<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-10 w-full mx-auto">
+    <h2 class="text-xl font-semibold">Edit Minuman</h2>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="grid grid-cols-2 sm:gap-x-4 w-full">
