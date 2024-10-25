@@ -150,11 +150,23 @@
             </div>
             <div class="mt-4 col-span-2 sm:col-span-1">
                 <label class="text-sm pl-3">Kategori</label>
-                <div class="chips-wrapper mt-2">
-                    {% for kategori in form.kategori.field.queryset %}
-                        <span class="chip" data-id="{{ kategori.id }}">{{ kategori.nama }}</span>
-                        <input type="checkbox" name="kategori" value="{{ kategori.id }}" class="hidden-input">
-                    {% endfor %}
+                <div class="relative">
+                    <div class="relative">
+                        <button id="dropdownButton" class="w-full mt-2 bg-gray-100 rounded px-4 py-3.5 text-left flex justify-between items-center">
+                            <span id="dropdownPlaceholder">Pilih Kategori</span>
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+
+                        <ul id="kategoriDropdown" class="absolute z-10 hidden w-full bg-white rounded-lg shadow-lg mt-2">
+                            {% for kategori in form.kategori.field.queryset %}
+                            <li>
+                                <button class="kategori-option block w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-200"
+                                    data-id="{{ kategori.id }}">{{ kategori.nama }}</button>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="chips-wrapper mt-4" id="chipsContainer"></div>
                 </div>
             </div>
         </div>
@@ -172,12 +184,65 @@
         gambarFile.innerText = gambarUpload.files[0].name;
     });
 
-    // JS untuk handle chips selection
-    document.querySelectorAll('.chip').forEach(function(chip) {
-        chip.addEventListener('click', function() {
-            const input = this.nextElementSibling;  // Menghubungkan dengan input checkbox di sebelahnya
-            this.classList.toggle('active');  // Toggle class active (highlight chip)
-            input.checked = !input.checked;  // Toggle checkbox state
+    const dropdownButton = document.getElementById('dropdownButton');
+    const dropdownList = document.getElementById('kategoriDropdown');
+    const chipsContainer = document.getElementById('chipsContainer');
+    const hiddenInputsContainer = document.getElementById('hiddenInputsContainer');
+    const selectedKategori = new Set();
+
+    // Toggle dropdown visibility on click
+    dropdownButton.addEventListener('click', function () {
+        dropdownList.classList.toggle('hidden');
+    });
+
+    // Hide dropdown if clicked outside
+    document.addEventListener('click', function (e) {
+        if (!dropdownButton.contains(e.target) && !dropdownList.contains(e.target)) {
+            dropdownList.classList.add('hidden');
+        }
+    });
+
+    // Fungsi untuk membuat chip
+    function createChip(id, nama) {
+        const chip = document.createElement('span');
+        chip.classList.add('chip');
+        chip.textContent = nama;
+
+        const closeButton = document.createElement('button');
+        closeButton.classList.add('chip-close');
+        closeButton.innerHTML = '&times;';
+        closeButton.onclick = () => {
+            // Hapus chip ketika tombol "x" diklik
+            chip.remove();
+            selectedKategori.delete(id);
+            // Hapus hidden input terkait
+            document.querySelector(`#hiddenKategoriInput-${id}`).remove();
+        };
+
+        chip.appendChild(closeButton);
+        chipsContainer.appendChild(chip);
+    }
+
+    // Event listener ketika memilih kategori dari dropdown
+    document.querySelectorAll('.kategori-option').forEach(option => {
+        option.addEventListener('click', function () {
+            const id = this.getAttribute('data-id');
+            const nama = this.textContent;
+
+            if (!selectedKategori.has(id)) {
+                selectedKategori.add(id);
+                createChip(id, nama);
+
+                // Tambahkan hidden input untuk kategori terpilih
+                const hiddenInput = document.createElement('input');
+                hiddenInput.type = 'hidden';
+                hiddenInput.name = 'kategori';
+                hiddenInput.value = id;
+                hiddenInput.id = `hiddenKategoriInput-${id}`;
+                hiddenInputsContainer.appendChild(hiddenInput);
+            }
+
+            dropdownList.classList.add('hidden');  // Sembunyikan dropdown setelah memilih
         });
     });
 </script>

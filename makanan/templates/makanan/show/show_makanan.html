@@ -107,7 +107,7 @@
     applyFilter.addEventListener('click', function () {
         dropdownMenu.classList.toggle('hidden')
         // AJAX request to filter makanan tanpa mengubah URL
-        fetch('/makanan/filter_makanan_by_kategori/', { // Atur URL ke view yang sesuai
+        fetch('/makanan/filter_makanan_by_kategori/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -115,24 +115,21 @@
             },
             body: JSON.stringify({'kategori_id': Array.from(kategoriId.values())})
         })
-        .then(response => response.json()) // Pastikan response berupa JSON
+        .then(response => response.json())  // Pastikan response berupa JSON
         .then(data => {
             // Update makanan list berdasarkan data yang di-filter
-            makananList.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
             makananList.innerHTML = '';  // Kosongkan daftar makanan yang ada
             if (data.makanan.length > 0) {
+                makananList.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
                 data.makanan.forEach(makanan => {
-                makananList.innerHTML += `
-                <a href="/makanan/${makanan.id}" class="block bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 transform hover:scale-105 transition-transform duration-300">
-                    <img class="w-full h-48 object-cover mb-4 rounded-lg" src="${makanan.gambar}" alt="${makanan.nama}">
-                    <h2 class="text-xl font-semibold text-gray-700">${makanan.nama}</h2>
-                    <p class="text-gray-500 mt-2">Harga: Rp ${makanan.harga}</p>
-                    <p class="text-gray-500">Kalori: ${makanan.kalori} kkal</p>
-                    <p class="text-gray-500">${makanan.deskripsi}</p>
-                    <p class="text-sm text-gray-400 mt-4">Restoran: ${makanan.restoran}</p>
-                </a>
-            `;
-            });
+                    makananList.innerHTML += `
+                        <a href="/makanan/${makanan.id}" class="block bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 transform hover:scale-105 transition-transform duration-300">
+                            <img class="w-full h-48 object-cover mb-4 rounded-lg" src="${makanan.gambar}" alt="${makanan.nama}">
+                            <h2 class="text-xl font-semibold text-gray-700">${makanan.nama}</h2>
+                            <p class="text-sm text-gray-400 mt-4">Restoran: ${makanan.restoran}</p>
+                        </a>
+                    `;
+                });
             } else {
                 makananList.className = '';
                 makananList.innerHTML += `
