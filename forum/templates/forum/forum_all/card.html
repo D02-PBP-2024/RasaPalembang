@@ -1,6 +1,6 @@
 {% load static %}
 
-<article class="flex max-w-xl flex-col items-start mt-4 block bg-white ring-1 ring-gray-100 shadow transition hover:shadow-lg relative p-6 flex px-4 py-4 rounded-lg overflow-hidden">
+<article class="flex max-w-xl flex-col items-start block bg-white ring-1 ring-gray-100 shadow transition hover:shadow-lg relative p-6 flex px-4 py-4 rounded-lg overflow-hidden">
     <div class="flex items-center justify-between w-full">
       <h3 class="mt-2 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
           <a href="{% url 'forum:show_forum_by_id' forum.restoran.id forum.id %}">
@@ -46,7 +46,7 @@
         </p>
       </div>
       <div class="ml-auto">
-          <a href="{% url 'forum:show_forum_by_id' forum.restoran.id forum.id %}" class="font-semibold text-[#ff5757]">
+          <a href="{% url 'forum:show_forum_by_id' forum.restoran.id forum.id %}" class="font-semibold text-[#ff5757] hover:text-[#d04848]">
               <p aria-hidden="true">Lihat detail</p>
           </a>
       </div>

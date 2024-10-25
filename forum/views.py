@@ -1,8 +1,6 @@
-import json
-from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from forum.models import Forum, Balasan, Vote
+from forum.models import Forum, Balasan
 from forum.forms import ForumForm, BalasanForm
 from restoran.models import Restoran
 
@@ -13,19 +11,18 @@ def show_forum(request, id_restoran):
     context = {
         "forum": forum,
         "restoran": restoran
-        }
+    }
     
     return render(request, "forum/forum_all/index.html", context)
 
 
 def show_forum_by_id(request, id_restoran, id_forum):
     forum = Forum.objects.get(pk=id_forum)
-    balasan = Balasan.objects.filter(forum=id_forum).order_by("-vote")
-
+    balasan = Balasan.objects.filter(forum=id_forum)
     context = {
         "forum": forum,
         "balasan": balasan,
-        }
+    }
     return render(request, "forum/forum_by_id/index.html", context)
 
 
@@ -43,9 +40,6 @@ def create_forum(request, id_restoran):
         topik.restoran = restoran
         topik.save()
         return redirect('forum:show_forum', id_restoran=restoran.id)
-
-    # request.user.poin += 5
-    # request.user.save()
 
     context = {'form': form}
     return render(request, 'forum/tambah/index.html', context)
@@ -67,13 +61,10 @@ def balas(request, id_restoran, id_forum):
         balasan.save()
         return redirect('forum:show_forum_by_id', id_restoran=restoran.id, id_forum=forum.id)
 
-    # forum.user.poin += 5
-    # forum.user.save()
-
     context = {
         'form': form,
         'forum': forum,
-        }
+    }
     return render(request, 'forum/balas/index.html', context)
 
 
@@ -89,7 +80,6 @@ def edit_forum(request, id_restoran, id_forum):
             return redirect('forum:show_forum', id_restoran=restoran.id)
         
     context = {"forum": forum}
-        
     return render(request, 'edit/edit_forum.html', context)
 
 
@@ -118,7 +108,6 @@ def edit_balasan(request, id_restoran, id_forum, id_balasan):
             return redirect('forum:show_forum_by_id', id_restoran=restoran.id, id_forum=forum.id)
 
     context = {"balasan": balasan}
-
     return render(request, "edit/edit_balasan.html", context)
 
 
@@ -133,32 +122,3 @@ def delete_balasan(request, id_restoran, id_forum, id_balasan):
 
     balasan.delete()
     return redirect('forum:show_forum_by_id', id_restoran=restoran.id, id_forum=forum.id)
-
-
-@login_required(login_url="login")
-def vote_balasan(request, id_restoran, id_forum, id_balasan):
-    if request.method == "POST":
-        try:
-            user = request.user
-            balasan = Balasan.objects.get(id=id_balasan)
-
-            vote = Vote(
-                user=user,
-                balasan=balasan,
-            )
-            
-            balasan.nilai += 1
-
-            balasan.save()
-            vote.save()
-            user.poin += 1
-            user.save()
-
-            return HttpResponse(b"Berhasil menambah vote.", status=201)
-        
-        except Exception as e:
-            return JsonResponse({'error': str(e)}, status=400)
-
-def balasan_by_id(request, id_restoran, id_forum, id_balasan):
-    balasan = Balasan.objects.all()
-    return JsonResponse({"balasan": balasan}) 

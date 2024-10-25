@@ -11,4 +11,4 @@ class ForumForm(ModelForm):
 class BalasanForm(ModelForm):
     class Meta:
         model = Balasan
-        fields = ["pesan", "nilai"]
+        fields = ["pesan"]
