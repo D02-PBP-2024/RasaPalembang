@@ -38,7 +38,6 @@ urlpatterns = (
         path("profile/", profile, name="profile"),
         path("profile/<slug:username>", detail_profile, name="detail_profile"),
         path("restoran/", include("restoran.urls")),
-        path('makanan/', include('makanan.urls')),
         path("minuman/", include("minuman.urls")),
         path("makanan/", include("makanan.urls")),
         path("restoran/<uuid:id_restoran>/forum/", include("forum.urls")),
