@@ -67,7 +67,7 @@ def edit_makanan(request, id):
     if form.is_valid() and request.method == 'POST':
         form.save()  # Simpan gambar baru atau update field lainnya
         return redirect('makanan:detail_makanan', id=id)
-    
+
     context = {'form': form, 'makanan': makanan}
     return render(request, 'makanan/edit_makanan/edit_makanan.html', context)
 
@@ -86,7 +86,7 @@ def filter_by_kategori(request):
     if request.method == 'POST':
         try:
             data = json.loads(request.body)  # Ambil data JSON dari request body
-            kategori_id = data.get('kategori_id')  # Dapatkan kategori ID dari request body
+            kategori_id = data.get('kategori_id')  # Dapatkan kategori ID dari request body, default empty list
 
             # Filter makanan berdasarkan kategori yang dipilih
             if len(kategori_id) > 0:
@@ -94,7 +94,7 @@ def filter_by_kategori(request):
             else:
                 makanan_list = Makanan.objects.all()
 
-            # Persiapkan data makanan untuk dikirim kembali sebagai response JSON
+            # Persiapkan data makanan untuk dikirim kembali sebagai response JSON\
             makanan_data = []
             for makanan in makanan_list:
                 makanan = {
@@ -108,6 +108,7 @@ def filter_by_kategori(request):
                 }
                 if makanan not in makanan_data:
                     makanan_data.append(makanan)
+
             # Kirim response JSON ke frontend
             return JsonResponse({'makanan': makanan_data})
         except Exception as e:

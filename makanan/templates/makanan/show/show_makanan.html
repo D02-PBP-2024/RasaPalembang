@@ -25,11 +25,11 @@
             <!-- Dropdown menu -->
             <div id="dropdownMenu" class="hidden z-10 absolute mt-2 bg-white rounded-lg shadow-lg p-4 ring-1 ring-gray-100 left-0">
                 {% for kategori in list_kategori %}
-                <label class="flex space-x-2">
-                    <input id="dropdown-item" type="checkbox" class="block px-4 py-2 text-gray-700 hover:bg-gray-200"
-                    data-kategori-id="{{ kategori.id }}">
-                    <span>{{ kategori.nama }}</span>
-                </label>
+                    <label class="flex space-x-2">
+                        <input id="dropdown-item" type="checkbox" class="block px-4 py-2 text-gray-700 hover:bg-gray-200"
+                        data-kategori-id="{{ kategori.id }}">
+                        <span>{{ kategori.nama }}</span>
+                    </label>
                 {% endfor %}
                 <div>
                     <button
@@ -144,7 +144,6 @@
                 </div>
                 `;
             }
-
         })
         .catch(error => console.error('Error:', error));
     })
