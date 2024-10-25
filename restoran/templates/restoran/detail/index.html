@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load humanize %}
 
 {% block meta %}
 <title>{{ restoran.nama }} | RasaPalembang</title>
@@ -83,13 +84,52 @@
     <div class="mt-10 flex flex-col lg:flex-row gap-10 lg:gap-5">
         <div class="basis-[64%]">
             <h1 class="text-2xl md:text-3xl font-bold">Menu</h1>
-            <div class="border border-neutral-100 shadow-md rounded-xl p-5 w-full mt-4">
-
+            {% if not makanan and not minuman %}
+            <div
+                class='mt-4 border border-neutral-100 shadow-lg shadow-neutral-200/40 rounded-xl px-3 sm:px-6 py-10 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14'>
+                <div>
+                    <img src="{% static 'images/empty-minuman.png' %}" alt='Empty Review' class='max-w-24 md:max-w-32'>
+                </div>
+                <div>
+                    <h1 class='text-center text-xl md:text-2xl font-bold'>Oops, Kosong Nih!</h1>
+                    <h2 class='text-center max-md:text-sm max-md:mt-2'>
+                        Belum ada makanan atau minuman. Cek lagi nanti, ya!
+                    </h2>
+                </div>
             </div>
+            {% else %}
+            <div
+                class="p-2 sm:p-3 border border-neutral-100 shadow-lg shadow-neutral-100 rounded-xl w-full mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 max-h-[420px] md:max-h-[520px] overflow-auto pr-2 md:pr-4">
+                <!-- {% for item in makanan %}
+                <div
+                    class="border border-neutral-100 shadow-lg shadow-neutral-100 hover:shadow-neutral-200 rounded-xl transition">
+                    <a href="{% url 'makanan:show_makanan_by_id' item.id %}">
+                        <img src='{{ item.gambar.url }}' alt='{{ item.nama }}' class='rounded-lg w-full'>
+                        <div class="p-3 md:p-4">
+                            <h1 class="md:text-lg font-bold">{{ item.nama }}</h1>
+                            <h1 class="text-neutral-500 max-md:text-sm font-semibold">Rp{{ item.harga|intcomma }}</h1>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %} -->
+                {% for item in minuman %}
+                <div
+                    class="border border-neutral-100 shadow-lg shadow-neutral-100 hover:shadow-neutral-200 rounded-xl transition">
+                    <a href="{% url 'minuman:show_minuman_by_id' item.id %}">
+                        <img src='{{ item.gambar.url }}' alt='{{ item.nama }}' class='rounded-lg w-full'>
+                        <div class="p-3 md:p-4">
+                            <h1 class="md:text-lg font-bold">{{ item.nama }}</h1>
+                            <h1 class="text-neutral-500 max-md:text-sm font-semibold">Rp{{ item.harga|intcomma }}</h1>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
         <div class="basis-[36%]">
             <h1 class="text-2xl md:text-3xl font-bold">Lokasi</h1>
-            <div class="border border-neutral-100 shadow-md rounded-xl p-5 w-full mt-4">
+            <div class="border border-neutral-100 shadow-lg shadow-neutral-100 rounded-xl p-5 w-full mt-4">
                 <div id="map" class="w-full h-[300px] rounded-xl"></div>
             </div>
         </div>
@@ -222,9 +262,9 @@
         if (reviews.length === 0) {
             classNameString = 'mt-4 flex justify-center items-center'
             htmlString = `
-                <div class='border border-neutral-100 shadow-md rounded-xl px-3 sm:px-6 py-10 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14'>
+                <div class='border border-neutral-100 shadow-lg shadow-neutral-200/40 rounded-xl px-3 sm:px-6 py-10 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14'>
                     <div>
-                        <img src='{% static 'images/empty-review.png' %}' alt='Empty Review' class='max-w-24 md:max-w-32'>
+                        <img src="{% static 'images/empty-review.png' %}" alt='Empty Review' class='max-w-24 md:max-w-32'>
                     </div>
                     <div>
                         <h1 class='text-center text-xl md:text-2xl font-bold'>Belum ada ulasan untuk restoran ini</h1>
