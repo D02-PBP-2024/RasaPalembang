@@ -9,6 +9,7 @@ from ulasan.models import Ulasan
 from django.urls import reverse
 from .forms import RestoranForm
 from .models import Restoran
+from django.db.models import Avg
 
 
 def restoran(request):
@@ -20,6 +21,9 @@ def restoran(request):
         jam_buka = restoran.jam_buka
         jam_tutup = restoran.jam_tutup
 
+        ulasan = Ulasan.objects.filter(restoran=restoran)
+        if ulasan.exists():
+                rata_bintang = ulasan.aggregate(Avg('nilai'))['nilai__avg']
         if jam_buka < jam_tutup:
             if jam_buka <= current_time <= jam_tutup:
                 status = "Open now"
@@ -37,6 +41,8 @@ def restoran(request):
                 "status": status,
                 "jam_buka": jam_buka.strftime("%H:%M"),
                 "jam_tutup": jam_tutup.strftime("%H:%M"),
+                "rata_bintang": round(rata_bintang, 1), 
+                "ulasan_terbaik": ulasan.order_by('-nilai')[:2],  
             }
         )
 
