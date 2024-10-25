@@ -12,10 +12,12 @@ def show_makanan(request):
     paginator = Paginator(makanan, 6)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+    list_kategori = Kategori.objects.all()
     context = {
         'makanan_list': makanan,
         'page_obj': page_obj,
         'total_page': paginator.num_pages,
+        'list_kategori': list_kategori,
         }
     return render(request, 'makanan/show/show_makanan.html', context)
 
@@ -87,12 +89,15 @@ def filter_by_kategori(request):
             kategori_id = data.get('kategori_id')  # Dapatkan kategori ID dari request body
 
             # Filter makanan berdasarkan kategori yang dipilih
-            makanan_list = Makanan.objects.filter(kategori__id=kategori_id)
+            if len(kategori_id) > 0:
+                makanan_list = Makanan.objects.filter(kategori__id__in=kategori_id)
+            else:
+                makanan_list = Makanan.objects.all()
 
             # Persiapkan data makanan untuk dikirim kembali sebagai response JSON
             makanan_data = []
             for makanan in makanan_list:
-                makanan_data.append({
+                makanan = {
                     'id': makanan.id,
                     'nama': makanan.nama,
                     'gambar': makanan.gambar.url if makanan.gambar else '',
@@ -100,8 +105,9 @@ def filter_by_kategori(request):
                     'kalori': makanan.kalori,
                     'deskripsi': makanan.deskripsi,
                     'restoran': makanan.restoran.nama,
-                })
-
+                }
+                if makanan not in makanan_data:
+                    makanan_data.append(makanan)
             # Kirim response JSON ke frontend
             return JsonResponse({'makanan': makanan_data})
         except Exception as e:

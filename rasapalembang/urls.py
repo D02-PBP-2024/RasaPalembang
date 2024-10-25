@@ -17,6 +17,8 @@ Including another URLconf
 from django.urls import path, include, re_path
 from django.conf.urls.static import static
 from rasapalembang.views import landing
+from django.contrib import admin
+from django.conf import settings
 from django.views.static import serve
 from authentication.views import (
     detail_profile,
@@ -25,8 +27,6 @@ from authentication.views import (
     login,
     logout,
 )
-from django.contrib import admin
-from django.conf import settings
 
 urlpatterns = (
     [
@@ -38,6 +38,7 @@ urlpatterns = (
         path("profile/", profile, name="profile"),
         path("profile/<slug:username>", detail_profile, name="detail_profile"),
         path("restoran/", include("restoran.urls")),
+        path('makanan/', include('makanan.urls')),
         path("minuman/", include("minuman.urls")),
         path("makanan/", include("makanan.urls")),
         path("restoran/<uuid:id_restoran>/forum/", include("forum.urls")),
