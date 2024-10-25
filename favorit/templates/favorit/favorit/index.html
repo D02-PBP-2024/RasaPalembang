@@ -1,20 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Daftar Favorit</h1>
+<div style="max-width: 800px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif;">
+    <h1 style="text-align: center; font-size: 2.5rem; color: #3b747a; margin-bottom: 20px; font-weight: bold;">Daftar Favorit</h1>
 
-<a href="{% url 'favorit:tambah_favorit' %}" class="btn btn-primary mb-3">Tambah Favorit</a>
+    <a href="{% url 'favorit:tambah_favorit' %}" 
+       style="background-color: #facf5a; color: #3b747a; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; margin-bottom: 20px; font-weight: bold;">
+       Tambah Favorit
+    </a>
 
-<ul class="show-group">
-    {% for item in show_favorit %}
-    <li class="show-group-item">
-        <strong>{{ item.makanan }} {{ item.minuman }} {{ item.restoran }}</strong>
-        <p>{{ item.catatan }}</p>
-        <a href="{% url 'favorit:ubah_favorit' item.id %}" class="btn btn-secondary btn-sm">Edit</a>
-        <a href="{% url 'favorit:hapus_favorit' item.id %}" class="btn btn-danger btn-sm">Hapus</a>
-    </li>
-    {% empty %}
-    <li class="list-group-item">Anda belum menambahkan favorit apapun.</li>
-    {% endfor %}
-</ul>
+    <ul style="list-style-type: none; padding: 0;">
+        {% for item in show_favorit %}
+        <li style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 10px; padding: 15px; margin-bottom: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s;">
+            <strong style="font-size: 1.2rem; color: #d04848;">{{ item.makanan }} {{ item.minuman }} {{ item.restoran }}</strong>
+            <p style="color: #555; margin: 8px 0;">{{ item.catatan }}</p>
+            <a href="{% url 'favorit:ubah_favorit' item.id %}" 
+               style="background-color: #4f9da6; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; margin-right: 10px; font-weight: bold;">
+               Edit
+            </a>
+            <a href="{% url 'favorit:hapus_favorit' item.id %}" 
+               style="background-color: #d04848; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">
+               Hapus
+            </a>
+        </li>
+        {% empty %}
+        <li style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 10px; padding: 15px; color: #666; font-style: italic;">
+            Anda belum menambahkan favorit apapun.
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
