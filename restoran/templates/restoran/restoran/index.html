@@ -21,39 +21,94 @@ Daftar Restoran
     {% if page_obj %}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {% for item in page_obj %}
-        <a href="{% url 'restoran:detail' item.restoran.id %}" class="block bg-white shadow-md rounded-lg overflow-hidden transition hover:shadow-lg relative 
-                   {% if forloop.counter == 10 %} col-start-2 {% endif %}">
-            <div class="w-full h-48 overflow-hidden">
-                {% if item.restoran.gambar %}
-                <img src="{{ item.restoran.gambar.url }}" alt="{{ item.restoran.nama }}"
-                    class="w-full h-full object-cover">
-                {% else %}
-                <img src="{% static 'images/no-image.jpg' %}" alt="No image" class="w-full h-full object-cover">
-                {% endif %}
-            </div>
+            <a href="{% url 'restoran:detail' item.restoran.id %}" 
+               class="block bg-white shadow-md rounded-lg overflow-hidden transition hover:shadow-lg relative 
+               {% if forloop.counter == 10 %} col-start-2 {% endif %}">
+                <div class="w-full h-48 overflow-hidden">
+                    {% if item.restoran.gambar %}
+                        <img src="{{ item.restoran.gambar.url }}" alt="{{ item.restoran.nama }}" class="w-full h-full object-cover">
+                    {% else %}
+                        <img src="{% static 'images/no-image.jpg' %}" alt="No image" class="w-full h-full object-cover">
+                    {% endif %}
+                </div>
+    
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold text-gray-700">{{ item.restoran.nama }}</h2>
 
-            <div class="p-4">
-                <h2 class="text-lg font-semibold text-gray-700">{{ item.restoran.nama }}</h2>
-                <p class="text-gray-500 mt-1">
-                    <i class="fas fa-clock mr-2"></i>
-                    {{ item.jam_buka }} - {{ item.jam_tutup }}
-                    <span class="{% if item.status == 'Buka' %}text-green-500{% else %}text-red-500{% endif %}">
-                        {{ item.status }}
-                    </span>
-                </p>
-                <p class="text-gray-500 mt-1"><i class="fas fa-map-marker-alt mr-2"></i>{{ item.restoran.alamat }}</p>
-                <p class="text-gray-500"><i class="fas fa-phone mr-2"></i>{{ item.restoran.nomor_telepon }}</p>
-            </div>
-        </a>
+                    <div class="flex items-center text-yellow-500">
+                        {% if item.rata_bintang >= 1 %}
+                            <i class="fas fa-star"></i>
+                        {% else %}
+                            {% if item.rata_bintang >= 0.5 %}
+                                <i class="fas fa-star-half-alt"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endif %}
+                        {% if item.rata_bintang >= 2 %}
+                            <i class="fas fa-star"></i>
+                        {% else %}
+                            {% if item.rata_bintang >= 1.5 %}
+                                <i class="fas fa-star-half-alt"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endif %}
+                        {% if item.rata_bintang >= 3 %}
+                            <i class="fas fa-star"></i>
+                        {% else %}
+                            {% if item.rata_bintang >= 2.5 %}
+                                <i class="fas fa-star-half-alt"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endif %}
+                        {% if item.rata_bintang >= 4 %}
+                            <i class="fas fa-star"></i>
+                        {% else %}
+                            {% if item.rata_bintang >= 3.5 %}
+                                <i class="fas fa-star-half-alt"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endif %}
+                        {% if item.rata_bintang >= 5 %}
+                            <i class="fas fa-star"></i>
+                        {% else %}
+                            {% if item.rata_bintang >= 4.5 %}
+                                <i class="fas fa-star-half-alt"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endif %}
+                        
+                        <span class="ml-2 text-gray-500">({{ item.rata_bintang|floatformat:1 }}/5)</span>
+                    </div>
+                    
+                    <p class="text-gray-500 mt-1"><i class="fas fa-clock mr-2"></i>{{ item.jam_buka }} - {{ item.jam_tutup }}
+                        <span class="{% if item.status == 'Open now' %}text-green-500{% else %}text-red-500{% endif %}">
+                            {{ item.status }}
+                        </span>
+                    </p>
+
+                    <div class="mt-4">
+                        {% for ulasan in item.ulasan_terbaik %}
+                            <div>
+                                {# Membatasi ulasan maksimal 5 kata #}
+                                <blockquote class="italic text-gray-600">“{{ ulasan.deskripsi|slice:":50" }}…”</blockquote>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </a>
         {% endfor %}
     </div>
-
+    
     <div class="mt-6 flex justify-center">
         <div class="flex gap-4">
             {% if page_obj.has_previous %}
-            <a href="?page=1" class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-md">First</a>
-            <a href="?page={{ page_obj.previous_page_number }}"
-                class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-md">Previous</a>
+                <a href="?page=1" class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-md">First</a>
+                <a href="?page={{ page_obj.previous_page_number }}" class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-md">Previous</a>
             {% endif %}
 
             <span class="px-4 py-2 bg-gray-100 rounded-md">
