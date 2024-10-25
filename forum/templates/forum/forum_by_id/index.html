@@ -21,9 +21,11 @@
             <p class="mt-4 text-gray-500 mt-1">
                 {{ forum.pesan }}
             </p>
+            {% if request.user != forum.user and request.user.peran == 'pengulas' %}
             <a href="{% url 'forum:balas' forum.restoran.id forum.id %}" class="inline-flex items-center border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-1 px-4 mt-6 rounded-xl focus:outline-none focus:bg-[#4f9da6] focus:text-white">
                 Balas Forum
             </a>
+            {% endif %}
             {% if balasan %}
             <p class="mt-4 ml-12 font-semibold text-[#4f9da6]">Balasan</p>
             <div class="ml-12 flex flex-col space-y-4">
@@ -47,7 +49,16 @@
                                     <i class="fa-regular fa-trash-can ml-2"></i>
                                 </a>
                                 {% else %}
-                                <i class="fa-regular fa-thumbs-up self-center"></i>
+                                    {% if request.user.peran == 'pengulas' %}
+                                        <div class="grid grid-cols-2 sm:gap-x-4 w-full">
+                                            <div class="flex mt-4 col-span-2 sm:col-span-2">
+                                                <button id="vote" data-balasan-id="{{ item.id }}">
+                                                    <i class="fa-regular fa-thumbs-up self-center"></i>
+                                                </button>
+                                                <p id="voteValue" class="ml-2 font-semibold text-gray-900">{{ item.nilai }}</p>
+                                            </div>
+                                        </div>
+                                    {% endif %}
                                 {% endif %}
                             </div>
                         </div>
@@ -74,5 +85,24 @@
     </div>
     {% endif %}
 </main>
+
+<script>
+    var voteButton = document.getElementById('vote')
+    voteButton.addEventListener('click', function() {
+        fetch('restoran/{{ forum.restoran.id }}/forum/{{ forum.id }}/vote-balasan/{{ balasan.id }}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}',
+            },
+        }).then(response => response.json())
+        // console.log(`${window.location.pathname}vote-balasan/{{ forum.id }}`)
+    })
+
+    // var voteValue = document.getElementById('voteValue')
+    // function refreshVote() {
+        
+    // }
+</script>
 
 {% endblock content %} 

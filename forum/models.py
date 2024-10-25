@@ -23,11 +23,10 @@ class Balasan(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     forum = models.ForeignKey(Forum, on_delete=models.CASCADE)
+    nilai = models.IntegerField(default=0)
 
 
 class Vote(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     balasan = models.ForeignKey(Balasan, on_delete=models.CASCADE)
-    nilai = models.IntegerField(default=0)

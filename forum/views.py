@@ -1,9 +1,10 @@
+import json
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from forum.models import Forum, Balasan
+from forum.models import Forum, Balasan, Vote
 from forum.forms import ForumForm, BalasanForm
 from restoran.models import Restoran
-from authentication.models import User
 
 
 def show_forum(request, id_restoran):
@@ -20,6 +21,7 @@ def show_forum(request, id_restoran):
 def show_forum_by_id(request, id_restoran, id_forum):
     forum = Forum.objects.get(pk=id_forum)
     balasan = Balasan.objects.filter(forum=id_forum).order_by("-vote")
+
     context = {
         "forum": forum,
         "balasan": balasan,
@@ -131,3 +133,32 @@ def delete_balasan(request, id_restoran, id_forum, id_balasan):
 
     balasan.delete()
     return redirect('forum:show_forum_by_id', id_restoran=restoran.id, id_forum=forum.id)
+
+
+@login_required(login_url="login")
+def vote_balasan(request, id_restoran, id_forum, id_balasan):
+    if request.method == "POST":
+        try:
+            user = request.user
+            balasan = Balasan.objects.get(id=id_balasan)
+
+            vote = Vote(
+                user=user,
+                balasan=balasan,
+            )
+            
+            balasan.nilai += 1
+
+            balasan.save()
+            vote.save()
+            user.poin += 1
+            user.save()
+
+            return HttpResponse(b"Berhasil menambah vote.", status=201)
+        
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=400)
+
+def balasan_by_id(request, id_restoran, id_forum, id_balasan):
+    balasan = Balasan.objects.all()
+    return JsonResponse({"balasan": balasan}) 
