@@ -55,7 +55,7 @@
                 <label class="text-sm pl-3">Kategori</label>
                 <div class="flex flex-wrap gap-2 mt-2">
                     {% for kategori in form.kategori.field.queryset %}
-                    <div class="bg-neutral-200/80 font-semibold rounded-full px-5 py-1 cursor-pointer select-none"
+                    <div class="bg-neutral-200/80 font-semibold rounded-full px-4 md:px-5 py-1 md:py-1.5 text-xs md:text-sm cursor-pointer select-none"
                         onclick="selectCategory(this, '{{ kategori.id }}')">
                         {{ kategori.nama }}
                     </div>
