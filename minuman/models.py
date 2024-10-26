@@ -13,7 +13,7 @@ class Minuman(models.Model):
     ]
 
     nama = models.CharField(max_length=255)
-    harga = models.DecimalField(max_digits=10, decimal_places=2)
+    harga = models.IntegerField()
     deskripsi = models.TextField(blank=True)
     gambar = models.ImageField(upload_to="gambar_minuman/", blank=True, null=True)
     ukuran = models.CharField(max_length=6, choices=UKURAN_CHOICES)
