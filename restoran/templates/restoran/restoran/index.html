@@ -149,7 +149,17 @@ Daftar Restoran
         </div>
     </div>
     {% else %}
-    <p class="text-center text-gray-500">Belum ada restoran yang ditambahkan.</p>
+    <div class="px-3 sm:px-6 py-16 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14">
+        <div>
+            <img src="{% static 'images/empty-restoran.png' %}" class="max-w-24 md:max-w-32">
+        </div>
+        <div>
+            <h1 class="text-center text-xl md:text-2xl font-bold">Belum ada restoran yang tersedia</h1>
+            <p class="text-center text-gray-900 max-md:text-sm max-md:mt-2">
+                Segera kembali, berbagai restoran menarik akan segera hadir!
+            </p>
+        </div>
+    </div>
     {% endif %}
 </div>
 {% endblock %}
