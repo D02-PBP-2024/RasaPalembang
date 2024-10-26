@@ -12,7 +12,7 @@ def show_minuman(request):
     return render(request, "minuman/minuman_all/index.html", {"minuman": minuman})
 
 
-def show_minuman_by_id(request, id):
+def detail_minuman(request, id):
     minuman = Minuman.objects.get(pk=id)
     restoran = Restoran.objects.get(pk=minuman.restoran.id)
 
