@@ -42,7 +42,7 @@ def get_harga_range(restoran):
         return "$$$$"
 
 
-def restoran(request):
+def show_restoran(request):
     current_time = timezone.localtime().time()
     sort_by = request.GET.get("sort", "default")
     order = request.GET.get("order", "asc")
@@ -96,7 +96,7 @@ def restoran(request):
 @login_required(login_url="/login")
 def tambah_restoran(request):
     if request.user.peran != "pemilik_restoran":
-        return redirect("restoran:restoran")
+        return redirect("restoran:show_restoran")
 
     if request.method == "POST":
         form = RestoranForm(request.POST, request.FILES)
@@ -104,7 +104,7 @@ def tambah_restoran(request):
             restoran = form.save(commit=False)
             restoran.user = request.user
             restoran.save()
-            return redirect("restoran:restoran")
+            return redirect("restoran:show_restoran")
     else:
         form = RestoranForm()
 
@@ -115,12 +115,12 @@ def tambah_restoran(request):
 def ubah_restoran(request, id):
     restoran = get_object_or_404(Restoran, id=id)
     if request.user != restoran.user:  # Pastikan yang mengedit adalah pemilik
-        return HttpResponseRedirect(reverse("restoran:restoran"))
+        return HttpResponseRedirect(reverse("restoran:show_restoran"))
 
     form = RestoranForm(request.POST or None, request.FILES or None, instance=restoran)
     if form.is_valid():
         form.save()
-        return redirect("restoran:restoran")
+        return redirect("restoran:show_restoran")
     return render(request, "restoran/ubah/index.html", {"form": form})
 
 
@@ -128,13 +128,13 @@ def ubah_restoran(request, id):
 def hapus_restoran(request, id):
     restoran = get_object_or_404(Restoran, id=id)
     if request.user != restoran.user:
-        return HttpResponseRedirect(reverse("restoran:restoran"))
+        return HttpResponseRedirect(reverse("restoran:show_restoran"))
 
     if request.method == "POST":
         restoran.delete()
-        return redirect("restoran:restoran")
+        return redirect("restoran:show_restoran")
     else:
-        return HttpResponseRedirect(reverse("restoran:restoran"))
+        return HttpResponseRedirect(reverse("restoran:show_restoran"))
 
 
 def lihat_restoran(request, id):
