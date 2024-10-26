@@ -35,6 +35,7 @@ def tambah_makanan(request):
         if form.is_valid():
             makanan = form.save(commit=False)
             makanan.save()
+            form.save_m2m()
             return redirect("makanan:show_makanan")
     else:
         form = MakananForm()

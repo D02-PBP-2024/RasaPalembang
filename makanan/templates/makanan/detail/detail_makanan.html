@@ -52,9 +52,16 @@
                             <span class="h-5 w-5 flex-none text-[#4f9da6]">
                                 <i class="fa-solid fa-bars"></i>
                             </span>
-                            <span>
+                            <span class="flex flex-wrap gap-3">
                                 <strong class="font-semibold text-gray-900">Kategori: </strong>
-                                {{ makanan.kategori.nama }}
+                                <span class="flex flex-wrap gap-2">
+                                    {% for item in makanan.kategori.all %}
+                                    <span
+                                        class="bg-[#eb4b4b] text-white font-semibold rounded-full px-4 md:px-5 py-1 md:py-1.5 text-xs md:text-sm select-none">
+                                        {{ item.nama }}
+                                    </span>
+                                    {% endfor %}
+                                </span>
                             </span>
                         </li>
                     </ul>
