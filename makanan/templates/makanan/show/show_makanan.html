@@ -41,26 +41,12 @@
     </div>
 
     <!-- Grid makanan -->
-    {% if page_obj.object_list %}
+    {% if makanan %}
     <div id="makananList" class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2 md:mt-4">
-        {% for item in page_obj %}
+        {% for item in makanan %}
         {% include 'makanan/show/card.html' with makanan=item %}
         {% endfor %}
     </div>
-
-    <!-- Pagination Controls (hanya tampil jika ada produk) -->
-    <div class="pagination-container mt-8">
-        {% if page_obj.has_previous %}
-        <a href="?page={{ page_obj.previous_page_number }}"
-            class="px-4 py-2 bg-gray-200 text-gray-600 hover:bg-gray-300 rounded-lg">Previous</a>
-        {% endif %}
-        <p class="text-gray-600 mx-4">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</p>
-        {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}"
-            class="px-4 py-2 bg-gray-200 text-gray-600 hover:bg-gray-300 rounded-lg">Next</a>
-        {% endif %}
-    </div>
-
     {% else %}
     <div class="px-3 sm:px-6 py-16 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14">
         <div>
