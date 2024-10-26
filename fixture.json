@@ -736,7 +736,7 @@
     },
     {
         "model": "makanan.makanan",
-        "pk": "81000804-b811-4665-a1ef-2201b67604bc",
+        "pk": "52aad79b-167a-487b-8056-940cc3d0c0c2",
         "fields": {
             "nama": "Tsukune Nokke Sushi",
             "harga": "68000.00",
@@ -751,7 +751,7 @@
     },
     {
         "model": "makanan.makanan",
-        "pk": "bc7114f3-036b-4c2a-90d8-0784cd5eed09",
+        "pk": "0c174f6a-f814-45da-bc40-bc47aa5fd3d2",
         "fields": {
             "nama": "Choco Orenji Taruto",
             "harga": "39000.00",
@@ -766,7 +766,7 @@
     },
     {
         "model": "makanan.makanan",
-        "pk": "bc7114f3-036b-4c2a-90d8-0784cd5eed09",
+        "pk": "05a985d4-db3c-4faa-80b9-cf9024d761f1",
         "fields": {
             "nama": "Salmon Katsu Curry",
             "harga": "69000.00",
@@ -781,7 +781,7 @@
     },
     {
         "model": "makanan.makanan",
-        "pk": "bc7114f3-036b-4c2a-90d8-0784cd5eed09",
+        "pk": "1ca549ce-0bcc-47e6-9f18-e42b245cbb05",
         "fields": {
             "nama": "Salmon Karamayo Tamago",
             "harga": "32000.00",
@@ -796,7 +796,7 @@
     },
     {
         "model": "makanan.makanan",
-        "pk": "f376e806-bc56-4267-9584-54cdb7e1f6af",
+        "pk": "fb837090-876e-41e0-8224-d75ae5ad219a",
         "fields": {
             "nama": "Wakame Salad",
             "harga": "61000.00",
