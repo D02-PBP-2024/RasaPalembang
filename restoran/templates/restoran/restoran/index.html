@@ -38,7 +38,7 @@
     {% if page_obj %}
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {% for item in page_obj %}
-        {% if forloop.counter <= 10 %} <a href="{% url 'restoran:detail' item.restoran.id %}" class="block bg-white shadow-md rounded-lg overflow-hidden transition hover:shadow-lg 
+        {% if forloop.counter <= 10 %} <a href="{% url 'restoran:detail_restoran' item.restoran.id %}" class="block bg-white shadow-md rounded-lg overflow-hidden transition hover:shadow-lg 
             {% if forloop.counter == 10 %} md:col-start-2 {% endif %}">
             <div class="w-full h-48 overflow-hidden">
                 {% if item.restoran.gambar %}

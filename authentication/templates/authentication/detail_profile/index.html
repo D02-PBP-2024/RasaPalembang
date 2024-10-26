@@ -77,7 +77,7 @@
                         <a href='/profile/{{ profile.username }}'>
                             <span class='font-semibold'>{{ profile.nama }}</span>
                         </a>
-                        <a href="{% url 'restoran:detail' item.restoran.id %}">
+                        <a href="{% url 'restoran:detail_restoran' item.restoran.id %}">
                             <span class='text-neutral-500 flex items-center gap-2'>
                                 <i class='fa-solid fa-utensils text-neutral-500/70 text-xs'></i>
                                 {{ item.restoran }}
