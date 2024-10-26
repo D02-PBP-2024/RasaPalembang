@@ -1624,7 +1624,7 @@
         "model": "ulasan.ulasan",
         "pk": "0c0cb6e1-9884-4092-888f-d89e091766dc",
         "fields": {
-            "created_at": "2024-09-29T05:25:30Z",
+            "created_at": "2024-09-29T05:25:00.000Z",
             "nilai": 5,
             "deskripsi": "Saya berkunjung ke salah satu sentra kampung pempek di Palembang, tepatnya di Kampung Pempek 26 Ilir. Saat itu, kami sudah memasuki puncak arus balik, sehingga tempat ini dipadati banyak pemudik yang berburu oleh-oleh.\r\n\r\nAlhamdulillah, setelah menunggu hampir setengah jam, kami akhirnya mendapatkan tempat yang nyaman di Resto Pempek Lala, salah satu pempek paling terkenal yang sering diliput oleh para food vlogger. Rasa pempeknya sangat enak, meskipun beberapa menu unik yang ingin saya coba sudah habis. Namun, tidak masalah, karena rasa ikan yang gurih dari menu yang masih tersedia cukup memuaskan perut, ditambah dengan suguhan kue hijau yang manis dan es kacang merah yang memadukan rasa manis dan gurih.\r\n\r\nSaya ingin mengucapkan terima kasih khusus kepada Nona Nina dan Om Ramli yang telah menjadi pemandu yang menyenangkan selama berkeliling di Kampung 26 Ilir.",
             "user": 11,
@@ -1635,7 +1635,7 @@
         "model": "ulasan.ulasan",
         "pk": "12281a9f-8238-4215-9334-16d264ab1762",
         "fields": {
-            "created_at": "2024-10-13T05:22:08Z",
+            "created_at": "2024-10-13T05:22:00.000Z",
             "nilai": 5,
             "deskripsi": "Menurut pendapat saya, tempat makan ini layak dicoba jika Anda berkesempatan singgah di Palembang. Rasa makanannya sangat sesuai dengan selera saya, terutama pindang iga, pindang udang, pindang patin, sambal mangga, serta udang sambal pete yang disajikan dengan lalapan. Fasilitas parkirnya cukup luas, pelayanan yang diberikan juga baik, dan harga yang ditawarkan sangat terjangkau.",
             "user": 13,
@@ -1646,7 +1646,7 @@
         "model": "ulasan.ulasan",
         "pk": "1ab4f85c-b5ef-486c-a53f-6f69a0e578a1",
         "fields": {
-            "created_at": "2023-02-27T23:39:35Z",
+            "created_at": "2023-02-27T23:39:00.000Z",
             "nilai": 5,
             "deskripsi": "Restoran ini nyaman dan sangat cocok untuk makan bersama keluarga, teman, dan rekan kantor. Saat kami berkunjung, mayoritas pengunjungnya adalah kelompok pegawai kantor, yang menunjukkan bahwa suasananya memang ideal untuk bincang-bincang santai. Dengan nuansa kayu dan suara air dari kolam kecil, tempat ini terasa menenangkan.\r\n\r\nDari segi harga, sesuai dengan standar restoran di Palembang. Menu makanannya sangat bervariasi dan enak, sehingga cocok untuk dibagi-bagikan. Saya pribadi sangat menyukai buncis dengan dua rasa yang disajikan di sini.",
             "user": 12,
@@ -1657,7 +1657,7 @@
         "model": "ulasan.ulasan",
         "pk": "1bbd35c0-1d80-42d7-a9c4-d95770362679",
         "fields": {
-            "created_at": "2024-05-09T08:02:09Z",
+            "created_at": "2024-05-09T08:02:00.000Z",
             "nilai": 5,
             "deskripsi": "Kawasan ini terkenal dengan aneka pempek yang memiliki berbagai jenis dan harga. Terdapat banyak penjual pempek, mulai dari restoran hingga pedagang di pinggir jalan, serta banyak penjual kemplang.\r\n\r\nKami mencoba pempek Edy, di mana harga pempek kecil untuk semua varian adalah Rp 1.500 per pcs, yang tergolong murah. Rasanya cukup enak, meskipun tidak sebanding dengan pempek Candy. Hehe. Kami juga membeli kemplang sebagai oleh-oleh, bukan di Pak Edy, tetapi di ruko kecil khusus yang menjual kemplang, dengan harga Rp 150 per paket. Kami membeli 13 paket kemplang untuk keluarga di rumah, dan rasanya enak, cocok sebagai oleh-oleh asli Palembang. Jika ingin membeli oleh-oleh pempek, Anda juga bisa memesan dalam keadaan vakum dan dijadikan frozen, meskipun tidak bisa bertahan lama jika tidak disimpan di kulkas.",
             "user": 11,
@@ -1668,7 +1668,7 @@
         "model": "ulasan.ulasan",
         "pk": "3c112d1e-238a-483a-8e7c-d1434a686f69",
         "fields": {
-            "created_at": "2024-12-03T09:14:27Z",
+            "created_at": "2024-12-03T09:14:00.000Z",
             "nilai": 3,
             "deskripsi": "Tempatnya cukup luas. Saya memesan pindang tulang iga yang berisi tiga potong, dan rasanya sangat enak. Selain itu, terdapat juga ikan seluang yang gurih dan renyah, cocok dinikmati dengan sambal. Nasi hangat yang disajikan bersama hidangan ini sudah terasa lezat. Saya juga mencoba sempol ikan, yang rasanya tidak kalah enak. Namun, saat mencicipi srikaya, saya mendapati bahwa saya kurang menyukainya. Secara keseluruhan, pengalaman makan di sini sangat memuaskan!",
             "user": 11,
@@ -1679,7 +1679,7 @@
         "model": "ulasan.ulasan",
         "pk": "3f0dc462-5df3-450e-b3ad-577af664e040",
         "fields": {
-            "created_at": "2023-08-11T05:36:43Z",
+            "created_at": "2023-08-11T05:36:00.000Z",
             "nilai": 4,
             "deskripsi": "Saya baru saja mencoba makan di restoran yang terletak tepat di samping Holycow. Menu yang disajikan cenderung berfokus pada masakan Eropa, dengan variasi roti yang lebih dominan. Terdapat juga pilihan steak, termasuk steak ayam, ikan, dan daging, meskipun variasi pada masing-masing jenis steak tidak terlalu banyak.\r\n\r\nUntuk minuman, pilihan yang ditawarkan cukup bervariasi, dengan minuman andalan Barkley Tea yang menggunakan es gula merah. Suasana restoran yang cozy juga menjadi nilai tambah tersendiri. \r\n\r\nRestoran ini sangat cocok dijadikan sebagai tujuan makan atau berkumpul bersama keluarga dan rekan kerja. Namun, saya tidak merekomendasikannya untuk dikunjungi setiap minggu, mengingat harganya yang cukup lumayan tinggi (sudah sesuai dengan standar). Secara keseluruhan, pengalaman makan di sini sangat menyenangkan!",
             "user": 12,
@@ -1690,7 +1690,7 @@
         "model": "ulasan.ulasan",
         "pk": "42fda733-67e1-478f-a027-8aa3fbd26ecd",
         "fields": {
-            "created_at": "2024-11-03T18:50:39Z",
+            "created_at": "2024-11-03T18:50:00.000Z",
             "nilai": 4,
             "deskripsi": "Tempat makan ini mengusung konsep kekinian dengan alunan musik live yang menambah suasana. Menawarkan beragam jenis makanan, pengunjung dapat memilih sesuai dengan selera masing-masing.\r\n\r\nSebelum makanan utama disajikan, meja akan disediakan cemilan sebagai \"welcoming food,\" seperti pempek, kue tart, atau kue sejenis sus (namun perlu diingat, ini berbayar). \r\n\r\nDari segi rasa, masakannya termasuk enak. Contohnya, kepiting yang dibungkus daun pisang memiliki bumbu yang sangat kuat dan berani. Sementara itu, bumbu ayam bawang juga enak, meskipun ayam gorengnya sedikit kering dan alot.",
             "user": 13,
@@ -1701,7 +1701,7 @@
         "model": "ulasan.ulasan",
         "pk": "46b2c18c-c195-4763-a4a7-3a31347cd5d9",
         "fields": {
-            "created_at": "2023-08-23T10:07:02Z",
+            "created_at": "2023-08-23T10:07:00.000Z",
             "nilai": 5,
             "deskripsi": "Love the food!! Gurame saos padangnya yummy, tumis kangkung. Musholla dan toiletnya bersih. Atmosphere suasana makan disini sangat menyenangkan. Ada ruangan yang cocok untuk business meeting yang pakai AC.",
             "user": 12,
@@ -1712,7 +1712,7 @@
         "model": "ulasan.ulasan",
         "pk": "4da98db9-4a08-47e3-952b-0c22961ff63a",
         "fields": {
-            "created_at": "2023-10-23T17:40:38Z",
+            "created_at": "2023-10-23T17:40:00.000Z",
             "nilai": 5,
             "deskripsi": "Ini adalah tempat makan sushi keluarga premium pertama di Palembang, sebelum hadirnya berbagai sushi premium lainnya yang kini menjamur. Rasanya cukup memuaskan, dengan ukuran sushi yang besar. Satu porsi ramen dapat dibagikan untuk 2-3 orang. Harga yang ditawarkan sebanding dengan kualitas dan ukuran porsi.\r\n\r\nSuasana di restoran ini nyaman, dilengkapi dengan sushi belt conveyor yang memudahkan pengunjung untuk memilih sushi atau menu lainnya. \r\n\r\nLokasinya cukup eksklusif, berada di gedung Sushi Tei di simpang Jalan A. Rivai, dengan fasilitas parkir yang luas dan dekat dengan masjid besar.",
             "user": 11,
@@ -1723,7 +1723,7 @@
         "model": "ulasan.ulasan",
         "pk": "57a391dd-89ef-4a63-9f41-3d18e6f2b8b1",
         "fields": {
-            "created_at": "2024-08-24T12:52:55Z",
+            "created_at": "2024-08-24T12:52:00.000Z",
             "nilai": 4,
             "deskripsi": "Ini adalah kunjungan kedua saya ke rumah makan Pindang Musi Rawas. Kunjungan pertama saya dilakukan bersama teman yang asli tinggal di Palembang, dan kali ini saya datang bersama keluarga. Sudah hampir enam tahun sejak kunjungan sebelumnya, dan suasananya terasa sedikit berbedaΓÇöpastinya lebih nyaman.\r\n\r\nDari segi rasa masakan, hampir tidak ada perubahan, terutama pada hidangan pindang. Pindang patin yang disajikan dengan dua potong ikan kini dihargai Rp 500, sedangkan pindang udang yang berukuran cukup besar dihargai Rp 1200. Saya juga sempat mencicipi pepes dan sambal petai udang. Menu lainnya juga beragam, sehingga dapat dicoba sesuai dengan kemampuan dan selera.\r\n\r\nSuasana makan di sini cukup nyaman dan kebersihannya terjaga dengan baik, termasuk di toilet dan tempat cuci tangan yang juga bersih.",
             "user": 15,
@@ -1734,7 +1734,7 @@
         "model": "ulasan.ulasan",
         "pk": "6b3ce114-1286-4994-9185-840d02bcb78b",
         "fields": {
-            "created_at": "2024-03-07T22:38:06Z",
+            "created_at": "2024-03-07T22:38:00.000Z",
             "nilai": 5,
             "deskripsi": "Pancious di Palembang adalah restoran yang cocok untuk hangout dengan teman atau berkumpul dengan keluarga. Menu yang disajikan sebagian besar adalah masakan western, dan untuk pancake-nya, tidak perlu diragukan lagi semuanya enak. Saya baru mencoba milk tea-nya dan ternyata rasanya sangat enak. Selain itu, spaghetti truffle-nya juga lezat, dengan rasa yang pas dan tidak terlalu kuat. Secara keseluruhan, saya merasa nyaman makan di sini.",
             "user": 11,
@@ -1745,7 +1745,7 @@
         "model": "ulasan.ulasan",
         "pk": "8a1979e4-e9d1-47d7-8478-8ad8972635ba",
         "fields": {
-            "created_at": "2024-06-22T06:04:09Z",
+            "created_at": "2024-06-22T06:04:00.000Z",
             "nilai": 4,
             "deskripsi": "Tempatnya nyaman, lumayan luas ada ruang AC dan Non AC, ada bagian tamannya juga, ada spot foto juga, untuk makanan enak, kue kue enak, takjilnya enak juga karena kebetulan kesini pas acara Bukber, pelayanannya cukup ramah, ada musiknya, rekomen pokoknya buat yang cari lokasi untuk bukber dengan keluarga atau kantor.",
             "user": 13,
@@ -1756,7 +1756,7 @@
         "model": "ulasan.ulasan",
         "pk": "98112c92-0243-4b69-a801-3d8326c808d2",
         "fields": {
-            "created_at": "2023-09-08T20:13:21Z",
+            "created_at": "2023-09-08T20:13:00.000Z",
             "nilai": 3,
             "deskripsi": "Sebagai tempat yang menjadi ikon pusat perdagangan kuliner khas tradisional, sudah sepatutnya pemerintah kota Palembang maupun pemerintah provinsi memberikan perhatian lebih terhadap lokasi ini, terutama bagi masyarakat dari luar daerah. Penting untuk menyediakan kemudahan dalam menjangkau tempat ini, seperti rute yang tidak berputar-putar, tanda arah yang jelas, serta fasilitas yang memadai, seperti area parkir untuk kendaraan roda dua maupun roda empat.\r\n\r\nSelain itu, akses jalan yang rapi dan tidak becek sangat diperlukan, mengingat kondisi di sekitar Pasar 26 yang terkesan semerawut. Peningkatan infrastruktur dan fasilitas akan membuat pengalaman berkunjung ke tempat ini menjadi lebih nyaman dan menyenangkan.",
             "user": 12,
@@ -1767,7 +1767,7 @@
         "model": "ulasan.ulasan",
         "pk": "a12f2e8b-c1b0-4ce1-962c-cfd62e2ceb7c",
         "fields": {
-            "created_at": "2024-05-28T09:17:29Z",
+            "created_at": "2024-05-28T09:17:00.000Z",
             "nilai": 2,
             "deskripsi": "Rasa makanan di restoran tersebut tergolong biasa. Udang bakar yang disajikan kurang meresap bumbunya. Selain itu, terjadi insiden yang lebih mengecewakan. Sebuah restoran besar seharusnya memiliki generator otomatis, namun pada kenyataannya tidak ada. Setidaknya, diharapkan terdapat lampu darurat. Saat kami sedang menikmati makanan, listrik padam, dan hal ini terjadi secara tiba-tiba, bukan karena pemadaman dari PLN, melainkan diduga akibat kehabisan token. Saya merasa sangat malu, mengingat saya sedang membawa tamu dari Jakarta.",
             "user": 15,
@@ -1778,7 +1778,7 @@
         "model": "ulasan.ulasan",
         "pk": "a704d5ae-1d9a-41d4-a66e-0c00355b1275",
         "fields": {
-            "created_at": "2024-12-27T20:28:13Z",
+            "created_at": "2024-12-27T20:28:00.000Z",
             "nilai": 5,
             "deskripsi": "Makanannya enak tentunya dengan harga yang Lumayan juga, suasana selalu ramai,apalagi di bulan Ramadhan, Untungnya masih ada table kosong, kalo agak sorean dikit pasti udah full, kalo ngga booking dari siang",
             "user": 14,
@@ -1789,7 +1789,7 @@
         "model": "ulasan.ulasan",
         "pk": "ae7b4f31-5c65-48f1-9b44-f166b8300e5a",
         "fields": {
-            "created_at": "2024-08-08T08:37:26Z",
+            "created_at": "2024-08-08T08:37:00.000Z",
             "nilai": 2,
             "deskripsi": "Harga di sini memang agak tinggi, tetapi sebanding dengan rasa dan kualitas bahan yang digunakan. Namun, saya mencatat bahwa kepala salmon yang saya makan terasa agak amis, mungkin perlu ditinjau kembali. Di luar itu, suasana dan pelayanan di restoran ini baik. Saya berharap mereka bisa sering-sering mengadakan promo. Hehehe.",
             "user": 15,
@@ -1800,7 +1800,7 @@
         "model": "ulasan.ulasan",
         "pk": "b0cdc437-61ad-4761-a9df-14f23138d165",
         "fields": {
-            "created_at": "2023-02-08T01:24:08Z",
+            "created_at": "2023-02-08T01:24:00.000Z",
             "nilai": 4,
             "deskripsi": "Sekarang restoran ini telah berganti nama menjadi Mei Mei Restoran. Mereka menyajikan berbagai makanan khas Palembang, seperti pindang, soto, pempek, ayam, dan ikan. Rasa makanannya cukup enak dan sepadan dengan harga, meskipun tidak tergolong luar biasa.\r\n\r\nMenu yang menarik perhatian adalah tahu Sumedang yang hanya dihargai Rp 150 (sebelum pajak), dan menariknya, air putih hanya dikenakan biaya Rp 20, yang jarang ditemukan di restoran lain.\r\n\r\nFasilitas parkirnya cukup luas, meskipun harus berbagi dengan tempat fitness di sebelahnya. Bagian dalam restoran cukup luas dan dilengkapi dengan beberapa mainan anak yang menyerupai playground untuk anak-anak. Ruangan tidak dilengkapi dengan AC, hanya menggunakan kipas angin, dan terdapat saung-saung di dalamnya. Disarankan untuk datang pada saat cuaca tidak terlalu panas agar lebih nyaman. Mungkin ke depannya, pihak restoran dapat mempertimbangkan untuk memasang AC demi kenyamanan pelanggan.\r\n\r\nPelayanan di restoran ini adalah salah satu yang terbaik. Para pelayan sangat ramah, cepat, dan selalu tersenyum. Dengan pelayanan yang baik dan rasa makanan yang terjaga, seharusnya restoran ini dapat menjadi pilihan keluarga yang populer. Mungkin perlu dilakukan promosi untuk memperkenalkan kembali restoran ini kepada masyarakat.",
             "user": 16,
@@ -1811,7 +1811,7 @@
         "model": "ulasan.ulasan",
         "pk": "b118b4ff-8767-4ff1-a2dd-b282958eb8e9",
         "fields": {
-            "created_at": "2023-07-13T06:27:03Z",
+            "created_at": "2023-07-13T06:27:00.000Z",
             "nilai": 2,
             "deskripsi": "Saya ingin berbagi pengalaman mengenai pelayanan di sini yang kurang memuaskan. Sayangnya, banyak pelayan yang terkesan judes. Ketika saya meminta atau menanyakan sesuatu, jawaban yang diberikan terdengar ketus, seperti \"Kalau model itu memang tidak pakai mie putih.\" \r\n\r\nSaya mencoba bertanya lebih lanjut, tetapi malah mendapat tanggapan yang kurang ramah. Selain itu, saya juga memperhatikan mereka berbicara tentang pelanggan di depan kami, yang membuat suasana semakin tidak nyaman.\r\n\r\nSaya mengerti bahwa mereka mungkin lelah dan menghadapi banyak pesanan, namun seharusnya semua pelanggan tetap diperlakukan dengan baik. Terkadang, ketika banyak orang yang datang, perhatian terhadap pelanggan lain seolah terabaikan.\r\n\r\nSemoga ke depannya, pelayanan di sini bisa lebih ramah kepada semua pembeli. Senyuman kecil saja bisa membuat perbedaan besar. Terima kasih.",
             "user": 15,
@@ -1822,7 +1822,7 @@
         "model": "ulasan.ulasan",
         "pk": "b4f0edb2-77f8-424b-9866-ca036774fabf",
         "fields": {
-            "created_at": "2024-08-12T22:39:46Z",
+            "created_at": "2024-08-12T22:39:00.000Z",
             "nilai": 4,
             "deskripsi": "Menginjakan kaki di kota Palembang mencoba masakan khas disana. Pindang patin adalah salah satu menu pavorite yang tersedia dengan beberapa menu lain seperti ikan burame bakar, sup Jagung kepiting dan aneka kerang. Ikan patin pindang sangat diminati dan segar. Sup Jagung kepiting juga enak. Lingkungan restaurant yang asri dengan kolam ikan dalam menambah nikmat Makan di siang hari.",
             "user": 11,
@@ -1833,7 +1833,7 @@
         "model": "ulasan.ulasan",
         "pk": "ba51abfa-8260-4b28-a858-1f7ab6e298a5",
         "fields": {
-            "created_at": "2024-03-10T09:46:48Z",
+            "created_at": "2024-03-10T09:46:00.000Z",
             "nilai": 5,
             "deskripsi": "Tempatnya sangat bagus dan cocok untuk makan bersama keluarga atau pasangan. Masakannya enak, dan pelayanan yang diberikan sangat baik serta ramah. Saya sangat menyukainya, terutama karena cocok untuk orang-orang yang suka berfoto. Namun, saat kami berkunjung, cuaca sedang hujan, sehingga kami terpaksa makan di bagian dalam. Kami berencana untuk kembali ke sini di lain waktu.",
             "user": 14,
@@ -1844,7 +1844,7 @@
         "model": "ulasan.ulasan",
         "pk": "baf89bd4-5f21-42ae-a646-b1ad08b6f105",
         "fields": {
-            "created_at": "2023-09-28T00:48:28Z",
+            "created_at": "2023-09-28T00:48:00.000Z",
             "nilai": 5,
             "deskripsi": "Ini adalah salah satu tempat yang wajib dikunjungi jika Anda ingin menikmati pindang. Pindang patin dan udangnya sangat juara, sementara ikan seluang gorengnya juga lezat. Ditambah lagi, rasanya semakin nikmat dengan sambal tempoyak dan sambal mangga. Jangan lupa untuk memesan sambal pete udang saat berkunjung ke sini!",
             "user": 16,
@@ -1855,7 +1855,7 @@
         "model": "ulasan.ulasan",
         "pk": "c8126234-6e77-4d45-a746-e5c298a625ae",
         "fields": {
-            "created_at": "2024-08-23T23:25:58Z",
+            "created_at": "2024-08-23T23:25:00.000Z",
             "nilai": 4,
             "deskripsi": "Pindang ikan patinnya enak banget. Tersedia juga pindang lain seperti tulang iga dan udang. Selain pindang, tersedia juga lauk lainnya seperti ikan siluang garing, udang sambal pete, pentol ikan gabus dan sayur rebusan. Satu lagi yang juara adalah makanan penutup, sarikaya. Yang suka durian juga disediakan, ada musang king dan monthong",
             "user": 14,
@@ -1866,7 +1866,7 @@
         "model": "ulasan.ulasan",
         "pk": "d7e9694a-0bf6-4a5f-9a35-efda4aa9a0bc",
         "fields": {
-            "created_at": "2024-06-04T15:48:59Z",
+            "created_at": "2024-06-04T15:48:00.000Z",
             "nilai": 3,
             "deskripsi": "Rasa nya ok, tapi piring disajikan dalam keadaan basah tanpa di lap terlebih dahulu, pindang disajikan anget kuku, kamiengharapkan untuk makan sekeluarga seharga 430rb, service nya harus lebih baik dari ini, harusnya pindang itu disajikan panas, harus diperbaiki pelayanan nya",
             "user": 13,
@@ -1877,7 +1877,7 @@
         "model": "ulasan.ulasan",
         "pk": "de2f2e32-8b2a-4f55-9143-ecd3df1cd2af",
         "fields": {
-            "created_at": "2024-09-25T16:25:05Z",
+            "created_at": "2024-09-25T16:25:00.000Z",
             "nilai": 5,
             "deskripsi": "Saya mampir ke restoran ini karena dikatakan sebagai representasi masakan Melayu Palembang. Secara keseluruhan, rata-rata makanan yang disajikan enak dan sesuai dengan reputasinya. Suasana di restoran ini juga cukup mendukung, dengan adanya kolam ikan di bagian tengah yang dapat menghibur anak-anak.\r\n\r\nNamun, perlu diperhatikan posisi toilet yang berada di lantai bawah, yang mungkin kurang nyaman bagi tamu yang sudah berumur atau mengalami kesulitan untuk naik turun tangga. Selain itu, siapkan diri untuk merogoh kocek agak dalam, karena harga makanan di sini tergolong lumayan. Dengar-dengar, restoran ini sering digunakan untuk menjamu pejabat dan tamu-tamu penting.",
             "user": 15,
@@ -1888,7 +1888,7 @@
         "model": "ulasan.ulasan",
         "pk": "e4af2d82-627c-4cdd-879c-93c3af5fa77c",
         "fields": {
-            "created_at": "2024-08-27T21:11:38Z",
+            "created_at": "2024-08-27T21:11:00.000Z",
             "nilai": 4,
             "deskripsi": "Ini adalah salah satu tempat makan pindang di Palembang yang strategis. Fasilitas parkir untuk mobil cukup luas, dan terdapat berbagai pilihan kursi dengan nuansa yang variatif.\r\n\r\nSaya menikmati hidangan pindang di sini bersama keluarga, dan harga yang ditawarkan sebanding dengan rasa yang disajikan. Rasa pindangnya cenderung manis, sementara pelayanan yang diberikan sangat ramah. Hidangan disajikan dalam keadaan panas, dan pengalaman makan semakin menarik dengan pemandangan di atas kolam ikan.",
             "user": 11,
@@ -1899,7 +1899,7 @@
         "model": "ulasan.ulasan",
         "pk": "eaf9d53f-71f1-40bd-9e73-3285a913ea3a",
         "fields": {
-            "created_at": "2024-06-07T17:13:55Z",
+            "created_at": "2024-06-07T17:13:00.000Z",
             "nilai": 5,
             "deskripsi": "Pindangnya sangat lezat dan segar (mungkin karena bumbu rahasia!), meskipun harganya cukup lumayan, sekitar Rp 600. Selain itu, ada juga udang satai yang rasanya enak, tetapi harganya cukup mahal, yaitu Rp 1100 untuk satu porsi. Makanan lainnya dipadukan dengan sambal yang nikmat, tidak hanya pedas atau asam, tetapi memiliki rasa yang benar-benar enak. Sangat direkomendasikan untuk mengunjungi restoran ini, namun jika ingin membeli udang, sebaiknya pikirkan dengan bijak. Hehehe.",
             "user": 12,
@@ -1910,7 +1910,7 @@
         "model": "ulasan.ulasan",
         "pk": "ede5acce-11be-4910-b7d6-9d13296e2e5d",
         "fields": {
-            "created_at": "2023-07-19T19:46:54Z",
+            "created_at": "2023-07-19T19:46:00.000Z",
             "nilai": 4,
             "deskripsi": "Penggemar seafood yang sedang berkunjung ke Palembang tepat sekali untuk singgah dan mencoba menyantap sajian dari rumah makan ini. Tempatnya tenang, ada life music. Bagi yang butuh ruang untuk meeting juga ada. Bisa pilih ingin di area terbuka dengan udara luar ruangan atau di dalam ruangan. Soal cita rasa, termasuk kategori sajian yang enak. Kalau tidak bisa makan seafood tapi terpaksa mampir kesini karena kerabat atau rekan ingin makan seafood, tenang saja, ada sajian lainnya yang tidak kalah nikmat.",
             "user": 16,
@@ -1921,7 +1921,7 @@
         "model": "ulasan.ulasan",
         "pk": "ee823b36-ff1f-4906-a793-d8cd158318c4",
         "fields": {
-            "created_at": "2024-04-25T13:20:12Z",
+            "created_at": "2024-04-25T13:20:00.000Z",
             "nilai": 3,
             "deskripsi": "Seperti makan di pedesaan ad gazebo ny, kecil tempat ny tp krn penyusunan tempat ny bagus jd keliatan besar, makanan ny enak2 ad es cream, es kacang dll, dari sekian makanan aq pilih ny tahu krn udh kenyang jd ini aja pesenan krn penasaran dgn tempat ny aja sebenarnya",
             "user": 14,
@@ -1934,7 +1934,7 @@
         "fields": {
             "topik": "Harga dan Porsi di RM Pondok Kelapo",
             "pesan": "Bagaimana harga dan porsi makanan di RM Pondok Kelapo? Apakah porsi tersebut memuaskan untuk harga yang ditawarkan?",
-            "tanggal_posting": "2024-02-14T12:14:080Z",
+            "tanggal_posting": "2024-02-14T12:14:00.000Z",
             "user": 15,
             "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1"
         }
@@ -1945,7 +1945,7 @@
         "fields": {
             "topik": "Kualitas Makanan dan Menu Rekomendasi di Tamken Resto and Cafe",
             "pesan": "Bagaimana kualitas makanan di Tamken Resto and Cafe? Ada menu yang jadi favorit atau rekomendasi?",
-            "tanggal_posting": "2024-06-08T05:19:030Z",
+            "tanggal_posting": "2024-06-08T05:19:00.000Z",
             "user": 13,
             "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4"
         }
@@ -1956,7 +1956,7 @@
         "fields": {
             "topik": "Harga dan Porsi di Saoenk Kito Restaurant",
             "pesan": "Bagaimana harga dan porsi makanan di Saoenk Kito Restaurant? Apakah porsinya sesuai dengan harga dan kualitas?",
-            "tanggal_posting": "2023-04-17T18:02:230Z",
+            "tanggal_posting": "2023-04-17T18:02:00.000Z",
             "user": 14,
             "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960"
         }
@@ -1967,7 +1967,7 @@
         "fields": {
             "topik": "Pelayanan dan Kenyamanan di Rumah Makan Pindang Musi Rawas",
             "pesan": "Bagaimana pelayanan dan kenyamanan di Rumah Makan Pindang Musi Rawas? Apakah tempatnya nyaman untuk makan bersama keluarga?",
-            "tanggal_posting": "2023-03-06T20:23:400Z",
+            "tanggal_posting": "2023-03-06T20:23:40Z",
             "user": 13,
             "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a"
         }
@@ -1978,7 +1978,7 @@
         "fields": {
             "topik": "Pengalaman Makan di Sentral Kampung Pempek Palembang",
             "pesan": "Bagaimana pengalaman kalian makan di restoran Sentral Kampung Pempek Palembang? Apakah rasa pempeknya autentik dan bagaimana suasananya?",
-            "tanggal_posting": "2024-01-12T13:13:480Z",
+            "tanggal_posting": "2024-01-12T13:13:00.000Z",
             "user": 11,
             "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae"
         }
@@ -1989,7 +1989,7 @@
         "fields": {
             "topik": "Harga dan Porsi di Sentral Kampung Pempek Palembang",
             "pesan": "Bagaimana dengan harga dan porsi di Sentral Kampung Pempek Palembang? Apakah porsinya sesuai dengan harga yang ditawarkan?",
-            "tanggal_posting": "2023-12-18T15:48:390Z",
+            "tanggal_posting": "2023-12-18T15:48:00.000Z",
             "user": 12,
             "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae"
         }
@@ -2000,7 +2000,7 @@
         "fields": {
             "topik": "Harga dan Porsi di Gemercik Resto-Suki-Kedai Kopi",
             "pesan": "Bagaimana harga dan porsi makanan di Gemercik Resto-Suki-Kedai Kopi? Apakah porsi tersebut sesuai dengan harga yang ditawarkan?",
-            "tanggal_posting": "2023-03-27T17:51:220Z",
+            "tanggal_posting": "2023-03-27T17:51:00.000Z",
             "user": 12,
             "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8"
         }
