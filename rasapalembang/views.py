@@ -1,21 +1,29 @@
 from restoran.models import Restoran
 from django.shortcuts import render
 from minuman.models import Minuman
+from makanan.models import Makanan
 from django.utils import timezone
 import random
 
 
 def landing(request):
     restoran = list(Restoran.objects.all())
+    makanan = list(Makanan.objects.all())
     minuman = list(Minuman.objects.all())
 
     restoran_length = len(restoran)
+    makanan_length = len(makanan)
     minuman_length = len(minuman)
 
     if restoran_length > 3:
         restoran = random.sample(restoran, 4)
     else:
         restoran = random.sample(restoran, restoran_length)
+
+    if makanan_length > 3:
+        makanan = random.sample(makanan, 4)
+    else:
+        makanan = random.sample(makanan, makanan_length)
 
     if minuman_length > 3:
         minuman = random.sample(minuman, 4)
@@ -24,12 +32,13 @@ def landing(request):
 
     current_time = timezone.localtime().time()
     restoran_list = []
+    makanan_list = []
     minuman_list = []
 
     for item in restoran:
         gambar_url = None
-        if hasattr(item, 'gambar') and item.gambar:
-            gambar_url = str(item.gambar.url).replace('%3A', ':/')
+        if hasattr(item, "gambar") and item.gambar:
+            gambar_url = str(item.gambar.url).replace("%3A", ":/")
 
         jam_buka = item.jam_buka
         jam_tutup = item.jam_tutup
@@ -55,10 +64,22 @@ def landing(request):
             }
         )
 
+    for item in makanan:
+        gambar_url = None
+        if hasattr(item, "gambar") and item.gambar:
+            gambar_url = str(item.gambar.url).replace("%3A", ":/")
+
+        makanan_list.append(
+            {
+                "makanan": item,
+                "gambar_url": gambar_url,
+            }
+        )
+
     for item in minuman:
         gambar_url = None
-        if hasattr(item, 'gambar') and item.gambar:
-            gambar_url = str(item.gambar.url).replace('%3A', ':/')
+        if hasattr(item, "gambar") and item.gambar:
+            gambar_url = str(item.gambar.url).replace("%3A", ":/")
 
         minuman_list.append(
             {
@@ -67,7 +88,12 @@ def landing(request):
             }
         )
 
-    return render(request, "landing/index.html", {
-        "restoran": restoran_list,
-        "minuman":  minuman_list,
-    })
+    return render(
+        request,
+        "landing/index.html",
+        {
+            "restoran": restoran_list,
+            "makanan": makanan_list,
+            "minuman": minuman_list,
+        },
+    )

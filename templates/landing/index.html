@@ -67,82 +67,33 @@
     <div>
         <h1 class="text-2xl font-bold mt-10">Makanan terpopuler</h1>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2">
-            <a href="" class="hover:brightness-110 transition duration-300 py-2">
-                <img src="https://img.jakpost.net/c/2016/09/29/2016_09_29_12990_1475116504._large.jpg" alt=""
-                    class="w-full h-36 md:h-64 object-cover rounded-lg">
+            {% for item in makanan %}
+            <a href="{% url 'makanan:detail_makanan' item.makanan.id %}"
+                class="hover:brightness-110 transition duration-300 py-2">
+                <img src="
+                                {% if 'raw.githubusercontent.com/D02-PBP-2024/mediafiles/' in item.makanan.gambar.url %}
+                                {{ item.gambar_url|cut:'/media/' }}
+                                {% else %}
+                                {{ item.makanan.gambar.url }}
+                                {% endif %}
+                                " alt="" class="w-full h-36 md:h-64 object-cover rounded-lg">
                 <div class="mt-2.5 flex flex-col gap-1">
-                    <h1 class="md:text-lg font-semibold">Makanan Sangat Lezat</h1>
+                    <h1 class="md:text-lg font-semibold">{{ item.makanan.nama }}</h1>
                     <div>
                         <h2 class="max-md:text-sm flex items-center gap-2">
                             <i
                                 class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                            Rp50,000
+                            Rp {{ item.makanan.harga|intcomma }}
                         </h2>
                         <h3 class="max-md:text-sm flex items-center gap-2">
                             <i
                                 class="fa-solid fa-utensils text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                            Restoran Laris Manis
+                            {{ item.makanan.restoran }}
                         </h3>
                     </div>
                 </div>
             </a>
-            <a href="" class="hover:brightness-110 transition duration-300 py-2">
-                <img src="https://img.jakpost.net/c/2016/09/29/2016_09_29_12990_1475116504._large.jpg" alt=""
-                    class="w-full h-36 md:h-64 object-cover rounded-lg">
-                <div class="mt-2.5 flex flex-col gap-1">
-                    <h1 class="md:text-lg font-semibold">Makanan Sangat Lezat</h1>
-                    <div>
-                        <h2 class="max-md:text-sm flex items-center gap-2">
-                            <i
-                                class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                            Rp50,000
-                        </h2>
-                        <h3 class="max-md:text-sm flex items-center gap-2">
-                            <i
-                                class="fa-solid fa-utensils text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                            Restoran Laris Manis
-                        </h3>
-                    </div>
-                </div>
-            </a>
-            <a href="" class="hover:brightness-110 transition duration-300 py-2">
-                <img src="https://img.jakpost.net/c/2016/09/29/2016_09_29_12990_1475116504._large.jpg" alt=""
-                    class="w-full h-36 md:h-64 object-cover rounded-lg">
-                <div class="mt-2.5 flex flex-col gap-1">
-                    <h1 class="md:text-lg font-semibold">Makanan Sangat Lezat</h1>
-                    <div>
-                        <h2 class="max-md:text-sm flex items-center gap-2">
-                            <i
-                                class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                            Rp50,000
-                        </h2>
-                        <h3 class="max-md:text-sm flex items-center gap-2">
-                            <i
-                                class="fa-solid fa-utensils text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                            Restoran Laris Manis
-                        </h3>
-                    </div>
-                </div>
-            </a>
-            <a href="" class="hover:brightness-110 transition duration-300 py-2">
-                <img src="https://img.jakpost.net/c/2016/09/29/2016_09_29_12990_1475116504._large.jpg" alt=""
-                    class="w-full h-36 md:h-64 object-cover rounded-lg">
-                <div class="mt-2.5 flex flex-col gap-1">
-                    <h1 class="md:text-lg font-semibold">Makanan Sangat Lezat</h1>
-                    <div>
-                        <h2 class="max-md:text-sm flex items-center gap-2">
-                            <i
-                                class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                            Rp50,000
-                        </h2>
-                        <h3 class="max-md:text-sm flex items-center gap-2">
-                            <i
-                                class="fa-solid fa-utensils text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                            Restoran Laris Manis
-                        </h3>
-                    </div>
-                </div>
-            </a>
+            {% endfor %}
         </div>
     </div>
     <div>
