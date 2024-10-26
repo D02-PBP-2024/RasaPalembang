@@ -1,7 +1,6 @@
 from django.http import HttpResponseNotFound, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.http import HttpResponseNotFound
 from minuman.forms import MinumanForm
 from restoran.models import Restoran
 from minuman.models import Minuman
