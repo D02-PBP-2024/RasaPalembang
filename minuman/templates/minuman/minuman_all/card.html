@@ -19,6 +19,19 @@
                     </a>
                 </h3>
             </div>
+        </a>
+    </div>
+    <div class="sm:basis-7/12 sm:ml-8">
+        <div class="flex mt-4 sm:mt-0">
+            <a href="{% url 'minuman:show_minuman_by_id' minuman.id %}" class="pointer w-full">
+                <h1 class="font-bold text-3xl text-[#ff5757] hover:text-[#d04848]">{{ minuman.nama }}</h1>
+            </a>
+            <a href="{% url 'favorit:add_to_favorites' 'minuman' minuman.id %}"
+               class="flex place-items-center border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-2 px-[9px] sm:px-4 rounded-full focus:outline-none focus:bg-[#4f9da6] focus:text-white">
+                <i class="fa-regular fa-heart"></i>
+                <span class="ml-2 hidden sm:inline">Favorit</span>
+            </a>
+         
         </div>
     </a>
 </div>

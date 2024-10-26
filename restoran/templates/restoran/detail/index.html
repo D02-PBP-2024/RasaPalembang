@@ -56,8 +56,10 @@
                 Diskusikan di Forum
             </a>
             {% if user.is_authenticated %}
-            <a href=""
-                class="flex justify-center items-center gap-2 w-full w-full lg:w-fit px-4 sm:px-5 py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
+            <a href="{% url 'favorit:add_to_favorites' 'restoran' restoran.id %}"
+               class="flex justify-center items-center gap-2 w-full lg:w-fit px-4 sm:px-5 py-2 bg-[#4f9da6] 
+                      hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center 
+                      max-sm:text-sm transition">
                 <i class="fa-regular fa-heart max-sm:scale-90"></i>
                 Simpan Favorit
             </a>
@@ -100,18 +102,18 @@
             {% else %}
             <div
                 class="p-2 sm:p-3 border border-neutral-100 shadow-lg shadow-neutral-100 rounded-xl w-full mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 max-h-[420px] md:max-h-[520px] overflow-auto pr-2 md:pr-4">
-                {% for item in makanan %}
+                <!-- {% for item in makanan %}
                 <div
                     class="border border-neutral-100 shadow-lg shadow-neutral-100 hover:shadow-neutral-200 rounded-xl transition">
-                    <a href="{% url 'makanan:detail_makanan' item.id %}">
-                        <img src='{{ item.gambar.url }}' alt='{{ item.nama }}' class='rounded-lg w-full h-40 md:h-56 object-cover'>
+                    <a href="{% url 'makanan:show_makanan_by_id' item.id %}">
+                        <img src='{{ item.gambar.url }}' alt='{{ item.nama }}' class='rounded-lg w-full'>
                         <div class="p-3 md:p-4">
                             <h1 class="md:text-lg font-bold">{{ item.nama }}</h1>
                             <h1 class="text-neutral-500 max-md:text-sm font-semibold">Rp{{ item.harga|intcomma }}</h1>
                         </div>
                     </a>
                 </div>
-                {% endfor %}
+                {% endfor %} -->
                 {% for item in minuman %}
                 <div
                     class="border border-neutral-100 shadow-lg shadow-neutral-100 hover:shadow-neutral-200 rounded-xl transition">
@@ -322,7 +324,7 @@
                         <h2 class='text-neutral-500'>${created_at.toLocaleDateString()}</h2>
                     </div>
                     <h3 class='mt-3'>
-                        ${DOMPurify.sanitize(item.deskripsi)}
+                        ${item.deskripsi}
                     </h3>
                     <div class='mt-4'>
                         ${item.user.username == '{{ user.username }}' ? optionButtonHtml : ''}
