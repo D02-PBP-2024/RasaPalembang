@@ -10,17 +10,8 @@ import json
 
 def show_makanan(request):
     makanan = Makanan.objects.all()
-    paginator = Paginator(makanan, 6)
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
-    list_kategori = Kategori.objects.all()
 
-    context = {
-        "page_obj": page_obj,
-        "total_page": paginator.num_pages,
-        "list_kategori": list_kategori,
-    }
-    return render(request, "makanan/show/show_makanan.html", context)
+    return render(request, "makanan/show/show_makanan.html", {"makanan": makanan})
 
 
 @login_required(login_url="/login")
