@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
+
 {% block meta %}
 <title>RasaPalembang | Daftar Minuman</title>
 {% endblock meta %}
@@ -7,7 +9,20 @@
 {% block content %}
 <main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-10 w-full mx-auto">
     {% if minuman %}
-    <div class="grid gap-10">
+    <div class="flex overflow-x-auto space-x-2">
+        <button id="all" class="flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-[#4f9da6] text-white">
+            Semua
+        </button>
+        <button id="cheap"
+            class="flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300">
+            Harga terendah
+        </button>
+        <button id="expensive"
+            class="flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300">
+            Harga tertinggi
+        </button>
+    </div>
+    <div id="minumanList" class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2 md:mt-4">
         {% for item in minuman %}
         {% include 'minuman/minuman_all/card.html' with minuman=item %}
         {% endfor %}
@@ -26,4 +41,67 @@
     </div>
     {% endif %}
 </main>
+<script>
+    var allButton = document.getElementById('all');
+    var cheapButton = document.getElementById('cheap');
+    var expensiveButton = document.getElementById('expensive');
+    var minumanList = document.getElementById('minumanList');
+
+    allButton.addEventListener('click', function () {
+        allButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-[#4f9da6] text-white';
+        cheapButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300';
+        expensiveButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300';
+        refreshMinuman('all');
+    });
+
+    cheapButton.addEventListener('click', function () {
+        allButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300';
+        cheapButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-[#4f9da6] text-white';
+        expensiveButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300';
+        refreshMinuman('termurah');
+    });
+
+    expensiveButton.addEventListener('click', function () {
+        allButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300';
+        cheapButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300';
+        expensiveButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-[#4f9da6] text-white';
+        refreshMinuman('termahal');
+    });
+
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    function refreshMinuman(order) {
+        fetch(`sorted?order=${order}`)
+            .then(response => response.json())
+            .then(data => {
+                minumanList.innerHTML = ''
+                data.minuman.forEach(item => {
+                    minumanList.innerHTML += `
+                    <div>
+                        <a href="${item.id}"
+                           class="hover:brightness-110 transition duration-300">
+                            <img src="${item.gambar}" alt="${item.nama}" class="w-full h-36 md:h-64 object-cover rounded-lg">
+                            <div class="mt-2.5 flex flex-col gap-1">
+                                <h1 class="md:text-lg font-semibold">${item.nama}</h1>
+                                <div>
+                                    <h2 class="max-md:text-sm flex items-center gap-2">
+                                        <i
+                                            class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
+                                        Rp${numberWithCommas(parseInt(item.harga))}
+                                    </h2>
+                                    <h3 class="max-md:text-sm flex items-start gap-2">
+                                        <i class="fa-solid fa-utensils text-sm max-md:scale-90 mt-1 w-4 flex justify-center text-neutral-500"></i>
+                                        <a href="${item.id}" class="hover:underline">${item.restoran}</a>
+                                    </h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    `
+                });
+            });
+    }
+</script>
 {% endblock content %}

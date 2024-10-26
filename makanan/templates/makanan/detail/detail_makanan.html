@@ -10,7 +10,7 @@
                     <p class="text-base font-semibold leading-7 text-[#ff5757]">Makanan</p>
                     <div class="flex mt-2">
                         <h1 class="w-full text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-                            {{ makanan.nama }}
+                            {{ makanan.makanan.nama }}
                         </h1>
                         <div class="flex-none">
                             <!-- Button Favorite -->
@@ -20,13 +20,19 @@
                             </button>
                         </div>
                     </div>
-                    <p class="mt-6 text-xl leading-8 text-gray-700">{{ makanan.deskripsi }}</p>
+                    <p class="mt-6 text-xl leading-8 text-gray-700">{{ makanan.makanan.deskripsi }}</p>
                 </div>
             </div>
         </div>
         <div class="lg:pt-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-            <img class="w-full rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10" src="{{ makanan.gambar.url }}"
-                alt="{{ makanan.nama }}">
+            <img src="
+                    {% if 'raw.githubusercontent.com/D02-PBP-2024/mediafiles/' in makanan.makanan.gambar.url %}
+                    {{ makanan.gambar_url|cut:'/media/' }}
+                    {% else %}
+                    {{ makanan.makanan.gambar.url }}
+                    {% endif %}
+                    " alt="{{ makanan.makanan.nama }}"
+                class="w-full rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10">
         </div>
         <div
             class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
@@ -37,7 +43,10 @@
                             <span class="h-5 w-5 flex-none text-[#4f9da6]">
                                 <i class="fa-solid fa-rupiah-sign"></i>
                             </span>
-                            <span><strong class="font-semibold text-gray-900">Harga: </strong>{{ makanan.harga }}</span>
+                            <span>
+                                <strong class="font-semibold text-gray-900">Harga: </strong>
+                                {{ makanan.makanan.harga }}
+                            </span>
                         </li>
                         <li class="flex gap-x-3">
                             <span class="h-5 w-5 flex-none text-[#4f9da6]">
@@ -45,7 +54,7 @@
                             </span>
                             <span>
                                 <strong class="font-semibold text-gray-900">Kalori: </strong>
-                                {{ makanan.kalori }} kkal
+                                {{ makanan.makanan.kalori }} kkal
                             </span>
                         </li>
                         <li class="flex gap-x-3">
@@ -55,7 +64,7 @@
                             <span class="flex flex-wrap gap-3">
                                 <strong class="font-semibold text-gray-900">Kategori: </strong>
                                 <span class="flex flex-wrap gap-2">
-                                    {% for item in makanan.kategori.all %}
+                                    {% for item in makanan.makanan.kategori.all %}
                                     <span
                                         class="bg-[#eb4b4b] text-white font-semibold rounded-full px-4 md:px-5 py-1 md:py-1.5 text-xs md:text-sm select-none">
                                         {{ item.nama }}
