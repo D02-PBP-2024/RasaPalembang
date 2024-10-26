@@ -65,12 +65,12 @@
         </div>
         {% if request.user == restoran.user %}
         <div class="w-full flex max-sm:flex-col lg:justify-end gap-2">
-            <a href="{% url 'restoran:ubah' restoran.id %}"
+            <a href="{% url 'restoran:ubah_restoran' restoran.id %}"
                 class="flex justify-center items-center gap-2 w-full w-full lg:w-fit px-4 sm:px-5 py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
                 <i class="fa-regular fa-pen-to-square text-sm"></i>
                 Ubah Restoran
             </a>
-            <form method="POST" action="{% url 'restoran:hapus' restoran.id %}"
+            <form method="POST" action="{% url 'restoran:hapus_restoran' restoran.id %}"
                 class="flex justify-center items-center gap-2 w-full lg:w-fit px-4 sm:px-5 py-2 bg-[#eb4b4b] hover:bg-[#c93e3e] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
                 {% csrf_token %}
                 <button type="submit" class="flex justify-center items-center gap-2 w-full">
