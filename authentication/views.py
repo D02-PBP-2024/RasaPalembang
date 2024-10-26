@@ -64,8 +64,7 @@ def detail_profile(request, username):
     ulasan = Ulasan.objects.filter(user=user)
 
     return render(
-        request, "authentication/detail_profile/index.html", {
-            "profile": user,
-            "ulasan": ulasan
-        }
+        request,
+        "authentication/detail_profile/index.html",
+        {"profile": user, "ulasan": ulasan},
     )

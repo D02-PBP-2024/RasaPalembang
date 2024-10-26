@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from makanan.models import Makanan, Kategori
-from django.core.paginator import Paginator
 from makanan.forms import MakananForm
 from restoran.models import Restoran
 from django.http import JsonResponse
