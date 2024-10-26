@@ -32,7 +32,7 @@
         <h1 class="text-2xl font-bold">Restoran terpopuler</h1>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2">
             {% for item in restoran %}
-            <a href="{% url 'restoran:detail' item.restoran.id %}"
+            <a href="{% url 'restoran:detail_restoran' item.restoran.id %}"
                 class="hover:brightness-110 transition duration-300 py-2">
                 <img src="{{ item.restoran.gambar.url }}" alt="{{ item.restoran.nama }}"
                     class="w-full h-36 md:w-full h-36 md:h-64 object-cover rounded-lg">
@@ -64,7 +64,8 @@
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2">
             {% for item in makanan %}
             <div class="py-2">
-                <a href="{% url 'makanan:detail_makanan' item.id %}" class="hover:brightness-110 transition duration-300">
+                <a href="{% url 'makanan:detail_makanan' item.id %}"
+                    class="hover:brightness-110 transition duration-300">
                     <img src="{{ item.gambar.url }}" alt="{{ item.nama }}"
                         class="w-full h-36 md:h-64 object-cover rounded-lg">
                     <div class="mt-2.5 flex flex-col gap-1">
@@ -78,7 +79,7 @@
                             <h3 class="max-md:text-sm flex items-start gap-2">
                                 <i
                                     class="fa-solid fa-utensils text-sm max-md:scale-90 mt-1 w-4 flex justify-center text-neutral-500"></i>
-                                <a href="{% url 'restoran:detail' item.restoran.id %}" class="hover:underline">
+                                <a href="{% url 'restoran:detail_restoran' item.restoran.id %}" class="hover:underline">
                                     {{ item.restoran }}
                                 </a>
                             </h3>
@@ -95,22 +96,27 @@
         <h1 class="text-2xl font-bold">Minuman terpopuler</h1>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2">
             {% for item in minuman %}
-            <a href="{% url 'minuman:detail_minuman' item.id %}"
-                class="hover:brightness-110 transition duration-300 py-2">
-                <img src="{{ item.gambar.url }}" alt="" class="w-full h-36 md:h-64 object-cover rounded-lg">
-                <div class="mt-2.5 flex flex-col gap-1">
-                    <h1 class="md:text-lg font-semibold">{{ item.nama }}</h1>
-                    <div>
-                        <h2 class="max-md:text-sm flex items-center gap-2">
-                            <i
-                                class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                            Rp{{ item.harga|intcomma }}
-                        </h2>
-                        <h3 class="max-md:text-sm flex items-center gap-2">
-                            <i
-                                class="fa-solid fa-utensils text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                            {{ item.restoran }}
-                        </h3>
+            <div class="py-2">
+                <a href="{% url 'minuman:detail_minuman' item.id %}"
+                    class="hover:brightness-110 transition duration-300">
+                    <img src="{{ item.gambar.url }}" alt="{{ item.nama }}"
+                        class="w-full h-36 md:h-64 object-cover rounded-lg">
+                    <div class="mt-2.5 flex flex-col gap-1">
+                        <h1 class="md:text-lg font-semibold">{{ item.nama }}</h1>
+                        <div>
+                            <h2 class="max-md:text-sm flex items-center gap-2">
+                                <i
+                                    class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
+                                Rp{{ item.harga|intcomma }}
+                            </h2>
+                            <h3 class="max-md:text-sm flex items-start gap-2">
+                                <i
+                                    class="fa-solid fa-utensils text-sm max-md:scale-90 mt-1 w-4 flex justify-center text-neutral-500"></i>
+                                <a href="{% url 'restoran:detail_restoran' item.restoran.id %}" class="hover:underline">
+                                    {{ item.restoran }}
+                                </a>
+                            </h3>
+                        </div>
                     </div>
                 </a>
             </div>
