@@ -3,20 +3,26 @@
 {% load humanize %}
 
 {% block meta %}
-<title>{{ restoran.nama }} | RasaPalembang</title>
+<title>RasaPalembang | {{ restoran.restoran.nama }}</title>
 {% endblock meta %}
 
 {% block content %}
 <div class="w-screen h-[456px] relative">
-    {% if restoran.gambar %}
-    <img src="{{ restoran.gambar.url }}" alt="{{ restoran.nama }}" class="w-full h-full object-cover brightness-90">
+    {% if restoran.restoran.gambar %}
+    <img src="
+        {% if 'raw.githubusercontent.com/D02-PBP-2024/mediafiles/' in restoran.restoran.gambar.url %}
+        {{ restoran.gambar_url|cut:'/media/' }}
+        {% else %}
+        {{ restoran.restoran.gambar.url }}
+        {% endif %}
+        " alt="{{ restoran.restoran.nama }}" class="w-full h-full object-cover brightness-90">
     {% else %}
     <img src="{% static 'images/no-image.jpg' %}" alt="No image" class="w-full h-full object-cover brightness-90">
     {% endif %}
     <div class="bg-gradient-to-t from-[#000000]/95 via-[#000000]/20 to-[#ffffff]/0 absolute top-0 left-0 w-full h-full">
         <div
             class="text-white h-full px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto flex flex-col gap-2 justify-end">
-            <h1 class="text-4xl md:text-6xl text-white font-bold">{{ restoran.nama }}</h1>
+            <h1 class="text-4xl md:text-6xl text-white font-bold">{{ restoran.restoran.nama }}</h1>
             <div id="reviewSummaryContainer" class="flex items-center gap-3 md:gap-4 mt-5">
                 <div id="ratingSummary" class="flex gap-1 md:gap-1.5 font-bold"></div>
                 <span id="reviewSummary" class="font-semibold"></span>
@@ -24,18 +30,18 @@
             <div class="text-neutral-100/90 mt-3 max-md:text-sm text-lg">
                 <h2 class="font-semibold flex gap-2.5 items-center">
                     <i class="fas fa-map-marker-alt text-xs"></i>
-                    <span>{{ restoran.alamat }}</span>
+                    <span>{{ restoran.restoran.alamat }}</span>
                 </h2>
                 <h2 class="font-semibold flex gap-2.5 items-center max-md:mt-2">
                     <i class="fas fa-phone text-xs"></i>
-                    <span>{{ restoran.nomor_telepon }}</span>
+                    <span>{{ restoran.restoran.nomor_telepon }}</span>
                 </h2>
             </div>
             <h3 class="text-lg font-semibold flex gap-3 md:gap-4 max-md:text-sm max-md:mt-2">
                 <span class="{% if status == 'Buka' %}text-green-500{% else %}text-red-500{% endif %}">
                     {{ status }}
                 </span>
-                {{ restoran.jam_buka|date:"H:i" }} - {{ restoran.jam_tutup|date:"H:i" }}
+                {{ restoran.restoran.jam_buka|date:"H:i" }} - {{ restoran.restoran.jam_tutup|date:"H:i" }}
             </h3>
         </div>
     </div>
@@ -50,7 +56,7 @@
                 Tuliskan Ulasan
             </button>
             {% endif %}
-            <a href="{% url 'forum:show_forum' restoran.id %}"
+            <a href="{% url 'forum:show_forum' restoran.restoran.id %}"
                 class="flex justify-center items-center gap-2 w-full w-full lg:w-fit px-4 sm:px-5 py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
                 <i class="fa-regular fa-comments max-sm:scale-90"></i>
                 Diskusikan di Forum
@@ -65,12 +71,12 @@
         </div>
         {% if request.user == restoran.user %}
         <div class="w-full flex max-sm:flex-col lg:justify-end gap-2">
-            <a href="{% url 'restoran:ubah' restoran.id %}"
+            <a href="{% url 'restoran:ubah' restoran.restoran.id %}"
                 class="flex justify-center items-center gap-2 w-full w-full lg:w-fit px-4 sm:px-5 py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
                 <i class="fa-regular fa-pen-to-square text-sm"></i>
                 Ubah Restoran
             </a>
-            <form method="POST" action="{% url 'restoran:hapus' restoran.id %}"
+            <form method="POST" action="{% url 'restoran:hapus' restoran.restoran.id %}"
                 class="flex justify-center items-center gap-2 w-full lg:w-fit px-4 sm:px-5 py-2 bg-[#eb4b4b] hover:bg-[#c93e3e] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
                 {% csrf_token %}
                 <button type="submit" class="flex justify-center items-center gap-2 w-full">
@@ -103,9 +109,14 @@
                 {% for item in makanan %}
                 <div
                     class="border border-neutral-100 shadow-lg shadow-neutral-100 hover:shadow-neutral-200 rounded-xl transition">
-                    <a href="{% url 'makanan:detail_makanan' item.id %}">
-                        <img src='{{ item.gambar.url }}' alt='{{ item.nama }}'
-                            class='rounded-lg w-full h-40 md:h-56 object-cover'>
+                    <a href="{% url 'makanan:detail_makanan' item.makanan.id %}">
+                        <img src="
+                            {% if 'raw.githubusercontent.com/D02-PBP-2024/mediafiles/' in item.makanan.gambar.url %}
+                            {{ item.gambar_url|cut:'/media/' }}
+                            {% else %}
+                            {{ item.makanan.gambar.url }}
+                            {% endif %}
+                            " alt='{{ item.nama }}' class='rounded-lg w-full h-40 md:h-56 object-cover'>
                         <div class="p-3 md:p-4">
                             <h1 class="md:text-lg font-bold">{{ item.nama }}</h1>
                             <h1 class="text-neutral-500 max-md:text-sm font-semibold">Rp{{ item.harga|intcomma }}</h1>
@@ -116,12 +127,19 @@
                 {% for item in minuman %}
                 <div
                     class="border border-neutral-100 shadow-lg shadow-neutral-100 hover:shadow-neutral-200 rounded-xl transition">
-                    <a href="{% url 'minuman:show_minuman_by_id' item.id %}">
-                        <img src='{{ item.gambar.url }}' alt='{{ item.nama }}'
-                            class='rounded-lg w-full h-40 md:h-56 object-cover'>
+                    <a href="{% url 'minuman:show_minuman_by_id' item.minuman.id %}">
+                        <img src="
+                            {% if 'raw.githubusercontent.com/D02-PBP-2024/mediafiles/' in item.minuman.gambar.url %}
+                            {{ item.gambar_url|cut:'/media/' }}
+                            {% else %}
+                            {{ item.minuman.gambar.url }}
+                            {% endif %}
+                            " alt='{{ item.nama }}' class='rounded-lg w-full h-40 md:h-56 object-cover'>
                         <div class="p-3 md:p-4">
-                            <h1 class="md:text-lg font-bold">{{ item.nama }}</h1>
-                            <h1 class="text-neutral-500 max-md:text-sm font-semibold">Rp {{ item.harga|intcomma }}</h1>
+                            <h1 class="md:text-lg font-bold">{{ item.minuman.nama }}</h1>
+                            <h1 class="text-neutral-500 max-md:text-sm font-semibold">
+                                Rp {{ item.minuman.harga|intcomma }}
+                            </h1>
                         </div>
                     </a>
                 </div>
@@ -165,7 +183,7 @@
             visible: false
         })
 
-        geocodeAddress('{{ restoran.alamat }}')
+        geocodeAddress('{{ restoran.restoran.alamat }}')
     }
 
     function geocodeAddress(address) {
@@ -222,7 +240,7 @@
     }
 
     async function getReviews() {
-        return fetch('/restoran/{{ restoran.id }}/ulasan/').then((res) => res.json())
+        return fetch('/restoran/{{ restoran.restoran.id }}/ulasan/').then((res) => res.json())
     }
 
     async function refreshReviews() {
@@ -295,7 +313,7 @@
                             <i class='fa-regular fa-pen-to-square text-xs mr-2'></i>
                             <span class='text-center'>Ubah ulasan</span>
                         </button>
-                        <a href='{% url 'restoran:ulasan:hapus_ulasan' restoran.id %}' class='max-sm:flex-grow flex justify-center items-center w-fit bg-[#eb4b4b] hover:bg-[#c93e3e] transition text-white py-2 px-5 rounded-lg text-sm font-semibold'>
+                        <a href='{% url 'restoran:ulasan:hapus_ulasan' restoran.restoran.id %}' class='max-sm:flex-grow flex justify-center items-center w-fit bg-[#eb4b4b] hover:bg-[#c93e3e] transition text-white py-2 px-5 rounded-lg text-sm font-semibold'>
                             <i class='fa-regular fa-trash-can text-xs mr-2'></i>
                             <span class='text-center'>Hapus ulasan</span>
                         </a>
@@ -396,7 +414,7 @@
     document.getElementById('closeEditReviewModalodalButton').addEventListener('click', hideEditModal)
 
     function addReview() {
-        fetch('/restoran/{{ restoran.id }}/ulasan/tambah/', {
+        fetch('/restoran/{{ restoran.restoran.id }}/ulasan/tambah/', {
             method: 'POST',
             body: new FormData(document.querySelector('#addReviewForm')),
         }).then(response => refreshReviews())
@@ -408,7 +426,7 @@
     }
 
     function editReview() {
-        fetch('/restoran/{{ restoran.id }}/ulasan/ubah/', {
+        fetch('/restoran/{{ restoran.restoran.id }}/ulasan/ubah/', {
             method: 'POST',
             body: new FormData(document.querySelector('#editReviewForm')),
         }).then(response => refreshReviews())

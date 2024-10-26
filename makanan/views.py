@@ -1,21 +1,38 @@
-import json
 from django.shortcuts import render, redirect, get_object_or_404
-from makanan.forms import MakananForm
-from makanan.models import Makanan, Kategori
-from restoran.models import Restoran
 from django.contrib.auth.decorators import login_required
+from makanan.models import Makanan, Kategori
 from django.core.paginator import Paginator
+from makanan.forms import MakananForm
+from restoran.models import Restoran
 from django.http import JsonResponse
+import json
+
+
+def get_gambar_url(item):
+    return (
+        str(item.gambar.url).replace("%3A", ":/")
+        if hasattr(item, "gambar") and item.gambar
+        else None
+    )
 
 
 def show_makanan(request):
     makanan = Makanan.objects.all()
-    paginator = Paginator(makanan, 6)
+
+    makanan_list = [
+        {
+            "makanan": item,
+            "gambar_url": get_gambar_url(item),
+        }
+        for item in makanan
+    ]
+
+    paginator = Paginator(makanan_list, 6)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
     list_kategori = Kategori.objects.all()
+
     context = {
-        "makanan_list": makanan,
         "page_obj": page_obj,
         "total_page": paginator.num_pages,
         "list_kategori": list_kategori,
@@ -53,7 +70,14 @@ def detail_makanan(request, id):
     list_kategori = Kategori.objects.filter(makanan=makanan)
     restoran = Restoran.objects.get(pk=makanan.restoran.id)
 
-    context = {"makanan": makanan, "list_kategori": list_kategori, "restoran": restoran}
+    context = {
+        "makanan": {
+            "makanan": makanan,
+            "gambar_url": get_gambar_url(makanan),
+        },
+        "list_kategori": list_kategori,
+        "restoran": restoran,
+    }
     return render(request, "makanan/detail/detail_makanan.html", context)
 
 

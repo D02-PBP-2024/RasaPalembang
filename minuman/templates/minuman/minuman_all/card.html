@@ -1,19 +1,24 @@
 {% load humanize %}
 <div class="flex flex-col sm:flex-row">
     <div class="sm:basis-5/12 w-full h-full">
-        <a href="{% url 'minuman:show_minuman_by_id' minuman.id %}">
+        <a href="{% url 'minuman:show_minuman_by_id' minuman.minuman.id %}">
             <div class="overflow-hidden rounded-lg shadow">
                 <div class="relative pt-[75%]">
-                    <img src="{{ minuman.gambar.url }}" class="object-cover absolute top-0 w-full h-full"
-                        alt="{{ minuman.nama }}">
+                    <img src="
+                        {% if 'raw.githubusercontent.com/D02-PBP-2024/mediafiles/' in minuman.minuman.gambar.url %}
+                        {{ minuman.gambar_url|cut:'/media/' }}
+                        {% else %}
+                        {{ minuman.minuman.gambar.url }}
+                        {% endif %}
+                        " class="object-cover absolute top-0 w-full h-full" alt="{{ minuman.minuman.nama }}">
                 </div>
             </div>
         </a>
     </div>
     <div class="sm:basis-7/12 sm:ml-8">
         <div class="flex mt-4 sm:mt-0">
-            <a href="{% url 'minuman:show_minuman_by_id' minuman.id %}" class="pointer w-full">
-                <h1 class="font-bold text-3xl text-[#ff5757] hover:text-[#d04848]">{{ minuman.nama }}</h1>
+            <a href="{% url 'minuman:show_minuman_by_id' minuman.minuman.id %}" class="pointer w-full">
+                <h1 class="font-bold text-3xl text-[#ff5757] hover:text-[#d04848]">{{ minuman.minuman.nama }}</h1>
             </a>
             <button
                 class="flex place-items-center border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-2 px-[9px] sm:px-4 rounded-full focus:outline-none focus:bg-[#4f9da6] focus:text-white">
@@ -21,29 +26,38 @@
             </button>
         </div>
         <div class="mt-2">
-            <a href="{% url 'restoran:detail' minuman.restoran.id %}" class="hover:underline">
-                <i class="fa-solid fa-location-dot"></i><span class="ml-2">{{ minuman.restoran.nama }}</span>
+            <a href="{% url 'restoran:detail' minuman.minuman.restoran.id %}" class="hover:underline">
+                <i class="fa-solid fa-location-dot"></i><span class="ml-2">{{ minuman.minuman.restoran.nama }}</span>
             </a>
         </div>
-        <p class="mt-4">{{ minuman.deskripsi }}</p>
+        <p class="mt-4">{{ minuman.minuman.deskripsi }}</p>
         <ul role="list" class="space-y-4 text-gray-600 mt-4">
             <li class="flex gap-x-3">
                 <span class="h-5 w-5 flex-none text-[#4f9da6]">
                     <i class="fa-solid fa-rupiah-sign"></i>
                 </span>
-                <span><strong class="font-semibold text-gray-900">Harga: </strong>Rp{{ minuman.harga|intcomma }}</span>
+                <span>
+                    <strong class="font-semibold text-gray-900">Harga: </strong>
+                    Rp {{ minuman.minuman.harga|intcomma }}
+                </span>
             </li>
             <li class="flex gap-x-3">
                 <span class="h-5 w-5 flex-none text-[#4f9da6]">
                     <i class="fa-solid fa-martini-glass-citrus"></i>
                 </span>
-                <span><strong class="font-semibold text-gray-900">Ukuran: </strong>{{ minuman.ukuran|title }}</span>
+                <span>
+                    <strong class="font-semibold text-gray-900">Ukuran: </strong>
+                    {{ minuman.minuman.ukuran|title }}
+                </span>
             </li>
             <li class="flex gap-x-3">
                 <span class="h-5 w-5 flex-none text-[#4f9da6]">
                     <i class="fa-solid fa-cubes-stacked"></i>
                 </span>
-                <span><strong class="font-semibold text-gray-900">Tingkat kemanisan: </strong>{{ minuman.tingkat_kemanisan }}%</span>
+                <span>
+                    <strong class="font-semibold text-gray-900">Tingkat kemanisan: </strong>
+                    {{ minuman.minuman.tingkat_kemanisan }}%
+                </span>
             </li>
         </ul>
     </div>

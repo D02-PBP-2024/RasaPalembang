@@ -45,18 +45,23 @@
         <!-- Grid makanan -->
         {% if page_obj.object_list %}
         <div id="makananList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {% for makanan in page_obj %}
-            <a href="{% url 'makanan:detail_makanan' makanan.id %}"
+            {% for item in page_obj %}
+            <a href="{% url 'makanan:detail_makanan' item.makanan.id %}"
                 class="block bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 transform hover:scale-105 transition-transform duration-300">
-                {% if makanan.gambar %}
-                <img class="w-full h-48 object-cover mb-4 rounded-lg" src="{{ makanan.gambar.url }}"
-                    alt="{{ makanan.nama }}">
+                {% if item.makanan.gambar %}
+                <img src="
+                    {% if 'raw.githubusercontent.com/D02-PBP-2024/mediafiles/' in item.makanan.gambar.url %}
+                    {{ item.gambar_url|cut:'/media/' }}
+                    {% else %}
+                    {{ item.makanan.gambar.url }}
+                    {% endif %}
+                    " alt="{{ item.makanan.nama }}" class="w-full h-48 object-cover mb-4 rounded-lg">
                 {% else %}
                 <img class="w-full h-48 object-cover mb-4 rounded-lg" src="path/to/placeholder-image.jpg"
-                    alt="Makanan Default">
+                    alt="item Default">
                 {% endif %}
-                <h2 class="text-xl font-semibold text-gray-700">{{ makanan.nama }}</h2>
-                <p class="text-sm text-gray-400 mt-4">Restoran: {{ makanan.restoran.nama }}</p>
+                <h2 class="text-xl font-semibold text-gray-700">{{ item.makanan.nama }}</h2>
+                <p class="text-sm text-gray-400 mt-4">Restoran: {{ item.makanan.restoran.nama }}</p>
             </a>
             {% endfor %}
         </div>
