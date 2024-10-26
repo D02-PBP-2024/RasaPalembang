@@ -5,7 +5,7 @@
 {% endblock meta %}
 
 {% block content %}
-<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-10 w-full mx-auto">
+<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
     <h2 class="text-xl font-semibold">Edit Minuman</h2>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
@@ -62,7 +62,7 @@
                     <option value="">Pilih restoran</option>
                     {% if restoran %}
                     {% for item in restoran %}
-                    <option value="{{ item.id }}" {% if item.id == minuman.restoran.id %} selected {% endif %}>
+                    <option value="{{ item.id }}" {% if item.id==minuman.restoran.id %} selected {% endif %}>
                         {{ item.nama }}
                     </option>
                     {% endfor %}

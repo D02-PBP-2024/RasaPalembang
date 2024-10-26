@@ -5,7 +5,7 @@
 {% endblock meta %}
 
 {% block content %}
-<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-10 w-full mx-auto">
+<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
     <div class="mx-auto grid grid-cols-1 gap-x-8 gap-y-8 lg:grid-cols-2 lg:items-start">
         <div
             class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8">
@@ -13,7 +13,8 @@
                 <p class="text-base font-semibold leading-7 text-[#ff5757]">Minuman</p>
                 <div class="flex mt-2">
                     <h1 class="w-full text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-                        {{ minuman.nama }}</h1>
+                        {{ minuman.nama }}
+                    </h1>
                     <div class="flex-none">
                         <button
                             class="border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-2 px-[12px] sm:py-3 sm:px-[16px] rounded-full focus:outline-none focus:bg-[#4f9da6] focus:text-white">
@@ -25,8 +26,8 @@
             </div>
         </div>
         <div class="lg:-mt-3 lg:pt-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:max-w-xl">
-            <img class="w-full rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10" src="{{ minuman.gambar.url }}"
-                alt="{{ minuman.nama }}">
+            <img src="{{ minuman.gambar.url }}" alt="{{ minuman.nama }}"
+                class="w-full rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10">
         </div>
         <div
             class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8">
@@ -39,7 +40,7 @@
                             </span>
                             <span>
                                 <strong class="font-semibold text-gray-900">Harga: </strong>
-                                Rp{{ minuman.harga|floatformat:0|intcomma }}
+                                Rp {{ minuman.harga|floatformat:0|intcomma }}
                             </span>
                         </li>
                         <li class="flex gap-x-3">

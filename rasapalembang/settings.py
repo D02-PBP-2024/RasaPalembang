@@ -43,13 +43,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'widget_tweaks',
+    'authentication',
+    'restoran',
     'makanan',
     'minuman',
-    'restoran',
     'ulasan',
     'forum',
     'favorit',
-    'authentication',
 ]
 
 MIDDLEWARE = [

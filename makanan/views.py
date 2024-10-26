@@ -1,26 +1,22 @@
-import json
 from django.shortcuts import render, redirect, get_object_or_404
-from makanan.forms import MakananForm
-from makanan.models import Makanan, Kategori
-from restoran.models import Restoran
 from django.contrib.auth.decorators import login_required
+from makanan.models import Makanan, Kategori
 from django.core.paginator import Paginator
+from makanan.forms import MakananForm
+from restoran.models import Restoran
 from django.http import JsonResponse
+import json
 
 
 def show_makanan(request):
     makanan = Makanan.objects.all()
-    paginator = Paginator(makanan, 6)
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
     list_kategori = Kategori.objects.all()
-    context = {
-        "makanan_list": makanan,
-        "page_obj": page_obj,
-        "total_page": paginator.num_pages,
-        "list_kategori": list_kategori,
-    }
-    return render(request, "makanan/show/show_makanan.html", context)
+
+    return render(
+        request,
+        "makanan/show/show_makanan.html",
+        {"makanan": makanan, "list_kategori": list_kategori},
+    )
 
 
 @login_required(login_url="/login")
@@ -53,7 +49,11 @@ def detail_makanan(request, id):
     list_kategori = Kategori.objects.filter(makanan=makanan)
     restoran = Restoran.objects.get(pk=makanan.restoran.id)
 
-    context = {"makanan": makanan, "list_kategori": list_kategori, "restoran": restoran}
+    context = {
+        "makanan": makanan,
+        "list_kategori": list_kategori,
+        "restoran": restoran,
+    }
     return render(request, "makanan/detail/detail_makanan.html", context)
 
 
@@ -97,24 +97,20 @@ def delete_makanan(request, id):
 def filter_by_kategori(request):
     if request.method == "POST":
         try:
-            data = json.loads(request.body)  # Ambil data JSON dari request body
-            kategori_id = data.get(
-                "kategori_id"
-            )  # Dapatkan kategori ID dari request body, default empty list
+            data = json.loads(request.body)
+            kategori_id = data.get("kategori_id")
 
-            # Filter makanan berdasarkan kategori yang dipilih
             if len(kategori_id) > 0:
                 makanan_list = Makanan.objects.filter(kategori__id__in=kategori_id)
             else:
                 makanan_list = Makanan.objects.all()
 
-            # Persiapkan data makanan untuk dikirim kembali sebagai response JSON\
             makanan_data = []
             for makanan in makanan_list:
                 makanan = {
                     "id": makanan.id,
                     "nama": makanan.nama,
-                    "gambar": makanan.gambar.url if makanan.gambar else "",
+                    "gambar": makanan.gambar.url,
                     "harga": makanan.harga,
                     "kalori": makanan.kalori,
                     "deskripsi": makanan.deskripsi,
@@ -123,7 +119,6 @@ def filter_by_kategori(request):
                 if makanan not in makanan_data:
                     makanan_data.append(makanan)
 
-            # Kirim response JSON ke frontend
             return JsonResponse({"makanan": makanan_data})
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=400)

@@ -1,629 +1,5 @@
 [
     {
-        "model": "auth.permission",
-        "pk": 1,
-        "fields": {
-            "name": "Can add log entry",
-            "content_type": 1,
-            "codename": "add_logentry"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 2,
-        "fields": {
-            "name": "Can change log entry",
-            "content_type": 1,
-            "codename": "change_logentry"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 3,
-        "fields": {
-            "name": "Can delete log entry",
-            "content_type": 1,
-            "codename": "delete_logentry"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 4,
-        "fields": {
-            "name": "Can view log entry",
-            "content_type": 1,
-            "codename": "view_logentry"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 5,
-        "fields": {
-            "name": "Can add permission",
-            "content_type": 2,
-            "codename": "add_permission"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 6,
-        "fields": {
-            "name": "Can change permission",
-            "content_type": 2,
-            "codename": "change_permission"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 7,
-        "fields": {
-            "name": "Can delete permission",
-            "content_type": 2,
-            "codename": "delete_permission"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 8,
-        "fields": {
-            "name": "Can view permission",
-            "content_type": 2,
-            "codename": "view_permission"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 9,
-        "fields": {
-            "name": "Can add group",
-            "content_type": 3,
-            "codename": "add_group"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 10,
-        "fields": {
-            "name": "Can change group",
-            "content_type": 3,
-            "codename": "change_group"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 11,
-        "fields": {
-            "name": "Can delete group",
-            "content_type": 3,
-            "codename": "delete_group"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 12,
-        "fields": {
-            "name": "Can view group",
-            "content_type": 3,
-            "codename": "view_group"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 13,
-        "fields": {
-            "name": "Can add content type",
-            "content_type": 4,
-            "codename": "add_contenttype"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 14,
-        "fields": {
-            "name": "Can change content type",
-            "content_type": 4,
-            "codename": "change_contenttype"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 15,
-        "fields": {
-            "name": "Can delete content type",
-            "content_type": 4,
-            "codename": "delete_contenttype"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 16,
-        "fields": {
-            "name": "Can view content type",
-            "content_type": 4,
-            "codename": "view_contenttype"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 17,
-        "fields": {
-            "name": "Can add session",
-            "content_type": 5,
-            "codename": "add_session"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 18,
-        "fields": {
-            "name": "Can change session",
-            "content_type": 5,
-            "codename": "change_session"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 19,
-        "fields": {
-            "name": "Can delete session",
-            "content_type": 5,
-            "codename": "delete_session"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 20,
-        "fields": {
-            "name": "Can view session",
-            "content_type": 5,
-            "codename": "view_session"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 21,
-        "fields": {
-            "name": "Can add kategori",
-            "content_type": 6,
-            "codename": "add_kategori"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 22,
-        "fields": {
-            "name": "Can change kategori",
-            "content_type": 6,
-            "codename": "change_kategori"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 23,
-        "fields": {
-            "name": "Can delete kategori",
-            "content_type": 6,
-            "codename": "delete_kategori"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 24,
-        "fields": {
-            "name": "Can view kategori",
-            "content_type": 6,
-            "codename": "view_kategori"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 25,
-        "fields": {
-            "name": "Can add makanan",
-            "content_type": 7,
-            "codename": "add_makanan"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 26,
-        "fields": {
-            "name": "Can change makanan",
-            "content_type": 7,
-            "codename": "change_makanan"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 27,
-        "fields": {
-            "name": "Can delete makanan",
-            "content_type": 7,
-            "codename": "delete_makanan"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 28,
-        "fields": {
-            "name": "Can view makanan",
-            "content_type": 7,
-            "codename": "view_makanan"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 29,
-        "fields": {
-            "name": "Can add minuman",
-            "content_type": 8,
-            "codename": "add_minuman"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 30,
-        "fields": {
-            "name": "Can change minuman",
-            "content_type": 8,
-            "codename": "change_minuman"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 31,
-        "fields": {
-            "name": "Can delete minuman",
-            "content_type": 8,
-            "codename": "delete_minuman"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 32,
-        "fields": {
-            "name": "Can view minuman",
-            "content_type": 8,
-            "codename": "view_minuman"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 33,
-        "fields": {
-            "name": "Can add restoran",
-            "content_type": 9,
-            "codename": "add_restoran"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 34,
-        "fields": {
-            "name": "Can change restoran",
-            "content_type": 9,
-            "codename": "change_restoran"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 35,
-        "fields": {
-            "name": "Can delete restoran",
-            "content_type": 9,
-            "codename": "delete_restoran"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 36,
-        "fields": {
-            "name": "Can view restoran",
-            "content_type": 9,
-            "codename": "view_restoran"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 37,
-        "fields": {
-            "name": "Can add ulasan",
-            "content_type": 10,
-            "codename": "add_ulasan"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 38,
-        "fields": {
-            "name": "Can change ulasan",
-            "content_type": 10,
-            "codename": "change_ulasan"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 39,
-        "fields": {
-            "name": "Can delete ulasan",
-            "content_type": 10,
-            "codename": "delete_ulasan"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 40,
-        "fields": {
-            "name": "Can view ulasan",
-            "content_type": 10,
-            "codename": "view_ulasan"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 41,
-        "fields": {
-            "name": "Can add forum",
-            "content_type": 11,
-            "codename": "add_forum"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 42,
-        "fields": {
-            "name": "Can change forum",
-            "content_type": 11,
-            "codename": "change_forum"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 43,
-        "fields": {
-            "name": "Can delete forum",
-            "content_type": 11,
-            "codename": "delete_forum"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 44,
-        "fields": {
-            "name": "Can view forum",
-            "content_type": 11,
-            "codename": "view_forum"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 45,
-        "fields": {
-            "name": "Can add balasan",
-            "content_type": 12,
-            "codename": "add_balasan"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 46,
-        "fields": {
-            "name": "Can change balasan",
-            "content_type": 12,
-            "codename": "change_balasan"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 47,
-        "fields": {
-            "name": "Can delete balasan",
-            "content_type": 12,
-            "codename": "delete_balasan"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 48,
-        "fields": {
-            "name": "Can view balasan",
-            "content_type": 12,
-            "codename": "view_balasan"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 49,
-        "fields": {
-            "name": "Can add favorit",
-            "content_type": 13,
-            "codename": "add_favorit"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 50,
-        "fields": {
-            "name": "Can change favorit",
-            "content_type": 13,
-            "codename": "change_favorit"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 51,
-        "fields": {
-            "name": "Can delete favorit",
-            "content_type": 13,
-            "codename": "delete_favorit"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 52,
-        "fields": {
-            "name": "Can view favorit",
-            "content_type": 13,
-            "codename": "view_favorit"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 53,
-        "fields": {
-            "name": "Can add user",
-            "content_type": 14,
-            "codename": "add_user"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 54,
-        "fields": {
-            "name": "Can change user",
-            "content_type": 14,
-            "codename": "change_user"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 55,
-        "fields": {
-            "name": "Can delete user",
-            "content_type": 14,
-            "codename": "delete_user"
-        }
-    },
-    {
-        "model": "auth.permission",
-        "pk": 56,
-        "fields": {
-            "name": "Can view user",
-            "content_type": 14,
-            "codename": "view_user"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 1,
-        "fields": {
-            "app_label": "admin",
-            "model": "logentry"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 2,
-        "fields": {
-            "app_label": "auth",
-            "model": "permission"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 3,
-        "fields": {
-            "app_label": "auth",
-            "model": "group"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 4,
-        "fields": {
-            "app_label": "contenttypes",
-            "model": "contenttype"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 5,
-        "fields": {
-            "app_label": "sessions",
-            "model": "session"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 6,
-        "fields": {
-            "app_label": "makanan",
-            "model": "kategori"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 7,
-        "fields": {
-            "app_label": "makanan",
-            "model": "makanan"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 8,
-        "fields": {
-            "app_label": "minuman",
-            "model": "minuman"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 9,
-        "fields": {
-            "app_label": "restoran",
-            "model": "restoran"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 10,
-        "fields": {
-            "app_label": "ulasan",
-            "model": "ulasan"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 11,
-        "fields": {
-            "app_label": "forum",
-            "model": "forum"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 12,
-        "fields": {
-            "app_label": "forum",
-            "model": "balasan"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 13,
-        "fields": {
-            "app_label": "favorit",
-            "model": "favorit"
-        }
-    },
-    {
-        "model": "contenttypes.contenttype",
-        "pk": 14,
-        "fields": {
-            "app_label": "authentication",
-            "model": "user"
-        }
-    },
-    {
-        "model": "sessions.session",
-        "pk": "ftdmya6y7rc7ihbizz7ojwfzwrsd4tua",
-        "fields": {
-            "session_data": ".eJxVjEEOwiAQRe_C2hAYQFqX7nsGAjODVA0kpV0Z765NutDtf-_9lwhxW0vYOi9hJnER2ojT75giPrjuhO6x3prEVtdlTnJX5EG7nBrx83q4fwcl9vKtcfBowCGBMeqs0uA82qyByOeRcvTgXQLNka12WSGgUaMGJu0ZLYB4fwADJDfw:1t4YZx:mfUfelQkUVWaeRGVNIwuYEKXNO7v1iSdIiIYIN7zAvI",
-            "expire_date": "2024-11-09T04:39:09.517Z"
-        }
-    },
-    {
         "model": "makanan.kategori",
         "pk": "0de708ca-38bc-442c-9fba-4f1532487eb4",
         "fields": {
@@ -684,6 +60,784 @@
         "pk": "d8eb2bc9-eafa-4159-a46f-2492f57032a0",
         "fields": {
             "nama": "Salad"
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "d0e880e2-1a14-472a-9f51-4ef158091383",
+        "fields": {
+            "nama": "Pempek Kapal Selam",
+            "harga": "20000.00",
+            "deskripsi": "Pempek dengan isian telur di dalamnya, disajikan dengan kuah cuka yang segar.",
+            "gambar": "gambar_makanan/71b61210-b7e9-4334-b966-4a035a199a76.jpg",
+            "kalori": 80,
+            "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "d758afc4-0162-4e1b-9490-cad603b5cf2a",
+        "fields": {
+            "nama": "Pempek Lenjer",
+            "harga": "15000.00",
+            "deskripsi": "Pempek panjang yang kenyal, cocok disajikan dengan cuka pempek.",
+            "gambar": "gambar_makanan/f4709b47-b2e2-431e-b18b-d67b90a4663f.jpg",
+            "kalori": 90,
+            "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "76953b87-9d78-46b5-95b0-e0e3436e5cb3",
+        "fields": {
+            "nama": "Pempek Adaan",
+            "harga": "18000.00",
+            "deskripsi": "Pempek bulat yang diisi dengan ikan, digoreng hingga kecokelatan.",
+            "gambar": "gambar_makanan/319d80c7-8899-4c73-b059-04f2fa12650b.jpg",
+            "kalori": 100,
+            "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "93476871-5070-45c2-971b-96bd02f162e1",
+        "fields": {
+            "nama": "Pempek Pistel",
+            "harga": "22000.00",
+            "deskripsi": "Pempek dengan isian sayuran dan sambal, unik dan lezat.",
+            "gambar": "gambar_makanan/7ffe0065-f929-401b-a9b3-2b726955c43e.jpg",
+            "kalori": 85,
+            "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "fdcfb875-1f17-4c66-962a-0ac9afa8517b",
+        "fields": {
+            "nama": "Pempek Kulit",
+            "harga": "25000.00",
+            "deskripsi": "Pempek yang terbuat dari kulit ikan, gurih dan renyah.",
+            "gambar": "gambar_makanan/acba64be-0c02-4e16-8953-799db7d6d3f8.jpeg",
+            "kalori": 110,
+            "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "52aad79b-167a-487b-8056-940cc3d0c0c2",
+        "fields": {
+            "nama": "Tsukune Nokke Sushi",
+            "harga": "68000.00",
+            "deskripsi": "Tsukune Nokke Sushi adalah hidangan sushi yang unik, menggabungkan bola daging ayam (tsukune) yang dibumbui dengan nasi sushi. Disajikan dengan saus tare yang manis dan hiasan wijen atau bawang hijau, hidangan ini menawarkan perpaduan rasa gurih dan tekstur yang kenyal, cocok sebagai camilan atau hidangan utama.",
+            "gambar": "gambar_makanan/691d850c-dd91-4ee9-b7b0-0f921c9ba780.jpg",
+            "kalori": 80,
+            "restoran": "130561a8-c4d5-4b8e-ba5c-a36deeafd14d",
+            "kategori": [
+                "0de708ca-38bc-442c-9fba-4f1532487eb4"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "0c174f6a-f814-45da-bc40-bc47aa5fd3d2",
+        "fields": {
+            "nama": "Choco Orenji Taruto",
+            "harga": "39000.00",
+            "deskripsi": "Choco Orenji Taruto adalah dessert lezat yang menggabungkan rasa cokelat yang kaya dengan aroma jeruk yang segar. Hidangan ini disajikan dalam bentuk kue tar yang lembut, dilapisi dengan krim manis, sempurna untuk memanjakan lidah Anda.",
+            "gambar": "gambar_makanan/60c0304d-2938-445b-b213-189927d78a3b.jpg",
+            "kalori": 250,
+            "restoran": "130561a8-c4d5-4b8e-ba5c-a36deeafd14d",
+            "kategori": [
+                "54b05aac-d7b9-432a-a86d-5c539178c351"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "05a985d4-db3c-4faa-80b9-cf9024d761f1",
+        "fields": {
+            "nama": "Salmon Katsu Curry",
+            "harga": "69000.00",
+            "deskripsi": "Salmon Katsu Curry adalah paduan sempurna antara salmon yang digoreng crispy dan saus kari yang kaya rempah. Hidangan ini disajikan dengan nasi hangat, menjadikannya pilihan yang memuaskan untuk pecinta makanan Jepang.",
+            "gambar": "gambar_makanan/60ea27b6-f07f-4144-9d02-fd3dc7f208e6.jpg",
+            "kalori": 500,
+            "restoran": "130561a8-c4d5-4b8e-ba5c-a36deeafd14d",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "6e3b4be7-179e-4233-a8b3-814701f734f0"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "1ca549ce-0bcc-47e6-9f18-e42b245cbb05",
+        "fields": {
+            "nama": "Salmon Karamayo Tamago",
+            "harga": "32000.00",
+            "deskripsi": "Salmon Karamayo Tamago adalah hidangan yang memadukan salmon yang lembut dengan telur dadar Jepang yang fluffy dan saus karamayo. Hidangan ini menyajikan rasa yang creamy dan memuaskan, cocok untuk brunch.",
+            "gambar": "gambar_makanan/80c45049-f1ec-4c5f-81eb-d83f2ac7fa4e.jpg",
+            "kalori": 300,
+            "restoran": "130561a8-c4d5-4b8e-ba5c-a36deeafd14d",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "6e3b4be7-179e-4233-a8b3-814701f734f0"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "fb837090-876e-41e0-8224-d75ae5ad219a",
+        "fields": {
+            "nama": "Wakame Salad",
+            "harga": "61000.00",
+            "deskripsi": "Wakame Salad adalah salad segar yang terbuat dari rumput laut wakame, dicampur dengan sayuran segar dan dressing khusus. Hidangan ini menawarkan rasa umami yang lezat, serta kaya akan nutrisi.",
+            "gambar": "gambar_makanan/4a745734-4d9b-493b-a629-65d06f9cb2af.jpg",
+            "kalori": 150,
+            "restoran": "130561a8-c4d5-4b8e-ba5c-a36deeafd14d",
+            "kategori": [
+                "d8eb2bc9-eafa-4159-a46f-2492f57032a0",
+                "cce8df66-fbbd-4f6c-97ff-414d9893d09e"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "34ec0d42-4a26-4423-abbd-57ccdb1465dc",
+        "fields": {
+            "nama": "Pempek Panggang",
+            "harga": "17500.00",
+            "deskripsi": "Pempek Panggang adalah variasi dari pempek khas Palembang, biasanya berbentuk bulat atau lonjong dan dipanggang alih-alih digoreng. Setelah pempek matang, biasanya diisi dengan campuran ebi (udang kering), sambal, dan kadang sedikit kecap, memberikan rasa gurih dan pedas. Pempek panggang memiliki tekstur renyah di luar dan empuk di dalam, dengan rasa ikan yang khas.",
+            "gambar": "gambar_makanan/4779532a-bb27-45cd-91fd-3f3245b0accd.jpg",
+            "kalori": 250,
+            "restoran": "614d6b91-743f-45e4-9b8c-7a0de583bd30",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "a1b1c368-57c4-4b65-8539-15062f6a3659"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "6f579f80-a727-42ff-bbe6-da9eb5ca4012",
+        "fields": {
+            "nama": "Srikayo",
+            "harga": "17500.00",
+            "deskripsi": "Srikayo adalah hidangan penutup tradisional dari Palembang, Sumatra Selatan, yang terkenal dengan rasa manis dan teksturnya yang lembut. Kue ini dibuat dari bahan dasar santan, telur, gula, dan daun pandan yang memberikan aroma harum khas. Srikayo memiliki warna hijau alami dari daun pandan atau daun suji dan biasanya disajikan dalam potongan kecil sebagai makanan penutup atau camilan manis.",
+            "gambar": "gambar_makanan/c2f15846-3f00-46ba-ad60-38c4204ae97d.jpg",
+            "kalori": 150,
+            "restoran": "614d6b91-743f-45e4-9b8c-7a0de583bd30",
+            "kategori": [
+                "54b05aac-d7b9-432a-a86d-5c539178c351"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "d10b46a5-30ec-4475-98dc-e5945e5976f3",
+        "fields": {
+            "nama": "Lenggang",
+            "harga": "11000.00",
+            "deskripsi": "Lenggang adalah hidangan khas Palembang yang terdiri dari pempek lenjer dicampur telur, kemudian dipanggang atau digoreng dan disajikan dengan saus cuko.",
+            "gambar": "gambar_makanan/2916c47d-d174-48fe-a899-3f8e8511a4e5.jpg",
+            "kalori": 225,
+            "restoran": "614d6b91-743f-45e4-9b8c-7a0de583bd30",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "280b51bf-31a9-4a06-9fbe-2c92100e4004",
+        "fields": {
+            "nama": "Pempek Crispy",
+            "harga": "11000.00",
+            "deskripsi": "Pempek Crispy adalah varian pempek yang digoreng hingga garing dan renyah, biasanya disajikan dengan saus cuko khas Palembang.",
+            "gambar": "gambar_makanan/016a11d8-8855-47c0-a7e0-b347c27a5c8a.jpg",
+            "kalori": 280,
+            "restoran": "614d6b91-743f-45e4-9b8c-7a0de583bd30",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "58f60cbe-7be8-4249-876c-fab44b830fe5",
+        "fields": {
+            "nama": "Tekwan",
+            "harga": "10000.00",
+            "deskripsi": "Tekwan adalah sup khas Palembang yang terdiri dari bakso ikan tenggiri kecil, jamur kuping, bengkuang, dan soun, disajikan dalam kuah kaldu udang yang gurih.",
+            "gambar": "gambar_makanan/f69d77d4-6256-4883-b0a8-8adb731449f4.jpg",
+            "kalori": 190,
+            "restoran": "614d6b91-743f-45e4-9b8c-7a0de583bd30",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "68144744-c6df-4c7b-91b7-53515f35b3bb"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "cb54481c-e553-48e4-b46a-52549610abd1",
+        "fields": {
+            "nama": "Pizza Meat Lover",
+            "harga": "80000.00",
+            "deskripsi": "Pizza Meat Lover adalah jenis pizza yang dipenuhi dengan berbagai daging seperti sosis, pepperoni, daging sapi cincang, dan terkadang tambahan bacon, disajikan di atas saus tomat dan keju leleh.",
+            "gambar": "gambar_makanan/6f890c14-822c-45b4-b7fd-aa472c9275eb.jpg",
+            "kalori": 300,
+            "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "a9c35199-f1e3-42e9-8b97-f396f7d11a3d",
+        "fields": {
+            "nama": "Onion Ring",
+            "harga": "25000.00",
+            "deskripsi": "Onion Ring adalah camilan berbentuk cincin dari irisan bawang bombay yang dilapisi tepung dan digoreng hingga renyah, sering disajikan dengan saus cocol.",
+            "gambar": "gambar_makanan/891f004a-1766-4dfd-b1a1-8cf845397fed.jpg",
+            "kalori": 220,
+            "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4",
+            "kategori": [
+                "0de708ca-38bc-442c-9fba-4f1532487eb4"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "94e3a72f-9af0-459c-a3bc-8dbca1bcd3d2",
+        "fields": {
+            "nama": "Jamur Crispy",
+            "harga": "30000.00",
+            "deskripsi": "Jamur Crispy adalah camilan renyah yang terbuat dari jamur, biasanya jamur shiitake atau jamur tiram, yang dilapisi tepung bumbu dan digoreng hingga garing.",
+            "gambar": "gambar_makanan/09565260-80c4-45e7-b6b4-c87877c4a1aa.jpg",
+            "kalori": 320,
+            "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4",
+            "kategori": [
+                "54b05aac-d7b9-432a-a86d-5c539178c351"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "a0df4290-5349-47b6-9f6c-e267661c2cca",
+        "fields": {
+            "nama": "Bruschetta",
+            "harga": "25000.00",
+            "deskripsi": "Bruschetta adalah hidangan pembuka asal Italia yang terdiri dari irisan roti panggang yang biasanya di atasnya diberi campuran tomat segar, bawang putih, basil, dan minyak zaitun.",
+            "gambar": "gambar_makanan/0df4cac4-9b6a-415b-86ef-5ef5d49e3fa7.jpg",
+            "kalori": 225,
+            "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4",
+            "kategori": [
+                "0de708ca-38bc-442c-9fba-4f1532487eb4",
+                "54b05aac-d7b9-432a-a86d-5c539178c351"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "77cc35f9-6633-45e5-9e6e-d3869b3c4883",
+        "fields": {
+            "nama": "Panna Cotta",
+            "harga": "25000.00",
+            "deskripsi": "Panna Cotta adalah hidangan penutup asal Italia yang terbuat dari krim, gula, dan gelatin. Hidangan ini biasanya disajikan dingin dan sering kali diberi saus buah atau karamel.",
+            "gambar": "gambar_makanan/c6dbb8d0-b9dc-4699-a54d-be5b0d11573c.jpg",
+            "kalori": 270,
+            "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4",
+            "kategori": [
+                "54b05aac-d7b9-432a-a86d-5c539178c351"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "cfc72651-5f3c-4aee-ad07-60992dc08130",
+        "fields": {
+            "nama": "Nasi Goreng Pete",
+            "harga": "40000.00",
+            "deskripsi": "Nasi Goreng Pete adalah hidangan nasi goreng khas Indonesia yang dicampur dengan pete (jengkol), telur, dan berbagai sayuran, memberikan rasa yang khas dan sedikit pedas.",
+            "gambar": "gambar_makanan/5be90fc0-7e67-41c9-9682-5a159e96f215.jpg",
+            "kalori": 400,
+            "restoran": "d12c22ba-78d1-48a4-be85-ce804ae28b75",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "10355d22-b2fd-4418-a8c0-da386dbae255",
+        "fields": {
+            "nama": "Puyunghai",
+            "harga": "45000.00",
+            "deskripsi": "Puyunghai adalah hidangan khas Tionghoa yang terbuat dari campuran daging ayam atau udang yang dibalut dengan telur, kemudian digoreng hingga kecokelatan. Biasanya disajikan dengan saus sambal atau saus manis.",
+            "gambar": "gambar_makanan/01f2c41a-f40e-49aa-84e9-aaf040a94925.jpg",
+            "kalori": 300,
+            "restoran": "d12c22ba-78d1-48a4-be85-ce804ae28b75",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "6173e17e-bf01-4281-9a2e-6e255c85149e",
+        "fields": {
+            "nama": "Ayam Lada Hitam",
+            "harga": "70000.00",
+            "deskripsi": "Ayam Lada Hitam adalah hidangan yang terbuat dari potongan daging ayam yang dimasak dengan bumbu lada hitam, bawang, dan rempah-rempah lainnya. Hidangan ini memiliki rasa pedas dan gurih, sering disajikan dengan nasi putih.",
+            "gambar": "gambar_makanan/b4ad0239-765d-4763-ae5f-966f1be7ad39.jpg",
+            "kalori": 290,
+            "restoran": "d12c22ba-78d1-48a4-be85-ce804ae28b75",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "2e9e86cc-4ca3-454a-90fe-da815010aad8",
+        "fields": {
+            "nama": "Kangung Cah Terasi",
+            "harga": "35000.00",
+            "deskripsi": "Kangkung Cah Terasi adalah hidangan sayuran yang terbuat dari kangkung yang ditumis dengan terasi, bawang putih, dan cabai. Hidangan ini terkenal dengan rasa pedas dan gurih yang khas, serta sering disajikan sebagai pendamping nasi.",
+            "gambar": "gambar_makanan/aa249c18-2ab3-4715-87b1-48a268cf1af0.jpg",
+            "kalori": 100,
+            "restoran": "d12c22ba-78d1-48a4-be85-ce804ae28b75",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "cce8df66-fbbd-4f6c-97ff-414d9893d09e"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "82cd47ae-f05f-4c96-9749-dfe2ee638b36",
+        "fields": {
+            "nama": "Gurami Saus Bakar",
+            "harga": "100000.00",
+            "deskripsi": "Gurami Saus Bakar adalah hidangan ikan gurami yang dipanggang dan disajikan dengan saus yang kaya rasa, biasanya terbuat dari campuran kecap manis, bawang, cabai, dan bumbu lainnya. Hidangan ini memiliki rasa gurih dan sedikit manis, sering kali disajikan dengan nasi hangat.",
+            "gambar": "gambar_makanan/3221d76f-6a40-4cd5-800c-a4629beacb2f.jpg",
+            "kalori": 220,
+            "restoran": "d12c22ba-78d1-48a4-be85-ce804ae28b75",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "6e3b4be7-179e-4233-a8b3-814701f734f0"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "f55b1c14-87fc-4a26-99a6-4a09c9b68dfa",
+        "fields": {
+            "nama": "Tomyam Udang",
+            "harga": "100500.00",
+            "deskripsi": "Tomyam Udang adalah sup pedas dan asam khas Thailand yang dibuat dengan udang segar, jamur, tomat, dan berbagai bumbu aromatik seperti serai, daun jeruk, dan cabai. Hidangan ini terkenal karena kombinasi rasa pedas, asam, dan segar yang menggugah selera.",
+            "gambar": "gambar_makanan/b2e49a36-4a95-424e-bed8-4710d43112f3.jpg",
+            "kalori": 100,
+            "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "6e3b4be7-179e-4233-a8b3-814701f734f0",
+                "68144744-c6df-4c7b-91b7-53515f35b3bb"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "030111e6-7cc0-4f48-b191-2af4514ebba7",
+        "fields": {
+            "nama": "Tauge",
+            "harga": "29500.00",
+            "deskripsi": "Tauge adalah kecambah dari biji kedelai yang sering digunakan dalam masakan Asia. Tauge memiliki tekstur renyah dan rasa yang ringan, biasanya ditambahkan ke berbagai hidangan seperti salad, tumisan, dan sup. Selain memberikan rasa dan tekstur, tauge juga kaya akan vitamin dan serat.",
+            "gambar": "gambar_makanan/8a52c3a9-74ee-4e53-8b40-17f6fac091f5.jpg",
+            "kalori": 30,
+            "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "cce8df66-fbbd-4f6c-97ff-414d9893d09e"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "3fabc7a3-29bd-4513-bad4-073a296dcae0",
+        "fields": {
+            "nama": "Ayam Goreng",
+            "harga": "41500.00",
+            "deskripsi": "Ayam Goreng adalah hidangan populer yang terbuat dari potongan ayam yang dibumbui, kemudian digoreng hingga berwarna keemasan dan renyah. Ayam goreng bisa disajikan dengan berbagai sambal atau pelengkap, dan sering menjadi pilihan di banyak masakan tradisional.",
+            "gambar": "gambar_makanan/230faac8-b250-4b9c-b172-73d6aa53629b.jpg",
+            "kalori": 280,
+            "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "579440dd-1fa8-4237-997e-1224919ad097",
+        "fields": {
+            "nama": "Sup Asparagus",
+            "harga": "32500.00",
+            "deskripsi": "Sup Asparagus adalah hidangan ringan yang terbuat dari asparagus segar yang dimasak dan dihaluskan, sering kali dicampur dengan bahan-bahan seperti bawang, kentang, atau krim untuk menambah rasa dan tekstur. Sup ini biasanya disajikan hangat dan bisa menjadi pilihan sehat untuk hidangan pembuka.",
+            "gambar": "gambar_makanan/c83cd59b-cba6-46b8-b4cd-ec0cd8dda985.jpg",
+            "kalori": 120,
+            "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1",
+            "kategori": [
+                "0de708ca-38bc-442c-9fba-4f1532487eb4",
+                "68144744-c6df-4c7b-91b7-53515f35b3bb"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "6c41fc6d-00f8-4afc-95d0-fcb90bee0266",
+        "fields": {
+            "nama": "Telur Dadar",
+            "harga": "15000.00",
+            "deskripsi": "Telur Dadar adalah hidangan sederhana yang terbuat dari telur yang dikocok dan kemudian dimasak di atas wajan hingga matang. Telur dadar bisa disajikan polos atau ditambahkan bahan lain seperti sayuran, daging, atau rempah-rempah untuk menambah rasa.",
+            "gambar": "gambar_makanan/65bde9d4-1f44-455a-bb7d-d03ce7f3e2d5.jpg",
+            "kalori": 100,
+            "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "bbc075b5-c644-4b7f-b1e5-ac0d62230b52",
+        "fields": {
+            "nama": "Pindang Ikan Patin",
+            "harga": "35000.00",
+            "deskripsi": "Pindang Ikan Patin adalah makanan khas Palembang yang sangat populer. Hidangan ini adalah sup ikan dengan kuah bening yang memiliki rasa asam, pedas, dan segar dari bumbu seperti serai, asam jawa, dan cabai.",
+            "gambar": "gambar_makanan/ef39270a-54df-4d04-890e-aa530e82f3dc.jpg",
+            "kalori": 250,
+            "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "68144744-c6df-4c7b-91b7-53515f35b3bb"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "8fc5865d-fb81-49d5-b757-82c195461095",
+        "fields": {
+            "nama": "Pindang Tulang",
+            "harga": "40000.00",
+            "deskripsi": "Pindang Tulang adalah hidangan khas Palembang yang dibuat dengan tulang sapi dan sedikit daging. Kuahnya pedas dan asam, memberikan rasa yang sangat menggugah selera.",
+            "gambar": "gambar_makanan/ebef2d49-8e11-4943-861b-64f3acce91ef.jpg",
+            "kalori": 200,
+            "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a",
+            "kategori": [
+                "68144744-c6df-4c7b-91b7-53515f35b3bb",
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "22634fea-4d1d-4046-82b8-1c895952210e",
+        "fields": {
+            "nama": "Pindang Udang",
+            "harga": "100000.00",
+            "deskripsi": "Sup udang dengan kuah pindang khas Palembang yang segar dan pedas.",
+            "gambar": "gambar_makanan/574b7637-c94f-4e1d-bf1f-b248ec24b7f5.jpg",
+            "kalori": 300,
+            "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a",
+            "kategori": [
+                "68144744-c6df-4c7b-91b7-53515f35b3bb",
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "f6199cec-53e8-48f4-9b86-23630f55066b",
+        "fields": {
+            "nama": "Brengkes Tempoyak",
+            "harga": "35000.00",
+            "deskripsi": "Pepes khas Palembang dengan tempoyak dan bumbu rempah.",
+            "gambar": "gambar_makanan/4293632a-104a-4510-907d-480de4322295.jpg",
+            "kalori": 200,
+            "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "518d40e3-3ce5-4e25-9966-204d502a8c55",
+        "fields": {
+            "nama": "Ikan Seluang",
+            "harga": "25000.00",
+            "deskripsi": "Ikan Seluang goreng yang renyah dan gurih.",
+            "gambar": "gambar_makanan/a60851d9-96f1-423e-83c0-07df934309fa.jpg",
+            "kalori": 150,
+            "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "6e3b4be7-179e-4233-a8b3-814701f734f0"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "37df5fad-78da-4739-8cdc-f16c96542bc5",
+        "fields": {
+            "nama": "Chicken Honey Mustard Salad",
+            "harga": "97500.00",
+            "deskripsi": "manis seperti madu, sehat seperti sayur, salad dengan selada romaine, ayam panggang, crouton, tomat & saus mustard madu",
+            "gambar": "gambar_makanan/db679cc9-a7b3-4c9d-92b2-739a6203caef.jpg",
+            "kalori": 150,
+            "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2",
+            "kategori": [
+                "cce8df66-fbbd-4f6c-97ff-414d9893d09e",
+                "d8eb2bc9-eafa-4159-a46f-2492f57032a0"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "2001306c-a498-4c4f-9ebf-9a62f0790904",
+        "fields": {
+            "nama": "Ricotta and Raspberry",
+            "harga": "75500.00",
+            "deskripsi": "Keju ricotta, raspberry jam, dan satu scoop es krim homemade, cocok disajikan dengan pancake coklat.",
+            "gambar": "gambar_makanan/c6bd74ea-7a05-4a54-aab1-e04e51a0d909.jpg",
+            "kalori": 450,
+            "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2",
+            "kategori": [
+                "54b05aac-d7b9-432a-a86d-5c539178c351"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "1ea760a2-0c69-49d2-a3ea-1ce3f10f1c6a",
+        "fields": {
+            "nama": "Nasi Goreng Kemangi",
+            "harga": "86000.00",
+            "deskripsi": "Nasi goreng dengan bumbu kemangi paste, disajikan dengan ayam goreng, telur mata sapi, dan kaya akan cita rasa Indonesia.",
+            "gambar": "gambar_makanan/70f0a7e7-951a-42f2-8043-9722ce0b4071.jpg",
+            "kalori": 500,
+            "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "465b833d-d0ba-435b-9809-e5ea65847454",
+        "fields": {
+            "nama": "Homemade Pumpkin Soup",
+            "harga": "72500.00",
+            "deskripsi": "Sup labu yang kental dan creamy, dibuat dari labu butternut, biji labu, dan disajikan dengan crouton.",
+            "gambar": "gambar_makanan/6780ec16-b6f7-4ee3-8017-dc4aa16fdf15.jpg",
+            "kalori": 250,
+            "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2",
+            "kategori": [
+                "0de708ca-38bc-442c-9fba-4f1532487eb4",
+                "68144744-c6df-4c7b-91b7-53515f35b3bb"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "13316bfd-ff52-4ec3-869f-5ab0eaa773d2",
+        "fields": {
+            "nama": "Salmon & Pesto",
+            "harga": "123000.00",
+            "deskripsi": "Pasta dengan saus pesto homemade, bawang putih, minyak zaitun, dan potongan salmon, cocok untuk pecinta rasa segar dan hijau.",
+            "gambar": "gambar_makanan/a2ebc25a-3a4d-4b3b-b597-43a582a67059.jpg",
+            "kalori": 650,
+            "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2",
+            "kategori": [
+                "8cf0b51a-6b3f-4053-b6b5-bcc5cf50ae11",
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "6d81e111-7410-463d-a039-4b57a3b69451",
+        "fields": {
+            "nama": "Ikan Pari Bakar",
+            "harga": "115000.00",
+            "deskripsi": "Ikan pari yang dibakar hingga matang sempurna dengan bumbu khas rempah dan sambal kecap, memberikan cita rasa khas laut yang gurih dan smokey.",
+            "gambar": "gambar_makanan/9fd4f001-6b43-450a-9dd9-977cdd116cd8.jpg",
+            "kalori": 500,
+            "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960",
+            "kategori": [
+                "6e3b4be7-179e-4233-a8b3-814701f734f0",
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "ede82d28-46cd-488a-9aac-b873ee56ada7",
+        "fields": {
+            "nama": "Nasi Pindang Iga",
+            "harga": "38500.00",
+            "deskripsi": "Nasi dengan pindang iga sapi yang dimasak dengan rempah khas untuk cita rasa gurih dan asam.",
+            "gambar": "gambar_makanan/be4b0ecd-1762-4016-9ecc-1e0360f0067d.jpg",
+            "kalori": 500,
+            "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "49e6f568-6487-4f50-901d-0d1fe45fe2f2",
+        "fields": {
+            "nama": "Sop Iga",
+            "harga": "72500.00",
+            "deskripsi": "Sop iga sapi yang disajikan dengan kuah kaldu bening dan bumbu tradisional.",
+            "gambar": "gambar_makanan/06d34994-ad95-4a21-b33c-717956de71ab.jpg",
+            "kalori": 550,
+            "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "68144744-c6df-4c7b-91b7-53515f35b3bb"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "e049da71-cd09-416d-9676-ff57e6dec437",
+        "fields": {
+            "nama": "Sayur Asem",
+            "harga": "25300.00",
+            "deskripsi": "Sayur asem segar dengan campuran sayuran seperti jagung dan kacang panjang, memiliki cita rasa asam yang menyegarkan.",
+            "gambar": "gambar_makanan/e5af039c-21a1-417b-b6bd-3d8952b2b370.jpg",
+            "kalori": 150,
+            "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "cce8df66-fbbd-4f6c-97ff-414d9893d09e",
+                "68144744-c6df-4c7b-91b7-53515f35b3bb"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "b3f220a8-bf9c-4eef-8736-c0308c0d47d8",
+        "fields": {
+            "nama": "Karedok",
+            "harga": "28050.00",
+            "deskripsi": "Karedok dengan bumbu kacang yang gurih, terdiri dari sayuran segar seperti kacang panjang, tauge, dan timun.",
+            "gambar": "gambar_makanan/3f3d9175-315a-4e28-bd52-ec349618c736.jpg",
+            "kalori": 150,
+            "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "cce8df66-fbbd-4f6c-97ff-414d9893d09e",
+                "d8eb2bc9-eafa-4159-a46f-2492f57032a0"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "74e8a1b8-3fef-4097-9052-753bd05a89e5",
+        "fields": {
+            "nama": "Ayam Goreng Singapore",
+            "harga": "71390.00",
+            "deskripsi": "Ayam goreng dengan bumbu khas Singapore, memberikan cita rasa yang unik dan kaya rempah.",
+            "gambar": "gambar_makanan/e3097ff9-bb85-4796-8553-dbc0f97f6739.jpg",
+            "kalori": 420,
+            "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "e977c66e-6ef5-4bdb-8785-43aa27294b89",
+        "fields": {
+            "nama": "Ayam Kung Pao",
+            "harga": "71390.00",
+            "deskripsi": "Ayam dengan saus Kung Pao khas, bercita rasa pedas dan manis dengan tambahan kacang dan cabai kering.",
+            "gambar": "gambar_makanan/23479ef2-fc21-40d7-b75d-1db1d95f3552.jpg",
+            "kalori": 450,
+            "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "d897ac3c-0b79-47d1-94be-860b3bd295ef",
+        "fields": {
+            "nama": "Cumi Goreng Tepung",
+            "harga": "97350.00",
+            "deskripsi": "Cumi berbalut tepung berbumbu, digoreng hingga renyah. Biasanya disajikan dengan saus tartar atau sambal.",
+            "gambar": "gambar_makanan/66499fd4-d95c-4fa0-922f-420d0f67a6b3.jpg",
+            "kalori": 350,
+            "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "6e3b4be7-179e-4233-a8b3-814701f734f0"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "8d4652cd-f608-44d5-b90a-50cafb018adc",
+        "fields": {
+            "nama": "Kepiting Telur Asin",
+            "harga": "253110.00",
+            "deskripsi": "Hidangan seafood di mana kepiting segar dilapisi saus telur asin yang gurih dan creamy. Rasanya kaya dan sedikit asin dengan tekstur renyah di luar dan lembut di dalam, menjadikannya sajian yang mewah dan memanjakan lidah.",
+            "gambar": "gambar_makanan/c8028082-ef7e-40c2-aef0-68b9649c7d6f.jpg",
+            "kalori": 500,
+            "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "6e3b4be7-179e-4233-a8b3-814701f734f0"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "fb82fcd3-a426-461a-81fc-679afcb856a8",
+        "fields": {
+            "nama": "Tahu Lada Garam",
+            "harga": "253110.00",
+            "deskripsi": "Tahu Lada Garam adalah hidangan tahu yang digoreng hingga renyah, kemudian ditumis dengan bumbu lada, cabai, dan bawang putih. Hidangan ini menawarkan rasa pedas, gurih, dan sedikit asin, dengan aroma bawang yang khas, membuatnya sangat lezat sebagai camilan atau lauk.",
+            "gambar": "gambar_makanan/c853090b-622d-4035-9e84-2a5c6824c077.jpg",
+            "kalori": 250,
+            "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "cce8df66-fbbd-4f6c-97ff-414d9893d09e"
+            ]
         }
     },
     {
@@ -1470,7 +1624,7 @@
         "model": "ulasan.ulasan",
         "pk": "0c0cb6e1-9884-4092-888f-d89e091766dc",
         "fields": {
-            "created_at": "2024-10-25T16:09:03.224Z",
+            "created_at": "2024-09-29T05:25:30.000Z",
             "nilai": 5,
             "deskripsi": "Saya berkunjung ke salah satu sentra kampung pempek di Palembang, tepatnya di Kampung Pempek 26 Ilir. Saat itu, kami sudah memasuki puncak arus balik, sehingga tempat ini dipadati banyak pemudik yang berburu oleh-oleh.\r\n\r\nAlhamdulillah, setelah menunggu hampir setengah jam, kami akhirnya mendapatkan tempat yang nyaman di Resto Pempek Lala, salah satu pempek paling terkenal yang sering diliput oleh para food vlogger. Rasa pempeknya sangat enak, meskipun beberapa menu unik yang ingin saya coba sudah habis. Namun, tidak masalah, karena rasa ikan yang gurih dari menu yang masih tersedia cukup memuaskan perut, ditambah dengan suguhan kue hijau yang manis dan es kacang merah yang memadukan rasa manis dan gurih.\r\n\r\nSaya ingin mengucapkan terima kasih khusus kepada Nona Nina dan Om Ramli yang telah menjadi pemandu yang menyenangkan selama berkeliling di Kampung 26 Ilir.",
             "user": 11,
@@ -1481,7 +1635,7 @@
         "model": "ulasan.ulasan",
         "pk": "12281a9f-8238-4215-9334-16d264ab1762",
         "fields": {
-            "created_at": "2024-10-25T15:52:03.243Z",
+            "created_at": "2024-10-13T05:22:08.000Z",
             "nilai": 5,
             "deskripsi": "Menurut pendapat saya, tempat makan ini layak dicoba jika Anda berkesempatan singgah di Palembang. Rasa makanannya sangat sesuai dengan selera saya, terutama pindang iga, pindang udang, pindang patin, sambal mangga, serta udang sambal pete yang disajikan dengan lalapan. Fasilitas parkirnya cukup luas, pelayanan yang diberikan juga baik, dan harga yang ditawarkan sangat terjangkau.",
             "user": 13,
@@ -1492,7 +1646,7 @@
         "model": "ulasan.ulasan",
         "pk": "1ab4f85c-b5ef-486c-a53f-6f69a0e578a1",
         "fields": {
-            "created_at": "2024-10-25T16:06:45.717Z",
+            "created_at": "2023-02-27T23:39:35.000Z",
             "nilai": 5,
             "deskripsi": "Restoran ini nyaman dan sangat cocok untuk makan bersama keluarga, teman, dan rekan kantor. Saat kami berkunjung, mayoritas pengunjungnya adalah kelompok pegawai kantor, yang menunjukkan bahwa suasananya memang ideal untuk bincang-bincang santai. Dengan nuansa kayu dan suara air dari kolam kecil, tempat ini terasa menenangkan.\r\n\r\nDari segi harga, sesuai dengan standar restoran di Palembang. Menu makanannya sangat bervariasi dan enak, sehingga cocok untuk dibagi-bagikan. Saya pribadi sangat menyukai buncis dengan dua rasa yang disajikan di sini.",
             "user": 12,
@@ -1503,9 +1657,9 @@
         "model": "ulasan.ulasan",
         "pk": "1bbd35c0-1d80-42d7-a9c4-d95770362679",
         "fields": {
-            "created_at": "2024-10-25T16:08:27.552Z",
+            "created_at": "2024-05-09T08:02:09.000Z",
             "nilai": 5,
-            "deskripsi": "Kawasan ini terkenal dengan aneka pempek yang memiliki berbagai jenis dan harga. Terdapat banyak penjual pempek, mulai dari restoran hingga pedagang di pinggir jalan, serta banyak penjual kemplang.\r\n\r\nKami mencoba pempek Edy, di mana harga pempek kecil untuk semua varian adalah Rp 1.500 per pcs, yang tergolong murah. Rasanya cukup enak, meskipun tidak sebanding dengan pempek Candy. Hehe. Kami juga membeli kemplang sebagai oleh-oleh, bukan di Pak Edy, tetapi di ruko kecil khusus yang menjual kemplang, dengan harga Rp 15.000 per paket. Kami membeli 13 paket kemplang untuk keluarga di rumah, dan rasanya enak, cocok sebagai oleh-oleh asli Palembang. ≡ƒæì\r\n\r\nJika ingin membeli oleh-oleh pempek, Anda juga bisa memesan dalam keadaan vakum dan dijadikan frozen, meskipun tidak bisa bertahan lama jika tidak disimpan di kulkas.",
+            "deskripsi": "Kawasan ini terkenal dengan aneka pempek yang memiliki berbagai jenis dan harga. Terdapat banyak penjual pempek, mulai dari restoran hingga pedagang di pinggir jalan, serta banyak penjual kemplang.\r\n\r\nKami mencoba pempek Edy, di mana harga pempek kecil untuk semua varian adalah Rp 1.500 per pcs, yang tergolong murah. Rasanya cukup enak, meskipun tidak sebanding dengan pempek Candy. Hehe. Kami juga membeli kemplang sebagai oleh-oleh, bukan di Pak Edy, tetapi di ruko kecil khusus yang menjual kemplang, dengan harga Rp 15.000 per paket. Kami membeli 13 paket kemplang untuk keluarga di rumah, dan rasanya enak, cocok sebagai oleh-oleh asli Palembang. Jika ingin membeli oleh-oleh pempek, Anda juga bisa memesan dalam keadaan vakum dan dijadikan frozen, meskipun tidak bisa bertahan lama jika tidak disimpan di kulkas.",
             "user": 11,
             "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae"
         }
@@ -1514,9 +1668,9 @@
         "model": "ulasan.ulasan",
         "pk": "3c112d1e-238a-483a-8e7c-d1434a686f69",
         "fields": {
-            "created_at": "2024-10-25T15:52:40.219Z",
+            "created_at": "2024-12-03T09:14:27.000Z",
             "nilai": 3,
-            "deskripsi": "Tempatnya cukup luas. Saya memesan pindang tulang iga yang berisi tiga potong, dan rasanya sangat enak. Selain itu, terdapat juga ikan seluang yang gurih dan renyah, cocok dinikmati dengan sambal. Nasi hangat yang disajikan bersama hidangan ini sudah terasa lezat. Saya juga mencoba sempol ikan, yang rasanya tidak kalah enak. Namun, saat mencicipi srikaya, saya mendapati bahwa saya kurang menyukainya. Secara keseluruhan, pengalaman makan di sini sangat memuaskan! ≡ƒÿè≡ƒæì≡ƒÅ╝",
+            "deskripsi": "Tempatnya cukup luas. Saya memesan pindang tulang iga yang berisi tiga potong, dan rasanya sangat enak. Selain itu, terdapat juga ikan seluang yang gurih dan renyah, cocok dinikmati dengan sambal. Nasi hangat yang disajikan bersama hidangan ini sudah terasa lezat. Saya juga mencoba sempol ikan, yang rasanya tidak kalah enak. Namun, saat mencicipi srikaya, saya mendapati bahwa saya kurang menyukainya. Secara keseluruhan, pengalaman makan di sini sangat memuaskan!",
             "user": 11,
             "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a"
         }
@@ -1525,9 +1679,9 @@
         "model": "ulasan.ulasan",
         "pk": "3f0dc462-5df3-450e-b3ad-577af664e040",
         "fields": {
-            "created_at": "2024-10-25T16:05:44.933Z",
+            "created_at": "2023-08-11T05:36:43.000Z",
             "nilai": 4,
-            "deskripsi": "Saya baru saja mencoba makan di restoran yang terletak tepat di samping Holycow. Menu yang disajikan cenderung berfokus pada masakan Eropa, dengan variasi roti yang lebih dominan. Terdapat juga pilihan steak, termasuk steak ayam, ikan, dan daging, meskipun variasi pada masing-masing jenis steak tidak terlalu banyak.\r\n\r\nUntuk minuman, pilihan yang ditawarkan cukup bervariasi, dengan minuman andalan Barkley Tea yang menggunakan es gula merah. Suasana restoran yang cozy juga menjadi nilai tambah tersendiri. \r\n\r\nRestoran ini sangat cocok dijadikan sebagai tujuan makan atau berkumpul bersama keluarga dan rekan kerja. Namun, saya tidak merekomendasikannya untuk dikunjungi setiap minggu, mengingat harganya yang cukup lumayan tinggi (sudah sesuai dengan standar). Secara keseluruhan, pengalaman makan di sini sangat menyenangkan! ≡ƒæì",
+            "deskripsi": "Saya baru saja mencoba makan di restoran yang terletak tepat di samping Holycow. Menu yang disajikan cenderung berfokus pada masakan Eropa, dengan variasi roti yang lebih dominan. Terdapat juga pilihan steak, termasuk steak ayam, ikan, dan daging, meskipun variasi pada masing-masing jenis steak tidak terlalu banyak.\r\n\r\nUntuk minuman, pilihan yang ditawarkan cukup bervariasi, dengan minuman andalan Barkley Tea yang menggunakan es gula merah. Suasana restoran yang cozy juga menjadi nilai tambah tersendiri. \r\n\r\nRestoran ini sangat cocok dijadikan sebagai tujuan makan atau berkumpul bersama keluarga dan rekan kerja. Namun, saya tidak merekomendasikannya untuk dikunjungi setiap minggu, mengingat harganya yang cukup lumayan tinggi (sudah sesuai dengan standar). Secara keseluruhan, pengalaman makan di sini sangat menyenangkan!",
             "user": 12,
             "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2"
         }
@@ -1536,7 +1690,7 @@
         "model": "ulasan.ulasan",
         "pk": "42fda733-67e1-478f-a027-8aa3fbd26ecd",
         "fields": {
-            "created_at": "2024-10-25T16:07:16.197Z",
+            "created_at": "2024-11-03T18:50:39.000Z",
             "nilai": 4,
             "deskripsi": "Tempat makan ini mengusung konsep kekinian dengan alunan musik live yang menambah suasana. Menawarkan beragam jenis makanan, pengunjung dapat memilih sesuai dengan selera masing-masing.\r\n\r\nSebelum makanan utama disajikan, meja akan disediakan cemilan sebagai \"welcoming food,\" seperti pempek, kue tart, atau kue sejenis sus (namun perlu diingat, ini berbayar). \r\n\r\nDari segi rasa, masakannya termasuk enak. Contohnya, kepiting yang dibungkus daun pisang memiliki bumbu yang sangat kuat dan berani. Sementara itu, bumbu ayam bawang juga enak, meskipun ayam gorengnya sedikit kering dan alot.",
             "user": 13,
@@ -1547,9 +1701,9 @@
         "model": "ulasan.ulasan",
         "pk": "46b2c18c-c195-4763-a4a7-3a31347cd5d9",
         "fields": {
-            "created_at": "2024-10-25T15:40:53.973Z",
+            "created_at": "2023-08-23T10:07:02.000Z",
             "nilai": 5,
-            "deskripsi": "Love the food!! Gurame saos padangnya yummy, tumis kangkung ≡ƒæì. Musholla dan toiletnya bersih. Atmosphere suasana makan disini sangat menyenangkan. Ada ruangan yang cocok untuk business meeting yang pakai AC.",
+            "deskripsi": "Love the food!! Gurame saos padangnya yummy, tumis kangkung. Musholla dan toiletnya bersih. Atmosphere suasana makan disini sangat menyenangkan. Ada ruangan yang cocok untuk business meeting yang pakai AC.",
             "user": 12,
             "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1"
         }
@@ -1558,7 +1712,7 @@
         "model": "ulasan.ulasan",
         "pk": "4da98db9-4a08-47e3-952b-0c22961ff63a",
         "fields": {
-            "created_at": "2024-10-25T16:01:27.932Z",
+            "created_at": "2023-10-23T17:40:38.000Z",
             "nilai": 5,
             "deskripsi": "Ini adalah tempat makan sushi keluarga premium pertama di Palembang, sebelum hadirnya berbagai sushi premium lainnya yang kini menjamur. Rasanya cukup memuaskan, dengan ukuran sushi yang besar. Satu porsi ramen dapat dibagikan untuk 2-3 orang. Harga yang ditawarkan sebanding dengan kualitas dan ukuran porsi.\r\n\r\nSuasana di restoran ini nyaman, dilengkapi dengan sushi belt conveyor yang memudahkan pengunjung untuk memilih sushi atau menu lainnya. \r\n\r\nLokasinya cukup eksklusif, berada di gedung Sushi Tei di simpang Jalan A. Rivai, dengan fasilitas parkir yang luas dan dekat dengan masjid besar.",
             "user": 11,
@@ -1569,7 +1723,7 @@
         "model": "ulasan.ulasan",
         "pk": "57a391dd-89ef-4a63-9f41-3d18e6f2b8b1",
         "fields": {
-            "created_at": "2024-10-25T15:53:20.724Z",
+            "created_at": "2024-08-24T12:52:55.000Z",
             "nilai": 4,
             "deskripsi": "Ini adalah kunjungan kedua saya ke rumah makan Pindang Musi Rawas. Kunjungan pertama saya dilakukan bersama teman yang asli tinggal di Palembang, dan kali ini saya datang bersama keluarga. Sudah hampir enam tahun sejak kunjungan sebelumnya, dan suasananya terasa sedikit berbedaΓÇöpastinya lebih nyaman.\r\n\r\nDari segi rasa masakan, hampir tidak ada perubahan, terutama pada hidangan pindang. Pindang patin yang disajikan dengan dua potong ikan kini dihargai Rp 50.000, sedangkan pindang udang yang berukuran cukup besar dihargai Rp 120.000. Saya juga sempat mencicipi pepes dan sambal petai udang. Menu lainnya juga beragam, sehingga dapat dicoba sesuai dengan kemampuan dan selera.\r\n\r\nSuasana makan di sini cukup nyaman dan kebersihannya terjaga dengan baik, termasuk di toilet dan tempat cuci tangan yang juga bersih.",
             "user": 15,
@@ -1580,9 +1734,9 @@
         "model": "ulasan.ulasan",
         "pk": "6b3ce114-1286-4994-9185-840d02bcb78b",
         "fields": {
-            "created_at": "2024-10-25T16:05:12.038Z",
+            "created_at": "2024-03-07T22:38:06.000Z",
             "nilai": 5,
-            "deskripsi": "Pancious di Palembang adalah restoran yang cocok untuk hangout dengan teman atau berkumpul dengan keluarga. Menu yang disajikan sebagian besar adalah masakan western, dan untuk pancake-nya, tidak perlu diragukan lagiΓÇösemuanya enak. \r\n\r\nSaya baru mencoba milk tea-nya dan ternyata rasanya sangat enak. Selain itu, spaghetti truffle-nya juga lezat, dengan rasa yang pas dan tidak terlalu kuat. Secara keseluruhan, saya merasa nyaman makan di sini.",
+            "deskripsi": "Pancious di Palembang adalah restoran yang cocok untuk hangout dengan teman atau berkumpul dengan keluarga. Menu yang disajikan sebagian besar adalah masakan western, dan untuk pancake-nya, tidak perlu diragukan lagi semuanya enak. Saya baru mencoba milk tea-nya dan ternyata rasanya sangat enak. Selain itu, spaghetti truffle-nya juga lezat, dengan rasa yang pas dan tidak terlalu kuat. Secara keseluruhan, saya merasa nyaman makan di sini.",
             "user": 11,
             "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2"
         }
@@ -1591,7 +1745,7 @@
         "model": "ulasan.ulasan",
         "pk": "8a1979e4-e9d1-47d7-8478-8ad8972635ba",
         "fields": {
-            "created_at": "2024-10-25T15:59:53.498Z",
+            "created_at": "2024-06-22T06:04:09.000Z",
             "nilai": 4,
             "deskripsi": "Tempatnya nyaman, lumayan luas ada ruang AC dan Non AC, ada bagian tamannya juga, ada spot foto juga, untuk makanan enak, kue kue enak, takjilnya enak juga karena kebetulan kesini pas acara Bukber, pelayanannya cukup ramah, ada musiknya, rekomen pokoknya buat yang cari lokasi untuk bukber dengan keluarga atau kantor.",
             "user": 13,
@@ -1602,7 +1756,7 @@
         "model": "ulasan.ulasan",
         "pk": "98112c92-0243-4b69-a801-3d8326c808d2",
         "fields": {
-            "created_at": "2024-10-25T16:11:20.775Z",
+            "created_at": "2023-09-08T20:13:21.000Z",
             "nilai": 3,
             "deskripsi": "Sebagai tempat yang menjadi ikon pusat perdagangan kuliner khas tradisional, sudah sepatutnya pemerintah kota Palembang maupun pemerintah provinsi memberikan perhatian lebih terhadap lokasi ini, terutama bagi masyarakat dari luar daerah. Penting untuk menyediakan kemudahan dalam menjangkau tempat ini, seperti rute yang tidak berputar-putar, tanda arah yang jelas, serta fasilitas yang memadai, seperti area parkir untuk kendaraan roda dua maupun roda empat.\r\n\r\nSelain itu, akses jalan yang rapi dan tidak becek sangat diperlukan, mengingat kondisi di sekitar Pasar 26 yang terkesan semerawut. Peningkatan infrastruktur dan fasilitas akan membuat pengalaman berkunjung ke tempat ini menjadi lebih nyaman dan menyenangkan.",
             "user": 12,
@@ -1613,7 +1767,7 @@
         "model": "ulasan.ulasan",
         "pk": "a12f2e8b-c1b0-4ce1-962c-cfd62e2ceb7c",
         "fields": {
-            "created_at": "2024-10-25T15:46:46.467Z",
+            "created_at": "2024-05-28T09:17:29.000Z",
             "nilai": 2,
             "deskripsi": "Rasa makanan di restoran tersebut tergolong biasa. Udang bakar yang disajikan kurang meresap bumbunya. Selain itu, terjadi insiden yang lebih mengecewakan. Sebuah restoran besar seharusnya memiliki generator otomatis, namun pada kenyataannya tidak ada. Setidaknya, diharapkan terdapat lampu darurat. Saat kami sedang menikmati makanan, listrik padam, dan hal ini terjadi secara tiba-tiba, bukan karena pemadaman dari PLN, melainkan diduga akibat kehabisan token. Saya merasa sangat malu, mengingat saya sedang membawa tamu dari Jakarta.",
             "user": 15,
@@ -1624,7 +1778,7 @@
         "model": "ulasan.ulasan",
         "pk": "a704d5ae-1d9a-41d4-a66e-0c00355b1275",
         "fields": {
-            "created_at": "2024-10-25T15:44:01.943Z",
+            "created_at": "2024-12-27T20:28:13.000Z",
             "nilai": 5,
             "deskripsi": "Makanannya enak tentunya dengan harga yang Lumayan juga, suasana selalu ramai,apalagi di bulan Ramadhan, Untungnya masih ada table kosong, kalo agak sorean dikit pasti udah full, kalo ngga booking dari siang",
             "user": 14,
@@ -1635,7 +1789,7 @@
         "model": "ulasan.ulasan",
         "pk": "ae7b4f31-5c65-48f1-9b44-f166b8300e5a",
         "fields": {
-            "created_at": "2024-10-25T16:02:30.664Z",
+            "created_at": "2024-08-08T08:37:26.000Z",
             "nilai": 2,
             "deskripsi": "Harga di sini memang agak tinggi, tetapi sebanding dengan rasa dan kualitas bahan yang digunakan. Namun, saya mencatat bahwa kepala salmon yang saya makan terasa agak amis, mungkin perlu ditinjau kembali. Di luar itu, suasana dan pelayanan di restoran ini baik. Saya berharap mereka bisa sering-sering mengadakan promo. Hehehe.",
             "user": 15,
@@ -1646,7 +1800,7 @@
         "model": "ulasan.ulasan",
         "pk": "b0cdc437-61ad-4761-a9df-14f23138d165",
         "fields": {
-            "created_at": "2024-10-25T16:04:10.267Z",
+            "created_at": "2023-02-08T01:24:08.000Z",
             "nilai": 4,
             "deskripsi": "Sekarang restoran ini telah berganti nama menjadi Mei Mei Restoran. Mereka menyajikan berbagai makanan khas Palembang, seperti pindang, soto, pempek, ayam, dan ikan. Rasa makanannya cukup enak dan sepadan dengan harga, meskipun tidak tergolong luar biasa.\r\n\r\nMenu yang menarik perhatian adalah tahu Sumedang yang hanya dihargai Rp 15.000 (sebelum pajak), dan menariknya, air putih hanya dikenakan biaya Rp 2.000, yang jarang ditemukan di restoran lain.\r\n\r\nFasilitas parkirnya cukup luas, meskipun harus berbagi dengan tempat fitness di sebelahnya. Bagian dalam restoran cukup luas dan dilengkapi dengan beberapa mainan anak yang menyerupai playground untuk anak-anak. Ruangan tidak dilengkapi dengan AC, hanya menggunakan kipas angin, dan terdapat saung-saung di dalamnya. Disarankan untuk datang pada saat cuaca tidak terlalu panas agar lebih nyaman. Mungkin ke depannya, pihak restoran dapat mempertimbangkan untuk memasang AC demi kenyamanan pelanggan.\r\n\r\nPelayanan di restoran ini adalah salah satu yang terbaik. Para pelayan sangat ramah, cepat, dan selalu tersenyum. Dengan pelayanan yang baik dan rasa makanan yang terjaga, seharusnya restoran ini dapat menjadi pilihan keluarga yang populer. Mungkin perlu dilakukan promosi untuk memperkenalkan kembali restoran ini kepada masyarakat.",
             "user": 16,
@@ -1657,9 +1811,9 @@
         "model": "ulasan.ulasan",
         "pk": "b118b4ff-8767-4ff1-a2dd-b282958eb8e9",
         "fields": {
-            "created_at": "2024-10-25T16:09:50.500Z",
+            "created_at": "2023-07-13T06:27:03.000Z",
             "nilai": 2,
-            "deskripsi": "Saya ingin berbagi pengalaman mengenai pelayanan di sini yang kurang memuaskan. Sayangnya, banyak pelayan yang terkesan judes. Ketika saya meminta atau menanyakan sesuatu, jawaban yang diberikan terdengar ketus, seperti \"Kalau model itu memang tidak pakai mie putih.\" \r\n\r\nSaya mencoba bertanya lebih lanjut, tetapi malah mendapat tanggapan yang kurang ramah. Selain itu, saya juga memperhatikan mereka berbicara tentang pelanggan di depan kami, yang membuat suasana semakin tidak nyaman.\r\n\r\nSaya mengerti bahwa mereka mungkin lelah dan menghadapi banyak pesanan, namun seharusnya semua pelanggan tetap diperlakukan dengan baik. Terkadang, ketika banyak orang yang datang, perhatian terhadap pelanggan lain seolah terabaikan.\r\n\r\nSemoga ke depannya, pelayanan di sini bisa lebih ramah kepada semua pembeli. Senyuman kecil saja bisa membuat perbedaan besar. Terima kasih. ≡ƒÖÅ≡ƒÅ╗",
+            "deskripsi": "Saya ingin berbagi pengalaman mengenai pelayanan di sini yang kurang memuaskan. Sayangnya, banyak pelayan yang terkesan judes. Ketika saya meminta atau menanyakan sesuatu, jawaban yang diberikan terdengar ketus, seperti \"Kalau model itu memang tidak pakai mie putih.\" \r\n\r\nSaya mencoba bertanya lebih lanjut, tetapi malah mendapat tanggapan yang kurang ramah. Selain itu, saya juga memperhatikan mereka berbicara tentang pelanggan di depan kami, yang membuat suasana semakin tidak nyaman.\r\n\r\nSaya mengerti bahwa mereka mungkin lelah dan menghadapi banyak pesanan, namun seharusnya semua pelanggan tetap diperlakukan dengan baik. Terkadang, ketika banyak orang yang datang, perhatian terhadap pelanggan lain seolah terabaikan.\r\n\r\nSemoga ke depannya, pelayanan di sini bisa lebih ramah kepada semua pembeli. Senyuman kecil saja bisa membuat perbedaan besar. Terima kasih.",
             "user": 15,
             "restoran": "614d6b91-743f-45e4-9b8c-7a0de583bd30"
         }
@@ -1668,9 +1822,9 @@
         "model": "ulasan.ulasan",
         "pk": "b4f0edb2-77f8-424b-9866-ca036774fabf",
         "fields": {
-            "created_at": "2024-10-25T15:39:44.555Z",
+            "created_at": "2024-08-12T22:39:46.000Z",
             "nilai": 4,
-            "deskripsi": "Menginjakan kaki di kota Palembang mencoba masakan khas disana. Pindang patin adalah salah satu menu pavorite yang tersedia dengan beberapa menu lain seperti ikan burame bakar, sup Jagung kepiting dan aneka kerang. Ikan patin pindang sangat diminati dan segar. Sup Jagung kepiting juga enak. Lingkungan restaurant yang asr─▒ dengan kolam ikan d─▒ dalam menambah nikmat Makan di siang hari.",
+            "deskripsi": "Menginjakan kaki di kota Palembang mencoba masakan khas disana. Pindang patin adalah salah satu menu pavorite yang tersedia dengan beberapa menu lain seperti ikan burame bakar, sup Jagung kepiting dan aneka kerang. Ikan patin pindang sangat diminati dan segar. Sup Jagung kepiting juga enak. Lingkungan restaurant yang asri dengan kolam ikan dalam menambah nikmat Makan di siang hari.",
             "user": 11,
             "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1"
         }
@@ -1679,9 +1833,9 @@
         "model": "ulasan.ulasan",
         "pk": "ba51abfa-8260-4b28-a858-1f7ab6e298a5",
         "fields": {
-            "created_at": "2024-10-25T16:00:36.094Z",
+            "created_at": "2024-03-10T09:46:48.000Z",
             "nilai": 5,
-            "deskripsi": "Tempatnya sangat bagus dan cocok untuk makan bersama keluarga atau pasangan. Masakannya enak, dan pelayanan yang diberikan sangat baik serta ramah. Saya sangat menyukainya, terutama karena cocok untuk orang-orang yang suka berfoto. ≡ƒñ¡\r\n\r\nNamun, saat kami berkunjung, cuaca sedang hujan, sehingga kami terpaksa makan di bagian dalam. ≡ƒÑ║\r\n\r\nKami berencana untuk kembali ke sini di lain waktu. ≡ƒÿì≡ƒÖÅ",
+            "deskripsi": "Tempatnya sangat bagus dan cocok untuk makan bersama keluarga atau pasangan. Masakannya enak, dan pelayanan yang diberikan sangat baik serta ramah. Saya sangat menyukainya, terutama karena cocok untuk orang-orang yang suka berfoto. Namun, saat kami berkunjung, cuaca sedang hujan, sehingga kami terpaksa makan di bagian dalam. Kami berencana untuk kembali ke sini di lain waktu.",
             "user": 14,
             "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4"
         }
@@ -1690,7 +1844,7 @@
         "model": "ulasan.ulasan",
         "pk": "baf89bd4-5f21-42ae-a646-b1ad08b6f105",
         "fields": {
-            "created_at": "2024-10-25T15:55:01.020Z",
+            "created_at": "2023-09-28T00:48:28.000Z",
             "nilai": 5,
             "deskripsi": "Ini adalah salah satu tempat yang wajib dikunjungi jika Anda ingin menikmati pindang. Pindang patin dan udangnya sangat juara, sementara ikan seluang gorengnya juga lezat. Ditambah lagi, rasanya semakin nikmat dengan sambal tempoyak dan sambal mangga. Jangan lupa untuk memesan sambal pete udang saat berkunjung ke sini!",
             "user": 16,
@@ -1701,7 +1855,7 @@
         "model": "ulasan.ulasan",
         "pk": "c8126234-6e77-4d45-a746-e5c298a625ae",
         "fields": {
-            "created_at": "2024-10-25T15:51:11.344Z",
+            "created_at": "2024-08-23T23:25:58.000Z",
             "nilai": 4,
             "deskripsi": "Pindang ikan patinnya enak banget. Tersedia juga pindang lain seperti tulang iga dan udang. Selain pindang, tersedia juga lauk lainnya seperti ikan siluang garing, udang sambal pete, pentol ikan gabus dan sayur rebusan. Satu lagi yang juara adalah makanan penutup, sarikaya. Yang suka durian juga disediakan, ada musang king dan monthong",
             "user": 14,
@@ -1712,7 +1866,7 @@
         "model": "ulasan.ulasan",
         "pk": "d7e9694a-0bf6-4a5f-9a35-efda4aa9a0bc",
         "fields": {
-            "created_at": "2024-10-25T15:42:00.433Z",
+            "created_at": "2024-06-04T15:48:59.000Z",
             "nilai": 3,
             "deskripsi": "Rasa nya ok, tapi piring disajikan dalam keadaan basah tanpa di lap terlebih dahulu, pindang disajikan anget kuku, kamiengharapkan untuk makan sekeluarga seharga 430rb, service nya harus lebih baik dari ini, harusnya pindang itu disajikan panas, harus diperbaiki pelayanan nya",
             "user": 13,
@@ -1723,7 +1877,7 @@
         "model": "ulasan.ulasan",
         "pk": "de2f2e32-8b2a-4f55-9143-ecd3df1cd2af",
         "fields": {
-            "created_at": "2024-10-25T15:55:50.067Z",
+            "created_at": "2024-09-25T16:25:05.000Z",
             "nilai": 5,
             "deskripsi": "Saya mampir ke restoran ini karena dikatakan sebagai representasi masakan Melayu Palembang. Secara keseluruhan, rata-rata makanan yang disajikan enak dan sesuai dengan reputasinya. Suasana di restoran ini juga cukup mendukung, dengan adanya kolam ikan di bagian tengah yang dapat menghibur anak-anak.\r\n\r\nNamun, perlu diperhatikan posisi toilet yang berada di lantai bawah, yang mungkin kurang nyaman bagi tamu yang sudah berumur atau mengalami kesulitan untuk naik turun tangga. Selain itu, siapkan diri untuk merogoh kocek agak dalam, karena harga makanan di sini tergolong lumayan. Dengar-dengar, restoran ini sering digunakan untuk menjamu pejabat dan tamu-tamu penting.",
             "user": 15,
@@ -1734,7 +1888,7 @@
         "model": "ulasan.ulasan",
         "pk": "e4af2d82-627c-4cdd-879c-93c3af5fa77c",
         "fields": {
-            "created_at": "2024-10-25T15:56:38.342Z",
+            "created_at": "2024-08-27T21:11:38.000Z",
             "nilai": 4,
             "deskripsi": "Ini adalah salah satu tempat makan pindang di Palembang yang strategis. Fasilitas parkir untuk mobil cukup luas, dan terdapat berbagai pilihan kursi dengan nuansa yang variatif.\r\n\r\nSaya menikmati hidangan pindang di sini bersama keluarga, dan harga yang ditawarkan sebanding dengan rasa yang disajikan. Rasa pindangnya cenderung manis, sementara pelayanan yang diberikan sangat ramah. Hidangan disajikan dalam keadaan panas, dan pengalaman makan semakin menarik dengan pemandangan di atas kolam ikan.",
             "user": 11,
@@ -1745,9 +1899,9 @@
         "model": "ulasan.ulasan",
         "pk": "eaf9d53f-71f1-40bd-9e73-3285a913ea3a",
         "fields": {
-            "created_at": "2024-10-25T15:54:17.062Z",
+            "created_at": "2024-06-07T17:13:55.000Z",
             "nilai": 5,
-            "deskripsi": "Pindangnya sangat lezat dan segar (mungkin karena bumbu rahasia! ≡ƒÿü), meskipun harganya cukup lumayan, sekitar Rp 60.000. Selain itu, ada juga udang satai yang rasanya enak, tetapi harganya cukup mahal, yaitu Rp 110.000 untuk satu porsi. Makanan lainnya dipadukan dengan sambal yang nikmat, tidak hanya pedas atau asam, tetapi memiliki rasa yang benar-benar enak. Sangat direkomendasikan untuk mengunjungi restoran ini, namun jika ingin membeli udang, sebaiknya pikirkan dengan bijak. Hehehe.",
+            "deskripsi": "Pindangnya sangat lezat dan segar (mungkin karena bumbu rahasia!), meskipun harganya cukup lumayan, sekitar Rp 60.000. Selain itu, ada juga udang satai yang rasanya enak, tetapi harganya cukup mahal, yaitu Rp 110.000 untuk satu porsi. Makanan lainnya dipadukan dengan sambal yang nikmat, tidak hanya pedas atau asam, tetapi memiliki rasa yang benar-benar enak. Sangat direkomendasikan untuk mengunjungi restoran ini, namun jika ingin membeli udang, sebaiknya pikirkan dengan bijak. Hehehe.",
             "user": 12,
             "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a"
         }
@@ -1756,7 +1910,7 @@
         "model": "ulasan.ulasan",
         "pk": "ede5acce-11be-4910-b7d6-9d13296e2e5d",
         "fields": {
-            "created_at": "2024-10-25T15:47:58.365Z",
+            "created_at": "2023-07-19T19:46:54.000Z",
             "nilai": 4,
             "deskripsi": "Penggemar seafood yang sedang berkunjung ke Palembang tepat sekali untuk singgah dan mencoba menyantap sajian dari rumah makan ini. Tempatnya tenang, ada life music. Bagi yang butuh ruang untuk meeting juga ada. Bisa pilih ingin di area terbuka dengan udara luar ruangan atau di dalam ruangan. Soal cita rasa, termasuk kategori sajian yang enak. Kalau tidak bisa makan seafood tapi terpaksa mampir kesini karena kerabat atau rekan ingin makan seafood, tenang saja, ada sajian lainnya yang tidak kalah nikmat.",
             "user": 16,
@@ -1767,7 +1921,7 @@
         "model": "ulasan.ulasan",
         "pk": "ee823b36-ff1f-4906-a793-d8cd158318c4",
         "fields": {
-            "created_at": "2024-10-25T16:03:31.234Z",
+            "created_at": "2024-04-25T13:20:12.000Z",
             "nilai": 3,
             "deskripsi": "Seperti makan di pedesaan ad gazebo ny, kecil tempat ny tp krn penyusunan tempat ny bagus jd keliatan besar, makanan ny enak2 ad es cream, es kacang dll, dari sekian makanan aq pilih ny tahu krn udh kenyang jd ini aja pesenan krn penasaran dgn tempat ny aja sebenarnya",
             "user": 14,
@@ -1776,43 +1930,583 @@
     },
     {
         "model": "forum.forum",
+        "pk": "0eb37f18-88e2-4256-8276-30fa70c4faf7",
+        "fields": {
+            "topik": "Harga dan Porsi di RM Pondok Kelapo",
+            "pesan": "Bagaimana harga dan porsi makanan di RM Pondok Kelapo? Apakah porsi tersebut memuaskan untuk harga yang ditawarkan?",
+            "tanggal_posting": "2024-02-14T12:14:08.000Z",
+            "user": 15,
+            "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1"
+        }
+    },
+    {
+        "model": "forum.forum",
+        "pk": "11505b49-dc56-4c36-9d30-2717a7a9ac74",
+        "fields": {
+            "topik": "Kualitas Makanan dan Menu Rekomendasi di Tamken Resto and Cafe",
+            "pesan": "Bagaimana kualitas makanan di Tamken Resto and Cafe? Ada menu yang jadi favorit atau rekomendasi?",
+            "tanggal_posting": "2024-06-08T05:19:03.000Z",
+            "user": 13,
+            "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4"
+        }
+    },
+    {
+        "model": "forum.forum",
+        "pk": "17519dc9-3238-45d7-8dc1-d3409fa7843e",
+        "fields": {
+            "topik": "Harga dan Porsi di Saoenk Kito Restaurant",
+            "pesan": "Bagaimana harga dan porsi makanan di Saoenk Kito Restaurant? Apakah porsinya sesuai dengan harga dan kualitas?",
+            "tanggal_posting": "2023-04-17T18:02:23.000Z",
+            "user": 14,
+            "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960"
+        }
+    },
+    {
+        "model": "forum.forum",
         "pk": "179eed61-3ded-48fb-a909-4e801a38f05f",
         "fields": {
-            "topik": "Apa makanan terenak di restoran ini?",
-            "pesan": "wkwk",
-            "tanggal_posting": "2024-10-26T04:37:23.720Z",
+            "topik": "Pelayanan dan Kenyamanan di Rumah Makan Pindang Musi Rawas",
+            "pesan": "Bagaimana pelayanan dan kenyamanan di Rumah Makan Pindang Musi Rawas? Apakah tempatnya nyaman untuk makan bersama keluarga?",
+            "tanggal_posting": "2023-03-06T20:23:40.000Z",
             "user": 13,
             "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a"
         }
     },
     {
-        "model": "forum.balasan",
-        "pk": "341a2454-43bf-46f4-8ad7-da33df373d3e",
+        "model": "forum.forum",
+        "pk": "29ac1c69-6d5f-40a5-b119-6b7ce3b545c0",
         "fields": {
-            "pesan": "wkwkw",
-            "tanggal_posting": "2024-10-26T04:38:40.229Z",
-            "user": 14,
-            "forum": "179eed61-3ded-48fb-a909-4e801a38f05f"
+            "topik": "Pengalaman Makan di Sentral Kampung Pempek Palembang",
+            "pesan": "Bagaimana pengalaman kalian makan di restoran Sentral Kampung Pempek Palembang? Apakah rasa pempeknya autentik dan bagaimana suasananya?",
+            "tanggal_posting": "2024-01-12T13:13:48.000Z",
+            "user": 11,
+            "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae"
         }
     },
     {
-        "model": "forum.balasan",
-        "pk": "ccdd80bc-3473-4caf-ba6e-41d7781c1b19",
+        "model": "forum.forum",
+        "pk": "2a0beaef-9312-4aa4-9cb2-c4816853996e",
         "fields": {
-            "pesan": "tes tes",
-            "tanggal_posting": "2024-10-26T04:38:52.727Z",
-            "user": 14,
-            "forum": "179eed61-3ded-48fb-a909-4e801a38f05f"
+            "topik": "Harga dan Porsi di Sentral Kampung Pempek Palembang",
+            "pesan": "Bagaimana dengan harga dan porsi di Sentral Kampung Pempek Palembang? Apakah porsinya sesuai dengan harga yang ditawarkan?",
+            "tanggal_posting": "2023-12-18T15:48:39.000Z",
+            "user": 12,
+            "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae"
         }
     },
     {
-        "model": "forum.balasan",
-        "pk": "f9319e37-08b9-4fbe-b1ae-1a9a857ad9d4",
+        "model": "forum.forum",
+        "pk": "318d034e-8b49-4312-acc2-b4003146b460",
         "fields": {
-            "pesan": "bisa",
-            "tanggal_posting": "2024-10-26T04:41:12.237Z",
+            "topik": "Harga dan Porsi di Gemercik Resto-Suki-Kedai Kopi",
+            "pesan": "Bagaimana harga dan porsi makanan di Gemercik Resto-Suki-Kedai Kopi? Apakah porsi tersebut sesuai dengan harga yang ditawarkan?",
+            "tanggal_posting": "2023-03-27T17:51:22.000Z",
+            "user": 12,
+            "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8"
+        }
+    },
+    {
+        "model": "forum.forum",
+        "pk": "35c91d2f-7800-4731-954d-62159f41e394",
+        "fields": {
+            "topik": "Suasana dan Kenyamanan di Pancious",
+            "pesan": "Bagaimana suasana dan kenyamanan makan di Pancious? Apakah cocok untuk acara kumpul atau makan bersama keluarga?",
+            "tanggal_posting": "2024-10-26T09:56:40.606Z",
+            "user": 15,
+            "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2"
+        }
+    },
+    {
+        "model": "forum.forum",
+        "pk": "3727ed7f-45fe-4040-8cf0-4fcb4bba2022",
+        "fields": {
+            "topik": "Menu Favorit di Pancious",
+            "pesan": "Apa menu favorit kalian di Pancious? Bagaimana dengan rasa dan kualitas makanannya?",
+            "tanggal_posting": "2024-10-26T10:00:39.430Z",
             "user": 13,
+            "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2"
+        }
+    },
+    {
+        "model": "forum.forum",
+        "pk": "39c223bb-1e54-42b6-9931-cca8904cf951",
+        "fields": {
+            "topik": "Suasana dan Kebersihan di Sushi Tei Palembang",
+            "pesan": "Bagaimana suasana dan kebersihan di Sushi Tei Palembang? Apakah nyaman untuk makan bersama teman atau keluarga?",
+            "tanggal_posting": "2024-10-26T09:53:04.635Z",
+            "user": 12,
+            "restoran": "130561a8-c4d5-4b8e-ba5c-a36deeafd14d"
+        }
+    },
+    {
+        "model": "forum.forum",
+        "pk": "5a78ac6d-e4cb-4b77-8efc-72cc6c00acd8",
+        "fields": {
+            "topik": "Suasana dan Kenyamanan di RM Sri Melayu",
+            "pesan": "Bagaimana suasana dan kenyamanan di RM Sri Melayu? Apakah tempatnya cocok untuk acara makan keluarga atau kumpul-kumpul?",
+            "tanggal_posting": "2024-10-26T10:14:41.090Z",
+            "user": 11,
+            "restoran": "d12c22ba-78d1-48a4-be85-ce804ae28b75"
+        }
+    },
+    {
+        "model": "forum.forum",
+        "pk": "5dd8d231-eedb-4140-81c1-75a1f00a5610",
+        "fields": {
+            "topik": "Rasa dan Kualitas Hidangan di Rumah Makan Pindang Musi Rawas",
+            "pesan": "Bagaimana rasa hidangan di Rumah Makan Pindang Musi Rawas? Apakah pindangnya otentik dan enak?",
+            "tanggal_posting": "2024-10-26T09:43:00.492Z",
+            "user": 16,
+            "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a"
+        }
+    },
+    {
+        "model": "forum.forum",
+        "pk": "71a03f1f-afdf-42f1-890a-83bfd837cdb2",
+        "fields": {
+            "topik": "Suasana dan Kenyamanan di Saoenk Kito Restaurant",
+            "pesan": "Bagaimana suasana dan kenyamanan di Saoenk Kito Restaurant? Apakah cocok untuk makan bersama keluarga atau acara kumpul-kumpul?",
+            "tanggal_posting": "2024-10-26T10:03:34.480Z",
+            "user": 11,
+            "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960"
+        }
+    },
+    {
+        "model": "forum.forum",
+        "pk": "77af19f2-4eb4-42a6-887f-59874e6de3d2",
+        "fields": {
+            "topik": "Pelayanan di Sushi Tei Palembang",
+            "pesan": "Bagaimana pelayanan di Sushi Tei Palembang? Apakah stafnya ramah dan responsif?",
+            "tanggal_posting": "2024-10-26T09:53:55.370Z",
+            "user": 11,
+            "restoran": "130561a8-c4d5-4b8e-ba5c-a36deeafd14d"
+        }
+    },
+    {
+        "model": "forum.forum",
+        "pk": "8fd69a60-e523-45b8-adf8-840bd0ac6039",
+        "fields": {
+            "topik": "Suasana dan Fasilitas di Tamken Resto and Cafe",
+            "pesan": "Bagaimana suasana dan fasilitas di Tamken Resto and Cafe? Apakah nyaman untuk nongkrong atau bekerja dengan laptop?",
+            "tanggal_posting": "2024-10-26T10:10:47.975Z",
+            "user": 14,
+            "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4"
+        }
+    },
+    {
+        "model": "forum.forum",
+        "pk": "b5c5c037-e74e-4369-ae17-5c1f88c0b6c0",
+        "fields": {
+            "topik": "Pelayanan dan Kenyamanan di Tamken Resto and Cafe",
+            "pesan": "Bagaimana pelayanan dan kenyamanan di Tamken Resto and Cafe? Apakah stafnya ramah dan suasananya mendukung untuk bersantai?",
+            "tanggal_posting": "2024-10-26T10:11:51.390Z",
+            "user": 15,
+            "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4"
+        }
+    },
+    {
+        "model": "forum.forum",
+        "pk": "c35e9d16-7c1a-4b5c-b855-3a6c208b8c5b",
+        "fields": {
+            "topik": "Harga dan Porsi Makanan di Sushi Tei Palembang",
+            "pesan": "Apakah harga di Sushi Tei Palembang sesuai dengan porsi dan kualitas makanannya? Apakah ada menu yang porsinya cocok untuk sharing?",
+            "tanggal_posting": "2024-10-26T09:51:45.869Z",
+            "user": 14,
+            "restoran": "130561a8-c4d5-4b8e-ba5c-a36deeafd14d"
+        }
+    },
+    {
+        "model": "forum.forum",
+        "pk": "d0e6ad4d-11c5-4ad1-a023-a21ff428faf0",
+        "fields": {
+            "topik": "Suasana dan Kenyamanan di Gemercik Resto-Suki-Kedai Kopi",
+            "pesan": "Bagaimana suasana dan kenyamanan di Gemercik Resto-Suki-Kedai Kopi? Apakah tempatnya cocok untuk nongkrong atau menghabiskan waktu sambil bekerja?",
+            "tanggal_posting": "2024-10-26T10:18:45.181Z",
+            "user": 16,
+            "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8"
+        }
+    },
+    {
+        "model": "forum.forum",
+        "pk": "d46953a3-013c-4551-bb93-601d0eb71f8e",
+        "fields": {
+            "topik": "Harga dan Keberagaman Menu di Tamken Resto and Cafe",
+            "pesan": "Apakah harga di Tamken Resto and Cafe sesuai dengan keberagaman menu yang ditawarkan?",
+            "tanggal_posting": "2024-10-26T10:08:33.457Z",
+            "user": 16,
+            "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4"
+        }
+    },
+    {
+        "model": "forum.forum",
+        "pk": "db132fa7-6e37-4194-94d6-691e10746bbf",
+        "fields": {
+            "topik": "Suasana dan Layanan di RM Pondok Kelapo",
+            "pesan": "Bagaimana suasana dan layanan di RM Pondok Kelapo? Apakah tempatnya nyaman untuk makan bersama keluarga atau teman-teman?",
+            "tanggal_posting": "2024-10-26T10:22:46.376Z",
+            "user": 12,
+            "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1"
+        }
+    },
+    {
+        "model": "forum.forum",
+        "pk": "e393a5e8-1848-49f6-ade7-debf23bde224",
+        "fields": {
+            "topik": "Harga dan Porsi di RM Sri Melayu",
+            "pesan": "Bagaimana harga dan porsi makanan di RM Sri Melayu? Apakah porsi tersebut sesuai dengan harga yang ditawarkan?",
+            "tanggal_posting": "2024-10-26T10:13:53.283Z",
+            "user": 14,
+            "restoran": "d12c22ba-78d1-48a4-be85-ce804ae28b75"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "0094fa7d-a76c-4bb2-8e7e-20c17ad445da",
+        "fields": {
+            "pesan": "Harganya sangat terjangkau, terutama untuk porsi suki yang besar. Saya rasa dengan harga segitu, kita dapat makanan yang memuaskan dan berkualitas!",
+            "tanggal_posting": "2024-10-26T10:17:34.990Z",
+            "user": 11,
+            "forum": "318d034e-8b49-4312-acc2-b4003146b460"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "04b7852a-865f-48a1-b7aa-133577e22f02",
+        "fields": {
+            "pesan": "Saoenk Kito punya suasana yang hangat dan homey, cocok buat kumpul-kumpul. Ada area lesehan juga yang bikin makan jadi lebih santai, terutama kalau bawa anak-anak.",
+            "tanggal_posting": "2024-10-26T10:05:30.601Z",
+            "user": 15,
+            "forum": "71a03f1f-afdf-42f1-890a-83bfd837cdb2"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "092c777a-d208-48fb-91d4-6dd835646317",
+        "fields": {
+            "pesan": "Terima kasih atas sarannya",
+            "tanggal_posting": "2024-10-26T09:35:25.957Z",
+            "user": 11,
+            "forum": "29ac1c69-6d5f-40a5-b119-6b7ce3b545c0"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "11ce1a2f-beab-465f-a094-ab30392aada3",
+        "fields": {
+            "pesan": "Menurut saya, harganya memang agak premium, tapi sepadan dengan kualitas dan rasa sushinya yang segar. Kalau buat sharing, platter mereka cocok banget, bisa dinikmati ramai-ramai!",
+            "tanggal_posting": "2024-10-26T09:52:36.152Z",
+            "user": 13,
+            "forum": "c35e9d16-7c1a-4b5c-b855-3a6c208b8c5b"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "1cf6c3b9-2b2d-48ae-bf1a-5a22a9a7c8dc",
+        "fields": {
+            "pesan": "Suasana di Pancious cozy banget! Desainnya modern dengan lighting yang bikin nyaman untuk ngobrol lama. Cocok untuk kumpul bareng teman atau keluarga.",
+            "tanggal_posting": "2024-10-26T09:58:01.695Z",
+            "user": 16,
+            "forum": "35c91d2f-7800-4731-954d-62159f41e394"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "222da6a9-8008-49be-bf69-2a6a95685a10",
+        "fields": {
+            "pesan": "Pindang di sini enak banget, kuahnya kental dan bumbu rempahnya kuat, persis seperti pindang yang saya ingat dari Sumatra Selatan! Ikannya juga segar, jadi menambah kenikmatan.",
+            "tanggal_posting": "2024-10-26T09:43:49.037Z",
+            "user": 12,
+            "forum": "5dd8d231-eedb-4140-81c1-75a1f00a5610"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "27c0ed24-a757-4527-ae29-09bb7098ad7c",
+        "fields": {
+            "pesan": "Kebersihan di sini top banget, meja dan area makan selalu terlihat rapi. Tempatnya cukup luas dan interiornya simpel tapi elegan, bikin nyaman makan di sini.",
+            "tanggal_posting": "2024-10-26T09:53:25.337Z",
+            "user": 16,
+            "forum": "39c223bb-1e54-42b6-9931-cca8904cf951"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "2eea85ca-8eb4-4ceb-a11e-2e3757444c39",
+        "fields": {
+            "pesan": "Harga dan porsinya sebanding! Nasi liwetnya porsi besar, bisa sharing untuk dua orang, dan rasanya autentik banget. Cocok untuk makan keluarga karena bisa ambil paket yang lebih hemat.",
+            "tanggal_posting": "2024-10-26T10:03:00.658Z",
+            "user": 13,
+            "forum": "17519dc9-3238-45d7-8dc1-d3409fa7843e"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "337570ea-cc13-4006-936a-dc2b348a260a",
+        "fields": {
+            "pesan": "Harga dan porsinya sebanding. Saya biasanya pesan beberapa jenis pempek sekaligus, dan meskipun harganya terjangkau, kualitasnya tetap top. Cocok buat makan bareng teman karena bisa sharing.",
+            "tanggal_posting": "2024-10-26T09:41:38.721Z",
+            "user": 15,
+            "forum": "2a0beaef-9312-4aa4-9cb2-c4816853996e"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "378c2729-d7c0-461e-bf01-5508ed664822",
+        "fields": {
+            "pesan": "Cocok banget untuk makan ramai-ramai! Harga paket suki-nya cukup ekonomis, dan porsinya bisa bikin semua orang puas. Kualitas makanan yang didapat juga sangat baik.",
+            "tanggal_posting": "2024-10-26T10:18:21.907Z",
+            "user": 14,
+            "forum": "318d034e-8b49-4312-acc2-b4003146b460"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "39c877fb-ec1d-4948-9327-8aca96aaa711",
+        "fields": {
+            "pesan": "Tempatnya nyaman, ada area duduk yang cukup private juga buat yang mau ngobrol santai. Restorannya rapi, dan meskipun sering ramai, suasananya tetap tenang dan tidak terlalu berisik.",
+            "tanggal_posting": "2024-10-26T09:59:29.859Z",
+            "user": 11,
+            "forum": "35c91d2f-7800-4731-954d-62159f41e394"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "406b1d35-f880-4507-8819-eb6b8b7f2f92",
+        "fields": {
+            "pesan": "Suasana di RM Sri Melayu sangat nyaman dan hangat. Dekorasinya kental dengan nuansa Melayu, membuat makan di sini terasa spesial. Cocok banget untuk acara makan keluarga.",
+            "tanggal_posting": "2024-10-26T10:14:57.192Z",
+            "user": 13,
+            "forum": "5a78ac6d-e4cb-4b77-8efc-72cc6c00acd8"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "44588c5f-ce75-4a22-a380-f909ad91b3cf",
+        "fields": {
+            "pesan": "Pelayanannya ramah dan cepat! Saya datang bersama keluarga besar, dan meskipun ramai, kami dilayani dengan baik. Tempatnya cukup luas dan nyaman untuk makan bersama-sama.",
+            "tanggal_posting": "2024-10-26T09:49:33.945Z",
+            "user": 14,
             "forum": "179eed61-3ded-48fb-a909-4e801a38f05f"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "4d4c9a21-0a6e-4295-b9a1-7961d319d31c",
+        "fields": {
+            "pesan": "Suasana di RM Pondok Kelapo sangat hangat dan ramah. Dengan desain tradisional dan suasana yang tenang, tempat ini cocok untuk acara makan keluarga.",
+            "tanggal_posting": "2024-10-26T10:23:19.614Z",
+            "user": 11,
+            "forum": "db132fa7-6e37-4194-94d6-691e10746bbf"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "528b09b1-b46c-41e0-842b-e8cc94f334c7",
+        "fields": {
+            "pesan": "Rumah Makan Pindang Musi Rawas ini recomended banget kalau suka pindang. Porsinya juga besar, jadi bisa sharing sama teman. Rasanya otentik, bikin kangen masakan kampung halaman!",
+            "tanggal_posting": "2024-10-26T09:44:34.900Z",
+            "user": 11,
+            "forum": "5dd8d231-eedb-4140-81c1-75a1f00a5610"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "59938cdc-c3cf-422b-b18d-851919945ba5",
+        "fields": {
+            "pesan": "Suasana di Gemercik Resto sangat cozy! Dekorasinya modern dan nyaman, jadi enak banget untuk nongkrong bareng teman atau sekadar bersantai dengan secangkir kopi.",
+            "tanggal_posting": "2024-10-26T10:19:08.708Z",
+            "user": 15,
+            "forum": "d0e6ad4d-11c5-4ad1-a023-a21ff428faf0"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "5ad491df-eb02-4fb9-b0b1-81f142e6e1f6",
+        "fields": {
+            "pesan": "Sangat nyaman untuk nongkrong atau bekerja! WiFi-nya cepat dan banyak stopkontak di setiap meja. Saya sering ke sini untuk bekerja sambil menikmati minuman.",
+            "tanggal_posting": "2024-10-26T10:20:34.623Z",
+            "user": 14,
+            "forum": "d0e6ad4d-11c5-4ad1-a023-a21ff428faf0"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "737e7ea9-c9bd-4574-9ba8-e47527722e27",
+        "fields": {
+            "pesan": "Tempatnya bagus dan bersih, suasananya sangat tradisional, jadi terasa nuansa khas Indonesianya. Enak buat acara kumpul keluarga atau teman-teman, banyak tempat duduk yang nyaman.",
+            "tanggal_posting": "2024-10-26T10:06:06.682Z",
+            "user": 16,
+            "forum": "71a03f1f-afdf-42f1-890a-83bfd837cdb2"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "7e2a5417-badb-4661-ac13-6710c689aabc",
+        "fields": {
+            "pesan": "Kalau bicara rasa, Sentral Kampung Pempek Palembang memang juara! Saya suka pempek kapal selam mereka, isi telur dan ikannya terasa segar. Namun, mungkin kalau tempatnya bisa lebih besar dan parkirnya lebih luas, akan lebih nyaman.",
+            "tanggal_posting": "2024-10-26T09:33:56.989Z",
+            "user": 14,
+            "forum": "29ac1c69-6d5f-40a5-b119-6b7ce3b545c0"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "803407b9-a6cd-413c-af6b-91aa4f3d1dcc",
+        "fields": {
+            "pesan": "Ambiencenya santai dan nyaman, musiknya tidak terlalu keras, jadi bisa ngobrol tanpa terganggu. Ini tempat favorit saya untuk bersantai sambil menikmati kopi",
+            "tanggal_posting": "2024-10-26T10:19:47.568Z",
+            "user": 13,
+            "forum": "d0e6ad4d-11c5-4ad1-a023-a21ff428faf0"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "80885057-7c48-4366-93c2-3eca5d4243c2",
+        "fields": {
+            "pesan": "Suasananya nyaman banget, dengan dekorasi tradisional dan banyak tanaman, bikin adem. Cocok untuk makan bersama keluarga karena tempatnya luas dan tenang.",
+            "tanggal_posting": "2024-10-26T10:05:03.809Z",
+            "user": 13,
+            "forum": "71a03f1f-afdf-42f1-890a-83bfd837cdb2"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "886121ac-1f94-44fb-8d38-088c03a128a9",
+        "fields": {
+            "pesan": "Menu di RM Sri Melayu memang lebih mahal dibandingkan tempat lain, tapi sebanding dengan porsinya yang besar dan rasanya yang autentik. Cocok buat yang mau makan kenyang!",
+            "tanggal_posting": "2024-10-26T10:14:11.092Z",
+            "user": 12,
+            "forum": "e393a5e8-1848-49f6-ade7-debf23bde224"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "886dc170-7ca9-4d0a-9e22-c06b0ad4550d",
+        "fields": {
+            "pesan": "Pancious punya suasana yang nyaman dan instagrammable. Saya sering ke sini bareng teman, suasananya bikin betah. Tempat duduknya juga cukup luas, jadi cocok untuk kumpul-kumpul.",
+            "tanggal_posting": "2024-10-26T09:58:58.797Z",
+            "user": 14,
+            "forum": "35c91d2f-7800-4731-954d-62159f41e394"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "8cefd7ff-79b3-4e0d-9717-1e546c54f436",
+        "fields": {
+            "pesan": "elayanannya cepat dan stafnya ramah banget! Mereka selalu siap membantu dan sering memastikan kalau kami butuh sesuatu. Tempatnya juga nyaman buat bersantai.",
+            "tanggal_posting": "2024-10-26T10:12:14.326Z",
+            "user": 12,
+            "forum": "b5c5c037-e74e-4369-ae17-5c1f88c0b6c0"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "91e4ca28-5ff8-44ea-8d1d-2fd8d6766edb",
+        "fields": {
+            "pesan": "Pindang di sini juara, kuahnya segar dengan aroma kemangi yang khas. Tempatnya sederhana tapi nyaman, cocok buat yang ingin makan dengan suasana yang tenang.",
+            "tanggal_posting": "2024-10-26T09:45:01.802Z",
+            "user": 15,
+            "forum": "5dd8d231-eedb-4140-81c1-75a1f00a5610"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "938b81c5-7ecd-4ef0-baef-0e0413315c2a",
+        "fields": {
+            "pesan": "Layanannya cepat dan stafnya sangat ramah. Mereka selalu siap membantu jika kita membutuhkan rekomendasi menu. Tempatnya nyaman untuk kumpul-kumpul bareng teman.",
+            "tanggal_posting": "2024-10-26T10:23:39.789Z",
+            "user": 16,
+            "forum": "db132fa7-6e37-4194-94d6-691e10746bbf"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "d0993906-1705-4482-b728-af22b6a22cc4",
+        "fields": {
+            "pesan": "Pertama kali coba di sini dan ternyata enak banget! Harganya juga terjangkau, cocok untuk makan bersama teman atau keluarga. Suasana restorannya hangat dan pelayanannya cepat. Saran saya, cobain juga pempek lenggangnya!",
+            "tanggal_posting": "2024-10-26T09:34:24.361Z",
+            "user": 13,
+            "forum": "29ac1c69-6d5f-40a5-b119-6b7ce3b545c0"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "d415ceb0-9090-4e73-9240-4aa6f95b9286",
+        "fields": {
+            "pesan": "Suka banget dengan paket hemat di sini! Harganya ramah di kantong dan porsi lauknya pas untuk berbagi dengan teman. Cocok untuk makan bersama keluarga.",
+            "tanggal_posting": "2024-10-26T10:22:07.289Z",
+            "user": 16,
+            "forum": "0eb37f18-88e2-4256-8276-30fa70c4faf7"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "d4c9fe9a-d6d7-44f9-9616-9bfdb32c6949",
+        "fields": {
+            "pesan": "Tempatnya bersih dan rapi, dan pelayanannya juga ramah. Suasananya tenang, jadi nyaman buat makan bersama keluarga atau bahkan meeting kecil-kecilan. Suka sama ambience-nya!",
+            "tanggal_posting": "2024-10-26T09:58:18.594Z",
+            "user": 12,
+            "forum": "35c91d2f-7800-4731-954d-62159f41e394"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "d7e1afda-a832-4d89-b2e6-f22af1a6e2f8",
+        "fields": {
+            "pesan": "Cukup terjangkau dengan menu yang bervariasi, cocok buat makan ramai-ramai, dan cocok buat acara makan keluarga atau kumpul bareng teman.",
+            "tanggal_posting": "2024-10-26T10:09:31.705Z",
+            "user": 12,
+            "forum": "d46953a3-013c-4551-bb93-601d0eb71f8e"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "de18c637-7c7e-45be-93ec-d0e2fe55c453",
+        "fields": {
+            "pesan": "Menurut saya, pempeknya sangat autentik dan rasanya pas banget seperti di Palembang asli. Kuah cuka mereka kental dan pedasnya pas, menambah cita rasa yang khas. Tempatnya juga nyaman dan tidak terlalu ramai saat saya ke sana.",
+            "tanggal_posting": "2024-10-26T09:29:22.038Z",
+            "user": 16,
+            "forum": "29ac1c69-6d5f-40a5-b119-6b7ce3b545c0"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "de5c5631-7b92-4179-9f0c-47c57ff15568",
+        "fields": {
+            "pesan": "Tempatnya cozy dan modern, cocok banget buat nongkrong lama-lama. Ada area indoor dan outdoor yang nyaman, dan banyak stopkontak buat yang mau kerja pakai laptop.",
+            "tanggal_posting": "2024-10-26T10:11:20.392Z",
+            "user": 11,
+            "forum": "8fd69a60-e523-45b8-adf8-840bd0ac6039"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "efe26765-dfe4-4df9-9f75-d83d7610d6e4",
+        "fields": {
+            "pesan": "Menurut saya, harga dan porsi di RM Sri Melayu sangat baik. Ini restoran yang layak dikunjungi.",
+            "tanggal_posting": "2024-10-26T10:15:43.415Z",
+            "user": 15,
+            "forum": "e393a5e8-1848-49f6-ade7-debf23bde224"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "f7c70371-1b49-4bf5-aa67-a9e52c6f6e49",
+        "fields": {
+            "pesan": "Pengalaman saya di Sushi Tei Palembang selalu menyenangkan karena pelayanannya cepat dan stafnya sopan. Mereka juga sigap membersihkan meja setelah pelanggan pergi, jadi tempatnya selalu rapi.",
+            "tanggal_posting": "2024-10-26T09:54:11.567Z",
+            "user": 15,
+            "forum": "77af19f2-4eb4-42a6-887f-59874e6de3d2"
+        }
+    },
+    {
+        "model": "forum.balasan",
+        "pk": "fde73937-4018-48ca-b2e9-75aadb59ab19",
+        "fields": {
+            "pesan": "Tempatnya bersih dan rapi, dengan area yang cukup luas. Sangat cocok untuk kumpul-kumpul karena suasananya tenang, jadi bisa ngobrol santai tanpa terganggu.",
+            "tanggal_posting": "2024-10-26T10:15:07.915Z",
+            "user": 16,
+            "forum": "5a78ac6d-e4cb-4b77-8efc-72cc6c00acd8"
         }
     },
     {
@@ -2050,7 +2744,7 @@
         "pk": 11,
         "fields": {
             "password": "pbkdf2_sha256$870000$u1flI1nBJ52F0YRReZLUjx$a44nFwUl/Y/OhaF2wARtFuDRsZhU8W1DR4USDDEZFH0=",
-            "last_login": "2024-10-25T16:08:01.619Z",
+            "last_login": "2024-10-26T09:33:10.574Z",
             "is_superuser": false,
             "username": "faziltirtana",
             "first_name": "",
@@ -2061,9 +2755,9 @@
             "date_joined": "2024-10-25T15:38:59.325Z",
             "nama": "Muhammad Fazil Tirtana",
             "peran": "pengulas",
-            "poin": 35,
-            "deskripsi": null,
-            "foto": "",
+            "poin": 76,
+            "deskripsi": "Seorang pengulas yang gemar berbagi pandangan dan kritik konstruktif.",
+            "foto": "profile_photos/muhammad-fazil-tirtana.jpg",
             "groups": [],
             "user_permissions": []
         }
@@ -2073,7 +2767,7 @@
         "pk": 12,
         "fields": {
             "password": "pbkdf2_sha256$870000$N4ddb0OKuwSfzN8U4vqRzy$luvJUJ3Yz/taSokTQ8QxdbViE+3UVYeKzsASSBMIFYE=",
-            "last_login": "2024-10-25T16:10:50.734Z",
+            "last_login": "2024-10-26T09:37:02.342Z",
             "is_superuser": false,
             "username": "damar",
             "first_name": "",
@@ -2084,9 +2778,9 @@
             "date_joined": "2024-10-25T15:40:35.310Z",
             "nama": "Athallah Damar Jiwanto",
             "peran": "pengulas",
-            "poin": 25,
-            "deskripsi": null,
-            "foto": "",
+            "poin": 68,
+            "deskripsi": "Pengulas yang mencintai seni dan budaya, serta memiliki minat besar pada literasi.",
+            "foto": "profile_photos/athallah-damar-jiwanto.jpg",
             "groups": [],
             "user_permissions": []
         }
@@ -2096,7 +2790,7 @@
         "pk": 13,
         "fields": {
             "password": "pbkdf2_sha256$870000$gKactt8r70EFehTJcp21Eg$52ghsj01zuUMdOBsb3RZyhyE/EGFMMzNSReYt9Q4e4o=",
-            "last_login": "2024-10-26T04:39:09.516Z",
+            "last_login": "2024-10-26T09:32:26.955Z",
             "is_superuser": false,
             "username": "syauqiyasman",
             "first_name": "",
@@ -2107,9 +2801,9 @@
             "date_joined": "2024-10-25T15:41:36.294Z",
             "nama": "Syauqi Muhammad Yasman",
             "peran": "pengulas",
-            "poin": 41,
-            "deskripsi": null,
-            "foto": "",
+            "poin": 89,
+            "deskripsi": "Menikmati tantangan dalam mengulas dan berbagi pemikiran kreatif.",
+            "foto": "profile_photos/syauqi-muhammad-yasman.jpg",
             "groups": [],
             "user_permissions": []
         }
@@ -2119,7 +2813,7 @@
         "pk": 14,
         "fields": {
             "password": "pbkdf2_sha256$870000$jDIOUt6bsdvNxmJhYpucH2$B+tHICvM2KnyNop1uclRayUAKzjcqPeFjiLPYCZetM8=",
-            "last_login": "2024-10-26T04:38:30.666Z",
+            "last_login": "2024-10-26T09:30:55.926Z",
             "is_superuser": false,
             "username": "mdlnecg",
             "first_name": "",
@@ -2130,9 +2824,9 @@
             "date_joined": "2024-10-25T15:43:22.391Z",
             "nama": "Madeline Clairine Gultom",
             "peran": "pengulas",
-            "poin": 26,
-            "deskripsi": null,
-            "foto": "",
+            "poin": 70,
+            "deskripsi": "Berkomitmen untuk memberikan perspektif yang mendalam dan berharga dalam setiap ulasan.",
+            "foto": "profile_photos/madeline-clairine-gultom.jpg",
             "groups": [],
             "user_permissions": []
         }
@@ -2142,7 +2836,7 @@
         "pk": 15,
         "fields": {
             "password": "pbkdf2_sha256$870000$SDPDQTFgp6sqh60vqpaaH8$HiZgtAttW6yPmHERXN2RO91Xqj5mxw3SqhspXecRJHA=",
-            "last_login": "2024-10-25T16:09:17.560Z",
+            "last_login": "2024-10-26T09:38:43.356Z",
             "is_superuser": false,
             "username": "bemo",
             "first_name": "",
@@ -2153,9 +2847,9 @@
             "date_joined": "2024-10-25T15:45:32.684Z",
             "nama": "Muhammad Fawwaz Edsa Fatin Setiawan",
             "peran": "pengulas",
-            "poin": 25,
-            "deskripsi": null,
-            "foto": "",
+            "poin": 61,
+            "deskripsi": "Mencari keindahan dalam detail dan senang mengeksplorasi hal-hal baru.",
+            "foto": "profile_photos/muhammad-fawwaz-edsa-fatin-setiawan.jpg",
             "groups": [],
             "user_permissions": []
         }
@@ -2165,7 +2859,7 @@
         "pk": 16,
         "fields": {
             "password": "pbkdf2_sha256$870000$taakWk06NXbdcexoMAMSKi$rAmHeI+JH21zzoGO+vyiuw+32AoJBUUJIYQIU72yiMc=",
-            "last_login": "2024-10-25T16:03:41.124Z",
+            "last_login": "2024-10-26T09:28:46.546Z",
             "is_superuser": false,
             "username": "andiaqsa",
             "first_name": "",
@@ -2176,9 +2870,9 @@
             "date_joined": "2024-10-25T15:47:26.656Z",
             "nama": "Andi Aqsa Mappatunru Marzuki",
             "peran": "pengulas",
-            "poin": 20,
-            "deskripsi": null,
-            "foto": "",
+            "poin": 77,
+            "deskripsi": "Memiliki minat yang besar dalam analisis dan kritik terhadap berbagai karya.",
+            "foto": "profile_photos/andi-aqsa-mappatunru-marzuki.jpg",
             "groups": [],
             "user_permissions": []
         }

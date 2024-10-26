@@ -15,8 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path, include, re_path
+from rasapalembang.views import landing, cari
 from django.conf.urls.static import static
-from rasapalembang.views import landing
 from django.contrib import admin
 from django.conf import settings
 from django.views.static import serve
@@ -42,6 +42,7 @@ urlpatterns = (
         path("makanan/", include("makanan.urls")),
         path("restoran/<uuid:id_restoran>/forum/", include("forum.urls")),
         path("favorit/", include("favorit.urls")),
+        path("cari/", cari, name="cari"),
         re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
         re_path(
             r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}

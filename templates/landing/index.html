@@ -26,146 +26,93 @@
         </div>
     </a>
 </div>
-<main id="main" class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-10 w-full mx-auto">
+<main id="main" class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
+    {% if restoran %}
     <div>
-        {% if restoran %}
-            <h1 class="text-2xl font-bold">Restoran terpopuler</h1>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2">
-                {% for item in restoran %}
-                <a href="{% url 'restoran:detail' item.restoran.id %}"
-                    class="hover:brightness-110 transition duration-300 py-2">
-                    <img src="{{ item.restoran.gambar.url }}" alt=""
-                        class="w-full h-36 md:w-full h-36 md:h-64 object-cover rounded-lg">
-                    <div class="mt-2.5 flex flex-col gap-1">
-                        <h1 class="md:text-lg font-semibold">{{ item.restoran.nama }}</h1>
-                        <div class="text-neutral-500">
-                            <h2 class="max-md:text-sm flex items-center gap-2">
-                                <i class="fa-regular fa-clock text-sm max-md:scale-90 w-4 flex justify-center"></i>
-                                {{ item.jam_buka }} - {{ item.jam_tutup }}
-                                <span
-                                    class="font-semibold {% if item.status == 'Buka' %}text-green-500{% else %}text-red-500{% endif %}">
-                                    {{ item.status }}
-                                </span>
-                            </h2>
-                            <h3 class="max-md:text-sm flex items-center gap-2">
-                                <i class="fa-solid fa-phone text-sm max-md:scale-90 w-4 flex justify-center"></i>
-                                {{ item.restoran.nomor_telepon }}
-                            </h3>
-                        </div>
-                    </div>
-                </a>
-                {% endfor %}
-            </div>
-        {% endif %}
-    </div>
-    <div>
-        <h1 class="text-2xl font-bold mt-10">Makanan terpopuler</h1>
+        <h1 class="text-2xl font-bold">Restoran terpopuler</h1>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2">
-            <a href="" class="hover:brightness-110 transition duration-300 py-2">
-                <img src="https://img.jakpost.net/c/2016/09/29/2016_09_29_12990_1475116504._large.jpg" alt=""
-                    class="w-full h-36 md:h-64 object-cover rounded-lg">
+            {% for item in restoran %}
+            <a href="{% url 'restoran:detail' item.restoran.id %}"
+                class="hover:brightness-110 transition duration-300 py-2">
+                <img src="{{ item.restoran.gambar.url }}" alt="{{ item.restoran.nama }}"
+                    class="w-full h-36 md:w-full h-36 md:h-64 object-cover rounded-lg">
                 <div class="mt-2.5 flex flex-col gap-1">
-                    <h1 class="md:text-lg font-semibold">Makanan Sangat Lezat</h1>
-                    <div>
+                    <h1 class="md:text-lg font-semibold">{{ item.restoran.nama }}</h1>
+                    <div class="text-neutral-500">
                         <h2 class="max-md:text-sm flex items-center gap-2">
-                            <i
-                                class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                            Rp50,000
+                            <i class="fa-regular fa-clock text-sm max-md:scale-90 w-4 flex justify-center"></i>
+                            {{ item.jam_buka }} - {{ item.jam_tutup }}
+                            <span
+                                class="font-semibold {% if item.status == 'Buka' %}text-green-500{% else %}text-red-500{% endif %}">
+                                {{ item.status }}
+                            </span>
                         </h2>
                         <h3 class="max-md:text-sm flex items-center gap-2">
-                            <i
-                                class="fa-solid fa-utensils text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                            Restoran Laris Manis
+                            <i class="fa-solid fa-phone text-sm max-md:scale-90 w-4 flex justify-center"></i>
+                            {{ item.restoran.nomor_telepon }}
                         </h3>
                     </div>
                 </div>
             </a>
-            <a href="" class="hover:brightness-110 transition duration-300 py-2">
-                <img src="https://img.jakpost.net/c/2016/09/29/2016_09_29_12990_1475116504._large.jpg" alt=""
-                    class="w-full h-36 md:h-64 object-cover rounded-lg">
-                <div class="mt-2.5 flex flex-col gap-1">
-                    <h1 class="md:text-lg font-semibold">Makanan Sangat Lezat</h1>
-                    <div>
-                        <h2 class="max-md:text-sm flex items-center gap-2">
-                            <i
-                                class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                            Rp50,000
-                        </h2>
-                        <h3 class="max-md:text-sm flex items-center gap-2">
-                            <i
-                                class="fa-solid fa-utensils text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                            Restoran Laris Manis
-                        </h3>
-                    </div>
-                </div>
-            </a>
-            <a href="" class="hover:brightness-110 transition duration-300 py-2">
-                <img src="https://img.jakpost.net/c/2016/09/29/2016_09_29_12990_1475116504._large.jpg" alt=""
-                    class="w-full h-36 md:h-64 object-cover rounded-lg">
-                <div class="mt-2.5 flex flex-col gap-1">
-                    <h1 class="md:text-lg font-semibold">Makanan Sangat Lezat</h1>
-                    <div>
-                        <h2 class="max-md:text-sm flex items-center gap-2">
-                            <i
-                                class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                            Rp50,000
-                        </h2>
-                        <h3 class="max-md:text-sm flex items-center gap-2">
-                            <i
-                                class="fa-solid fa-utensils text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                            Restoran Laris Manis
-                        </h3>
-                    </div>
-                </div>
-            </a>
-            <a href="" class="hover:brightness-110 transition duration-300 py-2">
-                <img src="https://img.jakpost.net/c/2016/09/29/2016_09_29_12990_1475116504._large.jpg" alt=""
-                    class="w-full h-36 md:h-64 object-cover rounded-lg">
-                <div class="mt-2.5 flex flex-col gap-1">
-                    <h1 class="md:text-lg font-semibold">Makanan Sangat Lezat</h1>
-                    <div>
-                        <h2 class="max-md:text-sm flex items-center gap-2">
-                            <i
-                                class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                            Rp50,000
-                        </h2>
-                        <h3 class="max-md:text-sm flex items-center gap-2">
-                            <i
-                                class="fa-solid fa-utensils text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                            Restoran Laris Manis
-                        </h3>
-                    </div>
-                </div>
-            </a>
+            {% endfor %}
         </div>
     </div>
-    <div>
-        {% if minuman %}
-            <h1 class="text-2xl font-bold mt-10">Minuman terpopuler</h1>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2">
-                {% for item in minuman %}
-                <a href="{% url 'minuman:show_minuman_by_id' item.id %}"
-                    class="hover:brightness-110 transition duration-300 py-2">
-                    <img src="{{ item.gambar.url }}" alt="" class="w-full h-36 md:h-64 object-cover rounded-lg">
-                    <div class="mt-2.5 flex flex-col gap-1">
-                        <h1 class="md:text-lg font-semibold">{{ item.nama }}</h1>
-                        <div>
-                            <h2 class="max-md:text-sm flex items-center gap-2">
-                                <i
-                                    class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                                Rp {{ item.harga|intcomma }}
-                            </h2>
-                            <h3 class="max-md:text-sm flex items-center gap-2">
-                                <i
-                                    class="fa-solid fa-utensils text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                                {{ item.restoran }}
-                            </h3>
-                        </div>
+    {% endif %}
+    {% if makanan %}
+    <div class="mt-8">
+        <h1 class="text-2xl font-bold">Makanan terpopuler</h1>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2">
+            {% for item in makanan %}
+            <a href="{% url 'makanan:detail_makanan' item.id %}"
+                class="hover:brightness-110 transition duration-300 py-2">
+                <img src="{{ item.gambar.url }}" alt="" class="w-full h-36 md:h-64 object-cover rounded-lg">
+                <div class="mt-2.5 flex flex-col gap-1">
+                    <h1 class="md:text-lg font-semibold">{{ item.nama }}</h1>
+                    <div>
+                        <h2 class="max-md:text-sm flex items-center gap-2">
+                            <i
+                                class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
+                            Rp {{ item.harga|intcomma }}
+                        </h2>
+                        <h3 class="max-md:text-sm flex items-center gap-2">
+                            <i
+                                class="fa-solid fa-utensils text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
+                            {{ item.restoran }}
+                        </h3>
                     </div>
-                </a>
-                {% endfor %}
-            </div>
-        {% endif %}
+                </div>
+            </a>
+            {% endfor %}
+        </div>
     </div>
+    {% endif %}
+    {% if minuman %}
+    <div class="mt-8">
+        <h1 class="text-2xl font-bold">Minuman terpopuler</h1>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2">
+            {% for item in minuman %}
+            <a href="{% url 'minuman:show_minuman_by_id' item.id %}"
+                class="hover:brightness-110 transition duration-300 py-2">
+                <img src="{{ item.gambar.url }}" alt="" class="w-full h-36 md:h-64 object-cover rounded-lg">
+                <div class="mt-2.5 flex flex-col gap-1">
+                    <h1 class="md:text-lg font-semibold">{{ item.nama }}</h1>
+                    <div>
+                        <h2 class="max-md:text-sm flex items-center gap-2">
+                            <i
+                                class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
+                            Rp {{ item.harga|intcomma }}
+                        </h2>
+                        <h3 class="max-md:text-sm flex items-center gap-2">
+                            <i
+                                class="fa-solid fa-utensils text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
+                            {{ item.restoran }}
+                        </h3>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
 </main>
 {% endblock %}

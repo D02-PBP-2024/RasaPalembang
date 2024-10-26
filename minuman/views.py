@@ -1,25 +1,30 @@
 from django.http import HttpResponseNotFound, JsonResponse
-from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from minuman.models import Minuman
+from django.shortcuts import render, redirect
+from django.http import HttpResponseNotFound
 from minuman.forms import MinumanForm
 from restoran.models import Restoran
+from minuman.models import Minuman
 
 
 def show_minuman(request):
     minuman = Minuman.objects.all()
-    context = {"minuman": minuman}
-    return render(request, "minuman/minuman_all/index.html", context)
+
+    return render(request, "minuman/minuman_all/index.html", {"minuman": minuman})
 
 
 def show_minuman_by_id(request, id):
     minuman = Minuman.objects.get(pk=id)
     restoran = Restoran.objects.get(pk=minuman.restoran.id)
-    context = {
-        "minuman": minuman,
-        "restoran": restoran,
-    }
-    return render(request, "minuman/minuman_by_id/index.html", context)
+
+    return render(
+        request,
+        "minuman/minuman_by_id/index.html",
+        {
+            "minuman": minuman,
+            "restoran": restoran,
+        },
+    )
 
 
 @login_required(login_url="login")
@@ -75,7 +80,7 @@ def delete_minuman(request, id):
 
 
 def show_minuman_by_sort(request):
-    order = request.GET.get('order', None)
+    order = request.GET.get("order", None)
 
     if order == "termurah":
         minuman = Minuman.objects.all().order_by("harga")
@@ -86,13 +91,14 @@ def show_minuman_by_sort(request):
 
     minuman_all = []
     for item in minuman:
-        minuman_all.append({
-            "id": item.id,
-            "nama": item.nama,
-            "harga": item.harga,
-            "restoran": item.restoran.nama,
-            "gambar": item.gambar.url,
-        })
+        minuman_all.append(
+            {
+                "id": item.id,
+                "nama": item.nama,
+                "harga": item.harga,
+                "restoran": item.restoran.nama,
+                "gambar": item.gambar.url,
+            }
+        )
 
-    return JsonResponse({'minuman': minuman_all})
-
+    return JsonResponse({"minuman": minuman_all})
