@@ -6,7 +6,22 @@ import random
 
 
 def landing(request):
-    restoran_list = random.sample(list(Restoran.objects.all()), 4)
+    restoran = list(Restoran.objects.all())
+    minuman = list(Minuman.objects.all())
+
+    restoran_length = len(restoran)
+    minuman_length = len(minuman)
+
+    if restoran_length > 3:
+        restoran_list = random.sample(restoran, 4)
+    else:
+        restoran_list = random.sample(restoran, restoran_length)
+
+    if minuman_length > 3:
+        minuman_list = random.sample(minuman, 4)
+    else:
+        minuman_list = random.sample(minuman, minuman_length)
+
     current_time = timezone.localtime().time()
     restoran_with_status = []
 
@@ -34,9 +49,7 @@ def landing(request):
             }
         )
 
-    minuman = random.sample(list(Minuman.objects.all()), 4)
-
     return render(request, "landing/index.html", {
         "restoran": restoran_with_status,
-        "minuman": minuman,
+        "minuman":  minuman_list,
     })
