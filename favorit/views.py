@@ -73,14 +73,7 @@ def add_to_favorites(request, item_type, item_id):
             user=request.user, restoran=item
         )
     else:
-        messages.error(request, "Jenis item tidak valid.")
         return redirect("home")
-
-    # Jika favorit baru berhasil ditambahkan
-    if created:
-        messages.success(request, f"{item} berhasil ditambahkan ke favorit Anda.")
-    else:
-        messages.info(request, f"{item} sudah ada di favorit Anda.")
 
     # Arahkan kembali ke halaman yang memanggil atau ke halaman favorit
     return redirect("favorit:show_favorit")
