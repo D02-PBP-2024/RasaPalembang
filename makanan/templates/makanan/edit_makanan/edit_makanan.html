@@ -1,79 +1,97 @@
 {% extends 'base.html' %}
-{% load widget_tweaks %}
 
 {% block meta %}
 <title>RasaPalembang | Edit Makanan</title>
 {% endblock meta %}
-
 {% block content %}
-<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-10 w-full mx-auto">
-    <h2 class="mt-8 text-xl font-semibold">Edit Makanan</h2>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="grid grid-cols-2 sm:gap-x-4 w-full">
-            <div class="mt-4 col-span-2 sm:col-span-1">
-                <label class="text-sm pl-3" for="nama">Nama Makanan</label>
-                {{ form.nama|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
-            </div>
-            <div class="mt-4 col-span-2 sm:col-span-1">
-                <label class="text-sm pl-3" for="harga">Harga</label>
-                {{ form.harga|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
-            </div>
-        </div>
-        <div class="mt-4">
-            <label class="text-sm pl-3" for="deskripsi">Deskripsi</label>
-            {{ form.deskripsi|add_class:"w-full resize-none h-36 mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
-        </div>
-        <div class="grid grid-cols-2 sm:gap-x-4 w-full">
-            <div class="mt-4 col-span-2 sm:col-span-1">
-                <label class="text-sm pl-3" for="kalori">Kalori</label>
-                {{ form.kalori|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
-            </div>
-            <div class="mt-4 col-span-2 sm:col-span-1">
-                <label class="text-sm pl-3" for="gambar">Gambar</label>
-                <div class="mt-2 flex items-center">
-                    <label for="id_gambar"
-                        class="w-full overflow-hidden relative cursor-pointer bg-gray-100 rounded font-medium text-[#4f9da6] hover:text-[#3b747a] px-4 py-3.5 text-center focus-visible:outline-[#4f9da6]">
-                        <span id="gambar-file">Upload gambar</span>
-                        {{ form.gambar|add_class:"sr-only" }}
-                    </label>
+        <main class="px-5 md:px-10 lg:px-16 xl:px-24 py-5 md:py-10 w-full mx-auto">
+            <h2 class="mt-8 text-xl font-semibold">Edit Makanan</h2>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="grid grid-cols-2 sm:gap-x-4 w-full">
+                    <div class="mt-4 col-span-2 sm:col-span-1">
+                        <label class="text-sm pl-3" for="nama">Nama Makanan</label>
+                        <input type="text" name="nama" maxlength="255" required="" id="nama" placeholder="Masukkan nama makanan"
+                        value="{{ makanan.nama }}"
+                        class="w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">
+                    </div>
+                    <div class="mt-4 col-span-2 sm:col-span-1">
+                        <label class="text-sm pl-3" for="harga">Harga</label>
+                        <input type="number" name="harga" required="" id="harga" placeholder="Masukkan harga makanan"
+                        class="w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <label class="text-sm pl-3" for="deskripsi">Deskripsi</label>
+                    <textarea name="deskripsi" required="" id="deskripsi" placeholder="Masukkan deskripsi makanan"
+                        class="w-full resize-none h-36 mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">{{ makanan.deskripsi }}</textarea>
+                </div>
+                <div class="grid grid-cols-2 sm:gap-x-4 w-full">
+                    <div class="mt-4 col-span-2 sm:col-span-1">
+                        <label class="text-sm pl-3" for="kalori">Kalori</label>
+                        <input type="number" name="kalori" required="" id="kalori"
+                        placeholder="Masukkan kalori dari makanan"
+                        value="{{ makanan.kalori }}"
+                        class="w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">
+                    </div>
+                    <div class="mt-4 col-span-2 sm:col-span-1">
+                        <label class="text-sm pl-3" for="gambar">Gambar</label>
+                        <div class="mt-2 flex items-center">
+                            <label for="id_gambar"
+                                class="w-full overflow-hidden relative cursor-pointer bg-gray-100 rounded font-medium text-[#4f9da6] hover:text-[#3b747a] px-4 py-3.5 text-center focus-visible:outline-[#4f9da6]">
+                                <span id="gambar-file">{{ makanan.gambar }}</span>
+                                <input type="file" name="gambar" accept="image/*" required="" id="id_gambar" class="sr-only">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mt-4 col-span-2 sm:col-span-1">
+                        <label class="text-sm pl-3" for="restoran">Restoran</label>
+                        <select name="restoran" required="" id="restoran"
+                            class="w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">
+                            <option value="">Pilih restoran</option>
+                            {% if restoran %}
+                                {% for item in restoran %}
+                                    <option value="{{ item.id }}" {% if item.id == makanan.restoran.id %} selected {% endif %}>
+                                    {{ item.nama }}
+                                    </option>
+                                {% endfor %}
+                            {% endif %}
+                        </select>
+                    </div>
+                    <div class="mt-4 col-span-2 sm:col-span-1">
+                        <label class="text-sm pl-3">Kategori</label>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            {% for kategori in form.kategori.field.queryset %}
+                            <div class="bg-neutral-200/80 font-semibold rounded-full px-5 py-1 cursor-pointer select-none"
+                                onclick="selectCategory(this, '{{ kategori.id }}')">
+                                {{ kategori.nama }}
+                        </div>
+                        <input type="checkbox" name="kategori" value="{{ kategori.id }}" class="hidden"
+                            id="checkbox-{{ kategori.id }}">
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
-            <div class="mt-4 col-span-2 sm:col-span-1">
-                <label class="text-sm pl-3" for="restoran">Restoran</label>
-                {{ form.restoran|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
-            </div>
-            <div class="mt-4 col-span-2 sm:col-span-1">
-                <label class="text-sm pl-3">Kategori</label>
-                <div class="chips-wrapper mt-2">
-                    {% for kategori in form.kategori.field.queryset %}
-                    <span class="chip" data-id="{{ kategori.id }}">{{ kategori.nama }}</span>
-                    <input type="checkbox" name="kategori" value="{{ kategori.id }}" class="hidden-input">
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        <button
-            class="mt-8 shadow hover:shadow-lg bg-[#4f9da6] hover:bg-[#3b747a] transition focus:shadow-outline focus:bg-[#3b747a] focus:outline-none text-white font-semibold py-2 px-4 rounded"
-            type="submit">
-            Simpan
-        </button>
-    </form>
-</main>
-<script>
-    var gambarUpload = document.getElementById('id_gambar');
-    var gambarFile = document.getElementById('gambar-file');
-    gambarUpload.addEventListener('change', function () {
-        gambarFile.innerText = gambarUpload.files[0].name;
-    });
+            <button
+                class="mt-8 shadow hover:shadow-lg bg-[#4f9da6] hover:bg-[#3b747a] transition focus:shadow-outline focus:bg-[#3b747a] focus:outline-none text-white font-semibold py-2 px-4 rounded"
+                type="submit">
+                Simpan
+            </button>
+        </form>
+    </main>
+    <script>
+        var gambarUpload = document.getElementById('id_gambar')
+        var gambarFile = document.getElementById('gambar-file')
+        gambarUpload.addEventListener('change', function () {
+            gambarFile.innerText = gambarUpload.files[0].name
+        })
 
-    // JS untuk handle chips selection
-    document.querySelectorAll('.chip').forEach(function (chip) {
-        chip.addEventListener('click', function () {
-            const input = this.nextElementSibling;  // Menghubungkan dengan input checkbox di sebelahnya
-            this.classList.toggle('active');  // Toggle class active (highlight chip)
-            input.checked = !input.checked;  // Toggle checkbox state
-        });
-    });
-</script>
+        function selectCategory(button, kategoriId) {
+            const checkbox = document.getElementById(`checkbox-${kategoriId}`)
+            checkbox.checked = !checkbox.checked
+            button.classList.toggle('bg-[#eb4b4b]', checkbox.checked)
+            button.classList.toggle('text-white', checkbox.checked)
+            button.classList.toggle('bg-neutral-200/80', !checkbox.checked)
+        }
+    </script>
 {% endblock content %}

@@ -29,9 +29,6 @@ def tambah_makanan(request):
         return redirect("makanan:show_makanan")
     
     restoran = Restoran.objects.filter(user=request.user)
-    kategori = Kategori.objects.all()
-
-    restoran = Restoran.objects.filter(user=request.user)
 
     if request.method == "POST":
         form = MakananForm(request.POST, request.FILES)
@@ -77,7 +74,7 @@ def edit_makanan(request, id):
         form.save()  # Simpan gambar baru atau update field lainnya
         return redirect("makanan:detail_makanan", id=id)
 
-    context = {"form": form, "makanan": makanan}
+    context = {"form": form, "makanan": makanan, "restoran": restoran}
     return render(request, "makanan/edit_makanan/edit_makanan.html", context)
 
 
