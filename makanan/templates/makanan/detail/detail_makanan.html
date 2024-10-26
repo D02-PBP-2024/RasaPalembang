@@ -14,10 +14,11 @@
                         </h1>
                         <div class="flex-none">
                             <!-- Button Favorite -->
-                            <button
-                                class="border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-2 px-[12px] sm:py-3 sm:px-[16px] rounded-full focus:outline-none focus:bg-[#4f9da6] focus:text-white">
+                            <a href="{% url 'favorit:add_to_favorites' 'makanan' makanan.id %}"
+                               class="border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-2 px-[12px] 
+                                      sm:py-3 sm:px-[16px] rounded-full focus:outline-none focus:bg-[#4f9da6] focus:text-white">
                                 <i class="fa-regular fa-heart"></i>
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <p class="mt-6 text-xl leading-8 text-gray-700">{{ makanan.deskripsi }}</p>
