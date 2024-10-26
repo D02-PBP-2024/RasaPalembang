@@ -8,11 +8,13 @@ from minuman.models import Minuman
 
 
 def get_gambar_url(item):
-    return (
-        str(item.gambar.url).replace("%3A", ":/")
-        if hasattr(item, "gambar") and item.gambar
-        else None
-    )
+    if hasattr(item, "gambar") and item.gambar:
+        if "raw.githubusercontent.com/D02-PBP-2024/mediafiles/" in item.gambar.url:
+            return str(item.gambar.url).replace("%3A", ":/").replace("/media/", "")
+        else:
+            return item.gambar.url
+    else:
+        return None
 
 
 def show_minuman(request):
@@ -113,8 +115,7 @@ def show_minuman_by_sort(request):
             "nama": item.nama,
             "harga": item.harga,
             "restoran": item.restoran.nama,
-            "gambar": item.gambar.url,
+            "gambar": get_gambar_url(item),
         })
 
     return JsonResponse({'minuman': minuman_all})
-
