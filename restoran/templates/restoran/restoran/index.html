@@ -6,8 +6,8 @@
 {% endblock %}
 
 {% block content %}
-<div class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto min-h-screen">
-    <h1 class="text-3xl font-bold text-center mb-10">Daftar Restoran</h1>
+<div class="px-4 md:px-8 lg:px-16 xl:px-24 py-5 md:py-8 w-full mx-auto min-h-screen">
+    <h1 class="text-3xl font-bold text-center mb-8">Daftar Restoran</h1>
 
     {% if request.user.is_authenticated and request.user.peran == "pemilik_restoran" %}
     <div class="mb-4 text-right">
@@ -27,28 +27,28 @@
             <option value="harga_desc" {% if sort_by == 'harga' and order == 'desc' %}selected{% endif %}>Harga Tertinggi</option>
         </select>
     </div>
-    
+
     {% if page_obj %}
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {% for item in page_obj %}
-        <a href="{% url 'restoran:detail' item.restoran.id %}" class="block bg-white shadow-md rounded-lg overflow-hidden transition hover:shadow-lg relative 
-               {% if forloop.counter == 10 %} col-start-2 {% endif %}">
+        {% if forloop.counter <= 10 %} 
+        <a href="{% url 'restoran:detail' item.restoran.id %}" class="block bg-white shadow-md rounded-lg overflow-hidden transition hover:shadow-lg 
+            {% if forloop.counter == 10 %} md:col-start-2 {% endif %}">
             <div class="w-full h-48 overflow-hidden">
                 {% if item.restoran.gambar %}
-                <img src="{{ item.restoran.gambar.url }}" alt="{{ item.restoran.nama }}"
-                    class="w-full h-full object-cover">
+                <img src="{{ item.restoran.gambar.url }}" alt="{{ item.restoran.nama }}" class="w-full h-full object-cover">
                 {% else %}
                 <img src="{% static 'images/no-image.jpg' %}" alt="No image" class="w-full h-full object-cover">
                 {% endif %}
             </div>
-
+    
             <div class="p-4">
                 <h2 class="text-lg font-semibold text-gray-700">{{ item.restoran.nama }}
                     <span class="text-gray-500 mt-1">
                         <span class="text-lg font-semibold">{{ item.harga_range }}</span>
                     </span>
                 </h2>
-
+    
                 <div class="flex items-center text-yellow-500">
                     {% if item.rata_bintang == 0 %}
                     <i class="far fa-star"></i>
@@ -109,7 +109,7 @@
                     {% endif %}
                     <span class="ml-2 text-gray-500">({{ item.rata_bintang|floatformat:1 }}/5.0)</span>
                 </div>
-
+                    
                 <p class="text-gray-500 mt-1">
                     <i class="fas fa-clock mr-2"></i>
                     {{ item.jam_buka }} - {{ item.jam_tutup }}
@@ -117,26 +117,25 @@
                         {{ item.status }}
                     </span>
                 </p>
-
+    
                 <div class="mt-4">
                     {% for ulasan in item.ulasan_terbaik %}
                     <div>
-                        {# Membatasi ulasan maksimal 5 kata #}
                         <blockquote class="italic text-gray-600">“{{ ulasan.deskripsi|slice:":50" }}…”</blockquote>
                     </div>
                     {% endfor %}
                 </div>
             </div>
         </a>
+        {% endif %}
         {% endfor %}
     </div>
-
+        
     <div class="mt-6 flex justify-center">
         <div class="flex gap-4">
             {% if page_obj.has_previous %}
             <a href="?page=1" class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-md">First</a>
-            <a href="?page={{ page_obj.previous_page_number }}"
-                class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-md">Previous</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-md">Previous</a>
             {% endif %}
 
             <span class="px-4 py-2 bg-gray-100 rounded-md">
@@ -144,24 +143,19 @@
             </span>
 
             {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}"
-                class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-md">Next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}"
-                class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-md">Last</a>
+            <a href="?page={{ page_obj.next_page_number }}" class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-md">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-md">Last</a>
             {% endif %}
         </div>
     </div>
+
     {% else %}
-    <div class="px-3 sm:px-6 py-16 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14">
-        <div>
-            <img src="{% static 'images/empty-restoran.png' %}" class="max-w-24 md:max-w-32">
-        </div>
-        <div>
-            <h1 class="text-center text-xl md:text-2xl font-bold">Belum ada restoran yang tersedia</h1>
-            <p class="text-center text-gray-900 max-md:text-sm max-md:mt-2">
-                Segera kembali, berbagai restoran menarik akan segera hadir!
-            </p>
-        </div>
+    <div class="flex flex-col items-center py-16">
+        <img src="{% static 'images/empty-restoran.png' %}" class="w-32 h-32 mb-6">
+        <h1 class="text-center text-xl md:text-2xl font-bold">Belum ada restoran yang tersedia</h1>
+        <p class="text-center text-gray-900 text-sm mt-2">
+            Segera kembali, berbagai restoran menarik akan segera hadir!
+        </p>
     </div>
     {% endif %}
 </div>
@@ -172,7 +166,7 @@
     document.getElementById('sortSelect').addEventListener('change', function() {
         const sortOption = this.value;
         let newUrl = window.location.pathname + "?";
-        
+
         if (sortOption === "rating_asc") {
             newUrl += "sort=rating&order=asc";
         } else if (sortOption === "rating_desc") {
@@ -188,4 +182,4 @@
         window.location.href = newUrl;
     });
 </script>
-{% endblock script %}
+{% endblock %}
