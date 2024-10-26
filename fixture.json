@@ -64,6 +64,81 @@
     },
     {
         "model": "makanan.makanan",
+        "pk": "d0e880e2-1a14-472a-9f51-4ef158091383",
+        "fields": {
+            "nama": "Pempek Kapal Selam",
+            "harga": "20000.00",
+            "deskripsi": "Pempek dengan isian telur di dalamnya, disajikan dengan kuah cuka yang segar.",
+            "gambar": "gambar_makanan/71b61210-b7e9-4334-b966-4a035a199a76.jpg",
+            "kalori": 80,
+            "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "d758afc4-0162-4e1b-9490-cad603b5cf2a",
+        "fields": {
+            "nama": "Pempek Lenjer",
+            "harga": "15000.00",
+            "deskripsi": "Pempek panjang yang kenyal, cocok disajikan dengan cuka pempek.",
+            "gambar": "gambar_makanan/f4709b47-b2e2-431e-b18b-d67b90a4663f.jpg",
+            "kalori": 90,
+            "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "76953b87-9d78-46b5-95b0-e0e3436e5cb3",
+        "fields": {
+            "nama": "Pempek Adaan",
+            "harga": "18000.00",
+            "deskripsi": "Pempek bulat yang diisi dengan ikan, digoreng hingga kecokelatan.",
+            "gambar": "gambar_makanan/319d80c7-8899-4c73-b059-04f2fa12650b.jpg",
+            "kalori": 100,
+            "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "93476871-5070-45c2-971b-96bd02f162e1",
+        "fields": {
+            "nama": "Pempek Pistel",
+            "harga": "22000.00",
+            "deskripsi": "Pempek dengan isian sayuran dan sambal, unik dan lezat.",
+            "gambar": "gambar_makanan/7ffe0065-f929-401b-a9b3-2b726955c43e.jpg",
+            "kalori": 85,
+            "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "fdcfb875-1f17-4c66-962a-0ac9afa8517b",
+        "fields": {
+            "nama": "Pempek Kulit",
+            "harga": "25000.00",
+            "deskripsi": "Pempek yang terbuat dari kulit ikan, gurih dan renyah.",
+            "gambar": "gambar_makanan/acba64be-0c02-4e16-8953-799db7d6d3f8.jpeg",
+            "kalori": 110,
+            "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
         "pk": "52aad79b-167a-487b-8056-940cc3d0c0c2",
         "fields": {
             "nama": "Tsukune Nokke Sushi",
