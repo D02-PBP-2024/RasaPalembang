@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from favorit.forms import FavoritForm
 from restoran.models import Restoran
-from django.contrib import messages
 from favorit.models import Favorit
 from makanan.models import Makanan
 from minuman.models import Minuman
@@ -28,7 +27,6 @@ def ubah_favorit(request, favorit_id):
         form = FavoritForm(request.POST, instance=favorit)
         if form.is_valid():
             form.save()
-            messages.success(request, "Favorit berhasil diperbarui.")
             return redirect("favorit:show_favorit")
     else:
         form = FavoritForm(instance=favorit)
@@ -45,7 +43,6 @@ def hapus_favorit(request, favorit_id):
 
     if request.method == "POST":
         favorit.delete()
-        messages.success(request, "Favorit berhasil dihapus.")
         return redirect("favorit:show_favorit")
 
     return render(request, "favorit/hapus/index.html", {"favorit": favorit})
