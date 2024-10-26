@@ -216,6 +216,631 @@
         }
     },
     {
+        "model": "makanan.makanan",
+        "pk": "34ec0d42-4a26-4423-abbd-57ccdb1465dc",
+        "fields": {
+            "nama": "Pempek Panggang",
+            "harga": "17500.00",
+            "deskripsi": "Pempek Panggang adalah variasi dari pempek khas Palembang, biasanya berbentuk bulat atau lonjong dan dipanggang alih-alih digoreng. Setelah pempek matang, biasanya diisi dengan campuran ebi (udang kering), sambal, dan kadang sedikit kecap, memberikan rasa gurih dan pedas. Pempek panggang memiliki tekstur renyah di luar dan empuk di dalam, dengan rasa ikan yang khas.",
+            "gambar": "gambar_makanan/4779532a-bb27-45cd-91fd-3f3245b0accd.jpg",
+            "kalori": 250,
+            "restoran": "614d6b91-743f-45e4-9b8c-7a0de583bd30",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "a1b1c368-57c4-4b65-8539-15062f6a3659"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "6f579f80-a727-42ff-bbe6-da9eb5ca4012",
+        "fields": {
+            "nama": "Srikayo",
+            "harga": "17500.00",
+            "deskripsi": "Srikayo adalah hidangan penutup tradisional dari Palembang, Sumatra Selatan, yang terkenal dengan rasa manis dan teksturnya yang lembut. Kue ini dibuat dari bahan dasar santan, telur, gula, dan daun pandan yang memberikan aroma harum khas. Srikayo memiliki warna hijau alami dari daun pandan atau daun suji dan biasanya disajikan dalam potongan kecil sebagai makanan penutup atau camilan manis.",
+            "gambar": "gambar_makanan/c2f15846-3f00-46ba-ad60-38c4204ae97d.jpg",
+            "kalori": 150,
+            "restoran": "614d6b91-743f-45e4-9b8c-7a0de583bd30",
+            "kategori": [
+                "54b05aac-d7b9-432a-a86d-5c539178c351"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "d10b46a5-30ec-4475-98dc-e5945e5976f3",
+        "fields": {
+            "nama": "Lenggang",
+            "harga": "11000.00",
+            "deskripsi": "Lenggang adalah hidangan khas Palembang yang terdiri dari pempek lenjer dicampur telur, kemudian dipanggang atau digoreng dan disajikan dengan saus cuko.",
+            "gambar": "gambar_makanan/2916c47d-d174-48fe-a899-3f8e8511a4e5.jpg",
+            "kalori": 225,
+            "restoran": "614d6b91-743f-45e4-9b8c-7a0de583bd30",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "280b51bf-31a9-4a06-9fbe-2c92100e4004",
+        "fields": {
+            "nama": "Pempek Crispy",
+            "harga": "11000.00",
+            "deskripsi": "Pempek Crispy adalah varian pempek yang digoreng hingga garing dan renyah, biasanya disajikan dengan saus cuko khas Palembang.",
+            "gambar": "gambar_makanan/016a11d8-8855-47c0-a7e0-b347c27a5c8a.jpg",
+            "kalori": 280,
+            "restoran": "614d6b91-743f-45e4-9b8c-7a0de583bd30",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "58f60cbe-7be8-4249-876c-fab44b830fe5",
+        "fields": {
+            "nama": "Tekwan",
+            "harga": "10000.00",
+            "deskripsi": "Tekwan adalah sup khas Palembang yang terdiri dari bakso ikan tenggiri kecil, jamur kuping, bengkuang, dan soun, disajikan dalam kuah kaldu udang yang gurih.",
+            "gambar": "gambar_makanan/f69d77d4-6256-4883-b0a8-8adb731449f4.jpg",
+            "kalori": 190,
+            "restoran": "614d6b91-743f-45e4-9b8c-7a0de583bd30",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "68144744-c6df-4c7b-91b7-53515f35b3bb"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "cb54481c-e553-48e4-b46a-52549610abd1",
+        "fields": {
+            "nama": "Pizza Meat Lover",
+            "harga": "80000.00",
+            "deskripsi": "Pizza Meat Lover adalah jenis pizza yang dipenuhi dengan berbagai daging seperti sosis, pepperoni, daging sapi cincang, dan terkadang tambahan bacon, disajikan di atas saus tomat dan keju leleh.",
+            "gambar": "gambar_makanan/6f890c14-822c-45b4-b7fd-aa472c9275eb.jpg",
+            "kalori": 300,
+            "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "a9c35199-f1e3-42e9-8b97-f396f7d11a3d",
+        "fields": {
+            "nama": "Onion Ring",
+            "harga": "25000.00",
+            "deskripsi": "Onion Ring adalah camilan berbentuk cincin dari irisan bawang bombay yang dilapisi tepung dan digoreng hingga renyah, sering disajikan dengan saus cocol.",
+            "gambar": "gambar_makanan/891f004a-1766-4dfd-b1a1-8cf845397fed.jpg",
+            "kalori": 220,
+            "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4",
+            "kategori": [
+                "0de708ca-38bc-442c-9fba-4f1532487eb4"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "94e3a72f-9af0-459c-a3bc-8dbca1bcd3d2",
+        "fields": {
+            "nama": "Jamur Crispy",
+            "harga": "30000.00",
+            "deskripsi": "Jamur Crispy adalah camilan renyah yang terbuat dari jamur, biasanya jamur shiitake atau jamur tiram, yang dilapisi tepung bumbu dan digoreng hingga garing.",
+            "gambar": "gambar_makanan/09565260-80c4-45e7-b6b4-c87877c4a1aa.jpg",
+            "kalori": 320,
+            "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4",
+            "kategori": [
+                "54b05aac-d7b9-432a-a86d-5c539178c351"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "a0df4290-5349-47b6-9f6c-e267661c2cca",
+        "fields": {
+            "nama": "Bruschetta",
+            "harga": "25000.00",
+            "deskripsi": "Bruschetta adalah hidangan pembuka asal Italia yang terdiri dari irisan roti panggang yang biasanya di atasnya diberi campuran tomat segar, bawang putih, basil, dan minyak zaitun.",
+            "gambar": "gambar_makanan/0df4cac4-9b6a-415b-86ef-5ef5d49e3fa7.jpg",
+            "kalori": 225,
+            "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4",
+            "kategori": [
+                "0de708ca-38bc-442c-9fba-4f1532487eb4",
+                "54b05aac-d7b9-432a-a86d-5c539178c351"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "77cc35f9-6633-45e5-9e6e-d3869b3c4883",
+        "fields": {
+            "nama": "Panna Cotta",
+            "harga": "25000.00",
+            "deskripsi": "Panna Cotta adalah hidangan penutup asal Italia yang terbuat dari krim, gula, dan gelatin. Hidangan ini biasanya disajikan dingin dan sering kali diberi saus buah atau karamel.",
+            "gambar": "gambar_makanan/c6dbb8d0-b9dc-4699-a54d-be5b0d11573c.jpg",
+            "kalori": 270,
+            "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4",
+            "kategori": [
+                "54b05aac-d7b9-432a-a86d-5c539178c351"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "cfc72651-5f3c-4aee-ad07-60992dc08130",
+        "fields": {
+            "nama": "Nasi Goreng Pete",
+            "harga": "40000.00",
+            "deskripsi": "Nasi Goreng Pete adalah hidangan nasi goreng khas Indonesia yang dicampur dengan pete (jengkol), telur, dan berbagai sayuran, memberikan rasa yang khas dan sedikit pedas.",
+            "gambar": "gambar_makanan/5be90fc0-7e67-41c9-9682-5a159e96f215.jpg",
+            "kalori": 400,
+            "restoran": "d12c22ba-78d1-48a4-be85-ce804ae28b75",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "10355d22-b2fd-4418-a8c0-da386dbae255",
+        "fields": {
+            "nama": "Puyunghai",
+            "harga": "45000.00",
+            "deskripsi": "Puyunghai adalah hidangan khas Tionghoa yang terbuat dari campuran daging ayam atau udang yang dibalut dengan telur, kemudian digoreng hingga kecokelatan. Biasanya disajikan dengan saus sambal atau saus manis.",
+            "gambar": "gambar_makanan/01f2c41a-f40e-49aa-84e9-aaf040a94925.jpg",
+            "kalori": 300,
+            "restoran": "d12c22ba-78d1-48a4-be85-ce804ae28b75",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "6173e17e-bf01-4281-9a2e-6e255c85149e",
+        "fields": {
+            "nama": "Ayam Lada Hitam",
+            "harga": "70000.00",
+            "deskripsi": "Ayam Lada Hitam adalah hidangan yang terbuat dari potongan daging ayam yang dimasak dengan bumbu lada hitam, bawang, dan rempah-rempah lainnya. Hidangan ini memiliki rasa pedas dan gurih, sering disajikan dengan nasi putih.",
+            "gambar": "gambar_makanan/b4ad0239-765d-4763-ae5f-966f1be7ad39.jpg",
+            "kalori": 290,
+            "restoran": "d12c22ba-78d1-48a4-be85-ce804ae28b75",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "2e9e86cc-4ca3-454a-90fe-da815010aad8",
+        "fields": {
+            "nama": "Kangung Cah Terasi",
+            "harga": "35000.00",
+            "deskripsi": "Kangkung Cah Terasi adalah hidangan sayuran yang terbuat dari kangkung yang ditumis dengan terasi, bawang putih, dan cabai. Hidangan ini terkenal dengan rasa pedas dan gurih yang khas, serta sering disajikan sebagai pendamping nasi.",
+            "gambar": "gambar_makanan/aa249c18-2ab3-4715-87b1-48a268cf1af0.jpg",
+            "kalori": 100,
+            "restoran": "d12c22ba-78d1-48a4-be85-ce804ae28b75",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "cce8df66-fbbd-4f6c-97ff-414d9893d09e"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "82cd47ae-f05f-4c96-9749-dfe2ee638b36",
+        "fields": {
+            "nama": "Gurami Saus Bakar",
+            "harga": "100000.00",
+            "deskripsi": "Gurami Saus Bakar adalah hidangan ikan gurami yang dipanggang dan disajikan dengan saus yang kaya rasa, biasanya terbuat dari campuran kecap manis, bawang, cabai, dan bumbu lainnya. Hidangan ini memiliki rasa gurih dan sedikit manis, sering kali disajikan dengan nasi hangat.",
+            "gambar": "gambar_makanan/3221d76f-6a40-4cd5-800c-a4629beacb2f.jpg",
+            "kalori": 220,
+            "restoran": "d12c22ba-78d1-48a4-be85-ce804ae28b75",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "6e3b4be7-179e-4233-a8b3-814701f734f0"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "f55b1c14-87fc-4a26-99a6-4a09c9b68dfa",
+        "fields": {
+            "nama": "Tomyam Udang",
+            "harga": "100500.00",
+            "deskripsi": "Tomyam Udang adalah sup pedas dan asam khas Thailand yang dibuat dengan udang segar, jamur, tomat, dan berbagai bumbu aromatik seperti serai, daun jeruk, dan cabai. Hidangan ini terkenal karena kombinasi rasa pedas, asam, dan segar yang menggugah selera.",
+            "gambar": "gambar_makanan/b2e49a36-4a95-424e-bed8-4710d43112f3.jpg",
+            "kalori": 100,
+            "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "6e3b4be7-179e-4233-a8b3-814701f734f0",
+                "68144744-c6df-4c7b-91b7-53515f35b3bb"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "030111e6-7cc0-4f48-b191-2af4514ebba7",
+        "fields": {
+            "nama": "Tauge",
+            "harga": "29500.00",
+            "deskripsi": "Tauge adalah kecambah dari biji kedelai yang sering digunakan dalam masakan Asia. Tauge memiliki tekstur renyah dan rasa yang ringan, biasanya ditambahkan ke berbagai hidangan seperti salad, tumisan, dan sup. Selain memberikan rasa dan tekstur, tauge juga kaya akan vitamin dan serat.",
+            "gambar": "gambar_makanan/8a52c3a9-74ee-4e53-8b40-17f6fac091f5.jpg",
+            "kalori": 30,
+            "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "cce8df66-fbbd-4f6c-97ff-414d9893d09e"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "3fabc7a3-29bd-4513-bad4-073a296dcae0",
+        "fields": {
+            "nama": "Ayam Goreng",
+            "harga": "41500.00",
+            "deskripsi": "Ayam Goreng adalah hidangan populer yang terbuat dari potongan ayam yang dibumbui, kemudian digoreng hingga berwarna keemasan dan renyah. Ayam goreng bisa disajikan dengan berbagai sambal atau pelengkap, dan sering menjadi pilihan di banyak masakan tradisional.",
+            "gambar": "gambar_makanan/230faac8-b250-4b9c-b172-73d6aa53629b.jpg",
+            "kalori": 280,
+            "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "579440dd-1fa8-4237-997e-1224919ad097",
+        "fields": {
+            "nama": "Sup Asparagus",
+            "harga": "32500.00",
+            "deskripsi": "Sup Asparagus adalah hidangan ringan yang terbuat dari asparagus segar yang dimasak dan dihaluskan, sering kali dicampur dengan bahan-bahan seperti bawang, kentang, atau krim untuk menambah rasa dan tekstur. Sup ini biasanya disajikan hangat dan bisa menjadi pilihan sehat untuk hidangan pembuka.",
+            "gambar": "gambar_makanan/c83cd59b-cba6-46b8-b4cd-ec0cd8dda985.jpg",
+            "kalori": 120,
+            "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1",
+            "kategori": [
+                "0de708ca-38bc-442c-9fba-4f1532487eb4",
+                "68144744-c6df-4c7b-91b7-53515f35b3bb"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "6c41fc6d-00f8-4afc-95d0-fcb90bee0266",
+        "fields": {
+            "nama": "Telur Dadar",
+            "harga": "15000.00",
+            "deskripsi": "Telur Dadar adalah hidangan sederhana yang terbuat dari telur yang dikocok dan kemudian dimasak di atas wajan hingga matang. Telur dadar bisa disajikan polos atau ditambahkan bahan lain seperti sayuran, daging, atau rempah-rempah untuk menambah rasa.",
+            "gambar": "gambar_makanan/65bde9d4-1f44-455a-bb7d-d03ce7f3e2d5.jpg",
+            "kalori": 100,
+            "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "bbc075b5-c644-4b7f-b1e5-ac0d62230b52",
+        "fields": {
+            "nama": "Pindang Ikan Patin",
+            "harga": "35000.00",
+            "deskripsi": "Pindang Ikan Patin adalah makanan khas Palembang yang sangat populer. Hidangan ini adalah sup ikan dengan kuah bening yang memiliki rasa asam, pedas, dan segar dari bumbu seperti serai, asam jawa, dan cabai.",
+            "gambar": "gambar_makanan/ef39270a-54df-4d04-890e-aa530e82f3dc.jpg",
+            "kalori": 250,
+            "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "68144744-c6df-4c7b-91b7-53515f35b3bb"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "8fc5865d-fb81-49d5-b757-82c195461095",
+        "fields": {
+            "nama": "Pindang Tulang",
+            "harga": "40000.00",
+            "deskripsi": "Pindang Tulang adalah hidangan khas Palembang yang dibuat dengan tulang sapi dan sedikit daging. Kuahnya pedas dan asam, memberikan rasa yang sangat menggugah selera.",
+            "gambar": "gambar_makanan/ebef2d49-8e11-4943-861b-64f3acce91ef.jpg",
+            "kalori": 200,
+            "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a",
+            "kategori": [
+                "68144744-c6df-4c7b-91b7-53515f35b3bb",
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "22634fea-4d1d-4046-82b8-1c895952210e",
+        "fields": {
+            "nama": "Pindang Udang",
+            "harga": "100000.00",
+            "deskripsi": "Sup udang dengan kuah pindang khas Palembang yang segar dan pedas.",
+            "gambar": "gambar_makanan/574b7637-c94f-4e1d-bf1f-b248ec24b7f5.jpg",
+            "kalori": 300,
+            "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a",
+            "kategori": [
+                "68144744-c6df-4c7b-91b7-53515f35b3bb",
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "f6199cec-53e8-48f4-9b86-23630f55066b",
+        "fields": {
+            "nama": "Brengkes Tempoyak",
+            "harga": "35000.00",
+            "deskripsi": "Pepes khas Palembang dengan tempoyak dan bumbu rempah.",
+            "gambar": "gambar_makanan/4293632a-104a-4510-907d-480de4322295.jpg",
+            "kalori": 200,
+            "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "518d40e3-3ce5-4e25-9966-204d502a8c55",
+        "fields": {
+            "nama": "Ikan Seluang",
+            "harga": "25000.00",
+            "deskripsi": "Ikan Seluang goreng yang renyah dan gurih.",
+            "gambar": "gambar_makanan/a60851d9-96f1-423e-83c0-07df934309fa.jpg",
+            "kalori": 150,
+            "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "6e3b4be7-179e-4233-a8b3-814701f734f0"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "37df5fad-78da-4739-8cdc-f16c96542bc5",
+        "fields": {
+            "nama": "Chicken Honey Mustard Salad",
+            "harga": "97500.00",
+            "deskripsi": "manis seperti madu, sehat seperti sayur, salad dengan selada romaine, ayam panggang, crouton, tomat & saus mustard madu",
+            "gambar": "gambar_makanan/db679cc9-a7b3-4c9d-92b2-739a6203caef.jpg",
+            "kalori": 150,
+            "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2",
+            "kategori": [
+                "cce8df66-fbbd-4f6c-97ff-414d9893d09e",
+                "d8eb2bc9-eafa-4159-a46f-2492f57032a0"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "2001306c-a498-4c4f-9ebf-9a62f0790904",
+        "fields": {
+            "nama": "Ricotta and Raspberry",
+            "harga": "75500.00",
+            "deskripsi": "Keju ricotta, raspberry jam, dan satu scoop es krim homemade, cocok disajikan dengan pancake coklat.",
+            "gambar": "gambar_makanan/c6bd74ea-7a05-4a54-aab1-e04e51a0d909.jpg",
+            "kalori": 450,
+            "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2",
+            "kategori": [
+                "54b05aac-d7b9-432a-a86d-5c539178c351"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "1ea760a2-0c69-49d2-a3ea-1ce3f10f1c6a",
+        "fields": {
+            "nama": "Nasi Goreng Kemangi",
+            "harga": "86000.00",
+            "deskripsi": "Nasi goreng dengan bumbu kemangi paste, disajikan dengan ayam goreng, telur mata sapi, dan kaya akan cita rasa Indonesia.",
+            "gambar": "gambar_makanan/70f0a7e7-951a-42f2-8043-9722ce0b4071.jpg",
+            "kalori": 500,
+            "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "465b833d-d0ba-435b-9809-e5ea65847454",
+        "fields": {
+            "nama": "Homemade Pumpkin Soup",
+            "harga": "72500.00",
+            "deskripsi": "Sup labu yang kental dan creamy, dibuat dari labu butternut, biji labu, dan disajikan dengan crouton.",
+            "gambar": "gambar_makanan/6780ec16-b6f7-4ee3-8017-dc4aa16fdf15.jpg",
+            "kalori": 250,
+            "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2",
+            "kategori": [
+                "0de708ca-38bc-442c-9fba-4f1532487eb4",
+                "68144744-c6df-4c7b-91b7-53515f35b3bb"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "13316bfd-ff52-4ec3-869f-5ab0eaa773d2",
+        "fields": {
+            "nama": "Salmon & Pesto",
+            "harga": "123000.00",
+            "deskripsi": "Pasta dengan saus pesto homemade, bawang putih, minyak zaitun, dan potongan salmon, cocok untuk pecinta rasa segar dan hijau.",
+            "gambar": "gambar_makanan/a2ebc25a-3a4d-4b3b-b597-43a582a67059.jpg",
+            "kalori": 650,
+            "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2",
+            "kategori": [
+                "8cf0b51a-6b3f-4053-b6b5-bcc5cf50ae11",
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "6d81e111-7410-463d-a039-4b57a3b69451",
+        "fields": {
+            "nama": "Ikan Pari Bakar",
+            "harga": "115000.00",
+            "deskripsi": "Ikan pari yang dibakar hingga matang sempurna dengan bumbu khas rempah dan sambal kecap, memberikan cita rasa khas laut yang gurih dan smokey.",
+            "gambar": "gambar_makanan/9fd4f001-6b43-450a-9dd9-977cdd116cd8.jpg",
+            "kalori": 500,
+            "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960",
+            "kategori": [
+                "6e3b4be7-179e-4233-a8b3-814701f734f0",
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "ede82d28-46cd-488a-9aac-b873ee56ada7",
+        "fields": {
+            "nama": "Nasi Pindang Iga",
+            "harga": "38500.00",
+            "deskripsi": "Nasi dengan pindang iga sapi yang dimasak dengan rempah khas untuk cita rasa gurih dan asam.",
+            "gambar": "gambar_makanan/be4b0ecd-1762-4016-9ecc-1e0360f0067d.jpg",
+            "kalori": 500,
+            "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "49e6f568-6487-4f50-901d-0d1fe45fe2f2",
+        "fields": {
+            "nama": "Sop Iga",
+            "harga": "72500.00",
+            "deskripsi": "Sop iga sapi yang disajikan dengan kuah kaldu bening dan bumbu tradisional.",
+            "gambar": "gambar_makanan/06d34994-ad95-4a21-b33c-717956de71ab.jpg",
+            "kalori": 550,
+            "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "68144744-c6df-4c7b-91b7-53515f35b3bb"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "e049da71-cd09-416d-9676-ff57e6dec437",
+        "fields": {
+            "nama": "Sayur Asem",
+            "harga": "25300.00",
+            "deskripsi": "Sayur asem segar dengan campuran sayuran seperti jagung dan kacang panjang, memiliki cita rasa asam yang menyegarkan.",
+            "gambar": "gambar_makanan/e5af039c-21a1-417b-b6bd-3d8952b2b370.jpg",
+            "kalori": 150,
+            "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "cce8df66-fbbd-4f6c-97ff-414d9893d09e",
+                "68144744-c6df-4c7b-91b7-53515f35b3bb"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "b3f220a8-bf9c-4eef-8736-c0308c0d47d8",
+        "fields": {
+            "nama": "Karedok",
+            "harga": "28050.00",
+            "deskripsi": "Karedok dengan bumbu kacang yang gurih, terdiri dari sayuran segar seperti kacang panjang, tauge, dan timun.",
+            "gambar": "gambar_makanan/3f3d9175-315a-4e28-bd52-ec349618c736.jpg",
+            "kalori": 150,
+            "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "cce8df66-fbbd-4f6c-97ff-414d9893d09e",
+                "d8eb2bc9-eafa-4159-a46f-2492f57032a0"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "74e8a1b8-3fef-4097-9052-753bd05a89e5",
+        "fields": {
+            "nama": "Ayam Goreng Singapore",
+            "harga": "71390.00",
+            "deskripsi": "Ayam goreng dengan bumbu khas Singapore, memberikan cita rasa yang unik dan kaya rempah.",
+            "gambar": "gambar_makanan/e3097ff9-bb85-4796-8553-dbc0f97f6739.jpg",
+            "kalori": 420,
+            "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "e977c66e-6ef5-4bdb-8785-43aa27294b89",
+        "fields": {
+            "nama": "Ayam Kung Pao",
+            "harga": "71390.00",
+            "deskripsi": "Ayam dengan saus Kung Pao khas, bercita rasa pedas dan manis dengan tambahan kacang dan cabai kering.",
+            "gambar": "gambar_makanan/23479ef2-fc21-40d7-b75d-1db1d95f3552.jpg",
+            "kalori": 450,
+            "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "d897ac3c-0b79-47d1-94be-860b3bd295ef",
+        "fields": {
+            "nama": "Cumi Goreng Tepung",
+            "harga": "97350.00",
+            "deskripsi": "Cumi berbalut tepung berbumbu, digoreng hingga renyah. Biasanya disajikan dengan saus tartar atau sambal.",
+            "gambar": "gambar_makanan/66499fd4-d95c-4fa0-922f-420d0f67a6b3.jpg",
+            "kalori": 350,
+            "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "6e3b4be7-179e-4233-a8b3-814701f734f0"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "8d4652cd-f608-44d5-b90a-50cafb018adc",
+        "fields": {
+            "nama": "Kepiting Telur Asin",
+            "harga": "253110.00",
+            "deskripsi": "Hidangan seafood di mana kepiting segar dilapisi saus telur asin yang gurih dan creamy. Rasanya kaya dan sedikit asin dengan tekstur renyah di luar dan lembut di dalam, menjadikannya sajian yang mewah dan memanjakan lidah.",
+            "gambar": "gambar_makanan/c8028082-ef7e-40c2-aef0-68b9649c7d6f.jpg",
+            "kalori": 500,
+            "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "6e3b4be7-179e-4233-a8b3-814701f734f0"
+            ]
+        }
+    },
+    {
+        "model": "makanan.makanan",
+        "pk": "fb82fcd3-a426-461a-81fc-679afcb856a8",
+        "fields": {
+            "nama": "Tahu Lada Garam",
+            "harga": "253110.00",
+            "deskripsi": "Tahu Lada Garam adalah hidangan tahu yang digoreng hingga renyah, kemudian ditumis dengan bumbu lada, cabai, dan bawang putih. Hidangan ini menawarkan rasa pedas, gurih, dan sedikit asin, dengan aroma bawang yang khas, membuatnya sangat lezat sebagai camilan atau lauk.",
+            "gambar": "gambar_makanan/c853090b-622d-4035-9e84-2a5c6824c077.jpg",
+            "kalori": 250,
+            "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8",
+            "kategori": [
+                "375b10ea-f735-4554-947f-a2dc7af9eb50",
+                "cce8df66-fbbd-4f6c-97ff-414d9893d09e"
+            ]
+        }
+    },
+    {
         "model": "minuman.minuman",
         "pk": "052e46d2-d529-4f15-a912-6e57dfdf758c",
         "fields": {
