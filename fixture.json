@@ -754,7 +754,7 @@
         "pk": "bc7114f3-036b-4c2a-90d8-0784cd5eed09",
         "fields": {
             "nama": "Choco Orenji Taruto",
-            "harga": "39000,00",
+            "harga": "39000.00",
             "deskripsi": "Choco Orenji Taruto adalah dessert lezat yang menggabungkan rasa cokelat yang kaya dengan aroma jeruk yang segar. Hidangan ini disajikan dalam bentuk kue tar yang lembut, dilapisi dengan krim manis, sempurna untuk memanjakan lidah Anda.",
             "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_makanan/60c0304d-2938-445b-b213-189927d78a3b.jpg",
             "kalori": 250,
@@ -769,7 +769,7 @@
         "pk": "bc7114f3-036b-4c2a-90d8-0784cd5eed09",
         "fields": {
             "nama": "Salmon Katsu Curry",
-            "harga": "69000,00",
+            "harga": "69000.00",
             "deskripsi": "Salmon Katsu Curry adalah paduan sempurna antara salmon yang digoreng crispy dan saus kari yang kaya rempah. Hidangan ini disajikan dengan nasi hangat, menjadikannya pilihan yang memuaskan untuk pecinta makanan Jepang.",
             "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_makanan/60ea27b6-f07f-4144-9d02-fd3dc7f208e6.jpg",
             "kalori": 500,
@@ -784,7 +784,7 @@
         "pk": "bc7114f3-036b-4c2a-90d8-0784cd5eed09",
         "fields": {
             "nama": "Salmon Karamayo Tamago",
-            "harga": "32000,00",
+            "harga": "32000.00",
             "deskripsi": "Salmon Karamayo Tamago adalah hidangan yang memadukan salmon yang lembut dengan telur dadar Jepang yang fluffy dan saus karamayo. Hidangan ini menyajikan rasa yang creamy dan memuaskan, cocok untuk brunch.",
             "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_makanan/80c45049-f1ec-4c5f-81eb-d83f2ac7fa4e.jpg",
             "kalori": 300,
@@ -799,7 +799,7 @@
         "pk": "f376e806-bc56-4267-9584-54cdb7e1f6af",
         "fields": {
             "nama": "Wakame Salad",
-            "harga": "61000,00",
+            "harga": "61000.00",
             "deskripsi": "Wakame Salad adalah salad segar yang terbuat dari rumput laut wakame, dicampur dengan sayuran segar dan dressing khusus. Hidangan ini menawarkan rasa umami yang lezat, serta kaya akan nutrisi.",
             "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_makanan/4a745734-4d9b-493b-a629-65d06f9cb2af.jpg",
             "kalori": 150,
