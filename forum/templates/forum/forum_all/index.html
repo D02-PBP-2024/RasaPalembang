@@ -20,7 +20,7 @@
     {% endif %}
     {% if forum %}
     <div
-        class="mt-4 mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3 lg:mx-0 lg:max-w-none">
+        class="mt-4 mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 lg:mx-0 lg:max-w-none">
         {% for item in forum reversed %}
         {% include 'forum/forum_all/card.html' with forum=item %}
         {% endfor %}
