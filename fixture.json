@@ -624,6 +624,69 @@
         }
     },
     {
+        "model": "makanan.kategori",
+        "pk": "0de708ca-38bc-442c-9fba-4f1532487eb4",
+        "fields": {
+            "nama": "Pembuka"
+        }
+    },
+    {
+        "model": "makanan.kategori",
+        "pk": "375b10ea-f735-4554-947f-a2dc7af9eb50",
+        "fields": {
+            "nama": "Hidangan Utama"
+        }
+    },
+    {
+        "model": "makanan.kategori",
+        "pk": "54b05aac-d7b9-432a-a86d-5c539178c351",
+        "fields": {
+            "nama": "Pencuci Mulut"
+        }
+    },
+    {
+        "model": "makanan.kategori",
+        "pk": "68144744-c6df-4c7b-91b7-53515f35b3bb",
+        "fields": {
+            "nama": "Sup"
+        }
+    },
+    {
+        "model": "makanan.kategori",
+        "pk": "6e3b4be7-179e-4233-a8b3-814701f734f0",
+        "fields": {
+            "nama": "Makanan Laut"
+        }
+    },
+    {
+        "model": "makanan.kategori",
+        "pk": "8cf0b51a-6b3f-4053-b6b5-bcc5cf50ae11",
+        "fields": {
+            "nama": "Pasta dan Mie"
+        }
+    },
+    {
+        "model": "makanan.kategori",
+        "pk": "a1b1c368-57c4-4b65-8539-15062f6a3659",
+        "fields": {
+            "nama": "Panggang dan Barbeku"
+        }
+    },
+    {
+        "model": "makanan.kategori",
+        "pk": "cce8df66-fbbd-4f6c-97ff-414d9893d09e",
+        "fields": {
+            "nama": "Pilihan Vegetarian"
+        }
+    },
+    {
+        "model": "makanan.kategori",
+        "pk": "d8eb2bc9-eafa-4159-a46f-2492f57032a0",
+        "fields": {
+            "nama": "Salad"
+        }
+    },
+    {
         "model": "minuman.minuman",
         "pk": "052e46d2-d529-4f15-a912-6e57dfdf758c",
         "fields": {
