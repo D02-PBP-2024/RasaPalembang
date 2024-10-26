@@ -51,11 +51,27 @@ from django.db.models import Avg, F
 
 def restoran(request):
     current_time = timezone.localtime().time()
-    restoran_queryset = Restoran.objects.all()
-    restoran_list = []
-    sort_by = request.GET.get("sort", "default")
+    sort_by = request.GET.get('sort', 'default')
+    order = request.GET.get('order', 'asc')
 
-    for item in restoran_queryset:
+    restoran_list = Restoran.objects.annotate(
+        rata_bintang=Avg('ulasan__nilai'),
+        avg_harga=Avg(F('makanan__harga') + F('minuman__harga')) / 2
+    )
+
+    if sort_by == 'rating':
+        restoran_list = restoran_list.order_by('rata_bintang' if order == 'asc' else '-rata_bintang')
+    elif sort_by == 'harga':
+        restoran_list = sorted(
+            restoran_list, 
+            key=lambda x: get_harga_range(x),
+            reverse=(order == 'desc')
+        )
+    else:
+        restoran_list = restoran_list.order_by('nama')
+
+    restoran_data = []
+    for item in restoran_list:
         gambar_url = get_gambar_url(item)
         jam_buka = item.jam_buka
         jam_tutup = item.jam_tutup
