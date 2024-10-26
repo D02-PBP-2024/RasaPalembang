@@ -20,7 +20,7 @@
         <!-- Modal body -->
         <div class="px-6 py-4 space-y-6 form-style">
             <form method="POST" id="editReviewForm"
-                class="w-full max-w-md md:max-w-2xl mx-auto px-2 md:px-8 py-2 md:py-4 rounded-2xl">
+                class="w-full max-w-md md:max-w-2xl mx-auto px-2 py-2 rounded-2xl">
                 {% csrf_token %}
                 <div>
                     <label class="text-sm pl-3">
@@ -46,12 +46,12 @@
                     <input type="number" name="nilai" required="" id="id_nilai_edit" value="3" class="hidden">
                 </div>
                 <div class="mt-4">
-                    <label class="text-sm pl-3">
+                    <label class="text-sm pl-3" for="id_deskripsi_1">
                         Deskripsi
                     </label>
-                    <textarea name="deskripsi" cols="40" rows="3" required="" id="id_deskripsi"
+                    <textarea name="deskripsi" cols="40" rows="3" required="" id="id_deskripsi_1"
                         placeholder="Ceritakan pengalaman Anda..."
-                        class="mt-2 bg-gray-100 rounded-lg focus-visible:outline-none px-4 py-3.5 w-full placeholder:text-[#808080]"></textarea>
+                        class="resize-none mt-2 bg-gray-100 rounded-lg focus-visible:outline-none px-4 py-3.5 w-full placeholder:text-[#808080]"></textarea>
                 </div>
             </form>
         </div>
