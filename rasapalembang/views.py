@@ -3,6 +3,7 @@ from django.shortcuts import render
 from minuman.models import Minuman
 from makanan.models import Makanan
 from django.utils import timezone
+from django.db.models import Q
 import random
 
 
@@ -69,5 +70,33 @@ def landing(request):
             "restoran": restoran_list,
             "makanan": makanan,
             "minuman": minuman,
+        },
+    )
+
+
+def cari(request):
+    keyword = request.GET.get("q")
+
+    restoran = Restoran.objects.none()
+    makanan = Makanan.objects.none()
+    minuman = Minuman.objects.none()
+
+    if keyword:
+        restoran = Restoran.objects.filter(nama__icontains=keyword)
+        makanan = Makanan.objects.filter(
+            Q(nama__icontains=keyword) | Q(deskripsi__icontains=keyword)
+        )
+        minuman = Minuman.objects.filter(
+            Q(nama__icontains=keyword) | Q(deskripsi__icontains=keyword)
+        )
+
+    return render(
+        request,
+        "cari/index.html",
+        {
+            "restoran": restoran,
+            "makanan": makanan,
+            "minuman": minuman,
+            "keyword": keyword,
         },
     )

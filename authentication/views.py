@@ -6,6 +6,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from authentication.models import User
 from django.contrib import messages
 from django.core import serializers
+from ulasan.models import Ulasan
 import datetime
 import django
 
@@ -59,6 +60,12 @@ def profile(request):
 
 def detail_profile(request, username):
     user = get_object_or_404(User, username=username)
+
+    ulasan = Ulasan.objects.filter(user=user)
+
     return render(
-        request, "authentication/detail_profile/index.html", {"profile": user}
+        request, "authentication/detail_profile/index.html", {
+            "profile": user,
+            "ulasan": ulasan
+        }
     )
