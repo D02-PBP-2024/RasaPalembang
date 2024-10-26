@@ -756,7 +756,7 @@
             "nama": "Boba",
             "harga": "35000.00",
             "deskripsi": "Boba yang kenyal dan lezat, disajikan dalam minuman segar dengan berbagai pilihan rasa, seperti teh, susu, atau buah. Menawarkan pengalaman tekstur yang unik dan menyenangkan di setiap tegukan. Cocok untuk dinikmati kapan saja, baik sebagai camilan atau minuman menyegarkan.",
-            "gambar": "gambar_minuman/9fdf8667-faf3-4413-b01d-219ac847cf07.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/9fdf8667-faf3-4413-b01d-219ac847cf07.jpg",
             "ukuran": "BESAR",
             "tingkat_kemanisan": 100,
             "restoran": "130561a8-c4d5-4b8e-ba5c-a36deeafd14d"
@@ -769,7 +769,7 @@
             "nama": "Jus Jambu",
             "harga": "15000.00",
             "deskripsi": "Jus jambu segar dengan rasa manis alami dan kaya akan vitamin C, menghadirkan kesegaran buah asli di setiap tegukan. Cocok untuk dinikmati kapan saja sebagai pilihan sehat yang menyegarkan.",
-            "gambar": "gambar_minuman/5bbfa325-0ce2-4bfa-b2d7-26ca59d40fce.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/5bbfa325-0ce2-4bfa-b2d7-26ca59d40fce.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 50,
             "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae"
@@ -782,7 +782,7 @@
             "nama": "Es Taro",
             "harga": "22000.00",
             "deskripsi": "Es Taro adalah minuman menyegarkan yang terbuat dari campuran susu dan pasta taro, memberikan rasa manis dan nutty yang khas. Disajikan dengan es serut, minuman ini biasanya memiliki warna ungu yang menarik dan seringkali dihiasi dengan bola tapioka atau jeli untuk menambah tekstur.",
-            "gambar": "gambar_minuman/4e50ddc3-8c6b-468c-bcb4-2751d1bab8de.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/4e50ddc3-8c6b-468c-bcb4-2751d1bab8de.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 70,
             "restoran": "d12c22ba-78d1-48a4-be85-ce804ae28b75"
@@ -795,7 +795,7 @@
             "nama": "Jus Melon",
             "harga": "18000.00",
             "deskripsi": "Jus melon adalah minuman segar yang terbuat dari daging buah melon yang juicy, memberikan rasa manis dan lembut. Menyegarkan dan kaya akan air, jus ini sangat ideal untuk menghidrasi tubuh.",
-            "gambar": "gambar_minuman/c2ec83bc-7105-4fa8-9af6-0d79220de5c2.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/c2ec83bc-7105-4fa8-9af6-0d79220de5c2.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 65,
             "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960"
@@ -808,7 +808,7 @@
             "nama": "Oreo Shake",
             "harga": "30000.00",
             "deskripsi": "Oreo Shake adalah minuman kental dan creamy yang terbuat dari es krim vanila, susu, dan biskuit Oreo yang dihancurkan, memberikan rasa cokelat yang kaya dan tekstur yang menggoda.",
-            "gambar": "gambar_minuman/26214ee4-01cb-4aa5-85e9-11f65f76d08b.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/26214ee4-01cb-4aa5-85e9-11f65f76d08b.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 80,
             "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4"
@@ -821,7 +821,7 @@
             "nama": "Sparkling Water",
             "harga": "20000.00",
             "deskripsi": "Sparkling water adalah air mineral yang mengandung karbonasi, memberikan sensasi gelembung dan rasa segar. Tanpa tambahan gula atau kalori, sparkling water adalah pilihan yang menyegarkan dan sehat untuk hidrasi, cocok dinikmati sendiri atau sebagai pelengkap berbagai hidangan.",
-            "gambar": "gambar_minuman/88484da4-8ac0-4a97-a593-5ce026aa4b73.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/88484da4-8ac0-4a97-a593-5ce026aa4b73.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 4,
             "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1"
@@ -834,7 +834,7 @@
             "nama": "Es Kopi Aren",
             "harga": "15000.00",
             "deskripsi": "Es Kopi Aren adalah minuman segar yang terbuat dari kopi yang diseduh dengan gula aren, memberikan rasa manis yang khas dan aromatik. Disajikan dengan es, minuman ini sempurna untuk dinikmati saat cuaca panas, menawarkan kombinasi rasa pahit dari kopi dan manisnya gula aren.",
-            "gambar": "gambar_minuman/fe3f2cb0-fba9-455b-bac6-024c3c1cff1a.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/fe3f2cb0-fba9-455b-bac6-024c3c1cff1a.jpg",
             "ukuran": "KECIL",
             "tingkat_kemanisan": 50,
             "restoran": "d12c22ba-78d1-48a4-be85-ce804ae28b75"
@@ -847,7 +847,7 @@
             "nama": "Jus Semangka",
             "harga": "17000.00",
             "deskripsi": "Jus semangka segar yang menyegarkan, diolah dari buah semangka matang yang manis dan juicy. Setiap tegukan menghadirkan rasa alami yang ringan dan menyegarkan, sempurna untuk menghilangkan dahaga. Cocok dinikmati kapan saja, terutama di hari-hari panas.",
-            "gambar": "gambar_minuman/c550a0cb-0e36-44f4-9023-b1924206dfe9.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/c550a0cb-0e36-44f4-9023-b1924206dfe9.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 60,
             "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a"
@@ -860,7 +860,7 @@
             "nama": "Jahe Susu",
             "harga": "10000.00",
             "deskripsi": "Jahe susu adalah minuman hangat yang menggabungkan rasa pedas jahe segar dengan kelembutan susu. Minuman ini tidak hanya memberikan kehangatan, tetapi juga menawarkan manfaat kesehatan, seperti meningkatkan sistem imun dan meredakan pencernaan. Cocok dinikmati kapan saja, terutama saat cuaca dingin.",
-            "gambar": "gambar_minuman/ad8c0ff7-09c9-42a5-b547-7442fe19ed8e.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/ad8c0ff7-09c9-42a5-b547-7442fe19ed8e.jpg",
             "ukuran": "KECIL",
             "tingkat_kemanisan": 15,
             "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1"
@@ -873,7 +873,7 @@
             "nama": "Teh Tawar",
             "harga": "8000.00",
             "deskripsi": "Teh tawar adalah minuman sederhana yang diseduh dari daun teh tanpa tambahan gula atau pemanis. Nikmati keaslian dan rasa alami teh yang segar dan menyehatkan.",
-            "gambar": "gambar_minuman/d59c9e10-ed9d-469b-8ca6-af12f5ef0ee2.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/d59c9e10-ed9d-469b-8ca6-af12f5ef0ee2.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 0,
             "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960"
@@ -886,7 +886,7 @@
             "nama": "Cokelat Panas",
             "harga": "30000.00",
             "deskripsi": "Cokelat panas yang kaya dan creamy, disiapkan dari cokelat berkualitas tinggi untuk memberikan rasa manis yang menggugah selera. Menawarkan kehangatan yang memanjakan, cocok dinikmati di saat santai atau sebagai pelengkap waktu bersantai. Sempurna untuk menghangatkan suasana di hari yang dingin.",
-            "gambar": "gambar_minuman/31759e52-02e5-4e7e-9b04-582e92a18aaa.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/31759e52-02e5-4e7e-9b04-582e92a18aaa.jpg",
             "ukuran": "KECIL",
             "tingkat_kemanisan": 50,
             "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2"
@@ -899,7 +899,7 @@
             "nama": "Lemon Mint",
             "harga": "28000.00",
             "deskripsi": "Lemon Mint adalah minuman menyegarkan yang menggabungkan perasan lemon segar dengan daun mint yang aromatik. Kombinasi asam dan segar ini memberikan sensasi dingin yang sempurna, cocok untuk dinikmati di hari panas.",
-            "gambar": "gambar_minuman/2b836ffb-b627-4151-9f5d-abc766264089.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/2b836ffb-b627-4151-9f5d-abc766264089.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 15,
             "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8"
@@ -912,7 +912,7 @@
             "nama": "Es Teh Leci",
             "harga": "30000.00",
             "deskripsi": "Es teh leci yang menyegarkan, terbuat dari campuran teh yang diseduh dengan manisnya buah leci. Setiap tegukan menawarkan perpaduan rasa teh yang ringan dan aroma buah leci yang khas. Ideal untuk dinikmati di hari yang panas sebagai pilihan minuman yang menyegarkan.",
-            "gambar": "gambar_minuman/d80b7dc9-cd8e-42ce-8d1a-135de40b2322.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/d80b7dc9-cd8e-42ce-8d1a-135de40b2322.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 80,
             "restoran": "130561a8-c4d5-4b8e-ba5c-a36deeafd14d"
@@ -925,7 +925,7 @@
             "nama": "Caramel Latte",
             "harga": "18000.00",
             "deskripsi": "Caramel Latte adalah minuman kopi yang lembut dan manis, terbuat dari espresso yang dicampur dengan susu panas dan sirup karamel. Dihiasi dengan krim kocok dan drizzle karamel di atasnya, minuman ini menyajikan perpaduan rasa kopi yang kaya dengan sentuhan manis yang memanjakan lidah.",
-            "gambar": "gambar_minuman/a23c8c47-2940-4b84-bae3-28ac5684fd66.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/a23c8c47-2940-4b84-bae3-28ac5684fd66.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 80,
             "restoran": "d12c22ba-78d1-48a4-be85-ce804ae28b75"
@@ -938,7 +938,7 @@
             "nama": "Green Apple Mojito",
             "harga": "27000.00",
             "deskripsi": "Green Apple Mojito adalah minuman segar yang menggabungkan rasa asam dari apel hijau dengan mint, limau, dan soda. Minuman ini menawarkan perpaduan rasa yang menyegarkan dan aromatik, sempurna untuk dinikmati di hari yang panas. Dihiasi dengan potongan apel dan daun mint, Green Apple Mojito menjadi pilihan yang menarik dan menggugah selera.",
-            "gambar": "gambar_minuman/fd21d6dd-ee3b-4f9e-9a38-c2d72d2e4207.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/fd21d6dd-ee3b-4f9e-9a38-c2d72d2e4207.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 68,
             "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4"
@@ -951,7 +951,7 @@
             "nama": "Jamu",
             "harga": "10000.00",
             "deskripsi": "Jamu tradisional yang menyegarkan, terbuat dari ramuan alami pilihan dengan berbagai manfaat kesehatan. Setiap tegukan menghadirkan rasa yang unik dan kaya akan rempah-rempah, memberikan kehangatan dan revitalisasi. Cocok untuk mendukung kesehatan dan kebugaran sehari-hari dengan sentuhan tradisional.",
-            "gambar": "gambar_minuman/242ca308-cc7d-4c3b-b9ab-5803a438f446.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/242ca308-cc7d-4c3b-b9ab-5803a438f446.jpg",
             "ukuran": "KECIL",
             "tingkat_kemanisan": 10,
             "restoran": "614d6b91-743f-45e4-9b8c-7a0de583bd30"
@@ -964,7 +964,7 @@
             "nama": "Jus Markisa",
             "harga": "25000.00",
             "deskripsi": "Jus Markisa segar dan alami, dibuat dari buah markisa pilihan yang matang sempurna. Rasanya manis dengan sentuhan asam yang menyegarkan, kaya akan vitamin C dan antioksidan alami. Minuman ini cocok untuk dinikmati dingin, memberikan kesegaran instan yang pas untuk melepas dahaga dan menambah energi sepanjang hari.",
-            "gambar": "gambar_minuman/201d04db-8c92-4c9a-9308-f104096163f8.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/201d04db-8c92-4c9a-9308-f104096163f8.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 15,
             "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1"
@@ -977,7 +977,7 @@
             "nama": "Air Mineral",
             "harga": "3000.00",
             "deskripsi": "Air mineral alami dari sumber pilihan, diproses secara hati-hati untuk menjaga kesegarannya. Memberikan hidrasi yang murni dan ringan, cocok untuk keseharian Anda. Nikmati kualitas air yang alami di setiap tegukan.",
-            "gambar": "gambar_minuman/dfa84cea-108c-4632-bc1f-7ba1e956a0ac.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/dfa84cea-108c-4632-bc1f-7ba1e956a0ac.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 0,
             "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae"
@@ -990,7 +990,7 @@
             "nama": "Es Cincau",
             "harga": "30000.00",
             "deskripsi": "Es cincau yang menyegarkan, terbuat dari cincau hitam yang kenyal dan disajikan dengan sirup manis serta santan. Menawarkan kombinasi rasa manis dan gurih dalam setiap suapan, ideal untuk melepas dahaga. Cocok dinikmati di hari panas sebagai pencuci mulut yang klasik.",
-            "gambar": "gambar_minuman/8591a720-f123-484b-9ca2-179c2ef8fdbf.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/8591a720-f123-484b-9ca2-179c2ef8fdbf.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 85,
             "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2"
@@ -1003,7 +1003,7 @@
             "nama": "Jus Buah Naga",
             "harga": "25000.00",
             "deskripsi": "Jus Buah Naga adalah minuman sehat yang terbuat dari daging buah naga yang berwarna cerah dan kaya akan antioksidan. Rasanya manis dan sedikit segar, dengan tekstur lembut, menjadikannya pilihan yang sempurna untuk menyegarkan diri.",
-            "gambar": "gambar_minuman/b739a237-61ab-47cb-888e-b660f2c8e80d.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/b739a237-61ab-47cb-888e-b660f2c8e80d.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 20,
             "restoran": "d12c22ba-78d1-48a4-be85-ce804ae28b75"
@@ -1016,7 +1016,7 @@
             "nama": "Kopi Tubruk",
             "harga": "20000.00",
             "deskripsi": "Kopi Tubruk adalah kopi khas Indonesia yang disajikan dengan cara menyeduh bubuk kopi kasar langsung dengan air panas, tanpa penyaringan. Minuman ini memiliki cita rasa yang kuat dan aroma yang khas, sering kali disajikan dengan gula sesuai selera.",
-            "gambar": "gambar_minuman/d62b61fd-a70e-498b-a914-2d9b7f3481bc.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/d62b61fd-a70e-498b-a914-2d9b7f3481bc.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 15,
             "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8"
@@ -1029,7 +1029,7 @@
             "nama": "Es Kacang Merah",
             "harga": "25000.00",
             "deskripsi": "Es kacang merah yang manis dan menyegarkan, terbuat dari kacang merah yang dimasak lembut dan disajikan dengan santan serta gula merah. Nikmati kombinasi rasa manis dan gurih dalam hidangan yang klasik dan menyenangkan ini. Sempurna untuk melepas dahaga dan memberikan energi di hari yang panas.",
-            "gambar": "gambar_minuman/c3c09789-4aec-491f-a8fb-70393be9ec28.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/c3c09789-4aec-491f-a8fb-70393be9ec28.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 100,
             "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a"
@@ -1042,7 +1042,7 @@
             "nama": "Jus Alpukat",
             "harga": "15000.00",
             "deskripsi": "Jus alpukat yang lembut dan kaya rasa, diolah dari buah segar untuk memberikan tekstur creamy dan nutrisi alami. Kaya akan serat dan lemak sehat, cocok dinikmati kapan saja sebagai minuman lezat yang mengenyangkan.",
-            "gambar": "gambar_minuman/cbdcfcd8-f2c7-447e-b662-db15f117b90e.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/cbdcfcd8-f2c7-447e-b662-db15f117b90e.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 75,
             "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae"
@@ -1055,7 +1055,7 @@
             "nama": "Chocolate Milkshake",
             "harga": "35000.00",
             "deskripsi": "Chocolate Milkshake adalah minuman kental dan creamy yang terbuat dari campuran es krim cokelat, susu, dan cokelat cair atau bubuk. Dengan rasa cokelat yang kaya dan tekstur yang lembut, minuman ini adalah pilihan sempurna untuk pencinta cokelat.",
-            "gambar": "gambar_minuman/56fba81a-c453-46d4-9ff5-69552f8118e8.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/56fba81a-c453-46d4-9ff5-69552f8118e8.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 98,
             "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8"
@@ -1068,7 +1068,7 @@
             "nama": "Jus Jeruk",
             "harga": "15000.00",
             "deskripsi": "Jus jeruk segar yang manis dan asam, diolah dari jeruk pilihan yang kaya akan vitamin C. Setiap tegukan memberikan rasa segar yang menyegarkan dan membantu meningkatkan daya tahan tubuh. Cocok untuk dinikmati kapan saja sebagai minuman sehat yang menyegarkan.",
-            "gambar": "gambar_minuman/86f56577-8cf8-4263-9dc3-397dcf8a32c5.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/86f56577-8cf8-4263-9dc3-397dcf8a32c5.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 2,
             "restoran": "614d6b91-743f-45e4-9b8c-7a0de583bd30"
@@ -1081,7 +1081,7 @@
             "nama": "Jus Kiwi",
             "harga": "25000.00",
             "deskripsi": "Jus kiwi segar dengan rasa asam manis yang menggoda, diolah dari buah kiwi matang yang penuh nutrisi. Setiap tegukan menghadirkan kesegaran dan kebaikan vitamin C alami. Sempurna untuk melepas dahaga dan memberikan energi di sepanjang hari.",
-            "gambar": "gambar_minuman/a4d94d2d-71c8-479a-abde-cbede05d053b.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/a4d94d2d-71c8-479a-abde-cbede05d053b.jpg",
             "ukuran": "KECIL",
             "tingkat_kemanisan": 50,
             "restoran": "130561a8-c4d5-4b8e-ba5c-a36deeafd14d"
@@ -1094,7 +1094,7 @@
             "nama": "Green tea Latte",
             "harga": "30000.00",
             "deskripsi": "Green Tea Latte adalah minuman kopi yang creamy dan menyegarkan, terbuat dari campuran bubuk teh hijau matcha dan susu. Minuman ini memiliki aroma teh yang khas dan memberikan rasa manis yang lembut, cocok untuk dinikmati kapan saja.",
-            "gambar": "gambar_minuman/404f8967-9984-495c-99aa-3eed650c3b6c.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/404f8967-9984-495c-99aa-3eed650c3b6c.jpg",
             "ukuran": "BESAR",
             "tingkat_kemanisan": 50,
             "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8"
@@ -1107,7 +1107,7 @@
             "nama": "Blue Lagoon",
             "harga": "27000.00",
             "deskripsi": "Blue Lagoon adalah minuman menyegarkan yang terbuat dari campuran jus lemon, sirup blue curaçao (atau pewarna makanan biru), dan soda, menciptakan warna biru cerah yang menawan. Minuman ini sering dihiasi dengan irisan lemon atau cherry, memberikan rasa manis dan asam yang seimbang, sempurna untuk dinikmati di cuaca panas.",
-            "gambar": "gambar_minuman/93807dd0-c7df-475e-a74f-30399d02d9d9.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/93807dd0-c7df-475e-a74f-30399d02d9d9.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 75,
             "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4"
@@ -1120,7 +1120,7 @@
             "nama": "Cappuccino",
             "harga": "25000.00",
             "deskripsi": "Cappuccino yang creamy dan kaya rasa, terbuat dari espresso berkualitas tinggi, susu steamed, dan foam susu yang lembut. Setiap tegukan menawarkan perpaduan sempurna antara kehangatan kopi dan tekstur yang velvety. Cocok untuk dinikmati kapan saja, baik sebagai teman pagi atau sore yang santai.",
-            "gambar": "gambar_minuman/ff6e53a6-6d7b-4c5f-8af1-8e3120b606d0.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/ff6e53a6-6d7b-4c5f-8af1-8e3120b606d0.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 0,
             "restoran": "130561a8-c4d5-4b8e-ba5c-a36deeafd14d"
@@ -1133,7 +1133,7 @@
             "nama": "Lemon Tea",
             "harga": "15000.00",
             "deskripsi": "Lemon Tea adalah minuman segar yang terbuat dari teh yang dicampur dengan jus lemon segar. Dikenal karena rasanya yang asam dan menyegarkan, lemon tea bisa disajikan panas atau dingin, ideal untuk menghilangkan dahaga dan meningkatkan kesehatan.",
-            "gambar": "gambar_minuman/f105e3d0-5865-42e9-9bc6-cf592a6359b6.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/f105e3d0-5865-42e9-9bc6-cf592a6359b6.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 50,
             "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1"
@@ -1146,7 +1146,7 @@
             "nama": "Jus Wortel",
             "harga": "17000.00",
             "deskripsi": "Jus wortel adalah minuman segar yang kaya vitamin A, terbuat dari wortel segar yang diperas, memberikan rasa manis alami dan warna oranye cerah.",
-            "gambar": "gambar_minuman/11283497-4fe0-4ac9-b0a6-a4c9d8623b3f.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/11283497-4fe0-4ac9-b0a6-a4c9d8623b3f.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 65,
             "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960"
@@ -1159,7 +1159,7 @@
             "nama": "Es Cendol",
             "harga": "10000.00",
             "deskripsi": "Es cendol segar dengan aroma pandan yang khas, disajikan dengan santan gurih dan gula merah alami. Nikmati manisnya cendol kenyal dan santan yang lembut dalam minuman tradisional yang menyegarkan ini. Cocok untuk melepas dahaga di hari yang panas.",
-            "gambar": "gambar_minuman/f1b25e3d-50ca-4000-a159-3171836fde23.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/f1b25e3d-50ca-4000-a159-3171836fde23.jpg",
             "ukuran": "KECIL",
             "tingkat_kemanisan": 100,
             "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae"
@@ -1172,7 +1172,7 @@
             "nama": "Es Teler",
             "harga": "25000.00",
             "deskripsi": "Es teler yang menyegarkan, terbuat dari campuran buah segar seperti alpukat, nangka, dan kelapa muda, disiram dengan santan dan sirup manis. Nikmati perpaduan rasa manis, creamy, dan tekstur kenyal dalam hidangan pencuci mulut yang klasik ini. Ideal untuk menemani hari yang panas dan melepas dahaga.",
-            "gambar": "gambar_minuman/f625a53d-d917-43ec-aeb2-77885d9e578e.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/f625a53d-d917-43ec-aeb2-77885d9e578e.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 100,
             "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a"
@@ -1185,7 +1185,7 @@
             "nama": "Thai Tea",
             "harga": "15000.00",
             "deskripsi": "Thai Tea adalah minuman teh khas Thailand yang terbuat dari teh hitam, rempah-rempah, dan susu. Disajikan dingin atau panas, Thai Tea memiliki warna oranye cerah dan rasa manis yang kaya, menjadikannya pilihan menyegarkan yang populer.",
-            "gambar": "gambar_minuman/0fc8cb9b-adb5-43ba-a26d-c9c28978db39.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/0fc8cb9b-adb5-43ba-a26d-c9c28978db39.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 80,
             "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1"
@@ -1198,7 +1198,7 @@
             "nama": "Susu Segar",
             "harga": "15000.00",
             "deskripsi": "Susu segar yang kaya dan creamy, dihasilkan dari sapi yang dirawat dengan baik dan diberi pakan alami. Menawarkan rasa yang murni dan menyegarkan, penuh dengan nutrisi penting seperti kalsium dan protein. Cocok dinikmati sendiri atau sebagai pelengkap dalam berbagai resep.",
-            "gambar": "gambar_minuman/11a81742-2d12-4ae1-8367-4a79e742984b.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/11a81742-2d12-4ae1-8367-4a79e742984b.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 25,
             "restoran": "614d6b91-743f-45e4-9b8c-7a0de583bd30"
@@ -1211,7 +1211,7 @@
             "nama": "Es Kelapa Muda",
             "harga": "20000.00",
             "deskripsi": "Es kelapa muda yang menyegarkan, disajikan dengan daging kelapa muda yang lembut dan air kelapa alami. Menawarkan rasa manis dan gurih yang menyegarkan, sempurna untuk menghilangkan dahaga di hari panas. Nikmati kesegaran tropis ini sebagai pilihan sehat untuk melepas dahaga.",
-            "gambar": "gambar_minuman/fb369f39-0e8f-4713-964a-8fd439545b72.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/fb369f39-0e8f-4713-964a-8fd439545b72.jpg",
             "ukuran": "BESAR",
             "tingkat_kemanisan": 20,
             "restoran": "614d6b91-743f-45e4-9b8c-7a0de583bd30"
@@ -1224,7 +1224,7 @@
             "nama": "Strawberry Mojito",
             "harga": "27000.00",
             "deskripsi": "Strawberry Mojito adalah minuman segar yang memadukan stroberi manis, daun mint, dan perasan limau, disajikan dengan soda berkarbonasi. Cocok untuk menyegarkan di hari panas.",
-            "gambar": "gambar_minuman/c3058739-9cfe-415f-9316-7fc191562935.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/c3058739-9cfe-415f-9316-7fc191562935.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 60,
             "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4"
@@ -1237,7 +1237,7 @@
             "nama": "Kopi Hitam",
             "harga": "18000.00",
             "deskripsi": "Kopi hitam yang kaya aroma dan cita rasa, diseduh dari biji kopi pilihan yang berkualitas. Menawarkan kenikmatan sejati dengan setiap tegukan yang pekat dan berkarakter. Sempurna untuk memulai hari atau sebagai teman di waktu santai.",
-            "gambar": "gambar_minuman/187c55ec-cf26-4fcb-806c-f2e80bc15c68.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/187c55ec-cf26-4fcb-806c-f2e80bc15c68.jpg",
             "ukuran": "KECIL",
             "tingkat_kemanisan": 0,
             "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a"
@@ -1250,7 +1250,7 @@
             "nama": "Air Madu",
             "harga": "25000.00",
             "deskripsi": "Air madu yang manis dan menyehatkan, terbuat dari campuran air hangat dan madu alami. Menawarkan rasa yang lembut dan menyegarkan, serta khasiat menyehatkan bagi tubuh. Cocok dinikmati kapan saja, baik sebagai minuman pagi yang menyegarkan atau sebagai pelepas dahaga sepanjang hari.",
-            "gambar": "gambar_minuman/c8af586c-d40f-4374-b866-bc28a5672fdb.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/c8af586c-d40f-4374-b866-bc28a5672fdb.jpg",
             "ukuran": "KECIL",
             "tingkat_kemanisan": 80,
             "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2"
@@ -1263,7 +1263,7 @@
             "nama": "Summer Breeze",
             "harga": "25000.00",
             "deskripsi": "Summer Breeze adalah minuman segar yang menggabungkan rasa buah tropis seperti nanas, jeruk, dan mangga dengan es dan air soda. Dikenal karena kesegarannya, minuman ini sering dihias dengan irisan buah dan daun mint, menjadikannya pilihan ideal untuk cuaca panas.",
-            "gambar": "gambar_minuman/2154211f-2067-44e4-a0b1-e974d672009e.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/2154211f-2067-44e4-a0b1-e974d672009e.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 60,
             "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4"
@@ -1276,7 +1276,7 @@
             "nama": "Jus Belimbing",
             "harga": "18000.00",
             "deskripsi": "Jus belimbing adalah minuman segar yang terbuat dari belimbing matang, memiliki rasa asam manis yang menyegarkan dan aroma khas yang unik.",
-            "gambar": "gambar_minuman/82b02bfb-af65-4ff0-88e2-c4a080f54c68.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/82b02bfb-af65-4ff0-88e2-c4a080f54c68.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 50,
             "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960"
@@ -1289,7 +1289,7 @@
             "nama": "Jus Apel",
             "harga": "18000.00",
             "deskripsi": "Jus apel adalah minuman segar yang terbuat dari sari buah apel, menawarkan rasa manis dan sedikit asam yang menyegarkan. Kaya akan vitamin dan serat, jus ini sangat baik untuk kesehatan.",
-            "gambar": "gambar_minuman/6574dbbb-69a9-40ee-82e1-d460a5652eeb.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/6574dbbb-69a9-40ee-82e1-d460a5652eeb.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 75,
             "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960"
@@ -1302,7 +1302,7 @@
             "nama": "Es Merah Delima",
             "harga": "25000.00",
             "deskripsi": "Es Delima Merah adalah minuman segar yang terbuat dari sari buah delima yang kaya akan antioksidan. Dengan warna merah cerah dan rasa manis-asam yang menyegarkan, es ini disajikan dengan es serut, memberikan sensasi dingin yang pas untuk menghilangkan dahaga. Cocok dinikmati di hari panas!",
-            "gambar": "gambar_minuman/62f5db26-76e6-4a19-a41c-7bd8bbcbb7e2.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/62f5db26-76e6-4a19-a41c-7bd8bbcbb7e2.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 70,
             "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8"
@@ -1315,7 +1315,7 @@
             "nama": "Susu Kedelai",
             "harga": "300000.00",
             "deskripsi": "Susu kedelai yang creamy dan kaya nutrisi, terbuat dari kedelai pilihan yang diolah secara alami. Menawarkan rasa yang lembut dan sedikit manis, cocok sebagai alternatif sehat untuk berbagai minuman. Nikmati susu kedelai ini sebagai bagian dari diet seimbang atau sebagai penyegar di siang hari.",
-            "gambar": "gambar_minuman/63fd5195-0105-4445-b38f-3eccb9286bce.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/63fd5195-0105-4445-b38f-3eccb9286bce.jpg",
             "ukuran": "BESAR",
             "tingkat_kemanisan": 50,
             "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2"
@@ -1328,7 +1328,7 @@
             "nama": "Es Teh Manis",
             "harga": "5000.00",
             "deskripsi": "Es teh manis yang segar dan lembut, diseduh dari daun teh pilihan dengan tambahan gula alami. Hadirkan kesegaran sederhana yang pas dinikmati di segala suasana. Pilihan tepat untuk menemani waktu santai Anda.",
-            "gambar": "gambar_minuman/733a5534-15e0-45ff-bd28-3b3b06a6f227.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/733a5534-15e0-45ff-bd28-3b3b06a6f227.jpg",
             "ukuran": "BESAR",
             "tingkat_kemanisan": 80,
             "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae"
@@ -1341,7 +1341,7 @@
             "nama": "Air Lemon",
             "harga": "25000.00",
             "deskripsi": "Air lemon segar yang menyegarkan, terbuat dari perasan lemon alami yang kaya vitamin C. Memberikan rasa asam yang menyegarkan dan cocok untuk menghidrat tubuh di hari yang panas. Nikmati kesederhanaan dan manfaat sehat dalam setiap tegukan.",
-            "gambar": "gambar_minuman/00c689af-ca68-49a5-9f24-6bf550c3a65f.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/00c689af-ca68-49a5-9f24-6bf550c3a65f.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 50,
             "restoran": "130561a8-c4d5-4b8e-ba5c-a36deeafd14d"
@@ -1354,7 +1354,7 @@
             "nama": "Jus Nanas",
             "harga": "15000.00",
             "deskripsi": "Jus nanas segar dengan rasa manis dan sedikit asam, diolah dari buah nanas matang yang juicy. Setiap tegukan menghadirkan kesegaran tropis yang menyegarkan dan kaya akan vitamin C. Sempurna untuk dinikmati di hari yang panas atau sebagai penyegar di sepanjang hari.",
-            "gambar": "gambar_minuman/2e35d339-d4fe-4afc-bc57-ebc9691d2437.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/2e35d339-d4fe-4afc-bc57-ebc9691d2437.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 65,
             "restoran": "614d6b91-743f-45e4-9b8c-7a0de583bd30"
@@ -1367,7 +1367,7 @@
             "nama": "Jus Mangga",
             "harga": "15000.00",
             "deskripsi": "Jus mangga segar dengan rasa manis dan sedikit asam yang alami, diolah dari buah mangga pilihan. Setiap tegukan menghadirkan kesegaran tropis yang memanjakan. Cocok untuk dinikmati kapan saja sebagai pelepas dahaga yang penuh rasa.",
-            "gambar": "gambar_minuman/8c8be6a7-ed72-4740-ba25-83073b48e253.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/8c8be6a7-ed72-4740-ba25-83073b48e253.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 60,
             "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a"
@@ -1380,7 +1380,7 @@
             "nama": "Es Jeruk Nipis",
             "harga": "25000.00",
             "deskripsi": "Es jeruk nipis yang segar dan menyegarkan, terbuat dari perasan jeruk nipis alami yang kaya rasa. Menawarkan kombinasi asam dan manis yang menyegarkan, sempurna untuk menghilangkan dahaga di hari yang panas. Nikmati kesegaran alami ini sebagai minuman sehat yang menyegarkan.",
-            "gambar": "gambar_minuman/3077aeba-d652-40a3-a6f8-8a9375dd4de8.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/3077aeba-d652-40a3-a6f8-8a9375dd4de8.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 50,
             "restoran": "40d5a0f4-362c-453b-8d67-2813fc459cf2"
@@ -1393,7 +1393,7 @@
             "nama": "Red Velvet",
             "harga": "20000.00",
             "deskripsi": "Red Velvet adalah minuman yang kaya dan menggoda, terbuat dari perpaduan susu dan sirup rasa red velvet yang manis. Minuman ini biasanya disajikan dengan lapisan krim kocok di atasnya, memberikan rasa lembut dan tekstur yang creamy, serta tampilan yang menarik dengan warna merah yang cerah.",
-            "gambar": "gambar_minuman/0b0a5e51-ff92-40b0-b4d9-a28d5b6a8af1.jpg",
+            "gambar": "https://raw.githubusercontent.com/D02-PBP-2024/mediafiles/refs/heads/main/gambar_minuman/0b0a5e51-ff92-40b0-b4d9-a28d5b6a8af1.jpg",
             "ukuran": "SEDANG",
             "tingkat_kemanisan": 80,
             "restoran": "d12c22ba-78d1-48a4-be85-ce804ae28b75"
