@@ -1,11 +1,10 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from forum.models import Forum, Balasan
 from forum.forms import ForumForm, BalasanForm
 from restoran.models import Restoran
 from django.views.decorators.http import require_POST
-from django.core import serializers
 
 
 def show_forum(request, id_restoran):
@@ -49,29 +48,6 @@ def create_forum(request, id_restoran):
 
     context = {'form': form}
     return render(request, 'forum/tambah/index.html', context)
-
-
-@login_required(login_url="login")
-def balas(request, id_restoran, id_forum):
-    restoran = Restoran.objects.get(pk=id_restoran)
-    forum = Forum.objects.get(pk=id_forum)
-    form = BalasanForm(request.POST or None)
-
-    if form.is_valid() and request.method == "POST":
-        balasan = form.save(commit=False)
-        balasan.forum = forum
-        balasan.user = request.user
-        balasan.save()
-        return redirect('forum:show_forum_by_id', id_restoran=restoran.id, id_forum=forum.id)
-
-    request.user.poin += 3
-    request.user.save()
-
-    context = {
-        'form': form,
-        'forum': forum,
-    }
-    return render(request, 'forum/balas/index.html', context)
 
 
 @login_required(login_url="login")
@@ -131,18 +107,35 @@ def delete_balasan(request, id_restoran, id_forum, id_balasan):
 
 
 @require_POST
+@login_required(login_url="login")
 def balas_ajax(request, id_restoran, id_forum):
     pesan = request.POST.get("pesan")
     user = request.user
-    forum = request.POST.get("forum")
+    forum = Forum.objects.get(pk=id_forum)
 
     new_balasan = Balasan(user=user, pesan=pesan, forum=forum)
-    print(pesan)
-    print(forum)
     new_balasan.save()
 
     return HttpResponse(b"CREATED", status=201)
 
+
 def show_balasan(request, id_restoran, id_forum):
-    data = Balasan.objects.all()
-    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+    try:
+        data = Balasan.objects.filter(forum=id_forum)
+        balasan = []
+        for item in data:
+            balasan.append({
+                "id": item.id,
+                "pesan": item.pesan,
+                "tanggal": item.tanggal_posting,
+                "forumId": item.forum.id,
+                "userId": item.user.id,
+                "username": item.user.username,
+                "nama": item.user.nama,
+                "foto": item.user.foto.url if item.user.foto else "",
+                "poin": item.user.poin,
+            })
+
+        return JsonResponse({"balasan": balasan})
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=400)
