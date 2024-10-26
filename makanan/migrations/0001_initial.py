@@ -15,23 +15,23 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Makanan',
-            fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
-                ('nama', models.CharField(max_length=255)),
-                ('harga', models.DecimalField(decimal_places=2, max_digits=10)),
-                ('deskripsi', models.TextField(blank=True)),
-                ('gambar', models.ImageField(blank=True, null=True, upload_to='gambar_makanan/')),
-                ('kalori', models.IntegerField(blank=True, null=True)),
-                ('restoran', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='restoran.restoran')),
-            ],
-        ),
-        migrations.CreateModel(
             name='Kategori',
             fields=[
                 ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
                 ('nama', models.CharField(max_length=255)),
-                ('makanan', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='makanan.makanan')),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Makanan',
+            fields=[
+                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('nama', models.CharField(max_length=255)),
+                ('harga', models.IntegerField()),
+                ('deskripsi', models.TextField(blank=True)),
+                ('gambar', models.ImageField(blank=True, null=True, upload_to='gambar_makanan/')),
+                ('kalori', models.IntegerField(blank=True, null=True)),
+                ('kategori', models.ManyToManyField(related_name='makanan', to='makanan.kategori')),
+                ('restoran', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='restoran.restoran')),
             ],
         ),
     ]

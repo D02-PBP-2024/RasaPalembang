@@ -12,7 +12,8 @@
                         class="max-w-36 sm:max-w-40 md:max-w-52">
                 </a>
                 <nav class="flex items-center justify-around gap-8 max-xl:hidden">
-                    <a href="" class="hover:text-neutral-600 transition flex gap-2.5 items-center">
+                    <a href="{% url 'makanan:show_makanan' %}"
+                        class="hover:text-neutral-600 transition flex gap-2.5 items-center">
                         <i class="fa-solid fa-bowl-food scale-90"></i>
                         <span>Makanan</span>
                     </a>
@@ -27,13 +28,13 @@
                         <span>Restoran</span>
                     </a>
                 </nav>
-                <form class="flex max-lg:hidden text-neutral-600 flex-1 text-sm">
+                <form action="/cari/" method="GET" class="flex max-lg:hidden text-neutral-600 flex-1 text-sm">
                     <button type="submit" class="px-4 py-1.5 rounded-l-lg bg-neutral-200/50">
                         <i class="fa-solid fa-magnifying-glass scale-90"></i>
                     </button>
                     <input
                         class="focus:outline-none rounded-r-lg bg-neutral-200/50 pr-4 py-1.5 max-xl:flex-1 xl:w-72 2xl:w-96"
-                        placeholder="Cari restoran, makanan, atau minuman apapun" type="text">
+                        placeholder="Cari restoran, makanan, atau minuman apapun" type="text" name="q">
                 </form>
             </div>
             <div class="flex items-center gap-1 md:gap-2 md:pl-4 xl:pl-0 max-sm:text-xs max-md:text-sm">
@@ -65,7 +66,8 @@
     </div>
     <div class="hidden xl:hidden bg-[#fafafa] py-2" id="mobile-menu">
         <nav class="flex flex-col">
-            <a href="" class="mx-auto w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center">
+            <a href="{% url 'makanan:show_makanan' %}"
+                class="mx-auto w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center">
                 <i class="fa-solid fa-bowl-food scale-90"></i>
                 <span>Makanan</span>
             </a>

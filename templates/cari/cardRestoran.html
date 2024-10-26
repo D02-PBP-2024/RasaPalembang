@@ -1,0 +1,16 @@
+{% load humanize %}
+<div class="py-2">
+    <a href="{% url 'restoran:detail' restoran.id %}" class="hover:brightness-110 transition duration-300">
+        <img src="{{ restoran.gambar.url }}" alt="{{ restoran.nama }}"
+            class="w-full h-36 md:h-64 object-cover rounded-lg">
+        <div class="mt-2.5 flex flex-col gap-1">
+            <h1 class="md:text-lg font-semibold">{{ restoran.nama }}</h1>
+            <div>
+                <h2 class="max-md:text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
+                    {{ restoran.nomor_telepon }}
+                </h2>
+            </div>
+        </div>
+    </a>
+</div>
