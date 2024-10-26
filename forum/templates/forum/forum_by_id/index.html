@@ -8,12 +8,12 @@
 {% block content %}
 <main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-10 w-full mx-auto">
     {% if forum %}
-    <div class="mt-8 block bg-white ring-1 ring-gray-100 shadow-lg rounded-lg p-6 flex">
+    <div class="block bg-white ring-1 ring-gray-100 shadow-lg rounded-lg p-6 flex">
         <div class="w-full">
             <h2 class="text-3xl font-bold text-[#ff5757]">{{ forum.topik }}</h2>
             <div class="mt-4 flex gap-x-4 items-center">
                 {% if forum.user.foto %}
-                <a href="{% url 'detail_profile' forum.user.username %}" class="font-semibold text-gray-900">
+                <a href="{% url 'detail_profile' forum.user.username %}" class="font-semibold text-gray-900 text-s">
                     <img src="/media/{{ forum.user.foto }}" alt="{{ forum.user.nama }}" class="h-10 w-10 rounded-full">
                 </a>
                 {% else %}
@@ -39,76 +39,133 @@
             <p class="mt-4 text-gray-500 mt-1">
                 {{ forum.pesan }}
             </p>
-            {% if request.user != forum.user %}
-            <a href="{% url 'forum:balas' forum.restoran.id forum.id %}"
-                class="inline-flex items-center border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-1 px-4 mt-6 rounded-xl focus:outline-none focus:bg-[#4f9da6] focus:text-white">
-                Balas Forum
-            </a>
-            {% endif %}
-            {% if balasan %}
-            <p class="mt-4 ml-12 font-semibold text-[#4f9da6]">Balasan</p>
-            <div id="balasan" class="ml-12 flex flex-col space-y-4">
-                {% for item in balasan %}
-                <div class="mt-2 flex gap-x-4 items-start bg-gray-100 rounded-lg p-4 border-l-4 border-gray-300">
-                    <!-- Garis vertikal di kiri -->
-                    <div>
-                        {% if item.user.foto %}
-                        <a href="{% url 'detail_profile' item.user.username %}" class="font-semibold text-gray-900">
-                            <img src="/media/{{ forum.user.foto }}" alt="{{ item.user.nama }}"
-                                class="h-10 w-10 rounded-full">
-                        </a>
-                        {% else %}
-                        <a href="{% url 'detail_profile' item.user.username %}" class="font-semibold text-gray-900">
-                            <img alt="{{ item.user.nama }}" src="{% static 'images/avatar.png' %}"
-                                class="w-10 h-10 rounded-full">
-                        </a>
-                        {% endif %}
-                    </div>
-                    <div class="flex-1 w-full">
-                        <div class="flex items-center">
-                            <p class="font-semibold text-gray-900">
-                                <a href="{% url 'detail_profile' item.user.username %}" class="text-s">
-                                    {{ item.user.username }}
-                                </a>
-                                <label
-                                    class="ml-1 relative z-10 rounded-full bg-gray-50 px-2 py-0.5 text-xs font-medium text-gray-600">
-                                    {{ item.user.poin }} poin
-                                </label>
-                            </p>
-                            <div class="ml-auto">
-                                {% if request.user.id == item.user.id %}
-                                <a href="{% url 'forum:edit_balasan' forum.restoran.id forum.id item.id %}">
-                                    <i class="fa-solid fa-pen ml-2"></i>
-                                </a>
-                                <a href="{% url 'forum:delete_balasan' forum.restoran.id forum.id item.id %}">
-                                    <i class="fa-regular fa-trash-can ml-2"></i>
-                                </a>
-                                {% endif %}
-                            </div>
-                        </div>
-                        <time datetime="{{ item.tanggal_posting|date:'Y-m-d' }}" class="text-xs text-gray-500">
-                            pada {{ item.tanggal_posting|date:"d F Y" }}
-                        </time>
-                        <p class="mt-2 text-gray-700">{{ item.pesan }}</p>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            {% else %}
-            <div class="px-3 sm:px-6 py-16 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14">
-                <div>
-                    <img src="{% static 'images/empty-forum.png' %}" class="max-w-24 md:max-w-32">
-                </div>
-                <div>
-                    <h1 class="text-center text-xl md:text-2xl font-bold">Belum ada balasan untuk forum ini</h1>
-                    <p class="text-center text-gray-900 max-md:text-sm max-md:mt-2">
-                        Mari berbagi pendapatmu tentang forum ini dengan menulis balasan!
-                    </p>
+            <div class="border-t border-gray-200 mt-4 pb-4"></div>
+            <button id="balas" class="inline-flex items-center text-[#4f9da6] hover:underline px-1 rounded-xl">
+                Balas
+            </button>
+            <div class="hidden" id="formGroup">
+                <form method="POST" class="flex rounded-lg" id="formBalas">
+                    {% csrf_token %}
+                    <div class="w-full">
+                        <label class="pl-1 font-semibold hidden" for="balas">Pesan Balasan</label>
+                        <textarea name="pesan" required="" id="pesan" placeholder="Masukkan balasan untuk forum ini" class="mt-2 h-36 w-full resize-none rounded bg-gray-100 px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]"></textarea>
+                </form>
+                <div class="flex justify-end -mt-14 mr-2.5">
+                    <button id="submitBalasan" class="focus:shadow-outline rounded bg-[#4f9da6] px-4 py-2 font-semibold text-white shadow transition hover:bg-[#3b747a] hover:shadow-lg focus:bg-[#3b747a] focus:outline-none">
+                        Kirim
+                    </button>
                 </div>
             </div>
-            {% endif %}
+            </div id="balasan"></div>
         </div>
     </div>
     {% endif %}
 </main>
+<script>
+    var balasButton = document.getElementById('balas')
+    var formGroup = document.getElementById('formGroup')
+    var submitButton = document.getElementById('submitBalasan')
+
+    balasButton.addEventListener('click', function() {
+        formGroup.classList.toggle('hidden')
+    })
+
+    submitButton.addEventListener('click', function(event) {
+        event.preventDefault()
+        addBalasan()
+    })
+
+    function addBalasan() {
+        var form = new FormData(document.getElementById('formBalas'))
+        form.append('forum', '{{ forum.id }}')
+        fetch("{% url 'forum:balas_ajax' forum.restoran.id forum.id %}", {
+            method: "POST",
+            body: form,
+        }).then(response => response.json())
+
+        document.getElementById("formBalas").reset(); // mengosongkan isi field form modal setelah di-submit
+    }
+
+    async function getBalasan() {
+      return fetch("{% url 'forum:show_balasan' forum.restoran.id forum.id %}").then((res) => res.json())
+    }
+
+    async function refreshBalasan() {
+        document.getElementById("balasan").innerHTML = "";
+        document.getElementById("balasan").className = "";
+        const balasan = await getBalasan();
+        let htmlString = "";
+        let classNameString = "";
+
+        console.log(balasan)
+        if (balasan.length === 0) {
+            classNameString = "px-3 sm:px-6 py-16 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14";
+            htmlString = `
+                <div class="px-3 sm:px-6 py-16 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14">
+                    <div>
+                        <img src="/static/images/empty-forum.png}" class="max-w-24 md:max-w-32">
+                    </div>
+                    <div>
+                        <h1 class="text-center text-xl md:text-2xl font-bold">Belum ada balasan untuk forum ini</h1>
+                        <p class="text-center text-gray-900 max-md:text-sm max-md:mt-2">
+                            Mari berbagi pendapatmu tentang forum ini dengan menulis balasan!
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
+        else {
+            classNameString = "ml-12 flex flex-col space-y-4";
+            balasan.forEach((item) => {
+                htmlString += `
+                <div class="mt-2 flex gap-x-4 items-start bg-gray-100 rounded-lg p-4 border-l-4 border-gray-300">
+                    <!-- Garis vertikal di kiri -->
+                    <div>
+                        ${item.user.foto != '' ? `
+                        <a href="/profile/${item.user.username}" class="font-semibold text-gray-900">
+                            <img src="/media/${forum.user.foto}" alt="${item.user.nama}"
+                            class="h-10 w-10 rounded-full">
+                        </a>` : `
+                        <a href="/profile/${item.user.username}" class="font-semibold text-gray-900">
+                            <img alt="${item.user.nama}" src="/static/images/avatar.png"
+                                class="w-10 h-10 rounded-full">
+                        </a>`}
+                    </div>
+                    <div class="flex-1 w-full">
+                        <div class="flex items-center">
+                            <p class="font-semibold text-gray-900">
+                                <a href="/profile/${item.user.username}" class="text-s">
+                                    ${item.user.username}
+                                </a>
+                                <label
+                                    class="ml-1 relative z-10 rounded-full bg-gray-50 px-2 py-0.5 text-xs font-medium text-gray-600">
+                                    ${item.user.poin} poin
+                                </label>
+                            </p>
+                            <div class="ml-auto">
+                                ${'{{ request.user.id }}' == item.user.id ? `
+                                <a href="${ item.forum.id }/edit_balasan/${ item.id }">
+                                    <i class="fa-solid fa-pen ml-2"></i>
+                                </a>
+                                <a href="${ item.forum.id }/delete_balasan/${ item.id }">
+                                    <i class="fa-regular fa-trash-can ml-2"></i>
+                                </a>
+                                ` : ''}
+                            </div>
+                        </div>
+                        <time datetime="${item.tanggal_posting.toLocaleDateString()}" class="text-xs text-gray-500">
+                            pada ${item.tanggal_posting.toLocaleDateString()}
+                        </time>
+                        <p class="mt-2 text-gray-700">${item.pesan}</p>
+                    </div>
+                </div>
+                `;
+            });
+        }
+        console.log(document.getElementById("balasan"));
+        document.getElementById("balasan").className = classNameString;
+        document.getElementById("balasan").innerHTML = htmlString;
+    }
+refreshBalasan();
+</script>
 {% endblock content %}

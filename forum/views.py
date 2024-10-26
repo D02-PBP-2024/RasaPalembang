@@ -1,8 +1,11 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from forum.models import Forum, Balasan
 from forum.forms import ForumForm, BalasanForm
 from restoran.models import Restoran
+from django.views.decorators.http import require_POST
+from django.core import serializers
 
 
 def show_forum(request, id_restoran):
@@ -125,3 +128,21 @@ def delete_balasan(request, id_restoran, id_forum, id_balasan):
 
     balasan.delete()
     return redirect('forum:show_forum_by_id', id_restoran=restoran.id, id_forum=forum.id)
+
+
+@require_POST
+def balas_ajax(request, id_restoran, id_forum):
+    pesan = request.POST.get("pesan")
+    user = request.user
+    forum = request.POST.get("forum")
+
+    new_balasan = Balasan(user=user, pesan=pesan, forum=forum)
+    print(pesan)
+    print(forum)
+    new_balasan.save()
+
+    return HttpResponse(b"CREATED", status=201)
+
+def show_balasan(request, id_restoran, id_forum):
+    data = Balasan.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
