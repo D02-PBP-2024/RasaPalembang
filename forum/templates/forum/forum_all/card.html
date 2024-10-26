@@ -1,6 +1,6 @@
 {% load static %}
 
-<article class="flex max-w-xl flex-col items-start mt-4 block bg-white ring-1 ring-gray-100 shadow p-6 flex px-4 py-4 rounded-lg overflow-hidden">
+<article class="flex max-w-xl flex-col items-start block bg-white ring-1 ring-gray-100 shadow transition hover:shadow-lg relative p-6 flex px-4 py-4 rounded-lg overflow-hidden">
     <div class="flex items-center justify-between w-full">
       <h3 class="mt-2 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
           <a href="{% url 'forum:show_forum_by_id' forum.restoran.id forum.id %}">
@@ -19,20 +19,26 @@
       {% endif %}
     </div>
     <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600 break-all h-full">{{ forum.pesan }}</p>
-    <div class="relative mt-8 flex items-center gap-x-4 w-full">
+    <div class="relative mt-8 flex items-center gap-x-4 w-full ">
       {% if forum.user.foto %}
+      <a href="{% url 'detail_profile' forum.user.username %}" class="font-semibold text-gray-900">
         <img src="/media/{{ forum.user.foto }}" alt="{{ forum.user.nama }}" class="h-10 w-10 rounded-full">
+      </a>
       {% else %}
+      <a href="{% url 'detail_profile' forum.user.username %}" class="font-semibold text-gray-900">
         <img src="{% static 'images/avatar.png' %}" class="w-10 h-10 rounded-full">
+      </a>
       {% endif %}
 
       <div class="text-sm leading-6">
-        <p class="font-semibold text-gray-900">
-          <a href="{% url 'detail_profile' request.user.username %}">
-            {{ forum.user }}
+        <div class="flex items-center gap-x-2">
+          <a href="{% url 'detail_profile' forum.user.username %}" class="font-semibold text-gray-900 break-all">
+            {{ forum.user.username }}
           </a>
-          <a href="#" class="ml-1 relative z-10 rounded-full bg-gray-50 px-2 py-0.5 font-medium text-gray-600 hover:bg-gray-100">{{ forum.user.poin }} poin</a>
-        </p>
+          <div class="rounded-full bg-gray-50 px-2 py-0.5 font-medium text-gray-600 whitespace-nowrap">
+            {{ forum.user.poin }} poin
+          </div>
+        </div>
         <p>
           <time datetime="{{ forum.tanggal_posting|date:'Y-m-d' }}" class="text-gray-500">
             {{ forum.tanggal_posting|date:"d F Y" }}
@@ -40,7 +46,7 @@
         </p>
       </div>
       <div class="ml-auto">
-          <a href="{% url 'forum:show_forum_by_id' forum.restoran.id forum.id %}" class="font-semibold text-[#ff5757]">
+          <a href="{% url 'forum:show_forum_by_id' forum.restoran.id forum.id %}" class="font-semibold text-[#ff5757] hover:text-[#d04848]">
               <p aria-hidden="true">Lihat detail</p>
           </a>
       </div>
