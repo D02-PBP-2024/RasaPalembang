@@ -1,4 +1,4 @@
-from django.http import HttpResponseNotFound
+from django.http import HttpResponseNotFound, JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from minuman.models import Minuman
@@ -72,3 +72,27 @@ def delete_minuman(request, id):
     minuman = Minuman.objects.get(pk=id)
     minuman.delete()
     return redirect("minuman:show_minuman")
+
+
+def show_minuman_by_sort(request):
+    order = request.GET.get('order', None)
+
+    if order == "termurah":
+        minuman = Minuman.objects.all().order_by("harga")
+    elif order == "termahal":
+        minuman = Minuman.objects.all().order_by("-harga")
+    else:
+        minuman = Minuman.objects.all()
+
+    minuman_all = []
+    for item in minuman:
+        minuman_all.append({
+            "id": item.id,
+            "nama": item.nama,
+            "harga": item.harga,
+            "restoran": item.restoran.nama,
+            "gambar": item.gambar.url,
+        })
+
+    return JsonResponse({'minuman': minuman_all})
+
