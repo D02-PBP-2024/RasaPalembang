@@ -12,12 +12,12 @@ def show_makanan(request):
     paginator = Paginator(makanan, 6)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    list_kategori = Kategori.objects.all()
+    kategori = Kategori.objects.all()
     context = {
         'makanan_list': makanan,
         'page_obj': page_obj,
         'total_page': paginator.num_pages,
-        'list_kategori': list_kategori,
+        'list_kategori': kategori,
         }
     return render(request, 'makanan/show/show_makanan.html', context)
 
@@ -26,6 +26,9 @@ def tambah_makanan(request):
     # Pengecekan apakah user adalah pemilik_restoran
     if request.user.peran != 'pemilik_restoran':
         return redirect("makanan:show_makanan")
+    
+    restoran = Restoran.objects.filter(user=request.user)
+    kategori = Kategori.objects.all()
 
     if request.method == "POST":
         form = MakananForm(request.POST, request.FILES)
@@ -38,17 +41,19 @@ def tambah_makanan(request):
 
     context = {
         "form": form,
+        "restoran": restoran,
+        "list_kategori": kategori
     }
     return render(request, "makanan/tambah/tambah_makanan.html", context)
 
 def detail_makanan(request, id):
     makanan = get_object_or_404(Makanan, pk=id)
-    list_kategori = Kategori.objects.filter(makanan=makanan)
+    kategori = Kategori.objects.filter(makanan=makanan)
     restoran = Restoran.objects.get(pk=makanan.restoran.id)
 
     context = {
         'makanan': makanan, 
-        'list_kategori': list_kategori,
+        'list_kategori': kategori,
         'restoran': restoran
         }
     return render(request, 'makanan/detail/detail_makanan.html', context)
@@ -56,20 +61,23 @@ def detail_makanan(request, id):
 @login_required(login_url="/login")
 def edit_makanan(request, id):
     makanan = get_object_or_404(Makanan, pk=id)
+    restoran = Restoran.objects.filter(user=request.user)
 
-    # Pengecekan apakah user adalah pemilik_restoran
-    if request.user.peran != 'pemilik_restoran' or request.user != makanan.restoran.user:
-        return redirect("makanan:edit_makanan")
+    if request.method == "POST":
+        form = MakananForm(request.POST, request.FILES, instance=makanan)
+        if form.is_valid():
+            form.save()
+            return redirect("makanan:show_makanan")
+    else:
+        form = MakananForm(instance=makanan)
 
-    # Tambahkan `request.FILES` untuk menangani file gambar
-    form = MakananForm(request.POST or None, request.FILES or None, instance=makanan)
-
-    if form.is_valid() and request.method == 'POST':
-        form.save()  # Simpan gambar baru atau update field lainnya
-        return redirect('makanan:detail_makanan', id=id)
-
-    context = {'form': form, 'makanan': makanan}
-    return render(request, 'makanan/edit_makanan/edit_makanan.html', context)
+    context = {
+        'form': form, 
+        'makanan': makanan,
+        'restoran': restoran
+        }
+    
+    return render(request, 'makanan/edit/edit_makanan.html', context)
 
 @login_required(login_url="/login")
 def delete_makanan(request, id):
