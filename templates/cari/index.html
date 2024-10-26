@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<main id="main" class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
+    {% if restoran or makanan or minuman %}
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2 md:mt-4">
+        {% for item in restoran %}
+        {% include 'cari/cardRestoran.html' with restoran=item %}
+        {% endfor %}
+        {% for item in makanan %}
+        {% include 'cari/cardMakanan.html' with makanan=item %}
+        {% endfor %}
+        {% for item in minuman %}
+        {% include 'cari/cardMinuman.html' with minuman=item %}
+        {% endfor %}
+    </div>
+    {% else %}
+    <div
+        class='mt-6 md:mt-12 mb-20 md:mb-40 border border-neutral-100 shadow-lg shadow-neutral-200/40 rounded-xl px-3 sm:px-6 py-10 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14'>
+        <div>
+            <img src="{% static 'images/search-not-found.png' %}" alt='Empty Review' class='max-w-24 md:max-w-32'>
+        </div>
+        <div>
+            <h1 class='text-center text-xl md:text-2xl font-bold'>Tidak Ada Hasil Ditemukan</h1>
+            <h2 class='text-center max-md:text-sm max-md:mt-2'>
+                Kami tidak dapat menemukan restoran, makanan, atau minuman yang Anda cari.
+            </h2>
+        </div>
+    </div>
+    {% endif %}
+</main>
+{% endblock %}
