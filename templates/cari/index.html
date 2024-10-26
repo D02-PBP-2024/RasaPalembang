@@ -4,6 +4,9 @@
 {% block content %}
 <main id="main" class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
     {% if restoran or makanan or minuman %}
+    <div class="mb-6">
+        <h1 class="text-2xl font-semibold">Hasil pencarian untuk kata kunci "{{ keyword }}"</h1>
+    </div>
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2 md:mt-4">
         {% for item in restoran %}
         {% include 'cari/cardRestoran.html' with restoran=item %}
@@ -23,8 +26,9 @@
         </div>
         <div>
             <h1 class='text-center text-xl md:text-2xl font-bold'>Tidak Ada Hasil Ditemukan</h1>
-            <h2 class='text-center max-md:text-sm max-md:mt-2'>
-                Kami tidak dapat menemukan restoran, makanan, atau minuman yang Anda cari.
+            <h2 class='text-center max-md:text-sm mt-2'>
+                Maaf, kami tidak dapat menemukan hasil untuk <strong>{{ keyword }}</strong>.<br>
+                Silakan coba dengan kata kunci lain.
             </h2>
         </div>
     </div>
