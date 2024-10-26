@@ -39,7 +39,7 @@
             <p class="mt-4 text-gray-500 mt-1">
                 {{ forum.pesan }}
             </p>
-            {% if request.user != forum.user and request.user.peran == 'pengulas' %}
+            {% if request.user != forum.user %}
             <a href="{% url 'forum:balas' forum.restoran.id forum.id %}"
                 class="inline-flex items-center border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-1 px-4 mt-6 rounded-xl focus:outline-none focus:bg-[#4f9da6] focus:text-white">
                 Balas Forum

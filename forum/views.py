@@ -54,9 +54,6 @@ def balas(request, id_restoran, id_forum):
     forum = Forum.objects.get(pk=id_forum)
     form = BalasanForm(request.POST or None)
 
-    if request.user.peran != 'pengulas':
-        return redirect('forum:show_forum_by_id', id_restoran=restoran.id, id_forum=forum.id)
-
     if form.is_valid() and request.method == "POST":
         balasan = form.save(commit=False)
         balasan.forum = forum
