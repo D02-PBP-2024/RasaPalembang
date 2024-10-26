@@ -40,6 +40,9 @@ def create_forum(request, id_restoran):
         topik.restoran = restoran
         topik.save()
         return redirect('forum:show_forum', id_restoran=restoran.id)
+    
+    request.user.poin += 5
+    request.user.save()
 
     context = {'form': form}
     return render(request, 'forum/tambah/index.html', context)
@@ -60,6 +63,9 @@ def balas(request, id_restoran, id_forum):
         balasan.user = request.user
         balasan.save()
         return redirect('forum:show_forum_by_id', id_restoran=restoran.id, id_forum=forum.id)
+
+    request.user.poin += 3
+    request.user.save()
 
     context = {
         'form': form,
