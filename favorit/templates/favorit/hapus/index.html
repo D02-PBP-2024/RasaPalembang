@@ -1,20 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Hapus Favorit</h1>
+<div class="max-w-lg mx-auto p-8 bg-white border border-gray-300 rounded-lg shadow-lg font-sans">
+    <h1 class="text-[#d04848] text-2xl font-bold text-center mb-5">Hapus Favorit</h1>
 
-<p>Apakah Anda yakin ingin menghapus favorit berikut?</p>
-<ul>
-    <li>Makanan: {{ favorit.makanan }}</li>
-    <li>Minuman: {{ favorit.minuman }}</li>
-    <li>Restoran: {{ favorit.restoran }}</li>
-    <li>Catatan: {{ favorit.catatan }}</li>
-</ul>
+    <p class="text-center text-[#3b747a] mb-5">Apakah Anda yakin ingin menghapus favorit berikut?</p>
+    <ul class="list-none p-0 text-gray-600 text-base mb-5">
+        <li class="mb-2"><strong>Makanan:</strong> {{ favorit.makanan }}</li>
+        <li class="mb-2"><strong>Minuman:</strong> {{ favorit.minuman }}</li>
+        <li class="mb-2"><strong>Restoran:</strong> {{ favorit.restoran }}</li>
+        <li class="mb-2"><strong>Catatan:</strong> {{ favorit.catatan }}</li>
+    </ul>
 
-<form method="POST">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Hapus</button>
-</form>
-
-<a href="{% url 'favorit:favorit' %}" class="btn btn-secondary">Batal</a>
+    <div class="flex justify-between items-center">
+        <form method="POST" class="inline">
+            {% csrf_token %}
+            <button type="submit" class="bg-[#d04848] text-white px-5 py-2 rounded-md font-bold transition duration-200 hover:bg-[#a83030]">
+                Hapus
+            </button>
+        </form>
+        <a href="{% url 'favorit:show_favorit' %}" 
+           class="bg-[#4f9da6] text-white px-5 py-2 rounded-md font-bold transition duration-200 hover:bg-[#3b747a]">
+           Batal
+        </a>
+    </div>
+</div>
 {% endblock %}

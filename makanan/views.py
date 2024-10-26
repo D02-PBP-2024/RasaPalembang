@@ -9,11 +9,13 @@ import json
 
 
 def get_gambar_url(item):
-    return (
-        str(item.gambar.url).replace("%3A", ":/")
-        if hasattr(item, "gambar") and item.gambar
-        else None
-    )
+    if hasattr(item, "gambar") and item.gambar:
+        if "raw.githubusercontent.com/D02-PBP-2024/mediafiles/" in item.gambar.url:
+            return str(item.gambar.url).replace("%3A", ":/").replace("/media/", "")
+        else:
+            return item.gambar.url
+    else:
+        return None
 
 
 def show_makanan(request):
@@ -123,24 +125,20 @@ def delete_makanan(request, id):
 def filter_by_kategori(request):
     if request.method == "POST":
         try:
-            data = json.loads(request.body)  # Ambil data JSON dari request body
-            kategori_id = data.get(
-                "kategori_id"
-            )  # Dapatkan kategori ID dari request body, default empty list
+            data = json.loads(request.body)
+            kategori_id = data.get("kategori_id")
 
-            # Filter makanan berdasarkan kategori yang dipilih
             if len(kategori_id) > 0:
                 makanan_list = Makanan.objects.filter(kategori__id__in=kategori_id)
             else:
                 makanan_list = Makanan.objects.all()
 
-            # Persiapkan data makanan untuk dikirim kembali sebagai response JSON\
             makanan_data = []
             for makanan in makanan_list:
                 makanan = {
                     "id": makanan.id,
                     "nama": makanan.nama,
-                    "gambar": makanan.gambar.url if makanan.gambar else "",
+                    "gambar": get_gambar_url(makanan),
                     "harga": makanan.harga,
                     "kalori": makanan.kalori,
                     "deskripsi": makanan.deskripsi,
@@ -149,7 +147,6 @@ def filter_by_kategori(request):
                 if makanan not in makanan_data:
                     makanan_data.append(makanan)
 
-            # Kirim response JSON ke frontend
             return JsonResponse({"makanan": makanan_data})
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=400)
