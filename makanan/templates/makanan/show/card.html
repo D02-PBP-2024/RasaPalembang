@@ -1,0 +1,25 @@
+{% load humanize %}
+<div class="py-2">
+    <a href="{% url 'makanan:detail_makanan' makanan.makanan.id %}"
+        class="hover:brightness-110 transition duration-300">
+        <img src="{{ makanan.gambar_url }}" alt="{{ makanan.makanan.nama }}"
+            class="w-full h-36 md:h-64 object-cover rounded-lg">
+        <div class="mt-2.5 flex flex-col gap-1">
+            <h1 class="md:text-lg font-semibold">{{ makanan.makanan.nama }}</h1>
+            <div>
+                <h2 class="max-md:text-sm flex items-center gap-2">
+                    <i
+                        class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
+                    Rp{{ makanan.makanan.harga|floatformat:0|intcomma }}
+                </h2>
+                <h3 class="max-md:text-sm flex items-start gap-2">
+                    <i
+                        class="fa-solid fa-utensils text-sm max-md:scale-90 mt-1 w-4 flex justify-center text-neutral-500"></i>
+                    <a href="{% url 'restoran:detail' makanan.makanan.restoran.id %}" class="hover:underline">
+                        {{ makanan.makanan.restoran }}
+                    </a>
+                </h3>
+            </div>
+        </div>
+    </a>
+</div>

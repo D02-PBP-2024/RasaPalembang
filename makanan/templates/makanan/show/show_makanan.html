@@ -1,124 +1,107 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-10 w-full mx-auto">
-    <div class="container mx-auto p-8">
-        <h1 class="text-3xl font-bold text-center mb-10">Daftar Makanan</h1>
+<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
+    <!-- Tombol Tambah Makanan -->
+    {% if request.user.peran == "pemilik_restoran" %}
+    <div class="flex justify-end mb-4">
+        <a href="{% url 'makanan:tambah_makanan' %}"
+            class="px-4 py-2 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300">
+            + Tambah Makanan
+        </a>
+    </div>
+    {% endif %}
 
-        <!-- Tombol Tambah Makanan -->
-        {% if request.user.peran == "pemilik_restoran" %}
-        <div class="flex justify-end mb-4">
-            <a href="{% url 'makanan:tambah_makanan' %}"
-                class="px-4 py-2 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300">
-                + Tambah Makanan
-            </a>
-        </div>
-        {% endif %}
+    <!-- Filter Button di kiri atas -->
+    <div class="relative">
+        <button id="filterButton"
+            class="flex justify-center items-center px-4 py-2 bg-neutral-200/80 hover:bg-neutral-300/80 transition rounded-lg shadow-md">
+            <i class="fa fa-filter text-gray-500 mr-2 text-sm"></i>
+            <span class="text-gray-600">Saring</span>
+        </button>
 
-        <!-- Filter Button di kiri atas -->
-        <div class="relative mb-6">
-            <button id="filterButton" class="flex items-center px-4 py-2 bg-gray-200 rounded-lg shadow-md">
-                <i class="fa fa-filter text-gray-500 mr-2"></i>
-                <span class="text-gray-600">Filter by</span>
-            </button>
-
-            <!-- Dropdown menu -->
-            <div id="dropdownMenu"
-                class="hidden z-10 absolute mt-2 bg-white rounded-lg shadow-lg p-4 ring-1 ring-gray-100 left-0">
-                {% for kategori in list_kategori %}
-                <label class="flex space-x-2">
-                    <input id="dropdown-item" type="checkbox" class="block px-4 py-2 text-gray-700 hover:bg-gray-200"
-                        data-kategori-id="{{ kategori.id }}">
-                    <span>{{ kategori.nama }}</span>
-                </label>
-                {% endfor %}
-                <div>
-                    <button
-                        class="mt-2 shadow hover:shadow-lg bg-[#4f9da6] hover:bg-[#3b747a] transition focus:shadow-outline focus:bg-[#3b747a] focus:outline-none text-white font-semibold py-2 px-4 rounded"
-                        type="submit" id="applyFilter">
-                        Terapkan
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Grid makanan -->
-        {% if page_obj.object_list %}
-        <div id="makananList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {% for item in page_obj %}
-            <a href="{% url 'makanan:detail_makanan' item.makanan.id %}"
-                class="block bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 transform hover:scale-105 transition-transform duration-300">
-                {% if item.makanan.gambar %}
-                <img src="
-                    {% if 'raw.githubusercontent.com/D02-PBP-2024/mediafiles/' in item.makanan.gambar.url %}
-                    {{ item.gambar_url|cut:'/media/' }}
-                    {% else %}
-                    {{ item.makanan.gambar.url }}
-                    {% endif %}
-                    " alt="{{ item.makanan.nama }}" class="w-full h-48 object-cover mb-4 rounded-lg">
-                {% else %}
-                <img class="w-full h-48 object-cover mb-4 rounded-lg" src="path/to/placeholder-image.jpg"
-                    alt="item Default">
-                {% endif %}
-                <h2 class="text-xl font-semibold text-gray-700">{{ item.makanan.nama }}</h2>
-                <p class="text-sm text-gray-400 mt-4">Restoran: {{ item.makanan.restoran.nama }}</p>
-            </a>
+        <!-- Dropdown menu -->
+        <div id="dropdownMenu"
+            class="hidden z-10 absolute mt-2 bg-white rounded-lg shadow-lg p-4 ring-1 ring-gray-100 left-0">
+            {% for kategori in list_kategori %}
+            <label class="flex space-x-2">
+                <input id="dropdown-item" type="checkbox" class="block px-4 py-2 text-gray-700 hover:bg-gray-200"
+                    data-kategori-id="{{ kategori.id }}">
+                <span>{{ kategori.nama }}</span>
+            </label>
             {% endfor %}
-        </div>
-
-        <!-- Pagination Controls (hanya tampil jika ada produk) -->
-        <div class="pagination-container mt-8">
-            {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}"
-                class="px-4 py-2 bg-gray-200 text-gray-600 hover:bg-gray-300 rounded-lg">Previous</a>
-            {% endif %}
-            <p class="text-gray-600 mx-4">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</p>
-            {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}"
-                class="px-4 py-2 bg-gray-200 text-gray-600 hover:bg-gray-300 rounded-lg">Next</a>
-            {% endif %}
-        </div>
-
-        {% else %}
-        <div class="px-3 sm:px-6 py-16 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14">
             <div>
-                <img src="{% static 'images/empty-makanan.png' %}" alt="Belum ada makanan" class="max-w-24 md:max-w-32">
-            </div>
-            <div>
-                <h1 class="text-center text-xl md:text-2xl font-bold">Belum ada makanan yang tersedia</h1>
-                <p class="text-center text-gray-900 max-md:text-sm max-md:mt-2">
-                    Segera kembali, pilihan makanan lezat akan segera hadir!
-                </p>
+                <button
+                    class="mt-2 shadow hover:shadow-lg bg-[#4f9da6] hover:bg-[#3b747a] transition focus:shadow-outline focus:bg-[#3b747a] focus:outline-none text-white font-semibold py-2 px-4 rounded"
+                    type="submit" id="applyFilter">
+                    Terapkan
+                </button>
             </div>
         </div>
+    </div>
+
+    <!-- Grid makanan -->
+    {% if page_obj.object_list %}
+    <div id="makananList" class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2 md:mt-4">
+        {% for item in page_obj %}
+        {% include 'makanan/show/card.html' with makanan=item %}
+        {% endfor %}
+    </div>
+
+    <!-- Pagination Controls (hanya tampil jika ada produk) -->
+    <div class="pagination-container mt-8">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}"
+            class="px-4 py-2 bg-gray-200 text-gray-600 hover:bg-gray-300 rounded-lg">Previous</a>
+        {% endif %}
+        <p class="text-gray-600 mx-4">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</p>
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}"
+            class="px-4 py-2 bg-gray-200 text-gray-600 hover:bg-gray-300 rounded-lg">Next</a>
         {% endif %}
     </div>
+
+    {% else %}
+    <div class="px-3 sm:px-6 py-16 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14">
+        <div>
+            <img src="{% static 'images/empty-makanan.png' %}" alt="Belum ada makanan" class="max-w-24 md:max-w-32">
+        </div>
+        <div>
+            <h1 class="text-center text-xl md:text-2xl font-bold">Belum ada makanan yang tersedia</h1>
+            <p class="text-center text-gray-900 max-md:text-sm max-md:mt-2">
+                Segera kembali, pilihan makanan lezat akan segera hadir!
+            </p>
+        </div>
+    </div>
+    {% endif %}
 </main>
 <script>
-    // Toggle dropdown visibility
-    var filterButton = document.getElementById('filterButton');
-    var dropdownMenu = document.getElementById('dropdownMenu');
-    filterButton.addEventListener('click', function () {
-        dropdownMenu.classList.toggle('hidden');
-    });
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    }
 
-    var kategoriId = new Map();
+    var filterButton = document.getElementById('filterButton')
+    var dropdownMenu = document.getElementById('dropdownMenu')
+    filterButton.addEventListener('click', function () {
+        dropdownMenu.classList.toggle('hidden')
+    })
+
+    var kategoriId = new Map()
     document.querySelectorAll('#dropdown-item').forEach(item => {
         item.addEventListener('click', function () {
-            var data = item.getAttribute('data-kategori-id');
+            var data = item.getAttribute('data-kategori-id')
             if (item.checked === true) {
-                kategoriId.set(data, data);
+                kategoriId.set(data, data)
             } else {
-                kategoriId.delete(data);
+                kategoriId.delete(data)
             }
-        });
-    });
+        })
+    })
 
-    var applyFilter = document.getElementById('applyFilter');
-    var makananList = document.getElementById('makananList');
+    var applyFilter = document.getElementById('applyFilter')
+    var makananList = document.getElementById('makananList')
     applyFilter.addEventListener('click', function () {
         dropdownMenu.classList.toggle('hidden')
-        // AJAX request to filter makanan tanpa mengubah URL
         fetch('/makanan/filter_makanan_by_kategori/', {
             method: 'POST',
             headers: {
@@ -127,23 +110,36 @@
             },
             body: JSON.stringify({ 'kategori_id': Array.from(kategoriId.values()) })
         })
-            .then(response => response.json())  // Pastikan response berupa JSON
+            .then(response => response.json())
             .then(data => {
-                // Update makanan list berdasarkan data yang di-filter
-                makananList.innerHTML = '';  // Kosongkan daftar makanan yang ada
+                makananList.innerHTML = ''
                 if (data.makanan.length > 0) {
-                    makananList.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
-                    data.makanan.forEach(makanan => {
+                    makananList.className = 'grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2 md:mt-4'
+                    data.makanan.forEach(item => {
                         makananList.innerHTML += `
-                        <a href="/makanan/${makanan.id}" class="block bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 transform hover:scale-105 transition-transform duration-300">
-                            <img class="w-full h-48 object-cover mb-4 rounded-lg" src="${makanan.gambar}" alt="${makanan.nama}">
-                            <h2 class="text-xl font-semibold text-gray-700">${makanan.nama}</h2>
-                            <p class="text-sm text-gray-400 mt-4">Restoran: ${makanan.restoran}</p>
-                        </a>
-                    `;
-                    });
+                        <div class="py-2">
+                            <a href="${item.id}" class="hover:brightness-110 transition duration-300">
+                                <img src="${item.gambar}" alt="${item.nama}" class="w-full h-36 md:h-64 object-cover rounded-lg">
+                                <div class="mt-2.5 flex flex-col gap-1">
+                                    <h1 class="md:text-lg font-semibold">${item.nama}</h1>
+                                    <div>
+                                        <h2 class="max-md:text-sm flex items-center gap-2">
+                                            <i
+                                                class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
+                                            Rp${numberWithCommas(parseInt(item.harga))}
+                                        </h2>
+                                        <h3 class="max-md:text-sm flex items-start gap-2">
+                                            <i class="fa-solid fa-utensils text-sm max-md:scale-90 mt-1 w-4 flex justify-center text-neutral-500"></i>
+                                            <a href="${item.id}" class="hover:underline">${item.restoran}</a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        `
+                    })
                 } else {
-                    makananList.className = '';
+                    makananList.className = ''
                     makananList.innerHTML += `
                 <div class="px-3 sm:px-6 py-16 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14">
                     <div>
@@ -154,10 +150,10 @@
                         <p class="text-center text-gray-900 max-md:text-sm max-md:mt-2">Segera kembali, pilihan makanan lezat akan segera hadir!</p>
                     </div>
                 </div>
-                `;
+                `
                 }
             })
-            .catch(error => console.error('Error:', error));
+            .catch(error => console.error('Error:', error))
     })
 </script>
 {% endblock %}
