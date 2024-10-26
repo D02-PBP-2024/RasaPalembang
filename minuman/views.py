@@ -1,7 +1,6 @@
 from django.http import HttpResponseNotFound, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.http import HttpResponseNotFound
 from minuman.forms import MinumanForm
 from restoran.models import Restoran
 from minuman.models import Minuman
@@ -10,19 +9,21 @@ from minuman.models import Minuman
 def show_minuman(request):
     minuman = Minuman.objects.all()
 
-    return render(request, "minuman/minuman_all/index.html", {"minuman": minuman})
+    return render(request, "minuman/show/index.html", {"minuman": minuman})
 
 
-def show_minuman_by_id(request, id):
+def detail_minuman(request, id):
     minuman = Minuman.objects.get(pk=id)
     restoran = Restoran.objects.get(pk=minuman.restoran.id)
+    mengubah = restoran.user == request.user
 
     return render(
         request,
-        "minuman/minuman_by_id/index.html",
+        "minuman/detail/index.html",
         {
             "minuman": minuman,
             "restoran": restoran,
+            "mengubah": mengubah,
         },
     )
 
@@ -49,16 +50,20 @@ def tambah_minuman(request):
 
 
 @login_required(login_url="login")
-def edit_minuman(request, id):
-    if request.user.peran != "pemilik_restoran":
-        return HttpResponseNotFound()
+def ubah_minuman(request, id):
     minuman = Minuman.objects.get(pk=id)
     restoran = Restoran.objects.filter(user=request.user)
+
+    if request.user.peran != "pemilik_restoran":
+        return HttpResponseNotFound()
+    elif minuman.restoran not in restoran:
+        return HttpResponseNotFound()
+
     if request.method == "POST":
         form = MinumanForm(request.POST, request.FILES, instance=minuman)
         if form.is_valid():
             form.save()
-            return redirect("minuman:show_minuman")
+            return redirect("minuman:detail_minuman", id=id)
     else:
         form = MinumanForm(instance=minuman)
 
@@ -67,14 +72,19 @@ def edit_minuman(request, id):
         "minuman": minuman,
         "restoran": restoran,
     }
-    return render(request, "minuman/edit/index.html", context)
+    return render(request, "minuman/ubah/index.html", context)
 
 
 @login_required(login_url="login")
-def delete_minuman(request, id):
+def hapus_minuman(request, id):
+    minuman = Minuman.objects.get(pk=id)
+    restoran = Restoran.objects.filter(user=request.user)
+
     if request.user.peran != "pemilik_restoran":
         return HttpResponseNotFound()
-    minuman = Minuman.objects.get(pk=id)
+    elif minuman.restoran not in restoran:
+        return HttpResponseNotFound()
+
     minuman.delete()
     return redirect("minuman:show_minuman")
 

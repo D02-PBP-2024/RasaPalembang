@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block meta %}
+<title>{{ profile.username }} | RasaPalembang</title>
+{% endblock meta %}
+
 {% block content %}
 <main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto min-h-[720px]">
     <div class="rounded-2xl border mx-auto">
@@ -72,7 +77,7 @@
                         <a href='/profile/{{ profile.username }}'>
                             <span class='font-semibold'>{{ profile.nama }}</span>
                         </a>
-                        <a href="{% url 'restoran:detail' item.restoran.id %}">
+                        <a href="{% url 'restoran:detail_restoran' item.restoran.id %}">
                             <span class='text-neutral-500 flex items-center gap-2'>
                                 <i class='fa-solid fa-utensils text-neutral-500/70 text-xs'></i>
                                 {{ item.restoran }}

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block meta %}
-<title>RasaPalembang | Forum Diskusi</title>
+<title>Forum Diskusi | RasaPalembang</title>
 {% endblock meta %}
 
 {% block content %}
@@ -13,14 +13,14 @@
     </div>
     <div class="border-t border-gray-200 pt-10 sm:mt-2 sm:pt-4"></div>
     {% if request.user.peran != "pemilik_restoran" %}
-    <a href="{% url 'forum:create_forum' restoran.id %}"
-        class="transition duration-300 inline-flex items-center border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-1 px-4 rounded-xl focus:outline-none focus:bg-[#4f9da6] focus:text-white">
+    <a href="{% url 'forum:create_forum' restoran.id %}" class="flex justify-center items-center gap-2 w-full w-full lg:w-fit px-4 sm:px-5 py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
+        <i class="fa-regular fa-comment max-sm:scale-90" aria-hidden="true"></i>
         Tambah Forum
     </a>
     {% endif %}
     {% if forum %}
     <div
-        class="mt-4 mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3 lg:mx-0 lg:max-w-none">
+        class="mt-4 mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 lg:mx-0 lg:max-w-none">
         {% for item in forum reversed %}
         {% include 'forum/forum_all/card.html' with forum=item %}
         {% endfor %}

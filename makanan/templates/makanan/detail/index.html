@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% load humanize %}
+
+{% block meta %}
+<title>{{ makanan.nama }} | RasaPalembang</title>
+{% endblock meta %}
 
 {% block content %}
 <main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
@@ -12,12 +17,18 @@
                         <h1 class="w-full text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
                             {{ makanan.nama }}
                         </h1>
-                        <div class="flex-none">
-                            <!-- Button Favorite -->
-                            <button
-                                class="border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-2 px-[12px] sm:py-3 sm:px-[16px] rounded-full focus:outline-none focus:bg-[#4f9da6] focus:text-white">
+                        <div class="flex gap-2">
+                            {% if mengubah %}
+                            <a href="{% url 'makanan:ubah_makanan' makanan.id %}"
+                                class="w-min h-min transition border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-2 px-[12px] sm:py-3 sm:px-[16px] rounded-full focus:outline-none focus:bg-[#4f9da6] focus:text-white">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </a>
+                            {% endif %}
+                            <a href="{% url 'favorit:add_to_favorites' 'makanan' makanan.id %}"
+                                class="w-min h-min transition border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-2 px-[12px] 
+                                      sm:py-3 sm:px-[16px] rounded-full focus:outline-none focus:bg-[#4f9da6] focus:text-white">
                                 <i class="fa-regular fa-heart"></i>
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <p class="mt-6 text-xl leading-8 text-gray-700">{{ makanan.deskripsi }}</p>
@@ -39,7 +50,7 @@
                             </span>
                             <span>
                                 <strong class="font-semibold text-gray-900">Harga: </strong>
-                                {{ makanan.harga }}
+                                Rp{{ makanan.harga|intcomma }}
                             </span>
                         </li>
                         <li class="flex gap-x-3">
@@ -68,9 +79,13 @@
                             </span>
                         </li>
                     </ul>
-                    <p class="mt-8">Makanan ini tersedia di restoran <a href="{% url 'restoran:detail' restoran.id %}"
-                            class="hover:underline">{{ restoran.nama }}</a>.</p>
-                    <a href="{% url 'restoran:detail' restoran.id %}">
+                    <p class="mt-8">
+                        Makanan ini tersedia di restoran
+                        <a href="{% url 'restoran:detail_restoran' restoran.id %}" class="hover:underline">
+                            {{ restoran.nama }}
+                        </a>
+                    </p>
+                    <a href="{% url 'restoran:detail_restoran' restoran.id %}">
                         <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-900">{{ restoran.nama }}</h2>
                     </a>
                     <ul role="list" class="mt-6 space-y-4 text-gray-600">

@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block meta %}
-<title>Rasa Palembang | Tambah Minuman</title>
+<title>Tambah Minuman | Rasa Palembang</title>
 {% endblock meta %}
 
 {% block content %}
 <main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
-    <h2 class="text-xl font-semibold">Tambah Minuman Baru</h2>
+    <h2 class="mt-8 text-xl font-semibold">Tambah Minuman Baru</h2>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="grid grid-cols-2 sm:gap-x-4 w-full">
