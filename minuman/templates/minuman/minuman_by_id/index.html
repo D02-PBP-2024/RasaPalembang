@@ -7,13 +7,16 @@
 {% block content %}
 <main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-10 w-full mx-auto">
     <div class="mx-auto grid grid-cols-1 gap-x-8 gap-y-8 lg:grid-cols-2 lg:items-start">
-        <div class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8">
+        <div
+            class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8">
             <div class="lg:pr-4">
                 <p class="text-base font-semibold leading-7 text-[#ff5757]">Minuman</p>
                 <div class="flex mt-2">
-                    <h1 class="w-full text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">{{ minuman.nama }}</h1>
+                    <h1 class="w-full text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+                        {{ minuman.nama }}</h1>
                     <div class="flex-none">
-                        <button class="border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-2 px-[12px] sm:py-3 sm:px-[16px] rounded-full focus:outline-none focus:bg-[#4f9da6] focus:text-white">
+                        <button
+                            class="border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-2 px-[12px] sm:py-3 sm:px-[16px] rounded-full focus:outline-none focus:bg-[#4f9da6] focus:text-white">
                             <i class="fa-regular fa-heart"></i>
                         </button>
                     </div>
@@ -22,9 +25,11 @@
             </div>
         </div>
         <div class="lg:-mt-3 lg:pt-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:max-w-xl">
-            <img class="w-full rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10" src="{{ minuman.gambar.url }}" alt="{{ minuman.nama }}">
+            <img class="w-full rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10" src="{{ minuman.gambar.url }}"
+                alt="{{ minuman.nama }}">
         </div>
-        <div class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8">
+        <div
+            class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8">
             <div class="lg:pr-4">
                 <div class="text-base leading-7 text-gray-700">
                     <ul role="list" class="space-y-4 text-gray-600">
@@ -32,22 +37,32 @@
                             <span class="h-5 w-5 flex-none text-[#4f9da6]">
                                 <i class="fa-solid fa-dollar-sign"></i>
                             </span>
-                            <span><strong class="font-semibold text-gray-900">Harga: </strong>Rp{{ minuman.harga|floatformat:0|intcomma }}</span>
+                            <span>
+                                <strong class="font-semibold text-gray-900">Harga: </strong>
+                                Rp{{ minuman.harga|floatformat:0|intcomma }}
+                            </span>
                         </li>
                         <li class="flex gap-x-3">
                             <span class="h-5 w-5 flex-none text-[#4f9da6]">
                                 <i class="fa-solid fa-martini-glass-citrus"></i>
                             </span>
-                            <span><strong class="font-semibold text-gray-900">Ukuran: </strong>{{ minuman.ukuran|title }}</span>
+                            <span>
+                                <strong class="font-semibold text-gray-900">Ukuran: </strong>
+                                {{ minuman.ukuran|title }}
+                            </span>
                         </li>
                         <li class="flex gap-x-3">
                             <span class="h-5 w-5 flex-none text-[#4f9da6]">
                                 <i class="fa-solid fa-cubes-stacked"></i>
                             </span>
-                            <span><strong class="font-semibold text-gray-900">Tingkat kemanisan: </strong>{{ minuman.tingkat_kemanisan }}%</span>
+                            <span>
+                                <strong class="font-semibold text-gray-900">Tingkat kemanisan: </strong>
+                                {{ minuman.tingkat_kemanisan }}%
+                            </span>
                         </li>
                     </ul>
-                    <p class="mt-8">Minuman ini tersedia di restoran <a href="{% url 'restoran:detail' restoran.id %}" class="hover:underline">{{ restoran.nama }}</a>.</p>
+                    <p class="mt-8">Minuman ini tersedia di restoran <a href="{% url 'restoran:detail' restoran.id %}"
+                            class="hover:underline">{{ restoran.nama }}</a>.</p>
                     <a href="{% url 'restoran:detail' restoran.id %}">
                         <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-900">{{ restoran.nama }}</h2>
                     </a>
@@ -56,19 +71,28 @@
                             <span class="h-5 w-5 flex-none text-[#4f9da6]">
                                 <i class="fa-solid fa-location-dot"></i>
                             </span>
-                            <span><strong class="font-semibold text-gray-900">Alamat: </strong>{{ restoran.alamat }}</span>
+                            <span>
+                                <strong class="font-semibold text-gray-900">Alamat: </strong>
+                                {{ restoran.alamat }}
+                            </span>
                         </li>
                         <li class="flex gap-x-3">
                             <span class="h-5 w-5 flex-none text-[#4f9da6]">
                                 <i class="fa-solid fa-phone"></i>
                             </span>
-                            <span><strong class="font-semibold text-gray-900">Telepon: </strong>{{ restoran.nomor_telepon }}</span>
+                            <span>
+                                <strong class="font-semibold text-gray-900">Telepon: </strong>
+                                {{ restoran.nomor_telepon }}
+                            </span>
                         </li>
                         <li class="flex gap-x-3">
                             <span class="h-5 w-5 flex-none text-[#4f9da6]">
                                 <i class="fa-solid fa-clock"></i>
                             </span>
-                            <span><strong class="font-semibold text-gray-900">Jam operasional: </strong>{{ restoran.jam_buka|date:"H:i" }} - {{ restoran.jam_tutup|date:"H:i" }}</span>
+                            <span>
+                                <strong class="font-semibold text-gray-900">Jam operasional: </strong>
+                                {{ restoran.jam_buka|date:"H:i" }} - {{ restoran.jam_tutup|date:"H:i" }}
+                            </span>
                         </li>
                     </ul>
                 </div>

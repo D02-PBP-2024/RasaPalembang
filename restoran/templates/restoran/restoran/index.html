@@ -6,7 +6,7 @@ Daftar Restoran
 {% endblock %}
 
 {% block content %}
-<div class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto min-h-screen">
+<div class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-10 w-full mx-auto min-h-screen">
     <h1 class="text-3xl font-bold text-center mb-10">Daftar Restoran</h1>
 
     {% if request.user.is_authenticated and request.user.peran == "pemilik_restoran" %}
@@ -19,8 +19,7 @@ Daftar Restoran
     {% endif %}
 
     <div class="flex justify-end mb-4">
-        <a href="?sort=rating" 
-        class="px-4 py-2 rounded-md text-sm font-semibold
+        <a href="?sort=rating" class="px-4 py-2 rounded-md text-sm font-semibold
         {% if sort_by == 'rating' %}
             bg-gray-500 text-white
         {% else %}
@@ -29,7 +28,7 @@ Daftar Restoran
             Sort by Rating
         </a>
     </div>
-    
+
     {% if page_obj %}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {% for item in page_obj %}
@@ -48,69 +47,69 @@ Daftar Restoran
                 <h2 class="text-lg font-semibold text-gray-700">{{ item.restoran.nama }}</h2>
                 <div class="flex items-center text-yellow-500">
                     {% if item.rata_bintang == 0 %}
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
                     {% else %}
-                        {% if item.rata_bintang >= 1 %}
-                            <i class="fas fa-star"></i>
-                        {% else %}
-                            {% if item.rata_bintang >= 0.5 %}
-                                <i class="fas fa-star-half-alt"></i>
-                            {% else %}  
-                                <i class="far fa-star"></i>
-                            {% endif %}
-                        {% endif %}
+                    {% if item.rata_bintang >= 1 %}
+                    <i class="fas fa-star"></i>
+                    {% else %}
+                    {% if item.rata_bintang >= 0.5 %}
+                    <i class="fas fa-star-half-alt"></i>
+                    {% else %}
+                    <i class="far fa-star"></i>
+                    {% endif %}
+                    {% endif %}
 
-                        {% if item.rata_bintang >= 2 %}
-                            <i class="fas fa-star"></i>
-                        {% else %}
-                            {% if item.rata_bintang >= 1.5 %}
-                                <i class="fas fa-star-half-alt"></i>
-                            {% else %}
-                                <i class="far fa-star"></i>
-                            {% endif %}
-                        {% endif %}
+                    {% if item.rata_bintang >= 2 %}
+                    <i class="fas fa-star"></i>
+                    {% else %}
+                    {% if item.rata_bintang >= 1.5 %}
+                    <i class="fas fa-star-half-alt"></i>
+                    {% else %}
+                    <i class="far fa-star"></i>
+                    {% endif %}
+                    {% endif %}
 
-                        {% if item.rata_bintang >= 3 %}
-                            <i class="fas fa-star"></i>
-                        {% else %}
-                            {% if item.rata_bintang >= 2.5 %}
-                                <i class="fas fa-star-half-alt"></i>
-                            {% else %}
-                                <i class="far fa-star"></i>
-                            {% endif %}
-                        {% endif %}
+                    {% if item.rata_bintang >= 3 %}
+                    <i class="fas fa-star"></i>
+                    {% else %}
+                    {% if item.rata_bintang >= 2.5 %}
+                    <i class="fas fa-star-half-alt"></i>
+                    {% else %}
+                    <i class="far fa-star"></i>
+                    {% endif %}
+                    {% endif %}
 
-                        {% if item.rata_bintang >= 4 %}
-                            <i class="fas fa-star"></i>
-                        {% else %}
-                            {% if item.rata_bintang >= 3.5 %}
-                                <i class="fas fa-star-half-alt"></i>
-                            {% else %}
-                                <i class="far fa-star"></i>
-                            {% endif %}
-                        {% endif %}
+                    {% if item.rata_bintang >= 4 %}
+                    <i class="fas fa-star"></i>
+                    {% else %}
+                    {% if item.rata_bintang >= 3.5 %}
+                    <i class="fas fa-star-half-alt"></i>
+                    {% else %}
+                    <i class="far fa-star"></i>
+                    {% endif %}
+                    {% endif %}
 
-                        {% if item.rata_bintang >= 5 %}
-                            <i class="fas fa-star"></i>
-                        {% else %}
-                            {% if item.rata_bintang >= 4.5 %}
-                                <i class="fas fa-star-half-alt"></i>
-                            {% else %}
-                                <i class="far fa-star"></i>
-                            {% endif %}
-                        {% endif %}
-                {% endif %}
+                    {% if item.rata_bintang >= 5 %}
+                    <i class="fas fa-star"></i>
+                    {% else %}
+                    {% if item.rata_bintang >= 4.5 %}
+                    <i class="fas fa-star-half-alt"></i>
+                    {% else %}
+                    <i class="far fa-star"></i>
+                    {% endif %}
+                    {% endif %}
+                    {% endif %}
                     <span class="ml-2 text-gray-500">({{ item.rata_bintang|floatformat:1 }}/5.0)</span>
                 </div>
-                    
+
                 <p class="text-gray-500 mt-1">
                     <i class="fas fa-clock mr-2"></i>
                     {{ item.jam_buka }} - {{ item.jam_tutup }}
-                    <span class="{% if item.status == 'Open now' %}text-green-500{% else %}text-red-500{% endif %}">
+                    <span class="{% if item.status == 'Buka' %}text-green-500{% else %}text-red-500{% endif %}">
                         {{ item.status }}
                     </span>
                 </p>
