@@ -6,6 +6,7 @@ from makanan.forms import MakananForm
 from restoran.models import Restoran
 from django.http import JsonResponse
 import json
+from django.utils.html import strip_tags
 
 
 def show_makanan(request):
@@ -36,6 +37,8 @@ def tambah_makanan(request):
         form = MakananForm(request.POST, request.FILES)
         if form.is_valid():
             makanan = form.save(commit=False)
+            makanan.nama = strip_tags(makanan.nama)
+            makanan.deskripsi = strip_tags(makanan.deskripsi)
             makanan.save()
             form.save_m2m()
             return redirect("makanan:show_makanan")
@@ -55,7 +58,13 @@ def detail_makanan(request, id):
     restoran = Restoran.objects.get(pk=makanan.restoran.id)
 
     context = {
-        "makanan": makanan,
+        "makanan": {
+            "nama": strip_tags(makanan.nama),
+            "deskripsi": strip_tags(makanan.deskripsi),
+            "gambar": makanan.gambar,
+            "harga": makanan.harga,
+            "kalori": makanan.kalori,
+        },
         "list_kategori": list_kategori,
         "restoran": restoran,
     }
@@ -78,7 +87,9 @@ def edit_makanan(request, id):
     form = MakananForm(request.POST or None, request.FILES or None, instance=makanan)
 
     if form.is_valid() and request.method == "POST":
-        form.save()  # Simpan gambar baru atau update field lainnya
+        makanan.nama = strip_tags(form.cleaned_data['nama'])
+        makanan.deskripsi = strip_tags(form.cleaned_data['deskripsi'])
+        makanan.save()
         return redirect("makanan:detail_makanan", id=id)
 
     context = {"form": form, "makanan": makanan, "restoran": restoran}
