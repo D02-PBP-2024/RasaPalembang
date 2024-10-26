@@ -8,7 +8,7 @@ from makanan.models import Makanan
 from minuman.models import Minuman
 from django.utils import timezone
 from ulasan.models import Ulasan
-from django.db.models import Avg
+from django.db.models import Avg, Min, Max, F
 from django.urls import reverse
 from .forms import RestoranForm
 from .models import Restoran
@@ -21,54 +21,85 @@ def get_gambar_url(item):
         else None
     )
 
-
 def get_restoran_status(jam_buka, jam_tutup, current_time):
     if jam_buka < jam_tutup:
         return "Buka" if jam_buka <= current_time <= jam_tutup else "Tutup"
     return "Buka" if current_time >= jam_buka or current_time <= jam_tutup else "Tutup"
 
+def get_harga_range(restoran):
+    makanan = Makanan.objects.filter(restoran=restoran)
+    minuman = Minuman.objects.filter(restoran=restoran)
+
+    if not makanan.exists() and not minuman.exists():
+        return "" 
+
+    avg_harga_makanan = makanan.aggregate(Avg('harga'))['harga__avg'] or 0
+    avg_harga_minuman = minuman.aggregate(Avg('harga'))['harga__avg'] or 0
+
+    avg_harga_tertinggi = max(avg_harga_makanan, avg_harga_minuman)
+
+    if avg_harga_tertinggi <= 20000:
+        return "$"     
+    elif avg_harga_tertinggi <= 40000:
+        return "$$"    
+    elif avg_harga_tertinggi <= 70000:
+        return "$$$"   
+    else:
+        return "$$$$"   
+    
+from django.db.models import Avg, F
 
 def restoran(request):
     current_time = timezone.localtime().time()
-    restoran_queryset = Restoran.objects.all()
-    restoran_list = []
-    sort_by = request.GET.get("sort", "default")
+    sort_by = request.GET.get('sort', 'default')
+    order = request.GET.get('order', 'asc')
 
-    for item in restoran_queryset:
+    restoran_list = Restoran.objects.annotate(
+        rata_bintang=Avg('ulasan__nilai'),
+        avg_harga=Avg(F('makanan__harga') + F('minuman__harga')) / 2
+    )
+
+    if sort_by == 'rating':
+        restoran_list = restoran_list.order_by('rata_bintang' if order == 'asc' else '-rata_bintang')
+    elif sort_by == 'harga':
+        restoran_list = sorted(
+            restoran_list, 
+            key=lambda x: get_harga_range(x),
+            reverse=(order == 'desc')
+        )
+    else:
+        restoran_list = restoran_list.order_by('nama')
+
+    restoran_data = []
+    for item in restoran_list:
         gambar_url = get_gambar_url(item)
         jam_buka = item.jam_buka
         jam_tutup = item.jam_tutup
-
-        ulasan = Ulasan.objects.filter(restoran=item)
-        rata_bintang = ulasan.aggregate(Avg("nilai"))["nilai__avg"] or 0
-
         status = get_restoran_status(jam_buka, jam_tutup, current_time)
+        ulasan_terbaik = Ulasan.objects.filter(restoran=item).order_by('-nilai')[:2]
 
-        restoran_list.append(
+        restoran_data.append(
             {
                 "restoran": item,
                 "gambar_url": gambar_url,
                 "status": status,
                 "jam_buka": jam_buka.strftime("%H:%M"),
                 "jam_tutup": jam_tutup.strftime("%H:%M"),
-                "rata_bintang": round(rata_bintang, 1),
-                "ulasan_terbaik": ulasan.order_by("-nilai")[:2],
+                "rata_bintang": round(item.rata_bintang or 0, 1),
+                "harga_range": get_harga_range(item),
+                "ulasan_terbaik": ulasan_terbaik,
             }
         )
 
-    if sort_by == "rating":
-        restoran_list.sort(key=lambda x: x["rata_bintang"], reverse=True)
-
-    paginator = Paginator(restoran_list, 10)
+    paginator = Paginator(restoran_data, 10)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
     return render(
         request,
         "restoran/restoran/index.html",
-        {"page_obj": page_obj, "sort_by": sort_by},
+        {"page_obj": page_obj, "sort_by": sort_by, 'order': order},
     )
-
 
 @login_required(login_url="/login")
 def tambah_restoran(request):

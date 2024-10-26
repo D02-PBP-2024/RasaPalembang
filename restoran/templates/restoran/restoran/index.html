@@ -19,16 +19,15 @@
     {% endif %}
 
     <div class="flex justify-end mb-4">
-        <a href="?sort=rating" class="px-4 py-2 rounded-md text-sm font-semibold
-        {% if sort_by == 'rating' %}
-            bg-gray-500 text-white
-        {% else %}
-            bg-gray-300 hover:bg-gray-400
-        {% endif %}">
-            Sort by Rating
-        </a>
+        <select id="sortSelect" class="px-4 py-2 rounded-md text-sm font-semibold bg-gray-300 hover:bg-gray-400">
+            <option value="default">Sort by</option>
+            <option value="rating_asc" {% if sort_by == 'rating' and order == 'asc' %}selected{% endif %}>Rating Terendah</option>
+            <option value="rating_desc" {% if sort_by == 'rating' and order == 'desc' %}selected{% endif %}>Rating Tertinggi</option>
+            <option value="harga_asc" {% if sort_by == 'harga' and order == 'asc' %}selected{% endif %}>Harga Terendah</option>
+            <option value="harga_desc" {% if sort_by == 'harga' and order == 'desc' %}selected{% endif %}>Harga Tertinggi</option>
+        </select>
     </div>
-
+    
     {% if page_obj %}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {% for item in page_obj %}
@@ -49,7 +48,12 @@
             </div>
 
             <div class="p-4">
-                <h2 class="text-lg font-semibold text-gray-700">{{ item.restoran.nama }}</h2>
+                <h2 class="text-lg font-semibold text-gray-700">{{ item.restoran.nama }}
+                    <span class="text-gray-500 mt-1">
+                        <span class="text-lg font-semibold">{{ item.harga_range }}</span>
+                    </span>
+                </h2>
+
                 <div class="flex items-center text-yellow-500">
                     {% if item.rata_bintang == 0 %}
                     <i class="far fa-star"></i>
@@ -167,3 +171,26 @@
     {% endif %}
 </div>
 {% endblock %}
+
+{% block script %}
+<script>
+    document.getElementById('sortSelect').addEventListener('change', function() {
+        const sortOption = this.value;
+        let newUrl = window.location.pathname + "?";
+        
+        if (sortOption === "rating_asc") {
+            newUrl += "sort=rating&order=asc";
+        } else if (sortOption === "rating_desc") {
+            newUrl += "sort=rating&order=desc";
+        } else if (sortOption === "harga_asc") {
+            newUrl += "sort=harga&order=asc";
+        } else if (sortOption === "harga_desc") {
+            newUrl += "sort=harga&order=desc";
+        } else {
+            newUrl += "sort=default";
+        }
+
+        window.location.href = newUrl;
+    });
+</script>
+{% endblock script %}
