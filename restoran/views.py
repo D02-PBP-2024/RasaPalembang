@@ -11,16 +11,25 @@ from ulasan.models import Ulasan
 from django.urls import reverse
 from .forms import RestoranForm
 from .models import Restoran
+from django.db.models import Avg
 
 
 def restoran(request):
     current_time = timezone.localtime().time()
     restoran_list = Restoran.objects.all()
     restoran_with_status = []
+    sort_by = request.GET.get('sort', 'default') 
 
     for restoran in restoran_list:
         jam_buka = restoran.jam_buka
         jam_tutup = restoran.jam_tutup
+
+        ulasan = Ulasan.objects.filter(restoran=restoran)
+        rata_bintang = 0
+        if ulasan.exists():
+            rata_bintang = ulasan.aggregate(Avg('nilai'))['nilai__avg']
+        else:
+            rata_bintang = 0 
 
         if jam_buka < jam_tutup:
             if jam_buka <= current_time <= jam_tutup:
@@ -39,19 +48,21 @@ def restoran(request):
                 "status": status,
                 "jam_buka": jam_buka.strftime("%H:%M"),
                 "jam_tutup": jam_tutup.strftime("%H:%M"),
+                "rata_bintang": round(rata_bintang, 1),
+                "ulasan_terbaik": ulasan.order_by('-nilai')[:2],  
             }
         )
-
+    if sort_by == 'rating':
+        restoran_with_status = sorted(restoran_with_status, key=lambda x: x['rata_bintang'], reverse=True)
     paginator = Paginator(restoran_with_status, 10)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
-    return render(request, "restoran/restoran/index.html", {"page_obj": page_obj})
+    return render(request, "restoran/restoran/index.html", {"page_obj": page_obj, "sort_by": sort_by})
 
 
 @login_required(login_url="/login")
 def tambah_restoran(request):
-    # Pastikan yang menambah restoran adalah user dengan role pemilik_restoran
     if request.user.peran != "pemilik_restoran":
         return redirect("restoran:restoran")
 
@@ -113,7 +124,6 @@ def lihat_restoran(request, id):
     jam_buka = restoran.jam_buka
     jam_tutup = restoran.jam_tutup
 
-    # Menghitung status buka/tutup
     if jam_buka < jam_tutup:
         if jam_buka <= current_time <= jam_tutup:
             status = "Buka"
