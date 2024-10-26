@@ -99,7 +99,7 @@ def delete_minuman(request, id):
 
 
 def show_minuman_by_sort(request):
-    order = request.GET.get('order', None)
+    order = request.GET.get("order", None)
 
     if order == "termurah":
         minuman = Minuman.objects.all().order_by("harga")
@@ -110,12 +110,14 @@ def show_minuman_by_sort(request):
 
     minuman_all = []
     for item in minuman:
-        minuman_all.append({
-            "id": item.id,
-            "nama": item.nama,
-            "harga": item.harga,
-            "restoran": item.restoran.nama,
-            "gambar": get_gambar_url(item),
-        })
+        minuman_all.append(
+            {
+                "id": item.id,
+                "nama": item.nama,
+                "harga": item.harga,
+                "restoran": item.restoran.nama,
+                "gambar": get_gambar_url(item),
+            }
+        )
 
-    return JsonResponse({'minuman': minuman_all})
+    return JsonResponse({"minuman": minuman_all})
