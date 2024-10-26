@@ -3,7 +3,7 @@
 {% load humanize %}
 
 {% block meta %}
-<title>RasaPalembang | {{ restoran.nama }}</title>
+<title>{{ restoran.nama }} | RasaPalembang</title>
 {% endblock meta %}
 
 {% block content %}
@@ -104,13 +104,10 @@
                 <div
                     class="border border-neutral-100 shadow-lg shadow-neutral-100 hover:shadow-neutral-200 rounded-xl transition">
                     <a href="{% url 'makanan:detail_makanan' item.id %}">
-                        <img src="{{ item.gambar.url }}" alt='{{ item.nama }}'
-                            class='rounded-lg w-full h-40 md:h-56 object-cover'>
+                        <img src='{{ item.gambar.url }}' alt='{{ item.nama }}' class='rounded-lg w-full h-40 md:h-56 object-cover'>
                         <div class="p-3 md:p-4">
                             <h1 class="md:text-lg font-bold">{{ item.nama }}</h1>
-                            <h1 class="text-neutral-500 max-md:text-sm font-semibold">
-                                Rp {{ item.harga|intcomma }}
-                            </h1>
+                            <h1 class="text-neutral-500 max-md:text-sm font-semibold">Rp{{ item.harga|intcomma }}</h1>
                         </div>
                     </a>
                 </div>
@@ -119,13 +116,11 @@
                 <div
                     class="border border-neutral-100 shadow-lg shadow-neutral-100 hover:shadow-neutral-200 rounded-xl transition">
                     <a href="{% url 'minuman:show_minuman_by_id' item.id %}">
-                        <img src="{{ item.gambar.url }}" alt='{{ item.nama }}'
+                        <img src='{{ item.gambar.url }}' alt='{{ item.nama }}'
                             class='rounded-lg w-full h-40 md:h-56 object-cover'>
                         <div class="p-3 md:p-4">
                             <h1 class="md:text-lg font-bold">{{ item.nama }}</h1>
-                            <h1 class="text-neutral-500 max-md:text-sm font-semibold">
-                                Rp {{ item.harga|intcomma }}
-                            </h1>
+                            <h1 class="text-neutral-500 max-md:text-sm font-semibold">Rp {{ item.harga|intcomma }}</h1>
                         </div>
                     </a>
                 </div>
@@ -347,62 +342,51 @@
         button.classList.add('hidden')
     }
 
-
-    const addModal = document.getElementById('addReviewModal')
-    const addModalContent = document.getElementById('addReviewModalContent')
-
     function showAddModal() {
-        addModal.classList.remove('hidden')
+        const modal = document.getElementById('addReviewModal')
+        const modalContent = document.getElementById('addReviewModalContent')
+
+        modal.classList.remove('hidden')
         setTimeout(() => {
-            addModalContent.classList.remove('opacity-0', 'scale-95')
-            addModalContent.classList.add('opacity-100', 'scale-100')
+            modalContent.classList.remove('opacity-0', 'scale-95')
+            modalContent.classList.add('opacity-100', 'scale-100')
         }, 50)
     }
 
     function hideAddModal() {
-        addModalContent.classList.remove('opacity-100', 'scale-100')
-        addModalContent.classList.add('opacity-0', 'scale-95')
+        const modal = document.getElementById('addReviewModal')
+        const modalContent = document.getElementById('addReviewModalContent')
+
+        modalContent.classList.remove('opacity-100', 'scale-100')
+        modalContent.classList.add('opacity-0', 'scale-95')
 
         setTimeout(() => {
-            addModal.classList.add('hidden')
+            modal.classList.add('hidden')
         }, 150)
     }
 
-    const editModal = document.getElementById('editReviewModal')
-    const editModalContent = document.getElementById('editReviewModalodalContent')
-
     function showEditModal() {
-        editModal.classList.remove('hidden')
+        const modal = document.getElementById('editReviewModal')
+        const modalContent = document.getElementById('editReviewModalodalContent')
+
+        modal.classList.remove('hidden')
         setTimeout(() => {
-            editModalContent.classList.remove('opacity-0', 'scale-95')
-            editModalContent.classList.add('opacity-100', 'scale-100')
+            modalContent.classList.remove('opacity-0', 'scale-95')
+            modalContent.classList.add('opacity-100', 'scale-100')
         }, 50)
     }
 
     function hideEditModal() {
-        editModalContent.classList.remove('opacity-100', 'scale-100')
-        editModalContent.classList.add('opacity-0', 'scale-95')
+        const modal = document.getElementById('editReviewModal')
+        const modalContent = document.getElementById('editReviewModalodalContent')
+
+        modalContent.classList.remove('opacity-100', 'scale-100')
+        modalContent.classList.add('opacity-0', 'scale-95')
 
         setTimeout(() => {
-            editModal.classList.add('hidden')
+            modal.classList.add('hidden')
         }, 150)
     }
-
-    window.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' && !addModal.classList.contains('hidden')) {
-            hideAddModal()
-        } else if (event.key === 'Escape' && !editModal.classList.contains('hidden')) {
-            hideEditModal()
-        }
-    })
-
-    window.addEventListener('click', function (event) {
-        if (event.target === addModal && !addModal.classList.contains('hidden')) {
-            hideAddModal()
-        } else if (event.target === editModal && !editModal.classList.contains('hidden')) {
-            hideEditModal()
-        }
-    })
 
     document.getElementById('cancelReviewButton').addEventListener('click', hideAddModal)
     document.getElementById('closeAddReviewModalButton').addEventListener('click', hideAddModal)
