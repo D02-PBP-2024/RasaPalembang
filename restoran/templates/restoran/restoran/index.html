@@ -18,6 +18,18 @@ Daftar Restoran
     </div>
     {% endif %}
 
+    <div class="flex justify-end mb-4">
+        <a href="?sort=rating" 
+        class="px-4 py-2 rounded-md text-sm font-semibold
+        {% if sort_by == 'rating' %}
+            bg-gray-500 text-white
+        {% else %}
+            bg-gray-300 hover:bg-gray-400
+        {% endif %}">
+            Sort by Rating
+        </a>
+    </div>
+    
     {% if page_obj %}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {% for item in page_obj %}
@@ -34,57 +46,67 @@ Daftar Restoran
 
             <div class="p-4">
                 <h2 class="text-lg font-semibold text-gray-700">{{ item.restoran.nama }}</h2>
-
                 <div class="flex items-center text-yellow-500">
-                    {% if item.rata_bintang >= 1 %}
-                    <i class="fas fa-star"></i>
+                    {% if item.rata_bintang == 0 %}
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
                     {% else %}
-                    {% if item.rata_bintang >= 0.5 %}
-                    <i class="fas fa-star-half-alt"></i>
-                    {% else %}
-                    <i class="far fa-star"></i>
-                    {% endif %}
-                    {% endif %}
-                    {% if item.rata_bintang >= 2 %}
-                    <i class="fas fa-star"></i>
-                    {% else %}
-                    {% if item.rata_bintang >= 1.5 %}
-                    <i class="fas fa-star-half-alt"></i>
-                    {% else %}
-                    <i class="far fa-star"></i>
-                    {% endif %}
-                    {% endif %}
-                    {% if item.rata_bintang >= 3 %}
-                    <i class="fas fa-star"></i>
-                    {% else %}
-                    {% if item.rata_bintang >= 2.5 %}
-                    <i class="fas fa-star-half-alt"></i>
-                    {% else %}
-                    <i class="far fa-star"></i>
-                    {% endif %}
-                    {% endif %}
-                    {% if item.rata_bintang >= 4 %}
-                    <i class="fas fa-star"></i>
-                    {% else %}
-                    {% if item.rata_bintang >= 3.5 %}
-                    <i class="fas fa-star-half-alt"></i>
-                    {% else %}
-                    <i class="far fa-star"></i>
-                    {% endif %}
-                    {% endif %}
-                    {% if item.rata_bintang >= 5 %}
-                    <i class="fas fa-star"></i>
-                    {% else %}
-                    {% if item.rata_bintang >= 4.5 %}
-                    <i class="fas fa-star-half-alt"></i>
-                    {% else %}
-                    <i class="far fa-star"></i>
-                    {% endif %}
-                    {% endif %}
+                        {% if item.rata_bintang >= 1 %}
+                            <i class="fas fa-star"></i>
+                        {% else %}
+                            {% if item.rata_bintang >= 0.5 %}
+                                <i class="fas fa-star-half-alt"></i>
+                            {% else %}  
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endif %}
 
+                        {% if item.rata_bintang >= 2 %}
+                            <i class="fas fa-star"></i>
+                        {% else %}
+                            {% if item.rata_bintang >= 1.5 %}
+                                <i class="fas fa-star-half-alt"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endif %}
+
+                        {% if item.rata_bintang >= 3 %}
+                            <i class="fas fa-star"></i>
+                        {% else %}
+                            {% if item.rata_bintang >= 2.5 %}
+                                <i class="fas fa-star-half-alt"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endif %}
+
+                        {% if item.rata_bintang >= 4 %}
+                            <i class="fas fa-star"></i>
+                        {% else %}
+                            {% if item.rata_bintang >= 3.5 %}
+                                <i class="fas fa-star-half-alt"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endif %}
+
+                        {% if item.rata_bintang >= 5 %}
+                            <i class="fas fa-star"></i>
+                        {% else %}
+                            {% if item.rata_bintang >= 4.5 %}
+                                <i class="fas fa-star-half-alt"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endif %}
+                {% endif %}
                     <span class="ml-2 text-gray-500">({{ item.rata_bintang|floatformat:1 }}/5.0)</span>
                 </div>
-
+                    
                 <p class="text-gray-500 mt-1">
                     <i class="fas fa-clock mr-2"></i>
                     {{ item.jam_buka }} - {{ item.jam_tutup }}
@@ -127,7 +149,17 @@ Daftar Restoran
         </div>
     </div>
     {% else %}
-    <p class="text-center text-gray-500">Belum ada restoran yang ditambahkan.</p>
+    <div class="px-3 sm:px-6 py-16 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14">
+        <div>
+            <img src="{% static 'images/empty-restoran.png' %}" class="max-w-24 md:max-w-32">
+        </div>
+        <div>
+            <h1 class="text-center text-xl md:text-2xl font-bold">Belum ada restoran yang tersedia</h1>
+            <p class="text-center text-gray-900 max-md:text-sm max-md:mt-2">
+                Segera kembali, berbagai restoran menarik akan segera hadir!
+            </p>
+        </div>
+    </div>
     {% endif %}
 </div>
 {% endblock %}
