@@ -1,31 +1,8 @@
 {% extends 'base.html' %}
-{% load widget_tweaks %}
 
 {% block meta %}
 <title>RasaPalembang | Tambah Makanan</title>
 <style>
-    /* Animasi untuk progress bar */
-    .progress-bar {
-        width: 0;
-        height: 4px;
-        background-color: #4f9da6;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 50;
-        animation: load 3s ease-out forwards;
-    }
-
-    @keyframes load {
-        0% {
-            width: 0;
-        }
-
-        100% {
-            width: 100%;
-        }
-    }
-
     /* Styling untuk layout form */
     .form-container {
         display: grid;
@@ -118,21 +95,26 @@
             <div class="grid grid-cols-2 sm:gap-x-4 w-full">
                 <div class="mt-4 col-span-2 sm:col-span-1">
                     <label class="text-sm pl-3" for="nama">Nama Makanan</label>
-                    {{ form.nama|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
+                    <input type="text" name="nama" maxlength="255" required="" id="nama" placeholder="Masukkan nama makanan"
+                    class="w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">
                 </div>
                 <div class="mt-4 col-span-2 sm:col-span-1">
                     <label class="text-sm pl-3" for="harga">Harga</label>
-                    {{ form.harga|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
+                    <input type="number" name="harga" required="" id="harga" placeholder="Masukkan harga makanan"
+                    class="w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">
                 </div>
             </div>
             <div class="mt-4">
                 <label class="text-sm pl-3" for="deskripsi">Deskripsi</label>
-                {{ form.deskripsi|add_class:"w-full resize-none h-36 mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
+                <textarea name="deskripsi" required="" id="deskripsi" placeholder="Masukkan deskripsi makanan"
+                    class="w-full resize-none h-36 mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]"></textarea>
             </div>
             <div class="grid grid-cols-2 sm:gap-x-4 w-full">
                 <div class="mt-4 col-span-2 sm:col-span-1">
                     <label class="text-sm pl-3" for="kalori">Kalori</label>
-                    {{ form.kalori|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
+                    <input type="number" name="kalori" required="" id="kalori"
+                    placeholder="Masukkan kalori dari makanan"
+                    class="w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">
                 </div>
                 <div class="mt-4 col-span-2 sm:col-span-1">
                     <label class="text-sm pl-3" for="gambar">Gambar</label>
@@ -140,20 +122,28 @@
                         <label for="id_gambar"
                             class="w-full overflow-hidden relative cursor-pointer bg-gray-100 rounded font-medium text-[#4f9da6] hover:text-[#3b747a] px-4 py-3.5 text-center focus-visible:outline-[#4f9da6]">
                             <span id="gambar-file">Upload gambar</span>
-                            {{ form.gambar|add_class:"sr-only" }}
+                            <input type="file" name="gambar" accept="image/*" required="" id="id_gambar" class="sr-only">
                         </label>
                     </div>
                 </div>
                 <div class="mt-4 col-span-2 sm:col-span-1">
                     <label class="text-sm pl-3" for="restoran">Restoran</label>
-                    {{ form.restoran|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
+                    <select name="restoran" required="" id="restoran"
+                        class="w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">
+                        <option value="" selected="">Pilih restoran</option>
+                        {% if restoran %}
+                            {% for item in restoran %}
+                                <option value="{{ item.id }}">{{ item.nama }}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </select>
                 </div>
                 <div class="mt-4 col-span-2 sm:col-span-1">
                     <label class="text-sm pl-3">Kategori</label>
                     <div class="chips-wrapper mt-2">
                         {% for kategori in form.kategori.field.queryset %}
-                        <span class="chip" data-id="{{ kategori.id }}">{{ kategori.nama }}</span>
-                        <input type="checkbox" name="kategori" value="{{ kategori.id }}" class="hidden-input">
+                            <span class="chip" data-id="{{ kategori.id }}">{{ kategori.nama }}</span>
+                            <input type="checkbox" name="kategori" value="{{ kategori.id }}" class="hidden-input">
                         {% endfor %}
                     </div>
                 </div>

@@ -107,7 +107,7 @@
     applyFilter.addEventListener('click', function () {
         dropdownMenu.classList.toggle('hidden')
         // AJAX request to filter makanan tanpa mengubah URL
-        fetch('/makanan/filter_makanan_by_kategori/', {
+        fetch('/makanan/filter_by_kategori/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
