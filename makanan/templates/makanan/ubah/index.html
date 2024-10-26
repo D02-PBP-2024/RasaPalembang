@@ -32,23 +32,34 @@
             <div class="mt-4 col-span-2 sm:col-span-1">
                 <label class="text-sm pl-3" for="gambar">Gambar</label>
                 <div class="mt-2 flex items-center">
-                    <label for="id_gambar"
+                    <label for="gambar"
                         class="w-full overflow-hidden relative cursor-pointer bg-gray-100 rounded font-medium text-[#4f9da6] hover:text-[#3b747a] px-4 py-3.5 text-center focus-visible:outline-[#4f9da6]">
-                        <span id="gambar-file">Upload gambar</span>
-                        {{ form.gambar|add_class:"sr-only" }}
+                        <span id="gambar-file">{{ makanan.gambar }}</span>
+                        <input id="id_gambar" name="gambar" type="file" class="sr-only">
                     </label>
                 </div>
             </div>
             <div class="mt-4 col-span-2 sm:col-span-1">
                 <label class="text-sm pl-3" for="restoran">Restoran</label>
-                {{ form.restoran|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
+                <select name="restoran" required="" id="restoran"
+                    class="w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">
+                    {% if restoran %}
+                    {% for item in restoran %}
+                    <option value="{{ item.id }}">{{ item.nama }}</option>
+                    {% endfor %}
+                    {% endif %}
+                </select>
             </div>
             <div class="mt-4 col-span-2 sm:col-span-1">
                 <label class="text-sm pl-3">Kategori</label>
-                <div class="chips-wrapper mt-2">
+                <div class="flex flex-wrap gap-2 mt-2">
                     {% for kategori in form.kategori.field.queryset %}
-                    <span class="chip" data-id="{{ kategori.id }}">{{ kategori.nama }}</span>
-                    <input type="checkbox" name="kategori" value="{{ kategori.id }}" class="hidden-input">
+                    <div class="{% if kategori in selected_kategori %} bg-[#eb4b4b] text-white {% else %} bg-neutral-200/80 {% endif %} font-semibold rounded-full px-4 md:px-5 py-1 md:py-1.5 text-xs md:text-sm cursor-pointer select-none"
+                        onclick="selectCategory(this, '{{ kategori.id }}')">
+                        {{ kategori.nama }}
+                    </div>
+                    <input type="checkbox" name="kategori" value="{{ kategori.id }}" class="hidden"
+                        id="checkbox-{{ kategori.id }}">
                     {% endfor %}
                 </div>
             </div>
@@ -61,19 +72,28 @@
     </form>
 </main>
 <script>
-    var gambarUpload = document.getElementById('id_gambar');
-    var gambarFile = document.getElementById('gambar-file');
+    var gambarUpload = document.getElementById('id_gambar')
+    var gambarFile = document.getElementById('gambar-file')
     gambarUpload.addEventListener('change', function () {
-        gambarFile.innerText = gambarUpload.files[0].name;
-    });
+        gambarFile.innerText = gambarUpload.files[0].name
+    })
 
-    // JS untuk handle chips selection
-    document.querySelectorAll('.chip').forEach(function (chip) {
-        chip.addEventListener('click', function () {
-            const input = this.nextElementSibling;  // Menghubungkan dengan input checkbox di sebelahnya
-            this.classList.toggle('active');  // Toggle class active (highlight chip)
-            input.checked = !input.checked;  // Toggle checkbox state
-        });
-    });
+    const selected_category_id = '{% for kategori in selected_kategori %}{{ kategori.id }},{% endfor %}'.split(',')
+    selected_category_id.pop()
+
+    function refreshCategory() {
+        selected_category_id.map(category_id => {
+            document.getElementById(`checkbox-${category_id}`).checked = true;
+        })
+    }
+    refreshCategory()
+
+    function selectCategory(button, kategoriId) {
+        const checkbox = document.getElementById(`checkbox-${kategoriId}`)
+        checkbox.checked = !checkbox.checked
+        button.classList.toggle('bg-[#eb4b4b]', checkbox.checked)
+        button.classList.toggle('text-white', checkbox.checked)
+        button.classList.toggle('bg-neutral-200/80', !checkbox.checked)
+    }
 </script>
 {% endblock content %}
