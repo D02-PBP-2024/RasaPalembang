@@ -7,7 +7,7 @@
 {% endblock meta %}
 
 {% block content %}
-<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-10 w-full mx-auto">
+<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
     {% if minuman %}
     <div class="flex overflow-x-auto space-x-2">
         <button id="all" class="flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-[#4f9da6] text-white">
@@ -42,34 +42,34 @@
     {% endif %}
 </main>
 <script>
-    var allButton = document.getElementById('all');
-    var cheapButton = document.getElementById('cheap');
-    var expensiveButton = document.getElementById('expensive');
-    var minumanList = document.getElementById('minumanList');
+    var allButton = document.getElementById('all')
+    var cheapButton = document.getElementById('cheap')
+    var expensiveButton = document.getElementById('expensive')
+    var minumanList = document.getElementById('minumanList')
 
     allButton.addEventListener('click', function () {
-        allButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-[#4f9da6] text-white';
-        cheapButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300';
-        expensiveButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300';
-        refreshMinuman('all');
-    });
+        allButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-[#4f9da6] text-white'
+        cheapButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300'
+        expensiveButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300'
+        refreshMinuman('all')
+    })
 
     cheapButton.addEventListener('click', function () {
-        allButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300';
-        cheapButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-[#4f9da6] text-white';
-        expensiveButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300';
-        refreshMinuman('termurah');
-    });
+        allButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300'
+        cheapButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-[#4f9da6] text-white'
+        expensiveButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300'
+        refreshMinuman('termurah')
+    })
 
     expensiveButton.addEventListener('click', function () {
-        allButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300';
-        cheapButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300';
-        expensiveButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-[#4f9da6] text-white';
-        refreshMinuman('termahal');
-    });
+        allButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300'
+        cheapButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300'
+        expensiveButton.className = 'flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-[#4f9da6] text-white'
+        refreshMinuman('termahal')
+    })
 
     function numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     }
 
     function refreshMinuman(order) {
@@ -79,7 +79,7 @@
                 minumanList.innerHTML = ''
                 data.minuman.forEach(item => {
                     minumanList.innerHTML += `
-                    <div>
+                    <div class="py-2">
                         <a href="${item.id}"
                            class="hover:brightness-110 transition duration-300">
                             <img src="${item.gambar}" alt="${item.nama}" class="w-full h-36 md:h-64 object-cover rounded-lg">
@@ -100,8 +100,8 @@
                         </a>
                     </div>
                     `
-                });
-            });
+                })
+            })
     }
 </script>
 {% endblock content %}
