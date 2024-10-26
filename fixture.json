@@ -67,7 +67,7 @@
         "pk": "d0e880e2-1a14-472a-9f51-4ef158091383",
         "fields": {
             "nama": "Pempek Kapal Selam",
-            "harga": "20000.00",
+            "harga": "20000",
             "deskripsi": "Pempek dengan isian telur di dalamnya, disajikan dengan kuah cuka yang segar.",
             "gambar": "gambar_makanan/71b61210-b7e9-4334-b966-4a035a199a76.jpg",
             "kalori": 80,
@@ -82,7 +82,7 @@
         "pk": "d758afc4-0162-4e1b-9490-cad603b5cf2a",
         "fields": {
             "nama": "Pempek Lenjer",
-            "harga": "15000.00",
+            "harga": "15000",
             "deskripsi": "Pempek panjang yang kenyal, cocok disajikan dengan cuka pempek.",
             "gambar": "gambar_makanan/f4709b47-b2e2-431e-b18b-d67b90a4663f.jpg",
             "kalori": 90,
@@ -97,7 +97,7 @@
         "pk": "76953b87-9d78-46b5-95b0-e0e3436e5cb3",
         "fields": {
             "nama": "Pempek Adaan",
-            "harga": "18000.00",
+            "harga": "18000",
             "deskripsi": "Pempek bulat yang diisi dengan ikan, digoreng hingga kecokelatan.",
             "gambar": "gambar_makanan/319d80c7-8899-4c73-b059-04f2fa12650b.jpg",
             "kalori": 100,
@@ -112,7 +112,7 @@
         "pk": "93476871-5070-45c2-971b-96bd02f162e1",
         "fields": {
             "nama": "Pempek Pistel",
-            "harga": "22000.00",
+            "harga": "22000",
             "deskripsi": "Pempek dengan isian sayuran dan sambal, unik dan lezat.",
             "gambar": "gambar_makanan/7ffe0065-f929-401b-a9b3-2b726955c43e.jpg",
             "kalori": 85,
@@ -127,7 +127,7 @@
         "pk": "fdcfb875-1f17-4c66-962a-0ac9afa8517b",
         "fields": {
             "nama": "Pempek Kulit",
-            "harga": "25000.00",
+            "harga": "25000",
             "deskripsi": "Pempek yang terbuat dari kulit ikan, gurih dan renyah.",
             "gambar": "gambar_makanan/acba64be-0c02-4e16-8953-799db7d6d3f8.jpeg",
             "kalori": 110,
@@ -142,7 +142,7 @@
         "pk": "52aad79b-167a-487b-8056-940cc3d0c0c2",
         "fields": {
             "nama": "Tsukune Nokke Sushi",
-            "harga": "68000.00",
+            "harga": "68000",
             "deskripsi": "Tsukune Nokke Sushi adalah hidangan sushi yang unik, menggabungkan bola daging ayam (tsukune) yang dibumbui dengan nasi sushi. Disajikan dengan saus tare yang manis dan hiasan wijen atau bawang hijau, hidangan ini menawarkan perpaduan rasa gurih dan tekstur yang kenyal, cocok sebagai camilan atau hidangan utama.",
             "gambar": "gambar_makanan/691d850c-dd91-4ee9-b7b0-0f921c9ba780.jpg",
             "kalori": 80,
@@ -157,7 +157,7 @@
         "pk": "0c174f6a-f814-45da-bc40-bc47aa5fd3d2",
         "fields": {
             "nama": "Choco Orenji Taruto",
-            "harga": "39000.00",
+            "harga": "39000",
             "deskripsi": "Choco Orenji Taruto adalah dessert lezat yang menggabungkan rasa cokelat yang kaya dengan aroma jeruk yang segar. Hidangan ini disajikan dalam bentuk kue tar yang lembut, dilapisi dengan krim manis, sempurna untuk memanjakan lidah Anda.",
             "gambar": "gambar_makanan/60c0304d-2938-445b-b213-189927d78a3b.jpg",
             "kalori": 250,
@@ -172,7 +172,7 @@
         "pk": "05a985d4-db3c-4faa-80b9-cf9024d761f1",
         "fields": {
             "nama": "Salmon Katsu Curry",
-            "harga": "69000.00",
+            "harga": "69000",
             "deskripsi": "Salmon Katsu Curry adalah paduan sempurna antara salmon yang digoreng crispy dan saus kari yang kaya rempah. Hidangan ini disajikan dengan nasi hangat, menjadikannya pilihan yang memuaskan untuk pecinta makanan Jepang.",
             "gambar": "gambar_makanan/60ea27b6-f07f-4144-9d02-fd3dc7f208e6.jpg",
             "kalori": 500,
@@ -188,7 +188,7 @@
         "pk": "1ca549ce-0bcc-47e6-9f18-e42b245cbb05",
         "fields": {
             "nama": "Salmon Karamayo Tamago",
-            "harga": "32000.00",
+            "harga": "32000",
             "deskripsi": "Salmon Karamayo Tamago adalah hidangan yang memadukan salmon yang lembut dengan telur dadar Jepang yang fluffy dan saus karamayo. Hidangan ini menyajikan rasa yang creamy dan memuaskan, cocok untuk brunch.",
             "gambar": "gambar_makanan/80c45049-f1ec-4c5f-81eb-d83f2ac7fa4e.jpg",
             "kalori": 300,
@@ -204,7 +204,7 @@
         "pk": "fb837090-876e-41e0-8224-d75ae5ad219a",
         "fields": {
             "nama": "Wakame Salad",
-            "harga": "61000.00",
+            "harga": "61000",
             "deskripsi": "Wakame Salad adalah salad segar yang terbuat dari rumput laut wakame, dicampur dengan sayuran segar dan dressing khusus. Hidangan ini menawarkan rasa umami yang lezat, serta kaya akan nutrisi.",
             "gambar": "gambar_makanan/4a745734-4d9b-493b-a629-65d06f9cb2af.jpg",
             "kalori": 150,
@@ -220,7 +220,7 @@
         "pk": "34ec0d42-4a26-4423-abbd-57ccdb1465dc",
         "fields": {
             "nama": "Pempek Panggang",
-            "harga": "17500.00",
+            "harga": "17500",
             "deskripsi": "Pempek Panggang adalah variasi dari pempek khas Palembang, biasanya berbentuk bulat atau lonjong dan dipanggang alih-alih digoreng. Setelah pempek matang, biasanya diisi dengan campuran ebi (udang kering), sambal, dan kadang sedikit kecap, memberikan rasa gurih dan pedas. Pempek panggang memiliki tekstur renyah di luar dan empuk di dalam, dengan rasa ikan yang khas.",
             "gambar": "gambar_makanan/4779532a-bb27-45cd-91fd-3f3245b0accd.jpg",
             "kalori": 250,
@@ -236,7 +236,7 @@
         "pk": "6f579f80-a727-42ff-bbe6-da9eb5ca4012",
         "fields": {
             "nama": "Srikayo",
-            "harga": "17500.00",
+            "harga": "17500",
             "deskripsi": "Srikayo adalah hidangan penutup tradisional dari Palembang, Sumatra Selatan, yang terkenal dengan rasa manis dan teksturnya yang lembut. Kue ini dibuat dari bahan dasar santan, telur, gula, dan daun pandan yang memberikan aroma harum khas. Srikayo memiliki warna hijau alami dari daun pandan atau daun suji dan biasanya disajikan dalam potongan kecil sebagai makanan penutup atau camilan manis.",
             "gambar": "gambar_makanan/c2f15846-3f00-46ba-ad60-38c4204ae97d.jpg",
             "kalori": 150,
@@ -251,7 +251,7 @@
         "pk": "d10b46a5-30ec-4475-98dc-e5945e5976f3",
         "fields": {
             "nama": "Lenggang",
-            "harga": "11000.00",
+            "harga": "11000",
             "deskripsi": "Lenggang adalah hidangan khas Palembang yang terdiri dari pempek lenjer dicampur telur, kemudian dipanggang atau digoreng dan disajikan dengan saus cuko.",
             "gambar": "gambar_makanan/2916c47d-d174-48fe-a899-3f8e8511a4e5.jpg",
             "kalori": 225,
@@ -266,7 +266,7 @@
         "pk": "280b51bf-31a9-4a06-9fbe-2c92100e4004",
         "fields": {
             "nama": "Pempek Crispy",
-            "harga": "11000.00",
+            "harga": "11000",
             "deskripsi": "Pempek Crispy adalah varian pempek yang digoreng hingga garing dan renyah, biasanya disajikan dengan saus cuko khas Palembang.",
             "gambar": "gambar_makanan/016a11d8-8855-47c0-a7e0-b347c27a5c8a.jpg",
             "kalori": 280,
@@ -281,7 +281,7 @@
         "pk": "58f60cbe-7be8-4249-876c-fab44b830fe5",
         "fields": {
             "nama": "Tekwan",
-            "harga": "10000.00",
+            "harga": "10000",
             "deskripsi": "Tekwan adalah sup khas Palembang yang terdiri dari bakso ikan tenggiri kecil, jamur kuping, bengkuang, dan soun, disajikan dalam kuah kaldu udang yang gurih.",
             "gambar": "gambar_makanan/f69d77d4-6256-4883-b0a8-8adb731449f4.jpg",
             "kalori": 190,
@@ -297,7 +297,7 @@
         "pk": "cb54481c-e553-48e4-b46a-52549610abd1",
         "fields": {
             "nama": "Pizza Meat Lover",
-            "harga": "80000.00",
+            "harga": "80000",
             "deskripsi": "Pizza Meat Lover adalah jenis pizza yang dipenuhi dengan berbagai daging seperti sosis, pepperoni, daging sapi cincang, dan terkadang tambahan bacon, disajikan di atas saus tomat dan keju leleh.",
             "gambar": "gambar_makanan/6f890c14-822c-45b4-b7fd-aa472c9275eb.jpg",
             "kalori": 300,
@@ -312,7 +312,7 @@
         "pk": "a9c35199-f1e3-42e9-8b97-f396f7d11a3d",
         "fields": {
             "nama": "Onion Ring",
-            "harga": "25000.00",
+            "harga": "25000",
             "deskripsi": "Onion Ring adalah camilan berbentuk cincin dari irisan bawang bombay yang dilapisi tepung dan digoreng hingga renyah, sering disajikan dengan saus cocol.",
             "gambar": "gambar_makanan/891f004a-1766-4dfd-b1a1-8cf845397fed.jpg",
             "kalori": 220,
@@ -327,7 +327,7 @@
         "pk": "94e3a72f-9af0-459c-a3bc-8dbca1bcd3d2",
         "fields": {
             "nama": "Jamur Crispy",
-            "harga": "30000.00",
+            "harga": "30000",
             "deskripsi": "Jamur Crispy adalah camilan renyah yang terbuat dari jamur, biasanya jamur shiitake atau jamur tiram, yang dilapisi tepung bumbu dan digoreng hingga garing.",
             "gambar": "gambar_makanan/09565260-80c4-45e7-b6b4-c87877c4a1aa.jpg",
             "kalori": 320,
@@ -342,7 +342,7 @@
         "pk": "a0df4290-5349-47b6-9f6c-e267661c2cca",
         "fields": {
             "nama": "Bruschetta",
-            "harga": "25000.00",
+            "harga": "25000",
             "deskripsi": "Bruschetta adalah hidangan pembuka asal Italia yang terdiri dari irisan roti panggang yang biasanya di atasnya diberi campuran tomat segar, bawang putih, basil, dan minyak zaitun.",
             "gambar": "gambar_makanan/0df4cac4-9b6a-415b-86ef-5ef5d49e3fa7.jpg",
             "kalori": 225,
@@ -358,7 +358,7 @@
         "pk": "77cc35f9-6633-45e5-9e6e-d3869b3c4883",
         "fields": {
             "nama": "Panna Cotta",
-            "harga": "25000.00",
+            "harga": "25000",
             "deskripsi": "Panna Cotta adalah hidangan penutup asal Italia yang terbuat dari krim, gula, dan gelatin. Hidangan ini biasanya disajikan dingin dan sering kali diberi saus buah atau karamel.",
             "gambar": "gambar_makanan/c6dbb8d0-b9dc-4699-a54d-be5b0d11573c.jpg",
             "kalori": 270,
@@ -373,7 +373,7 @@
         "pk": "cfc72651-5f3c-4aee-ad07-60992dc08130",
         "fields": {
             "nama": "Nasi Goreng Pete",
-            "harga": "40000.00",
+            "harga": "40000",
             "deskripsi": "Nasi Goreng Pete adalah hidangan nasi goreng khas Indonesia yang dicampur dengan pete (jengkol), telur, dan berbagai sayuran, memberikan rasa yang khas dan sedikit pedas.",
             "gambar": "gambar_makanan/5be90fc0-7e67-41c9-9682-5a159e96f215.jpg",
             "kalori": 400,
@@ -388,7 +388,7 @@
         "pk": "10355d22-b2fd-4418-a8c0-da386dbae255",
         "fields": {
             "nama": "Puyunghai",
-            "harga": "45000.00",
+            "harga": "45000",
             "deskripsi": "Puyunghai adalah hidangan khas Tionghoa yang terbuat dari campuran daging ayam atau udang yang dibalut dengan telur, kemudian digoreng hingga kecokelatan. Biasanya disajikan dengan saus sambal atau saus manis.",
             "gambar": "gambar_makanan/01f2c41a-f40e-49aa-84e9-aaf040a94925.jpg",
             "kalori": 300,
@@ -403,7 +403,7 @@
         "pk": "6173e17e-bf01-4281-9a2e-6e255c85149e",
         "fields": {
             "nama": "Ayam Lada Hitam",
-            "harga": "70000.00",
+            "harga": "70000",
             "deskripsi": "Ayam Lada Hitam adalah hidangan yang terbuat dari potongan daging ayam yang dimasak dengan bumbu lada hitam, bawang, dan rempah-rempah lainnya. Hidangan ini memiliki rasa pedas dan gurih, sering disajikan dengan nasi putih.",
             "gambar": "gambar_makanan/b4ad0239-765d-4763-ae5f-966f1be7ad39.jpg",
             "kalori": 290,
@@ -418,7 +418,7 @@
         "pk": "2e9e86cc-4ca3-454a-90fe-da815010aad8",
         "fields": {
             "nama": "Kangung Cah Terasi",
-            "harga": "35000.00",
+            "harga": "35000",
             "deskripsi": "Kangkung Cah Terasi adalah hidangan sayuran yang terbuat dari kangkung yang ditumis dengan terasi, bawang putih, dan cabai. Hidangan ini terkenal dengan rasa pedas dan gurih yang khas, serta sering disajikan sebagai pendamping nasi.",
             "gambar": "gambar_makanan/aa249c18-2ab3-4715-87b1-48a268cf1af0.jpg",
             "kalori": 100,
@@ -434,7 +434,7 @@
         "pk": "82cd47ae-f05f-4c96-9749-dfe2ee638b36",
         "fields": {
             "nama": "Gurami Saus Bakar",
-            "harga": "100000.00",
+            "harga": "100000",
             "deskripsi": "Gurami Saus Bakar adalah hidangan ikan gurami yang dipanggang dan disajikan dengan saus yang kaya rasa, biasanya terbuat dari campuran kecap manis, bawang, cabai, dan bumbu lainnya. Hidangan ini memiliki rasa gurih dan sedikit manis, sering kali disajikan dengan nasi hangat.",
             "gambar": "gambar_makanan/3221d76f-6a40-4cd5-800c-a4629beacb2f.jpg",
             "kalori": 220,
@@ -450,7 +450,7 @@
         "pk": "f55b1c14-87fc-4a26-99a6-4a09c9b68dfa",
         "fields": {
             "nama": "Tomyam Udang",
-            "harga": "100500.00",
+            "harga": "100500",
             "deskripsi": "Tomyam Udang adalah sup pedas dan asam khas Thailand yang dibuat dengan udang segar, jamur, tomat, dan berbagai bumbu aromatik seperti serai, daun jeruk, dan cabai. Hidangan ini terkenal karena kombinasi rasa pedas, asam, dan segar yang menggugah selera.",
             "gambar": "gambar_makanan/b2e49a36-4a95-424e-bed8-4710d43112f3.jpg",
             "kalori": 100,
@@ -467,7 +467,7 @@
         "pk": "030111e6-7cc0-4f48-b191-2af4514ebba7",
         "fields": {
             "nama": "Tauge",
-            "harga": "29500.00",
+            "harga": "29500",
             "deskripsi": "Tauge adalah kecambah dari biji kedelai yang sering digunakan dalam masakan Asia. Tauge memiliki tekstur renyah dan rasa yang ringan, biasanya ditambahkan ke berbagai hidangan seperti salad, tumisan, dan sup. Selain memberikan rasa dan tekstur, tauge juga kaya akan vitamin dan serat.",
             "gambar": "gambar_makanan/8a52c3a9-74ee-4e53-8b40-17f6fac091f5.jpg",
             "kalori": 30,
@@ -483,7 +483,7 @@
         "pk": "3fabc7a3-29bd-4513-bad4-073a296dcae0",
         "fields": {
             "nama": "Ayam Goreng",
-            "harga": "41500.00",
+            "harga": "41500",
             "deskripsi": "Ayam Goreng adalah hidangan populer yang terbuat dari potongan ayam yang dibumbui, kemudian digoreng hingga berwarna keemasan dan renyah. Ayam goreng bisa disajikan dengan berbagai sambal atau pelengkap, dan sering menjadi pilihan di banyak masakan tradisional.",
             "gambar": "gambar_makanan/230faac8-b250-4b9c-b172-73d6aa53629b.jpg",
             "kalori": 280,
@@ -498,7 +498,7 @@
         "pk": "579440dd-1fa8-4237-997e-1224919ad097",
         "fields": {
             "nama": "Sup Asparagus",
-            "harga": "32500.00",
+            "harga": "32500",
             "deskripsi": "Sup Asparagus adalah hidangan ringan yang terbuat dari asparagus segar yang dimasak dan dihaluskan, sering kali dicampur dengan bahan-bahan seperti bawang, kentang, atau krim untuk menambah rasa dan tekstur. Sup ini biasanya disajikan hangat dan bisa menjadi pilihan sehat untuk hidangan pembuka.",
             "gambar": "gambar_makanan/c83cd59b-cba6-46b8-b4cd-ec0cd8dda985.jpg",
             "kalori": 120,
@@ -514,7 +514,7 @@
         "pk": "6c41fc6d-00f8-4afc-95d0-fcb90bee0266",
         "fields": {
             "nama": "Telur Dadar",
-            "harga": "15000.00",
+            "harga": "15000",
             "deskripsi": "Telur Dadar adalah hidangan sederhana yang terbuat dari telur yang dikocok dan kemudian dimasak di atas wajan hingga matang. Telur dadar bisa disajikan polos atau ditambahkan bahan lain seperti sayuran, daging, atau rempah-rempah untuk menambah rasa.",
             "gambar": "gambar_makanan/65bde9d4-1f44-455a-bb7d-d03ce7f3e2d5.jpg",
             "kalori": 100,
@@ -529,7 +529,7 @@
         "pk": "bbc075b5-c644-4b7f-b1e5-ac0d62230b52",
         "fields": {
             "nama": "Pindang Ikan Patin",
-            "harga": "35000.00",
+            "harga": "35000",
             "deskripsi": "Pindang Ikan Patin adalah makanan khas Palembang yang sangat populer. Hidangan ini adalah sup ikan dengan kuah bening yang memiliki rasa asam, pedas, dan segar dari bumbu seperti serai, asam jawa, dan cabai.",
             "gambar": "gambar_makanan/ef39270a-54df-4d04-890e-aa530e82f3dc.jpg",
             "kalori": 250,
@@ -545,7 +545,7 @@
         "pk": "8fc5865d-fb81-49d5-b757-82c195461095",
         "fields": {
             "nama": "Pindang Tulang",
-            "harga": "40000.00",
+            "harga": "40000",
             "deskripsi": "Pindang Tulang adalah hidangan khas Palembang yang dibuat dengan tulang sapi dan sedikit daging. Kuahnya pedas dan asam, memberikan rasa yang sangat menggugah selera.",
             "gambar": "gambar_makanan/ebef2d49-8e11-4943-861b-64f3acce91ef.jpg",
             "kalori": 200,
@@ -561,7 +561,7 @@
         "pk": "22634fea-4d1d-4046-82b8-1c895952210e",
         "fields": {
             "nama": "Pindang Udang",
-            "harga": "100000.00",
+            "harga": "100000",
             "deskripsi": "Sup udang dengan kuah pindang khas Palembang yang segar dan pedas.",
             "gambar": "gambar_makanan/574b7637-c94f-4e1d-bf1f-b248ec24b7f5.jpg",
             "kalori": 300,
@@ -577,7 +577,7 @@
         "pk": "f6199cec-53e8-48f4-9b86-23630f55066b",
         "fields": {
             "nama": "Brengkes Tempoyak",
-            "harga": "35000.00",
+            "harga": "35000",
             "deskripsi": "Pepes khas Palembang dengan tempoyak dan bumbu rempah.",
             "gambar": "gambar_makanan/4293632a-104a-4510-907d-480de4322295.jpg",
             "kalori": 200,
@@ -592,7 +592,7 @@
         "pk": "518d40e3-3ce5-4e25-9966-204d502a8c55",
         "fields": {
             "nama": "Ikan Seluang",
-            "harga": "25000.00",
+            "harga": "25000",
             "deskripsi": "Ikan Seluang goreng yang renyah dan gurih.",
             "gambar": "gambar_makanan/a60851d9-96f1-423e-83c0-07df934309fa.jpg",
             "kalori": 150,
@@ -608,7 +608,7 @@
         "pk": "37df5fad-78da-4739-8cdc-f16c96542bc5",
         "fields": {
             "nama": "Chicken Honey Mustard Salad",
-            "harga": "97500.00",
+            "harga": "97500",
             "deskripsi": "manis seperti madu, sehat seperti sayur, salad dengan selada romaine, ayam panggang, crouton, tomat & saus mustard madu",
             "gambar": "gambar_makanan/db679cc9-a7b3-4c9d-92b2-739a6203caef.jpg",
             "kalori": 150,
@@ -624,7 +624,7 @@
         "pk": "2001306c-a498-4c4f-9ebf-9a62f0790904",
         "fields": {
             "nama": "Ricotta and Raspberry",
-            "harga": "75500.00",
+            "harga": "75500",
             "deskripsi": "Keju ricotta, raspberry jam, dan satu scoop es krim homemade, cocok disajikan dengan pancake coklat.",
             "gambar": "gambar_makanan/c6bd74ea-7a05-4a54-aab1-e04e51a0d909.jpg",
             "kalori": 450,
@@ -639,7 +639,7 @@
         "pk": "1ea760a2-0c69-49d2-a3ea-1ce3f10f1c6a",
         "fields": {
             "nama": "Nasi Goreng Kemangi",
-            "harga": "86000.00",
+            "harga": "86000",
             "deskripsi": "Nasi goreng dengan bumbu kemangi paste, disajikan dengan ayam goreng, telur mata sapi, dan kaya akan cita rasa Indonesia.",
             "gambar": "gambar_makanan/70f0a7e7-951a-42f2-8043-9722ce0b4071.jpg",
             "kalori": 500,
@@ -654,7 +654,7 @@
         "pk": "465b833d-d0ba-435b-9809-e5ea65847454",
         "fields": {
             "nama": "Homemade Pumpkin Soup",
-            "harga": "72500.00",
+            "harga": "72500",
             "deskripsi": "Sup labu yang kental dan creamy, dibuat dari labu butternut, biji labu, dan disajikan dengan crouton.",
             "gambar": "gambar_makanan/6780ec16-b6f7-4ee3-8017-dc4aa16fdf15.jpg",
             "kalori": 250,
@@ -670,7 +670,7 @@
         "pk": "13316bfd-ff52-4ec3-869f-5ab0eaa773d2",
         "fields": {
             "nama": "Salmon & Pesto",
-            "harga": "123000.00",
+            "harga": "123000",
             "deskripsi": "Pasta dengan saus pesto homemade, bawang putih, minyak zaitun, dan potongan salmon, cocok untuk pecinta rasa segar dan hijau.",
             "gambar": "gambar_makanan/a2ebc25a-3a4d-4b3b-b597-43a582a67059.jpg",
             "kalori": 650,
@@ -686,7 +686,7 @@
         "pk": "6d81e111-7410-463d-a039-4b57a3b69451",
         "fields": {
             "nama": "Ikan Pari Bakar",
-            "harga": "115000.00",
+            "harga": "115000",
             "deskripsi": "Ikan pari yang dibakar hingga matang sempurna dengan bumbu khas rempah dan sambal kecap, memberikan cita rasa khas laut yang gurih dan smokey.",
             "gambar": "gambar_makanan/9fd4f001-6b43-450a-9dd9-977cdd116cd8.jpg",
             "kalori": 500,
@@ -702,7 +702,7 @@
         "pk": "ede82d28-46cd-488a-9aac-b873ee56ada7",
         "fields": {
             "nama": "Nasi Pindang Iga",
-            "harga": "38500.00",
+            "harga": "38500",
             "deskripsi": "Nasi dengan pindang iga sapi yang dimasak dengan rempah khas untuk cita rasa gurih dan asam.",
             "gambar": "gambar_makanan/be4b0ecd-1762-4016-9ecc-1e0360f0067d.jpg",
             "kalori": 500,
@@ -717,7 +717,7 @@
         "pk": "49e6f568-6487-4f50-901d-0d1fe45fe2f2",
         "fields": {
             "nama": "Sop Iga",
-            "harga": "72500.00",
+            "harga": "72500",
             "deskripsi": "Sop iga sapi yang disajikan dengan kuah kaldu bening dan bumbu tradisional.",
             "gambar": "gambar_makanan/06d34994-ad95-4a21-b33c-717956de71ab.jpg",
             "kalori": 550,
@@ -733,7 +733,7 @@
         "pk": "e049da71-cd09-416d-9676-ff57e6dec437",
         "fields": {
             "nama": "Sayur Asem",
-            "harga": "25300.00",
+            "harga": "25300",
             "deskripsi": "Sayur asem segar dengan campuran sayuran seperti jagung dan kacang panjang, memiliki cita rasa asam yang menyegarkan.",
             "gambar": "gambar_makanan/e5af039c-21a1-417b-b6bd-3d8952b2b370.jpg",
             "kalori": 150,
@@ -750,7 +750,7 @@
         "pk": "b3f220a8-bf9c-4eef-8736-c0308c0d47d8",
         "fields": {
             "nama": "Karedok",
-            "harga": "28050.00",
+            "harga": "28050",
             "deskripsi": "Karedok dengan bumbu kacang yang gurih, terdiri dari sayuran segar seperti kacang panjang, tauge, dan timun.",
             "gambar": "gambar_makanan/3f3d9175-315a-4e28-bd52-ec349618c736.jpg",
             "kalori": 150,
@@ -767,7 +767,7 @@
         "pk": "74e8a1b8-3fef-4097-9052-753bd05a89e5",
         "fields": {
             "nama": "Ayam Goreng Singapore",
-            "harga": "71390.00",
+            "harga": "71390",
             "deskripsi": "Ayam goreng dengan bumbu khas Singapore, memberikan cita rasa yang unik dan kaya rempah.",
             "gambar": "gambar_makanan/e3097ff9-bb85-4796-8553-dbc0f97f6739.jpg",
             "kalori": 420,
@@ -782,7 +782,7 @@
         "pk": "e977c66e-6ef5-4bdb-8785-43aa27294b89",
         "fields": {
             "nama": "Ayam Kung Pao",
-            "harga": "71390.00",
+            "harga": "71390",
             "deskripsi": "Ayam dengan saus Kung Pao khas, bercita rasa pedas dan manis dengan tambahan kacang dan cabai kering.",
             "gambar": "gambar_makanan/23479ef2-fc21-40d7-b75d-1db1d95f3552.jpg",
             "kalori": 450,
@@ -797,7 +797,7 @@
         "pk": "d897ac3c-0b79-47d1-94be-860b3bd295ef",
         "fields": {
             "nama": "Cumi Goreng Tepung",
-            "harga": "97350.00",
+            "harga": "97350",
             "deskripsi": "Cumi berbalut tepung berbumbu, digoreng hingga renyah. Biasanya disajikan dengan saus tartar atau sambal.",
             "gambar": "gambar_makanan/66499fd4-d95c-4fa0-922f-420d0f67a6b3.jpg",
             "kalori": 350,
@@ -813,7 +813,7 @@
         "pk": "8d4652cd-f608-44d5-b90a-50cafb018adc",
         "fields": {
             "nama": "Kepiting Telur Asin",
-            "harga": "253110.00",
+            "harga": "253110",
             "deskripsi": "Hidangan seafood di mana kepiting segar dilapisi saus telur asin yang gurih dan creamy. Rasanya kaya dan sedikit asin dengan tekstur renyah di luar dan lembut di dalam, menjadikannya sajian yang mewah dan memanjakan lidah.",
             "gambar": "gambar_makanan/c8028082-ef7e-40c2-aef0-68b9649c7d6f.jpg",
             "kalori": 500,
@@ -829,7 +829,7 @@
         "pk": "fb82fcd3-a426-461a-81fc-679afcb856a8",
         "fields": {
             "nama": "Tahu Lada Garam",
-            "harga": "253110.00",
+            "harga": "253110",
             "deskripsi": "Tahu Lada Garam adalah hidangan tahu yang digoreng hingga renyah, kemudian ditumis dengan bumbu lada, cabai, dan bawang putih. Hidangan ini menawarkan rasa pedas, gurih, dan sedikit asin, dengan aroma bawang yang khas, membuatnya sangat lezat sebagai camilan atau lauk.",
             "gambar": "gambar_makanan/c853090b-622d-4035-9e84-2a5c6824c077.jpg",
             "kalori": 250,
@@ -845,7 +845,7 @@
         "pk": "052e46d2-d529-4f15-a912-6e57dfdf758c",
         "fields": {
             "nama": "Boba",
-            "harga": "35000.00",
+            "harga": "35000",
             "deskripsi": "Boba yang kenyal dan lezat, disajikan dalam minuman segar dengan berbagai pilihan rasa, seperti teh, susu, atau buah. Menawarkan pengalaman tekstur yang unik dan menyenangkan di setiap tegukan. Cocok untuk dinikmati kapan saja, baik sebagai camilan atau minuman menyegarkan.",
             "gambar": "gambar_minuman/9fdf8667-faf3-4413-b01d-219ac847cf07.jpg",
             "ukuran": "BESAR",
@@ -858,7 +858,7 @@
         "pk": "0ab80693-d52f-4db2-a71b-a5016a4fc079",
         "fields": {
             "nama": "Jus Jambu",
-            "harga": "15000.00",
+            "harga": "15000",
             "deskripsi": "Jus jambu segar dengan rasa manis alami dan kaya akan vitamin C, menghadirkan kesegaran buah asli di setiap tegukan. Cocok untuk dinikmati kapan saja sebagai pilihan sehat yang menyegarkan.",
             "gambar": "gambar_minuman/5bbfa325-0ce2-4bfa-b2d7-26ca59d40fce.jpg",
             "ukuran": "SEDANG",
@@ -871,7 +871,7 @@
         "pk": "0e80e998-7083-45e1-a058-1359d6240238",
         "fields": {
             "nama": "Es Taro",
-            "harga": "22000.00",
+            "harga": "22000",
             "deskripsi": "Es Taro adalah minuman menyegarkan yang terbuat dari campuran susu dan pasta taro, memberikan rasa manis dan nutty yang khas. Disajikan dengan es serut, minuman ini biasanya memiliki warna ungu yang menarik dan seringkali dihiasi dengan bola tapioka atau jeli untuk menambah tekstur.",
             "gambar": "gambar_minuman/4e50ddc3-8c6b-468c-bcb4-2751d1bab8de.jpg",
             "ukuran": "SEDANG",
@@ -884,7 +884,7 @@
         "pk": "12dda877-cc8a-41fb-a149-456ff8b460ea",
         "fields": {
             "nama": "Jus Melon",
-            "harga": "18000.00",
+            "harga": "18000",
             "deskripsi": "Jus melon adalah minuman segar yang terbuat dari daging buah melon yang juicy, memberikan rasa manis dan lembut. Menyegarkan dan kaya akan air, jus ini sangat ideal untuk menghidrasi tubuh.",
             "gambar": "gambar_minuman/c2ec83bc-7105-4fa8-9af6-0d79220de5c2.jpg",
             "ukuran": "SEDANG",
@@ -897,7 +897,7 @@
         "pk": "15ab26f7-618a-404b-8d21-8d153a49c93c",
         "fields": {
             "nama": "Oreo Shake",
-            "harga": "30000.00",
+            "harga": "30000",
             "deskripsi": "Oreo Shake adalah minuman kental dan creamy yang terbuat dari es krim vanila, susu, dan biskuit Oreo yang dihancurkan, memberikan rasa cokelat yang kaya dan tekstur yang menggoda.",
             "gambar": "gambar_minuman/26214ee4-01cb-4aa5-85e9-11f65f76d08b.jpg",
             "ukuran": "SEDANG",
@@ -910,7 +910,7 @@
         "pk": "1aba418e-eb37-44a1-8aff-dfd927420806",
         "fields": {
             "nama": "Sparkling Water",
-            "harga": "20000.00",
+            "harga": "20000",
             "deskripsi": "Sparkling water adalah air mineral yang mengandung karbonasi, memberikan sensasi gelembung dan rasa segar. Tanpa tambahan gula atau kalori, sparkling water adalah pilihan yang menyegarkan dan sehat untuk hidrasi, cocok dinikmati sendiri atau sebagai pelengkap berbagai hidangan.",
             "gambar": "gambar_minuman/88484da4-8ac0-4a97-a593-5ce026aa4b73.jpg",
             "ukuran": "SEDANG",
@@ -923,7 +923,7 @@
         "pk": "1ec10a74-e8d8-44f2-be63-5b5aedc49704",
         "fields": {
             "nama": "Es Kopi Aren",
-            "harga": "15000.00",
+            "harga": "15000",
             "deskripsi": "Es Kopi Aren adalah minuman segar yang terbuat dari kopi yang diseduh dengan gula aren, memberikan rasa manis yang khas dan aromatik. Disajikan dengan es, minuman ini sempurna untuk dinikmati saat cuaca panas, menawarkan kombinasi rasa pahit dari kopi dan manisnya gula aren.",
             "gambar": "gambar_minuman/fe3f2cb0-fba9-455b-bac6-024c3c1cff1a.jpg",
             "ukuran": "KECIL",
@@ -936,7 +936,7 @@
         "pk": "222135fd-a34c-4fea-9119-4c5801a00514",
         "fields": {
             "nama": "Jus Semangka",
-            "harga": "17000.00",
+            "harga": "17000",
             "deskripsi": "Jus semangka segar yang menyegarkan, diolah dari buah semangka matang yang manis dan juicy. Setiap tegukan menghadirkan rasa alami yang ringan dan menyegarkan, sempurna untuk menghilangkan dahaga. Cocok dinikmati kapan saja, terutama di hari-hari panas.",
             "gambar": "gambar_minuman/c550a0cb-0e36-44f4-9023-b1924206dfe9.jpg",
             "ukuran": "SEDANG",
@@ -949,7 +949,7 @@
         "pk": "37ee665c-9499-4a26-967c-412d7bf14392",
         "fields": {
             "nama": "Jahe Susu",
-            "harga": "10000.00",
+            "harga": "10000",
             "deskripsi": "Jahe susu adalah minuman hangat yang menggabungkan rasa pedas jahe segar dengan kelembutan susu. Minuman ini tidak hanya memberikan kehangatan, tetapi juga menawarkan manfaat kesehatan, seperti meningkatkan sistem imun dan meredakan pencernaan. Cocok dinikmati kapan saja, terutama saat cuaca dingin.",
             "gambar": "gambar_minuman/ad8c0ff7-09c9-42a5-b547-7442fe19ed8e.jpg",
             "ukuran": "KECIL",
@@ -962,7 +962,7 @@
         "pk": "39fe9470-eb40-4640-9a33-19eada07edd6",
         "fields": {
             "nama": "Teh Tawar",
-            "harga": "8000.00",
+            "harga": "8000",
             "deskripsi": "Teh tawar adalah minuman sederhana yang diseduh dari daun teh tanpa tambahan gula atau pemanis. Nikmati keaslian dan rasa alami teh yang segar dan menyehatkan.",
             "gambar": "gambar_minuman/d59c9e10-ed9d-469b-8ca6-af12f5ef0ee2.jpg",
             "ukuran": "SEDANG",
@@ -975,7 +975,7 @@
         "pk": "42cfcfb7-aebd-48bc-9428-c19435a59f90",
         "fields": {
             "nama": "Cokelat Panas",
-            "harga": "30000.00",
+            "harga": "30000",
             "deskripsi": "Cokelat panas yang kaya dan creamy, disiapkan dari cokelat berkualitas tinggi untuk memberikan rasa manis yang menggugah selera. Menawarkan kehangatan yang memanjakan, cocok dinikmati di saat santai atau sebagai pelengkap waktu bersantai. Sempurna untuk menghangatkan suasana di hari yang dingin.",
             "gambar": "gambar_minuman/31759e52-02e5-4e7e-9b04-582e92a18aaa.jpg",
             "ukuran": "KECIL",
@@ -988,7 +988,7 @@
         "pk": "51a7c5b1-16d8-4976-bf56-39f364ede0cb",
         "fields": {
             "nama": "Lemon Mint",
-            "harga": "28000.00",
+            "harga": "28000",
             "deskripsi": "Lemon Mint adalah minuman menyegarkan yang menggabungkan perasan lemon segar dengan daun mint yang aromatik. Kombinasi asam dan segar ini memberikan sensasi dingin yang sempurna, cocok untuk dinikmati di hari panas.",
             "gambar": "gambar_minuman/2b836ffb-b627-4151-9f5d-abc766264089.jpg",
             "ukuran": "SEDANG",
@@ -1001,7 +1001,7 @@
         "pk": "5d3444b4-422b-4fdc-a764-2a7d87863537",
         "fields": {
             "nama": "Es Teh Leci",
-            "harga": "30000.00",
+            "harga": "30000",
             "deskripsi": "Es teh leci yang menyegarkan, terbuat dari campuran teh yang diseduh dengan manisnya buah leci. Setiap tegukan menawarkan perpaduan rasa teh yang ringan dan aroma buah leci yang khas. Ideal untuk dinikmati di hari yang panas sebagai pilihan minuman yang menyegarkan.",
             "gambar": "gambar_minuman/d80b7dc9-cd8e-42ce-8d1a-135de40b2322.jpg",
             "ukuran": "SEDANG",
@@ -1014,7 +1014,7 @@
         "pk": "5e9dfba1-f9a8-4c4c-a4d8-44b5fb1a6714",
         "fields": {
             "nama": "Caramel Latte",
-            "harga": "18000.00",
+            "harga": "18000",
             "deskripsi": "Caramel Latte adalah minuman kopi yang lembut dan manis, terbuat dari espresso yang dicampur dengan susu panas dan sirup karamel. Dihiasi dengan krim kocok dan drizzle karamel di atasnya, minuman ini menyajikan perpaduan rasa kopi yang kaya dengan sentuhan manis yang memanjakan lidah.",
             "gambar": "gambar_minuman/a23c8c47-2940-4b84-bae3-28ac5684fd66.jpg",
             "ukuran": "SEDANG",
@@ -1027,7 +1027,7 @@
         "pk": "664b0562-44be-4f87-bf5d-c335b654217b",
         "fields": {
             "nama": "Green Apple Mojito",
-            "harga": "27000.00",
+            "harga": "27000",
             "deskripsi": "Green Apple Mojito adalah minuman segar yang menggabungkan rasa asam dari apel hijau dengan mint, limau, dan soda. Minuman ini menawarkan perpaduan rasa yang menyegarkan dan aromatik, sempurna untuk dinikmati di hari yang panas. Dihiasi dengan potongan apel dan daun mint, Green Apple Mojito menjadi pilihan yang menarik dan menggugah selera.",
             "gambar": "gambar_minuman/fd21d6dd-ee3b-4f9e-9a38-c2d72d2e4207.jpg",
             "ukuran": "SEDANG",
@@ -1040,7 +1040,7 @@
         "pk": "74ce6f4a-d27c-4159-bc01-ec940045e76d",
         "fields": {
             "nama": "Jamu",
-            "harga": "10000.00",
+            "harga": "10000",
             "deskripsi": "Jamu tradisional yang menyegarkan, terbuat dari ramuan alami pilihan dengan berbagai manfaat kesehatan. Setiap tegukan menghadirkan rasa yang unik dan kaya akan rempah-rempah, memberikan kehangatan dan revitalisasi. Cocok untuk mendukung kesehatan dan kebugaran sehari-hari dengan sentuhan tradisional.",
             "gambar": "gambar_minuman/242ca308-cc7d-4c3b-b9ab-5803a438f446.jpg",
             "ukuran": "KECIL",
@@ -1053,7 +1053,7 @@
         "pk": "78c8a3e7-1903-4a17-b13e-144269714cdc",
         "fields": {
             "nama": "Jus Markisa",
-            "harga": "25000.00",
+            "harga": "25000",
             "deskripsi": "Jus Markisa segar dan alami, dibuat dari buah markisa pilihan yang matang sempurna. Rasanya manis dengan sentuhan asam yang menyegarkan, kaya akan vitamin C dan antioksidan alami. Minuman ini cocok untuk dinikmati dingin, memberikan kesegaran instan yang pas untuk melepas dahaga dan menambah energi sepanjang hari.",
             "gambar": "gambar_minuman/201d04db-8c92-4c9a-9308-f104096163f8.jpg",
             "ukuran": "SEDANG",
@@ -1066,7 +1066,7 @@
         "pk": "7d3430b9-677c-4d2c-9495-96f20a818cf2",
         "fields": {
             "nama": "Air Mineral",
-            "harga": "3000.00",
+            "harga": "3000",
             "deskripsi": "Air mineral alami dari sumber pilihan, diproses secara hati-hati untuk menjaga kesegarannya. Memberikan hidrasi yang murni dan ringan, cocok untuk keseharian Anda. Nikmati kualitas air yang alami di setiap tegukan.",
             "gambar": "gambar_minuman/dfa84cea-108c-4632-bc1f-7ba1e956a0ac.jpg",
             "ukuran": "SEDANG",
@@ -1079,7 +1079,7 @@
         "pk": "8765660b-61e7-42c1-8805-10ec07b18112",
         "fields": {
             "nama": "Es Cincau",
-            "harga": "30000.00",
+            "harga": "30000",
             "deskripsi": "Es cincau yang menyegarkan, terbuat dari cincau hitam yang kenyal dan disajikan dengan sirup manis serta santan. Menawarkan kombinasi rasa manis dan gurih dalam setiap suapan, ideal untuk melepas dahaga. Cocok dinikmati di hari panas sebagai pencuci mulut yang klasik.",
             "gambar": "gambar_minuman/8591a720-f123-484b-9ca2-179c2ef8fdbf.jpg",
             "ukuran": "SEDANG",
@@ -1092,7 +1092,7 @@
         "pk": "8dd7f632-5854-4deb-8c4a-ae64dd3a7181",
         "fields": {
             "nama": "Jus Buah Naga",
-            "harga": "25000.00",
+            "harga": "25000",
             "deskripsi": "Jus Buah Naga adalah minuman sehat yang terbuat dari daging buah naga yang berwarna cerah dan kaya akan antioksidan. Rasanya manis dan sedikit segar, dengan tekstur lembut, menjadikannya pilihan yang sempurna untuk menyegarkan diri.",
             "gambar": "gambar_minuman/b739a237-61ab-47cb-888e-b660f2c8e80d.jpg",
             "ukuran": "SEDANG",
@@ -1105,7 +1105,7 @@
         "pk": "8f334088-8caf-4bc7-a0d1-180fc66c1212",
         "fields": {
             "nama": "Kopi Tubruk",
-            "harga": "20000.00",
+            "harga": "20000",
             "deskripsi": "Kopi Tubruk adalah kopi khas Indonesia yang disajikan dengan cara menyeduh bubuk kopi kasar langsung dengan air panas, tanpa penyaringan. Minuman ini memiliki cita rasa yang kuat dan aroma yang khas, sering kali disajikan dengan gula sesuai selera.",
             "gambar": "gambar_minuman/d62b61fd-a70e-498b-a914-2d9b7f3481bc.jpg",
             "ukuran": "SEDANG",
@@ -1118,7 +1118,7 @@
         "pk": "8fd2b4e6-b606-4919-9aad-596494bef3c6",
         "fields": {
             "nama": "Es Kacang Merah",
-            "harga": "25000.00",
+            "harga": "25000",
             "deskripsi": "Es kacang merah yang manis dan menyegarkan, terbuat dari kacang merah yang dimasak lembut dan disajikan dengan santan serta gula merah. Nikmati kombinasi rasa manis dan gurih dalam hidangan yang klasik dan menyenangkan ini. Sempurna untuk melepas dahaga dan memberikan energi di hari yang panas.",
             "gambar": "gambar_minuman/c3c09789-4aec-491f-a8fb-70393be9ec28.jpg",
             "ukuran": "SEDANG",
@@ -1131,7 +1131,7 @@
         "pk": "91107c52-cb65-420b-b2c2-9339b1b07a63",
         "fields": {
             "nama": "Jus Alpukat",
-            "harga": "15000.00",
+            "harga": "15000",
             "deskripsi": "Jus alpukat yang lembut dan kaya rasa, diolah dari buah segar untuk memberikan tekstur creamy dan nutrisi alami. Kaya akan serat dan lemak sehat, cocok dinikmati kapan saja sebagai minuman lezat yang mengenyangkan.",
             "gambar": "gambar_minuman/cbdcfcd8-f2c7-447e-b662-db15f117b90e.jpg",
             "ukuran": "SEDANG",
@@ -1144,7 +1144,7 @@
         "pk": "9f01804c-c0c0-4f72-ad82-3b3e311ecf6d",
         "fields": {
             "nama": "Chocolate Milkshake",
-            "harga": "35000.00",
+            "harga": "35000",
             "deskripsi": "Chocolate Milkshake adalah minuman kental dan creamy yang terbuat dari campuran es krim cokelat, susu, dan cokelat cair atau bubuk. Dengan rasa cokelat yang kaya dan tekstur yang lembut, minuman ini adalah pilihan sempurna untuk pencinta cokelat.",
             "gambar": "gambar_minuman/56fba81a-c453-46d4-9ff5-69552f8118e8.jpg",
             "ukuran": "SEDANG",
@@ -1157,7 +1157,7 @@
         "pk": "a02e7d30-6c97-4cd5-9059-7c805dc02de6",
         "fields": {
             "nama": "Jus Jeruk",
-            "harga": "15000.00",
+            "harga": "15000",
             "deskripsi": "Jus jeruk segar yang manis dan asam, diolah dari jeruk pilihan yang kaya akan vitamin C. Setiap tegukan memberikan rasa segar yang menyegarkan dan membantu meningkatkan daya tahan tubuh. Cocok untuk dinikmati kapan saja sebagai minuman sehat yang menyegarkan.",
             "gambar": "gambar_minuman/86f56577-8cf8-4263-9dc3-397dcf8a32c5.jpg",
             "ukuran": "SEDANG",
@@ -1170,7 +1170,7 @@
         "pk": "a076f1e4-4c41-4a8e-9a8a-a756a578c8e8",
         "fields": {
             "nama": "Jus Kiwi",
-            "harga": "25000.00",
+            "harga": "25000",
             "deskripsi": "Jus kiwi segar dengan rasa asam manis yang menggoda, diolah dari buah kiwi matang yang penuh nutrisi. Setiap tegukan menghadirkan kesegaran dan kebaikan vitamin C alami. Sempurna untuk melepas dahaga dan memberikan energi di sepanjang hari.",
             "gambar": "gambar_minuman/a4d94d2d-71c8-479a-abde-cbede05d053b.jpg",
             "ukuran": "KECIL",
@@ -1183,7 +1183,7 @@
         "pk": "ab20f83c-4f60-41b1-893d-5f20dc8015cf",
         "fields": {
             "nama": "Green tea Latte",
-            "harga": "30000.00",
+            "harga": "30000",
             "deskripsi": "Green Tea Latte adalah minuman kopi yang creamy dan menyegarkan, terbuat dari campuran bubuk teh hijau matcha dan susu. Minuman ini memiliki aroma teh yang khas dan memberikan rasa manis yang lembut, cocok untuk dinikmati kapan saja.",
             "gambar": "gambar_minuman/404f8967-9984-495c-99aa-3eed650c3b6c.jpg",
             "ukuran": "BESAR",
@@ -1196,7 +1196,7 @@
         "pk": "acb82e1d-2fc1-44c7-9acb-978a3365b417",
         "fields": {
             "nama": "Blue Lagoon",
-            "harga": "27000.00",
+            "harga": "27000",
             "deskripsi": "Blue Lagoon adalah minuman menyegarkan yang terbuat dari campuran jus lemon, sirup blue curaçao (atau pewarna makanan biru), dan soda, menciptakan warna biru cerah yang menawan. Minuman ini sering dihiasi dengan irisan lemon atau cherry, memberikan rasa manis dan asam yang seimbang, sempurna untuk dinikmati di cuaca panas.",
             "gambar": "gambar_minuman/93807dd0-c7df-475e-a74f-30399d02d9d9.jpg",
             "ukuran": "SEDANG",
@@ -1209,7 +1209,7 @@
         "pk": "ad654488-af58-4d8b-9871-0c9a6e18aed2",
         "fields": {
             "nama": "Cappuccino",
-            "harga": "25000.00",
+            "harga": "25000",
             "deskripsi": "Cappuccino yang creamy dan kaya rasa, terbuat dari espresso berkualitas tinggi, susu steamed, dan foam susu yang lembut. Setiap tegukan menawarkan perpaduan sempurna antara kehangatan kopi dan tekstur yang velvety. Cocok untuk dinikmati kapan saja, baik sebagai teman pagi atau sore yang santai.",
             "gambar": "gambar_minuman/ff6e53a6-6d7b-4c5f-8af1-8e3120b606d0.jpg",
             "ukuran": "SEDANG",
@@ -1222,7 +1222,7 @@
         "pk": "ad8c66e8-160b-4c1a-aa4f-fbf288f6ca12",
         "fields": {
             "nama": "Lemon Tea",
-            "harga": "15000.00",
+            "harga": "15000",
             "deskripsi": "Lemon Tea adalah minuman segar yang terbuat dari teh yang dicampur dengan jus lemon segar. Dikenal karena rasanya yang asam dan menyegarkan, lemon tea bisa disajikan panas atau dingin, ideal untuk menghilangkan dahaga dan meningkatkan kesehatan.",
             "gambar": "gambar_minuman/f105e3d0-5865-42e9-9bc6-cf592a6359b6.jpg",
             "ukuran": "SEDANG",
@@ -1235,7 +1235,7 @@
         "pk": "b475762d-b34a-4921-a67f-89779480c9d9",
         "fields": {
             "nama": "Jus Wortel",
-            "harga": "17000.00",
+            "harga": "17000",
             "deskripsi": "Jus wortel adalah minuman segar yang kaya vitamin A, terbuat dari wortel segar yang diperas, memberikan rasa manis alami dan warna oranye cerah.",
             "gambar": "gambar_minuman/11283497-4fe0-4ac9-b0a6-a4c9d8623b3f.jpg",
             "ukuran": "SEDANG",
@@ -1248,7 +1248,7 @@
         "pk": "bda0187b-7e38-47d2-852f-fb8cb92aef5a",
         "fields": {
             "nama": "Es Cendol",
-            "harga": "10000.00",
+            "harga": "10000",
             "deskripsi": "Es cendol segar dengan aroma pandan yang khas, disajikan dengan santan gurih dan gula merah alami. Nikmati manisnya cendol kenyal dan santan yang lembut dalam minuman tradisional yang menyegarkan ini. Cocok untuk melepas dahaga di hari yang panas.",
             "gambar": "gambar_minuman/f1b25e3d-50ca-4000-a159-3171836fde23.jpg",
             "ukuran": "KECIL",
@@ -1261,7 +1261,7 @@
         "pk": "bfd1467b-13dc-421e-b4b3-b73a515227fc",
         "fields": {
             "nama": "Es Teler",
-            "harga": "25000.00",
+            "harga": "25000",
             "deskripsi": "Es teler yang menyegarkan, terbuat dari campuran buah segar seperti alpukat, nangka, dan kelapa muda, disiram dengan santan dan sirup manis. Nikmati perpaduan rasa manis, creamy, dan tekstur kenyal dalam hidangan pencuci mulut yang klasik ini. Ideal untuk menemani hari yang panas dan melepas dahaga.",
             "gambar": "gambar_minuman/f625a53d-d917-43ec-aeb2-77885d9e578e.jpg",
             "ukuran": "SEDANG",
@@ -1274,7 +1274,7 @@
         "pk": "c129ddff-8b21-4cb2-8452-6949dcf3da85",
         "fields": {
             "nama": "Thai Tea",
-            "harga": "15000.00",
+            "harga": "15000",
             "deskripsi": "Thai Tea adalah minuman teh khas Thailand yang terbuat dari teh hitam, rempah-rempah, dan susu. Disajikan dingin atau panas, Thai Tea memiliki warna oranye cerah dan rasa manis yang kaya, menjadikannya pilihan menyegarkan yang populer.",
             "gambar": "gambar_minuman/0fc8cb9b-adb5-43ba-a26d-c9c28978db39.jpg",
             "ukuran": "SEDANG",
@@ -1287,7 +1287,7 @@
         "pk": "c14776c2-b645-4ae4-9e54-5243b9df03b5",
         "fields": {
             "nama": "Susu Segar",
-            "harga": "15000.00",
+            "harga": "15000",
             "deskripsi": "Susu segar yang kaya dan creamy, dihasilkan dari sapi yang dirawat dengan baik dan diberi pakan alami. Menawarkan rasa yang murni dan menyegarkan, penuh dengan nutrisi penting seperti kalsium dan protein. Cocok dinikmati sendiri atau sebagai pelengkap dalam berbagai resep.",
             "gambar": "gambar_minuman/11a81742-2d12-4ae1-8367-4a79e742984b.jpg",
             "ukuran": "SEDANG",
@@ -1300,7 +1300,7 @@
         "pk": "c3bc8d47-ed32-49a9-a5a3-f556fc8f6560",
         "fields": {
             "nama": "Es Kelapa Muda",
-            "harga": "20000.00",
+            "harga": "20000",
             "deskripsi": "Es kelapa muda yang menyegarkan, disajikan dengan daging kelapa muda yang lembut dan air kelapa alami. Menawarkan rasa manis dan gurih yang menyegarkan, sempurna untuk menghilangkan dahaga di hari panas. Nikmati kesegaran tropis ini sebagai pilihan sehat untuk melepas dahaga.",
             "gambar": "gambar_minuman/fb369f39-0e8f-4713-964a-8fd439545b72.jpg",
             "ukuran": "BESAR",
@@ -1313,7 +1313,7 @@
         "pk": "c4e63738-9169-4a8e-861e-bfe1f32165b6",
         "fields": {
             "nama": "Strawberry Mojito",
-            "harga": "27000.00",
+            "harga": "27000",
             "deskripsi": "Strawberry Mojito adalah minuman segar yang memadukan stroberi manis, daun mint, dan perasan limau, disajikan dengan soda berkarbonasi. Cocok untuk menyegarkan di hari panas.",
             "gambar": "gambar_minuman/c3058739-9cfe-415f-9316-7fc191562935.jpg",
             "ukuran": "SEDANG",
@@ -1326,7 +1326,7 @@
         "pk": "c522b890-3cb2-48d1-8994-75ed7535d61e",
         "fields": {
             "nama": "Kopi Hitam",
-            "harga": "18000.00",
+            "harga": "18000",
             "deskripsi": "Kopi hitam yang kaya aroma dan cita rasa, diseduh dari biji kopi pilihan yang berkualitas. Menawarkan kenikmatan sejati dengan setiap tegukan yang pekat dan berkarakter. Sempurna untuk memulai hari atau sebagai teman di waktu santai.",
             "gambar": "gambar_minuman/187c55ec-cf26-4fcb-806c-f2e80bc15c68.jpg",
             "ukuran": "KECIL",
@@ -1339,7 +1339,7 @@
         "pk": "c8c8cfed-5667-4443-a2c4-2f5dde03fa33",
         "fields": {
             "nama": "Air Madu",
-            "harga": "25000.00",
+            "harga": "25000",
             "deskripsi": "Air madu yang manis dan menyehatkan, terbuat dari campuran air hangat dan madu alami. Menawarkan rasa yang lembut dan menyegarkan, serta khasiat menyehatkan bagi tubuh. Cocok dinikmati kapan saja, baik sebagai minuman pagi yang menyegarkan atau sebagai pelepas dahaga sepanjang hari.",
             "gambar": "gambar_minuman/c8af586c-d40f-4374-b866-bc28a5672fdb.jpg",
             "ukuran": "KECIL",
@@ -1352,7 +1352,7 @@
         "pk": "ca0e3630-2670-4d5b-a194-9ae8c6081c9d",
         "fields": {
             "nama": "Summer Breeze",
-            "harga": "25000.00",
+            "harga": "25000",
             "deskripsi": "Summer Breeze adalah minuman segar yang menggabungkan rasa buah tropis seperti nanas, jeruk, dan mangga dengan es dan air soda. Dikenal karena kesegarannya, minuman ini sering dihias dengan irisan buah dan daun mint, menjadikannya pilihan ideal untuk cuaca panas.",
             "gambar": "gambar_minuman/2154211f-2067-44e4-a0b1-e974d672009e.jpg",
             "ukuran": "SEDANG",
@@ -1365,7 +1365,7 @@
         "pk": "cff5f0e2-cfc9-47d1-a4d0-39662eb6f5b5",
         "fields": {
             "nama": "Jus Belimbing",
-            "harga": "18000.00",
+            "harga": "18000",
             "deskripsi": "Jus belimbing adalah minuman segar yang terbuat dari belimbing matang, memiliki rasa asam manis yang menyegarkan dan aroma khas yang unik.",
             "gambar": "gambar_minuman/82b02bfb-af65-4ff0-88e2-c4a080f54c68.jpg",
             "ukuran": "SEDANG",
@@ -1378,7 +1378,7 @@
         "pk": "d744325c-6b32-472c-93e5-77c6d73efc92",
         "fields": {
             "nama": "Jus Apel",
-            "harga": "18000.00",
+            "harga": "18000",
             "deskripsi": "Jus apel adalah minuman segar yang terbuat dari sari buah apel, menawarkan rasa manis dan sedikit asam yang menyegarkan. Kaya akan vitamin dan serat, jus ini sangat baik untuk kesehatan.",
             "gambar": "gambar_minuman/6574dbbb-69a9-40ee-82e1-d460a5652eeb.jpg",
             "ukuran": "SEDANG",
@@ -1391,7 +1391,7 @@
         "pk": "d96a3190-f2a6-4052-9ef3-c167bb00edf8",
         "fields": {
             "nama": "Es Merah Delima",
-            "harga": "25000.00",
+            "harga": "25000",
             "deskripsi": "Es Delima Merah adalah minuman segar yang terbuat dari sari buah delima yang kaya akan antioksidan. Dengan warna merah cerah dan rasa manis-asam yang menyegarkan, es ini disajikan dengan es serut, memberikan sensasi dingin yang pas untuk menghilangkan dahaga. Cocok dinikmati di hari panas!",
             "gambar": "gambar_minuman/62f5db26-76e6-4a19-a41c-7bd8bbcbb7e2.jpg",
             "ukuran": "SEDANG",
@@ -1404,7 +1404,7 @@
         "pk": "dbd0828d-6a1a-4f78-b141-40cdff309bd5",
         "fields": {
             "nama": "Susu Kedelai",
-            "harga": "30000.00",
+            "harga": "30000",
             "deskripsi": "Susu kedelai yang creamy dan kaya nutrisi, terbuat dari kedelai pilihan yang diolah secara alami. Menawarkan rasa yang lembut dan sedikit manis, cocok sebagai alternatif sehat untuk berbagai minuman. Nikmati susu kedelai ini sebagai bagian dari diet seimbang atau sebagai penyegar di siang hari.",
             "gambar": "gambar_minuman/63fd5195-0105-4445-b38f-3eccb9286bce.jpg",
             "ukuran": "BESAR",
@@ -1417,7 +1417,7 @@
         "pk": "dcea5249-5c23-4633-b26b-d079d5c76e61",
         "fields": {
             "nama": "Es Teh Manis",
-            "harga": "5000.00",
+            "harga": "5000",
             "deskripsi": "Es teh manis yang segar dan lembut, diseduh dari daun teh pilihan dengan tambahan gula alami. Hadirkan kesegaran sederhana yang pas dinikmati di segala suasana. Pilihan tepat untuk menemani waktu santai Anda.",
             "gambar": "gambar_minuman/733a5534-15e0-45ff-bd28-3b3b06a6f227.jpg",
             "ukuran": "BESAR",
@@ -1430,7 +1430,7 @@
         "pk": "e88a7561-41ca-4250-8e88-73f596ac4160",
         "fields": {
             "nama": "Air Lemon",
-            "harga": "25000.00",
+            "harga": "25000",
             "deskripsi": "Air lemon segar yang menyegarkan, terbuat dari perasan lemon alami yang kaya vitamin C. Memberikan rasa asam yang menyegarkan dan cocok untuk menghidrat tubuh di hari yang panas. Nikmati kesederhanaan dan manfaat sehat dalam setiap tegukan.",
             "gambar": "gambar_minuman/00c689af-ca68-49a5-9f24-6bf550c3a65f.jpg",
             "ukuran": "SEDANG",
@@ -1443,7 +1443,7 @@
         "pk": "ebbb088f-f9ff-49e9-ae77-8ac4749b9218",
         "fields": {
             "nama": "Jus Nanas",
-            "harga": "15000.00",
+            "harga": "15000",
             "deskripsi": "Jus nanas segar dengan rasa manis dan sedikit asam, diolah dari buah nanas matang yang juicy. Setiap tegukan menghadirkan kesegaran tropis yang menyegarkan dan kaya akan vitamin C. Sempurna untuk dinikmati di hari yang panas atau sebagai penyegar di sepanjang hari.",
             "gambar": "gambar_minuman/2e35d339-d4fe-4afc-bc57-ebc9691d2437.jpg",
             "ukuran": "SEDANG",
@@ -1456,7 +1456,7 @@
         "pk": "f2da8e4c-35de-4110-b383-39ac1a74b6a7",
         "fields": {
             "nama": "Jus Mangga",
-            "harga": "15000.00",
+            "harga": "15000",
             "deskripsi": "Jus mangga segar dengan rasa manis dan sedikit asam yang alami, diolah dari buah mangga pilihan. Setiap tegukan menghadirkan kesegaran tropis yang memanjakan. Cocok untuk dinikmati kapan saja sebagai pelepas dahaga yang penuh rasa.",
             "gambar": "gambar_minuman/8c8be6a7-ed72-4740-ba25-83073b48e253.jpg",
             "ukuran": "SEDANG",
@@ -1469,7 +1469,7 @@
         "pk": "f9314ecf-647b-44df-af55-55363b987ca8",
         "fields": {
             "nama": "Es Jeruk Nipis",
-            "harga": "25000.00",
+            "harga": "25000",
             "deskripsi": "Es jeruk nipis yang segar dan menyegarkan, terbuat dari perasan jeruk nipis alami yang kaya rasa. Menawarkan kombinasi asam dan manis yang menyegarkan, sempurna untuk menghilangkan dahaga di hari yang panas. Nikmati kesegaran alami ini sebagai minuman sehat yang menyegarkan.",
             "gambar": "gambar_minuman/3077aeba-d652-40a3-a6f8-8a9375dd4de8.jpg",
             "ukuran": "SEDANG",
@@ -1482,7 +1482,7 @@
         "pk": "f9cd9774-d18e-4a40-ac4c-80f891510f16",
         "fields": {
             "nama": "Red Velvet",
-            "harga": "20000.00",
+            "harga": "20000",
             "deskripsi": "Red Velvet adalah minuman yang kaya dan menggoda, terbuat dari perpaduan susu dan sirup rasa red velvet yang manis. Minuman ini biasanya disajikan dengan lapisan krim kocok di atasnya, memberikan rasa lembut dan tekstur yang creamy, serta tampilan yang menarik dengan warna merah yang cerah.",
             "gambar": "gambar_minuman/0b0a5e51-ff92-40b0-b4d9-a28d5b6a8af1.jpg",
             "ukuran": "SEDANG",
@@ -1624,7 +1624,7 @@
         "model": "ulasan.ulasan",
         "pk": "0c0cb6e1-9884-4092-888f-d89e091766dc",
         "fields": {
-            "created_at": "2024-09-29T05:25:30.000Z",
+            "created_at": "2024-09-29T05:25:300Z",
             "nilai": 5,
             "deskripsi": "Saya berkunjung ke salah satu sentra kampung pempek di Palembang, tepatnya di Kampung Pempek 26 Ilir. Saat itu, kami sudah memasuki puncak arus balik, sehingga tempat ini dipadati banyak pemudik yang berburu oleh-oleh.\r\n\r\nAlhamdulillah, setelah menunggu hampir setengah jam, kami akhirnya mendapatkan tempat yang nyaman di Resto Pempek Lala, salah satu pempek paling terkenal yang sering diliput oleh para food vlogger. Rasa pempeknya sangat enak, meskipun beberapa menu unik yang ingin saya coba sudah habis. Namun, tidak masalah, karena rasa ikan yang gurih dari menu yang masih tersedia cukup memuaskan perut, ditambah dengan suguhan kue hijau yang manis dan es kacang merah yang memadukan rasa manis dan gurih.\r\n\r\nSaya ingin mengucapkan terima kasih khusus kepada Nona Nina dan Om Ramli yang telah menjadi pemandu yang menyenangkan selama berkeliling di Kampung 26 Ilir.",
             "user": 11,
@@ -1635,7 +1635,7 @@
         "model": "ulasan.ulasan",
         "pk": "12281a9f-8238-4215-9334-16d264ab1762",
         "fields": {
-            "created_at": "2024-10-13T05:22:08.000Z",
+            "created_at": "2024-10-13T05:22:080Z",
             "nilai": 5,
             "deskripsi": "Menurut pendapat saya, tempat makan ini layak dicoba jika Anda berkesempatan singgah di Palembang. Rasa makanannya sangat sesuai dengan selera saya, terutama pindang iga, pindang udang, pindang patin, sambal mangga, serta udang sambal pete yang disajikan dengan lalapan. Fasilitas parkirnya cukup luas, pelayanan yang diberikan juga baik, dan harga yang ditawarkan sangat terjangkau.",
             "user": 13,
@@ -1646,7 +1646,7 @@
         "model": "ulasan.ulasan",
         "pk": "1ab4f85c-b5ef-486c-a53f-6f69a0e578a1",
         "fields": {
-            "created_at": "2023-02-27T23:39:35.000Z",
+            "created_at": "2023-02-27T23:39:350Z",
             "nilai": 5,
             "deskripsi": "Restoran ini nyaman dan sangat cocok untuk makan bersama keluarga, teman, dan rekan kantor. Saat kami berkunjung, mayoritas pengunjungnya adalah kelompok pegawai kantor, yang menunjukkan bahwa suasananya memang ideal untuk bincang-bincang santai. Dengan nuansa kayu dan suara air dari kolam kecil, tempat ini terasa menenangkan.\r\n\r\nDari segi harga, sesuai dengan standar restoran di Palembang. Menu makanannya sangat bervariasi dan enak, sehingga cocok untuk dibagi-bagikan. Saya pribadi sangat menyukai buncis dengan dua rasa yang disajikan di sini.",
             "user": 12,
@@ -1657,9 +1657,9 @@
         "model": "ulasan.ulasan",
         "pk": "1bbd35c0-1d80-42d7-a9c4-d95770362679",
         "fields": {
-            "created_at": "2024-05-09T08:02:09.000Z",
+            "created_at": "2024-05-09T08:02:090Z",
             "nilai": 5,
-            "deskripsi": "Kawasan ini terkenal dengan aneka pempek yang memiliki berbagai jenis dan harga. Terdapat banyak penjual pempek, mulai dari restoran hingga pedagang di pinggir jalan, serta banyak penjual kemplang.\r\n\r\nKami mencoba pempek Edy, di mana harga pempek kecil untuk semua varian adalah Rp 1.500 per pcs, yang tergolong murah. Rasanya cukup enak, meskipun tidak sebanding dengan pempek Candy. Hehe. Kami juga membeli kemplang sebagai oleh-oleh, bukan di Pak Edy, tetapi di ruko kecil khusus yang menjual kemplang, dengan harga Rp 15.000 per paket. Kami membeli 13 paket kemplang untuk keluarga di rumah, dan rasanya enak, cocok sebagai oleh-oleh asli Palembang. Jika ingin membeli oleh-oleh pempek, Anda juga bisa memesan dalam keadaan vakum dan dijadikan frozen, meskipun tidak bisa bertahan lama jika tidak disimpan di kulkas.",
+            "deskripsi": "Kawasan ini terkenal dengan aneka pempek yang memiliki berbagai jenis dan harga. Terdapat banyak penjual pempek, mulai dari restoran hingga pedagang di pinggir jalan, serta banyak penjual kemplang.\r\n\r\nKami mencoba pempek Edy, di mana harga pempek kecil untuk semua varian adalah Rp 1.500 per pcs, yang tergolong murah. Rasanya cukup enak, meskipun tidak sebanding dengan pempek Candy. Hehe. Kami juga membeli kemplang sebagai oleh-oleh, bukan di Pak Edy, tetapi di ruko kecil khusus yang menjual kemplang, dengan harga Rp 150 per paket. Kami membeli 13 paket kemplang untuk keluarga di rumah, dan rasanya enak, cocok sebagai oleh-oleh asli Palembang. Jika ingin membeli oleh-oleh pempek, Anda juga bisa memesan dalam keadaan vakum dan dijadikan frozen, meskipun tidak bisa bertahan lama jika tidak disimpan di kulkas.",
             "user": 11,
             "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae"
         }
@@ -1668,7 +1668,7 @@
         "model": "ulasan.ulasan",
         "pk": "3c112d1e-238a-483a-8e7c-d1434a686f69",
         "fields": {
-            "created_at": "2024-12-03T09:14:27.000Z",
+            "created_at": "2024-12-03T09:14:270Z",
             "nilai": 3,
             "deskripsi": "Tempatnya cukup luas. Saya memesan pindang tulang iga yang berisi tiga potong, dan rasanya sangat enak. Selain itu, terdapat juga ikan seluang yang gurih dan renyah, cocok dinikmati dengan sambal. Nasi hangat yang disajikan bersama hidangan ini sudah terasa lezat. Saya juga mencoba sempol ikan, yang rasanya tidak kalah enak. Namun, saat mencicipi srikaya, saya mendapati bahwa saya kurang menyukainya. Secara keseluruhan, pengalaman makan di sini sangat memuaskan!",
             "user": 11,
@@ -1679,7 +1679,7 @@
         "model": "ulasan.ulasan",
         "pk": "3f0dc462-5df3-450e-b3ad-577af664e040",
         "fields": {
-            "created_at": "2023-08-11T05:36:43.000Z",
+            "created_at": "2023-08-11T05:36:430Z",
             "nilai": 4,
             "deskripsi": "Saya baru saja mencoba makan di restoran yang terletak tepat di samping Holycow. Menu yang disajikan cenderung berfokus pada masakan Eropa, dengan variasi roti yang lebih dominan. Terdapat juga pilihan steak, termasuk steak ayam, ikan, dan daging, meskipun variasi pada masing-masing jenis steak tidak terlalu banyak.\r\n\r\nUntuk minuman, pilihan yang ditawarkan cukup bervariasi, dengan minuman andalan Barkley Tea yang menggunakan es gula merah. Suasana restoran yang cozy juga menjadi nilai tambah tersendiri. \r\n\r\nRestoran ini sangat cocok dijadikan sebagai tujuan makan atau berkumpul bersama keluarga dan rekan kerja. Namun, saya tidak merekomendasikannya untuk dikunjungi setiap minggu, mengingat harganya yang cukup lumayan tinggi (sudah sesuai dengan standar). Secara keseluruhan, pengalaman makan di sini sangat menyenangkan!",
             "user": 12,
@@ -1690,7 +1690,7 @@
         "model": "ulasan.ulasan",
         "pk": "42fda733-67e1-478f-a027-8aa3fbd26ecd",
         "fields": {
-            "created_at": "2024-11-03T18:50:39.000Z",
+            "created_at": "2024-11-03T18:50:390Z",
             "nilai": 4,
             "deskripsi": "Tempat makan ini mengusung konsep kekinian dengan alunan musik live yang menambah suasana. Menawarkan beragam jenis makanan, pengunjung dapat memilih sesuai dengan selera masing-masing.\r\n\r\nSebelum makanan utama disajikan, meja akan disediakan cemilan sebagai \"welcoming food,\" seperti pempek, kue tart, atau kue sejenis sus (namun perlu diingat, ini berbayar). \r\n\r\nDari segi rasa, masakannya termasuk enak. Contohnya, kepiting yang dibungkus daun pisang memiliki bumbu yang sangat kuat dan berani. Sementara itu, bumbu ayam bawang juga enak, meskipun ayam gorengnya sedikit kering dan alot.",
             "user": 13,
@@ -1701,7 +1701,7 @@
         "model": "ulasan.ulasan",
         "pk": "46b2c18c-c195-4763-a4a7-3a31347cd5d9",
         "fields": {
-            "created_at": "2023-08-23T10:07:02.000Z",
+            "created_at": "2023-08-23T10:07:020Z",
             "nilai": 5,
             "deskripsi": "Love the food!! Gurame saos padangnya yummy, tumis kangkung. Musholla dan toiletnya bersih. Atmosphere suasana makan disini sangat menyenangkan. Ada ruangan yang cocok untuk business meeting yang pakai AC.",
             "user": 12,
@@ -1712,7 +1712,7 @@
         "model": "ulasan.ulasan",
         "pk": "4da98db9-4a08-47e3-952b-0c22961ff63a",
         "fields": {
-            "created_at": "2023-10-23T17:40:38.000Z",
+            "created_at": "2023-10-23T17:40:380Z",
             "nilai": 5,
             "deskripsi": "Ini adalah tempat makan sushi keluarga premium pertama di Palembang, sebelum hadirnya berbagai sushi premium lainnya yang kini menjamur. Rasanya cukup memuaskan, dengan ukuran sushi yang besar. Satu porsi ramen dapat dibagikan untuk 2-3 orang. Harga yang ditawarkan sebanding dengan kualitas dan ukuran porsi.\r\n\r\nSuasana di restoran ini nyaman, dilengkapi dengan sushi belt conveyor yang memudahkan pengunjung untuk memilih sushi atau menu lainnya. \r\n\r\nLokasinya cukup eksklusif, berada di gedung Sushi Tei di simpang Jalan A. Rivai, dengan fasilitas parkir yang luas dan dekat dengan masjid besar.",
             "user": 11,
@@ -1723,9 +1723,9 @@
         "model": "ulasan.ulasan",
         "pk": "57a391dd-89ef-4a63-9f41-3d18e6f2b8b1",
         "fields": {
-            "created_at": "2024-08-24T12:52:55.000Z",
+            "created_at": "2024-08-24T12:52:550Z",
             "nilai": 4,
-            "deskripsi": "Ini adalah kunjungan kedua saya ke rumah makan Pindang Musi Rawas. Kunjungan pertama saya dilakukan bersama teman yang asli tinggal di Palembang, dan kali ini saya datang bersama keluarga. Sudah hampir enam tahun sejak kunjungan sebelumnya, dan suasananya terasa sedikit berbedaΓÇöpastinya lebih nyaman.\r\n\r\nDari segi rasa masakan, hampir tidak ada perubahan, terutama pada hidangan pindang. Pindang patin yang disajikan dengan dua potong ikan kini dihargai Rp 50.000, sedangkan pindang udang yang berukuran cukup besar dihargai Rp 120.000. Saya juga sempat mencicipi pepes dan sambal petai udang. Menu lainnya juga beragam, sehingga dapat dicoba sesuai dengan kemampuan dan selera.\r\n\r\nSuasana makan di sini cukup nyaman dan kebersihannya terjaga dengan baik, termasuk di toilet dan tempat cuci tangan yang juga bersih.",
+            "deskripsi": "Ini adalah kunjungan kedua saya ke rumah makan Pindang Musi Rawas. Kunjungan pertama saya dilakukan bersama teman yang asli tinggal di Palembang, dan kali ini saya datang bersama keluarga. Sudah hampir enam tahun sejak kunjungan sebelumnya, dan suasananya terasa sedikit berbedaΓÇöpastinya lebih nyaman.\r\n\r\nDari segi rasa masakan, hampir tidak ada perubahan, terutama pada hidangan pindang. Pindang patin yang disajikan dengan dua potong ikan kini dihargai Rp 500, sedangkan pindang udang yang berukuran cukup besar dihargai Rp 1200. Saya juga sempat mencicipi pepes dan sambal petai udang. Menu lainnya juga beragam, sehingga dapat dicoba sesuai dengan kemampuan dan selera.\r\n\r\nSuasana makan di sini cukup nyaman dan kebersihannya terjaga dengan baik, termasuk di toilet dan tempat cuci tangan yang juga bersih.",
             "user": 15,
             "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a"
         }
@@ -1734,7 +1734,7 @@
         "model": "ulasan.ulasan",
         "pk": "6b3ce114-1286-4994-9185-840d02bcb78b",
         "fields": {
-            "created_at": "2024-03-07T22:38:06.000Z",
+            "created_at": "2024-03-07T22:38:060Z",
             "nilai": 5,
             "deskripsi": "Pancious di Palembang adalah restoran yang cocok untuk hangout dengan teman atau berkumpul dengan keluarga. Menu yang disajikan sebagian besar adalah masakan western, dan untuk pancake-nya, tidak perlu diragukan lagi semuanya enak. Saya baru mencoba milk tea-nya dan ternyata rasanya sangat enak. Selain itu, spaghetti truffle-nya juga lezat, dengan rasa yang pas dan tidak terlalu kuat. Secara keseluruhan, saya merasa nyaman makan di sini.",
             "user": 11,
@@ -1745,7 +1745,7 @@
         "model": "ulasan.ulasan",
         "pk": "8a1979e4-e9d1-47d7-8478-8ad8972635ba",
         "fields": {
-            "created_at": "2024-06-22T06:04:09.000Z",
+            "created_at": "2024-06-22T06:04:090Z",
             "nilai": 4,
             "deskripsi": "Tempatnya nyaman, lumayan luas ada ruang AC dan Non AC, ada bagian tamannya juga, ada spot foto juga, untuk makanan enak, kue kue enak, takjilnya enak juga karena kebetulan kesini pas acara Bukber, pelayanannya cukup ramah, ada musiknya, rekomen pokoknya buat yang cari lokasi untuk bukber dengan keluarga atau kantor.",
             "user": 13,
@@ -1756,7 +1756,7 @@
         "model": "ulasan.ulasan",
         "pk": "98112c92-0243-4b69-a801-3d8326c808d2",
         "fields": {
-            "created_at": "2023-09-08T20:13:21.000Z",
+            "created_at": "2023-09-08T20:13:210Z",
             "nilai": 3,
             "deskripsi": "Sebagai tempat yang menjadi ikon pusat perdagangan kuliner khas tradisional, sudah sepatutnya pemerintah kota Palembang maupun pemerintah provinsi memberikan perhatian lebih terhadap lokasi ini, terutama bagi masyarakat dari luar daerah. Penting untuk menyediakan kemudahan dalam menjangkau tempat ini, seperti rute yang tidak berputar-putar, tanda arah yang jelas, serta fasilitas yang memadai, seperti area parkir untuk kendaraan roda dua maupun roda empat.\r\n\r\nSelain itu, akses jalan yang rapi dan tidak becek sangat diperlukan, mengingat kondisi di sekitar Pasar 26 yang terkesan semerawut. Peningkatan infrastruktur dan fasilitas akan membuat pengalaman berkunjung ke tempat ini menjadi lebih nyaman dan menyenangkan.",
             "user": 12,
@@ -1767,7 +1767,7 @@
         "model": "ulasan.ulasan",
         "pk": "a12f2e8b-c1b0-4ce1-962c-cfd62e2ceb7c",
         "fields": {
-            "created_at": "2024-05-28T09:17:29.000Z",
+            "created_at": "2024-05-28T09:17:290Z",
             "nilai": 2,
             "deskripsi": "Rasa makanan di restoran tersebut tergolong biasa. Udang bakar yang disajikan kurang meresap bumbunya. Selain itu, terjadi insiden yang lebih mengecewakan. Sebuah restoran besar seharusnya memiliki generator otomatis, namun pada kenyataannya tidak ada. Setidaknya, diharapkan terdapat lampu darurat. Saat kami sedang menikmati makanan, listrik padam, dan hal ini terjadi secara tiba-tiba, bukan karena pemadaman dari PLN, melainkan diduga akibat kehabisan token. Saya merasa sangat malu, mengingat saya sedang membawa tamu dari Jakarta.",
             "user": 15,
@@ -1778,7 +1778,7 @@
         "model": "ulasan.ulasan",
         "pk": "a704d5ae-1d9a-41d4-a66e-0c00355b1275",
         "fields": {
-            "created_at": "2024-12-27T20:28:13.000Z",
+            "created_at": "2024-12-27T20:28:130Z",
             "nilai": 5,
             "deskripsi": "Makanannya enak tentunya dengan harga yang Lumayan juga, suasana selalu ramai,apalagi di bulan Ramadhan, Untungnya masih ada table kosong, kalo agak sorean dikit pasti udah full, kalo ngga booking dari siang",
             "user": 14,
@@ -1789,7 +1789,7 @@
         "model": "ulasan.ulasan",
         "pk": "ae7b4f31-5c65-48f1-9b44-f166b8300e5a",
         "fields": {
-            "created_at": "2024-08-08T08:37:26.000Z",
+            "created_at": "2024-08-08T08:37:260Z",
             "nilai": 2,
             "deskripsi": "Harga di sini memang agak tinggi, tetapi sebanding dengan rasa dan kualitas bahan yang digunakan. Namun, saya mencatat bahwa kepala salmon yang saya makan terasa agak amis, mungkin perlu ditinjau kembali. Di luar itu, suasana dan pelayanan di restoran ini baik. Saya berharap mereka bisa sering-sering mengadakan promo. Hehehe.",
             "user": 15,
@@ -1800,9 +1800,9 @@
         "model": "ulasan.ulasan",
         "pk": "b0cdc437-61ad-4761-a9df-14f23138d165",
         "fields": {
-            "created_at": "2023-02-08T01:24:08.000Z",
+            "created_at": "2023-02-08T01:24:080Z",
             "nilai": 4,
-            "deskripsi": "Sekarang restoran ini telah berganti nama menjadi Mei Mei Restoran. Mereka menyajikan berbagai makanan khas Palembang, seperti pindang, soto, pempek, ayam, dan ikan. Rasa makanannya cukup enak dan sepadan dengan harga, meskipun tidak tergolong luar biasa.\r\n\r\nMenu yang menarik perhatian adalah tahu Sumedang yang hanya dihargai Rp 15.000 (sebelum pajak), dan menariknya, air putih hanya dikenakan biaya Rp 2.000, yang jarang ditemukan di restoran lain.\r\n\r\nFasilitas parkirnya cukup luas, meskipun harus berbagi dengan tempat fitness di sebelahnya. Bagian dalam restoran cukup luas dan dilengkapi dengan beberapa mainan anak yang menyerupai playground untuk anak-anak. Ruangan tidak dilengkapi dengan AC, hanya menggunakan kipas angin, dan terdapat saung-saung di dalamnya. Disarankan untuk datang pada saat cuaca tidak terlalu panas agar lebih nyaman. Mungkin ke depannya, pihak restoran dapat mempertimbangkan untuk memasang AC demi kenyamanan pelanggan.\r\n\r\nPelayanan di restoran ini adalah salah satu yang terbaik. Para pelayan sangat ramah, cepat, dan selalu tersenyum. Dengan pelayanan yang baik dan rasa makanan yang terjaga, seharusnya restoran ini dapat menjadi pilihan keluarga yang populer. Mungkin perlu dilakukan promosi untuk memperkenalkan kembali restoran ini kepada masyarakat.",
+            "deskripsi": "Sekarang restoran ini telah berganti nama menjadi Mei Mei Restoran. Mereka menyajikan berbagai makanan khas Palembang, seperti pindang, soto, pempek, ayam, dan ikan. Rasa makanannya cukup enak dan sepadan dengan harga, meskipun tidak tergolong luar biasa.\r\n\r\nMenu yang menarik perhatian adalah tahu Sumedang yang hanya dihargai Rp 150 (sebelum pajak), dan menariknya, air putih hanya dikenakan biaya Rp 20, yang jarang ditemukan di restoran lain.\r\n\r\nFasilitas parkirnya cukup luas, meskipun harus berbagi dengan tempat fitness di sebelahnya. Bagian dalam restoran cukup luas dan dilengkapi dengan beberapa mainan anak yang menyerupai playground untuk anak-anak. Ruangan tidak dilengkapi dengan AC, hanya menggunakan kipas angin, dan terdapat saung-saung di dalamnya. Disarankan untuk datang pada saat cuaca tidak terlalu panas agar lebih nyaman. Mungkin ke depannya, pihak restoran dapat mempertimbangkan untuk memasang AC demi kenyamanan pelanggan.\r\n\r\nPelayanan di restoran ini adalah salah satu yang terbaik. Para pelayan sangat ramah, cepat, dan selalu tersenyum. Dengan pelayanan yang baik dan rasa makanan yang terjaga, seharusnya restoran ini dapat menjadi pilihan keluarga yang populer. Mungkin perlu dilakukan promosi untuk memperkenalkan kembali restoran ini kepada masyarakat.",
             "user": 16,
             "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960"
         }
@@ -1811,7 +1811,7 @@
         "model": "ulasan.ulasan",
         "pk": "b118b4ff-8767-4ff1-a2dd-b282958eb8e9",
         "fields": {
-            "created_at": "2023-07-13T06:27:03.000Z",
+            "created_at": "2023-07-13T06:27:030Z",
             "nilai": 2,
             "deskripsi": "Saya ingin berbagi pengalaman mengenai pelayanan di sini yang kurang memuaskan. Sayangnya, banyak pelayan yang terkesan judes. Ketika saya meminta atau menanyakan sesuatu, jawaban yang diberikan terdengar ketus, seperti \"Kalau model itu memang tidak pakai mie putih.\" \r\n\r\nSaya mencoba bertanya lebih lanjut, tetapi malah mendapat tanggapan yang kurang ramah. Selain itu, saya juga memperhatikan mereka berbicara tentang pelanggan di depan kami, yang membuat suasana semakin tidak nyaman.\r\n\r\nSaya mengerti bahwa mereka mungkin lelah dan menghadapi banyak pesanan, namun seharusnya semua pelanggan tetap diperlakukan dengan baik. Terkadang, ketika banyak orang yang datang, perhatian terhadap pelanggan lain seolah terabaikan.\r\n\r\nSemoga ke depannya, pelayanan di sini bisa lebih ramah kepada semua pembeli. Senyuman kecil saja bisa membuat perbedaan besar. Terima kasih.",
             "user": 15,
@@ -1822,7 +1822,7 @@
         "model": "ulasan.ulasan",
         "pk": "b4f0edb2-77f8-424b-9866-ca036774fabf",
         "fields": {
-            "created_at": "2024-08-12T22:39:46.000Z",
+            "created_at": "2024-08-12T22:39:460Z",
             "nilai": 4,
             "deskripsi": "Menginjakan kaki di kota Palembang mencoba masakan khas disana. Pindang patin adalah salah satu menu pavorite yang tersedia dengan beberapa menu lain seperti ikan burame bakar, sup Jagung kepiting dan aneka kerang. Ikan patin pindang sangat diminati dan segar. Sup Jagung kepiting juga enak. Lingkungan restaurant yang asri dengan kolam ikan dalam menambah nikmat Makan di siang hari.",
             "user": 11,
@@ -1833,7 +1833,7 @@
         "model": "ulasan.ulasan",
         "pk": "ba51abfa-8260-4b28-a858-1f7ab6e298a5",
         "fields": {
-            "created_at": "2024-03-10T09:46:48.000Z",
+            "created_at": "2024-03-10T09:46:480Z",
             "nilai": 5,
             "deskripsi": "Tempatnya sangat bagus dan cocok untuk makan bersama keluarga atau pasangan. Masakannya enak, dan pelayanan yang diberikan sangat baik serta ramah. Saya sangat menyukainya, terutama karena cocok untuk orang-orang yang suka berfoto. Namun, saat kami berkunjung, cuaca sedang hujan, sehingga kami terpaksa makan di bagian dalam. Kami berencana untuk kembali ke sini di lain waktu.",
             "user": 14,
@@ -1844,7 +1844,7 @@
         "model": "ulasan.ulasan",
         "pk": "baf89bd4-5f21-42ae-a646-b1ad08b6f105",
         "fields": {
-            "created_at": "2023-09-28T00:48:28.000Z",
+            "created_at": "2023-09-28T00:48:280Z",
             "nilai": 5,
             "deskripsi": "Ini adalah salah satu tempat yang wajib dikunjungi jika Anda ingin menikmati pindang. Pindang patin dan udangnya sangat juara, sementara ikan seluang gorengnya juga lezat. Ditambah lagi, rasanya semakin nikmat dengan sambal tempoyak dan sambal mangga. Jangan lupa untuk memesan sambal pete udang saat berkunjung ke sini!",
             "user": 16,
@@ -1855,7 +1855,7 @@
         "model": "ulasan.ulasan",
         "pk": "c8126234-6e77-4d45-a746-e5c298a625ae",
         "fields": {
-            "created_at": "2024-08-23T23:25:58.000Z",
+            "created_at": "2024-08-23T23:25:580Z",
             "nilai": 4,
             "deskripsi": "Pindang ikan patinnya enak banget. Tersedia juga pindang lain seperti tulang iga dan udang. Selain pindang, tersedia juga lauk lainnya seperti ikan siluang garing, udang sambal pete, pentol ikan gabus dan sayur rebusan. Satu lagi yang juara adalah makanan penutup, sarikaya. Yang suka durian juga disediakan, ada musang king dan monthong",
             "user": 14,
@@ -1866,7 +1866,7 @@
         "model": "ulasan.ulasan",
         "pk": "d7e9694a-0bf6-4a5f-9a35-efda4aa9a0bc",
         "fields": {
-            "created_at": "2024-06-04T15:48:59.000Z",
+            "created_at": "2024-06-04T15:48:590Z",
             "nilai": 3,
             "deskripsi": "Rasa nya ok, tapi piring disajikan dalam keadaan basah tanpa di lap terlebih dahulu, pindang disajikan anget kuku, kamiengharapkan untuk makan sekeluarga seharga 430rb, service nya harus lebih baik dari ini, harusnya pindang itu disajikan panas, harus diperbaiki pelayanan nya",
             "user": 13,
@@ -1877,7 +1877,7 @@
         "model": "ulasan.ulasan",
         "pk": "de2f2e32-8b2a-4f55-9143-ecd3df1cd2af",
         "fields": {
-            "created_at": "2024-09-25T16:25:05.000Z",
+            "created_at": "2024-09-25T16:25:050Z",
             "nilai": 5,
             "deskripsi": "Saya mampir ke restoran ini karena dikatakan sebagai representasi masakan Melayu Palembang. Secara keseluruhan, rata-rata makanan yang disajikan enak dan sesuai dengan reputasinya. Suasana di restoran ini juga cukup mendukung, dengan adanya kolam ikan di bagian tengah yang dapat menghibur anak-anak.\r\n\r\nNamun, perlu diperhatikan posisi toilet yang berada di lantai bawah, yang mungkin kurang nyaman bagi tamu yang sudah berumur atau mengalami kesulitan untuk naik turun tangga. Selain itu, siapkan diri untuk merogoh kocek agak dalam, karena harga makanan di sini tergolong lumayan. Dengar-dengar, restoran ini sering digunakan untuk menjamu pejabat dan tamu-tamu penting.",
             "user": 15,
@@ -1888,7 +1888,7 @@
         "model": "ulasan.ulasan",
         "pk": "e4af2d82-627c-4cdd-879c-93c3af5fa77c",
         "fields": {
-            "created_at": "2024-08-27T21:11:38.000Z",
+            "created_at": "2024-08-27T21:11:380Z",
             "nilai": 4,
             "deskripsi": "Ini adalah salah satu tempat makan pindang di Palembang yang strategis. Fasilitas parkir untuk mobil cukup luas, dan terdapat berbagai pilihan kursi dengan nuansa yang variatif.\r\n\r\nSaya menikmati hidangan pindang di sini bersama keluarga, dan harga yang ditawarkan sebanding dengan rasa yang disajikan. Rasa pindangnya cenderung manis, sementara pelayanan yang diberikan sangat ramah. Hidangan disajikan dalam keadaan panas, dan pengalaman makan semakin menarik dengan pemandangan di atas kolam ikan.",
             "user": 11,
@@ -1899,9 +1899,9 @@
         "model": "ulasan.ulasan",
         "pk": "eaf9d53f-71f1-40bd-9e73-3285a913ea3a",
         "fields": {
-            "created_at": "2024-06-07T17:13:55.000Z",
+            "created_at": "2024-06-07T17:13:550Z",
             "nilai": 5,
-            "deskripsi": "Pindangnya sangat lezat dan segar (mungkin karena bumbu rahasia!), meskipun harganya cukup lumayan, sekitar Rp 60.000. Selain itu, ada juga udang satai yang rasanya enak, tetapi harganya cukup mahal, yaitu Rp 110.000 untuk satu porsi. Makanan lainnya dipadukan dengan sambal yang nikmat, tidak hanya pedas atau asam, tetapi memiliki rasa yang benar-benar enak. Sangat direkomendasikan untuk mengunjungi restoran ini, namun jika ingin membeli udang, sebaiknya pikirkan dengan bijak. Hehehe.",
+            "deskripsi": "Pindangnya sangat lezat dan segar (mungkin karena bumbu rahasia!), meskipun harganya cukup lumayan, sekitar Rp 600. Selain itu, ada juga udang satai yang rasanya enak, tetapi harganya cukup mahal, yaitu Rp 1100 untuk satu porsi. Makanan lainnya dipadukan dengan sambal yang nikmat, tidak hanya pedas atau asam, tetapi memiliki rasa yang benar-benar enak. Sangat direkomendasikan untuk mengunjungi restoran ini, namun jika ingin membeli udang, sebaiknya pikirkan dengan bijak. Hehehe.",
             "user": 12,
             "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a"
         }
@@ -1910,7 +1910,7 @@
         "model": "ulasan.ulasan",
         "pk": "ede5acce-11be-4910-b7d6-9d13296e2e5d",
         "fields": {
-            "created_at": "2023-07-19T19:46:54.000Z",
+            "created_at": "2023-07-19T19:46:540Z",
             "nilai": 4,
             "deskripsi": "Penggemar seafood yang sedang berkunjung ke Palembang tepat sekali untuk singgah dan mencoba menyantap sajian dari rumah makan ini. Tempatnya tenang, ada life music. Bagi yang butuh ruang untuk meeting juga ada. Bisa pilih ingin di area terbuka dengan udara luar ruangan atau di dalam ruangan. Soal cita rasa, termasuk kategori sajian yang enak. Kalau tidak bisa makan seafood tapi terpaksa mampir kesini karena kerabat atau rekan ingin makan seafood, tenang saja, ada sajian lainnya yang tidak kalah nikmat.",
             "user": 16,
@@ -1921,7 +1921,7 @@
         "model": "ulasan.ulasan",
         "pk": "ee823b36-ff1f-4906-a793-d8cd158318c4",
         "fields": {
-            "created_at": "2024-04-25T13:20:12.000Z",
+            "created_at": "2024-04-25T13:20:120Z",
             "nilai": 3,
             "deskripsi": "Seperti makan di pedesaan ad gazebo ny, kecil tempat ny tp krn penyusunan tempat ny bagus jd keliatan besar, makanan ny enak2 ad es cream, es kacang dll, dari sekian makanan aq pilih ny tahu krn udh kenyang jd ini aja pesenan krn penasaran dgn tempat ny aja sebenarnya",
             "user": 14,
@@ -1934,7 +1934,7 @@
         "fields": {
             "topik": "Harga dan Porsi di RM Pondok Kelapo",
             "pesan": "Bagaimana harga dan porsi makanan di RM Pondok Kelapo? Apakah porsi tersebut memuaskan untuk harga yang ditawarkan?",
-            "tanggal_posting": "2024-02-14T12:14:08.000Z",
+            "tanggal_posting": "2024-02-14T12:14:080Z",
             "user": 15,
             "restoran": "f000d91a-908f-46b6-8dc0-c5e7a370aae1"
         }
@@ -1945,7 +1945,7 @@
         "fields": {
             "topik": "Kualitas Makanan dan Menu Rekomendasi di Tamken Resto and Cafe",
             "pesan": "Bagaimana kualitas makanan di Tamken Resto and Cafe? Ada menu yang jadi favorit atau rekomendasi?",
-            "tanggal_posting": "2024-06-08T05:19:03.000Z",
+            "tanggal_posting": "2024-06-08T05:19:030Z",
             "user": 13,
             "restoran": "bfb5f51b-9dec-4269-a42f-d94753b6a2c4"
         }
@@ -1956,7 +1956,7 @@
         "fields": {
             "topik": "Harga dan Porsi di Saoenk Kito Restaurant",
             "pesan": "Bagaimana harga dan porsi makanan di Saoenk Kito Restaurant? Apakah porsinya sesuai dengan harga dan kualitas?",
-            "tanggal_posting": "2023-04-17T18:02:23.000Z",
+            "tanggal_posting": "2023-04-17T18:02:230Z",
             "user": 14,
             "restoran": "a9b8eff7-f3c4-4d66-ae28-afef240b0960"
         }
@@ -1967,7 +1967,7 @@
         "fields": {
             "topik": "Pelayanan dan Kenyamanan di Rumah Makan Pindang Musi Rawas",
             "pesan": "Bagaimana pelayanan dan kenyamanan di Rumah Makan Pindang Musi Rawas? Apakah tempatnya nyaman untuk makan bersama keluarga?",
-            "tanggal_posting": "2023-03-06T20:23:40.000Z",
+            "tanggal_posting": "2023-03-06T20:23:400Z",
             "user": 13,
             "restoran": "11914408-27e7-4e7f-b608-ddbcd858df4a"
         }
@@ -1978,7 +1978,7 @@
         "fields": {
             "topik": "Pengalaman Makan di Sentral Kampung Pempek Palembang",
             "pesan": "Bagaimana pengalaman kalian makan di restoran Sentral Kampung Pempek Palembang? Apakah rasa pempeknya autentik dan bagaimana suasananya?",
-            "tanggal_posting": "2024-01-12T13:13:48.000Z",
+            "tanggal_posting": "2024-01-12T13:13:480Z",
             "user": 11,
             "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae"
         }
@@ -1989,7 +1989,7 @@
         "fields": {
             "topik": "Harga dan Porsi di Sentral Kampung Pempek Palembang",
             "pesan": "Bagaimana dengan harga dan porsi di Sentral Kampung Pempek Palembang? Apakah porsinya sesuai dengan harga yang ditawarkan?",
-            "tanggal_posting": "2023-12-18T15:48:39.000Z",
+            "tanggal_posting": "2023-12-18T15:48:390Z",
             "user": 12,
             "restoran": "0cc904b9-6003-48f1-a237-6b9a709ed6ae"
         }
@@ -2000,7 +2000,7 @@
         "fields": {
             "topik": "Harga dan Porsi di Gemercik Resto-Suki-Kedai Kopi",
             "pesan": "Bagaimana harga dan porsi makanan di Gemercik Resto-Suki-Kedai Kopi? Apakah porsi tersebut sesuai dengan harga yang ditawarkan?",
-            "tanggal_posting": "2023-03-27T17:51:22.000Z",
+            "tanggal_posting": "2023-03-27T17:51:220Z",
             "user": 12,
             "restoran": "e9e54d55-1361-4e83-b880-aa7852ef16f8"
         }
