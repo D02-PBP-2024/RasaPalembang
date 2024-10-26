@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load humanize %}
 {% block meta %}
-<title>RasaPalembang | {{ minuman.minuman.nama }}</title>
+<title>RasaPalembang | {{ minuman.nama }}</title>
 {% endblock meta %}
 
 {% block content %}
@@ -13,7 +13,7 @@
                 <p class="text-base font-semibold leading-7 text-[#ff5757]">Minuman</p>
                 <div class="flex mt-2">
                     <h1 class="w-full text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-                        {{ minuman.minuman.nama }}
+                        {{ minuman.nama }}
                     </h1>
                     <div class="flex-none">
                         <button
@@ -22,17 +22,11 @@
                         </button>
                     </div>
                 </div>
-                <p class="mt-6 text-xl leading-8 text-gray-700">{{ minuman.minuman.deskripsi }}</p>
+                <p class="mt-6 text-xl leading-8 text-gray-700">{{ minuman.deskripsi }}</p>
             </div>
         </div>
         <div class="lg:-mt-3 lg:pt-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:max-w-xl">
-            <img src="
-                {% if 'raw.githubusercontent.com/D02-PBP-2024/mediafiles/' in minuman.minuman.gambar.url %}
-                {{ minuman.gambar_url|cut:'/media/' }}
-                {% else %}
-                {{ minuman.minuman.gambar.url }}
-                {% endif %}
-                " alt="{{ minuman.minuman.nama }}"
+            <img src="{{ minuman.gambar.url }}" alt="{{ minuman.nama }}"
                 class="w-full rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10">
         </div>
         <div
@@ -46,7 +40,7 @@
                             </span>
                             <span>
                                 <strong class="font-semibold text-gray-900">Harga: </strong>
-                                Rp {{ minuman.minuman.harga|floatformat:0|intcomma }}
+                                Rp {{ minuman.harga|floatformat:0|intcomma }}
                             </span>
                         </li>
                         <li class="flex gap-x-3">
@@ -55,7 +49,7 @@
                             </span>
                             <span>
                                 <strong class="font-semibold text-gray-900">Ukuran: </strong>
-                                {{ minuman.minuman.ukuran|title }}
+                                {{ minuman.ukuran|title }}
                             </span>
                         </li>
                         <li class="flex gap-x-3">
@@ -64,7 +58,7 @@
                             </span>
                             <span>
                                 <strong class="font-semibold text-gray-900">Tingkat kemanisan: </strong>
-                                {{ minuman.minuman.tingkat_kemanisan }}%
+                                {{ minuman.tingkat_kemanisan }}%
                             </span>
                         </li>
                     </ul>

@@ -32,8 +32,6 @@ def landing(request):
 
     current_time = timezone.localtime().time()
     restoran_list = []
-    makanan_list = []
-    minuman_list = []
 
     for item in restoran:
         gambar_url = None
@@ -64,36 +62,12 @@ def landing(request):
             }
         )
 
-    for item in makanan:
-        gambar_url = None
-        if hasattr(item, "gambar") and item.gambar:
-            gambar_url = str(item.gambar.url).replace("%3A", ":/")
-
-        makanan_list.append(
-            {
-                "makanan": item,
-                "gambar_url": gambar_url,
-            }
-        )
-
-    for item in minuman:
-        gambar_url = None
-        if hasattr(item, "gambar") and item.gambar:
-            gambar_url = str(item.gambar.url).replace("%3A", ":/")
-
-        minuman_list.append(
-            {
-                "minuman": item,
-                "gambar_url": gambar_url,
-            }
-        )
-
     return render(
         request,
         "landing/index.html",
         {
             "restoran": restoran_list,
-            "makanan": makanan_list,
-            "minuman": minuman_list,
+            "makanan": makanan,
+            "minuman": minuman,
         },
     )

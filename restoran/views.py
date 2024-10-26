@@ -81,7 +81,6 @@ def restoran(request):
         restoran_data.append(
             {
                 "restoran": item,
-                "gambar_url": gambar_url,
                 "status": status,
                 "jam_buka": jam_buka.strftime("%H:%M"),
                 "jam_tutup": jam_tutup.strftime("%H:%M"),
@@ -150,27 +149,6 @@ def lihat_restoran(request, id):
     makanan = Makanan.objects.filter(restoran=restoran)
     minuman = Minuman.objects.filter(restoran=restoran)
 
-    restoran_list = {
-        "restoran": restoran,
-        "gambar_url": get_gambar_url(restoran),
-    }
-
-    makanan_list = [
-        {
-            "makanan": item,
-            "gambar_url": get_gambar_url(item),
-        }
-        for item in makanan
-    ]
-
-    minuman_list = [
-        {
-            "minuman": item,
-            "gambar_url": get_gambar_url(item),
-        }
-        for item in minuman
-    ]
-
     mengulas = (
         request.user.is_authenticated
         and request.user.peran == "pengulas"
@@ -192,9 +170,9 @@ def lihat_restoran(request, id):
         request,
         "restoran/detail/index.html",
         {
-            "restoran": restoran_list,
-            "makanan": makanan_list,
-            "minuman": minuman_list,
+            "restoran": restoran,
+            "makanan": makanan,
+            "minuman": minuman,
             "mengulas": mengulas,
             "status": status,
         },

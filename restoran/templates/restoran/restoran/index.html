@@ -35,13 +35,8 @@
                {% if forloop.counter == 10 %} col-start-2 {% endif %}">
             <div class="w-full h-48 overflow-hidden">
                 {% if item.restoran.gambar %}
-                <img src="
-                    {% if 'raw.githubusercontent.com/D02-PBP-2024/mediafiles/' in item.restoran.gambar.url %}
-                    {{ item.gambar_url|cut:'/media/' }}
-                    {% else %}
-                    {{ item.restoran.gambar.url }}
-                    {% endif %}
-                    " alt="{{ item.restoran.nama }}" class="w-full h-full object-cover">
+                <img src="{{ item.restoran.gambar.url }}" alt="{{ item.restoran.nama }}"
+                    class="w-full h-full object-cover">
                 {% else %}
                 <img src="{% static 'images/no-image.jpg' %}" alt="No image" class="w-full h-full object-cover">
                 {% endif %}
