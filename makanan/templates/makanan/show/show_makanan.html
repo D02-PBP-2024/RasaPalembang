@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block meta %}
+<title>Daftar Makanan | Rasa Palembang</title>
+{% endblock meta %}
+
 {% block content %}
 <main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
     <!-- Tombol Tambah Makanan -->
@@ -15,9 +20,9 @@
     <!-- Filter Button di kiri atas -->
     <div class="relative">
         <button id="filterButton"
-            class="flex justify-center items-center px-4 py-2 bg-neutral-200/80 hover:bg-neutral-300/80 transition rounded-lg shadow-md">
-            <i class="fa fa-filter text-gray-500 mr-2 text-sm"></i>
-            <span class="text-gray-600">Saring</span>
+            class="flex justify-center items-center px-4 py-2 bg-neutral-200/80 hover:bg-neutral-300/80 transition rounded-lg text-sm text-gray-600 font-semibold">
+            <i class="fa fa-filter mr-2"></i>
+            Saring
         </button>
 
         <!-- Dropdown menu -->
@@ -32,7 +37,7 @@
             {% endfor %}
             <div>
                 <button
-                    class="mt-2 shadow hover:shadow-lg bg-[#4f9da6] hover:bg-[#3b747a] transition focus:shadow-outline focus:bg-[#3b747a] focus:outline-none text-white font-semibold py-2 px-4 rounded"
+                    class="text-sm font-semibold mt-2 shadow hover:shadow-lg bg-[#4f9da6] hover:bg-[#3b747a] transition focus:shadow-outline focus:bg-[#3b747a] focus:outline-none text-white py-2 px-4 rounded-lg w-full"
                     type="submit" id="applyFilter">
                     Terapkan
                 </button>
