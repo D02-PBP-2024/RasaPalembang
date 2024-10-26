@@ -14,14 +14,6 @@ from .forms import RestoranForm
 from .models import Restoran
 
 
-def get_gambar_url(item):
-    return (
-        str(item.gambar.url).replace("%3A", ":/")
-        if hasattr(item, "gambar") and item.gambar
-        else None
-    )
-
-
 def get_restoran_status(jam_buka, jam_tutup, current_time):
     if jam_buka < jam_tutup:
         return "Buka" if jam_buka <= current_time <= jam_tutup else "Tutup"
@@ -35,7 +27,6 @@ def restoran(request):
     sort_by = request.GET.get("sort", "default")
 
     for item in restoran_queryset:
-        gambar_url = get_gambar_url(item)
         jam_buka = item.jam_buka
         jam_tutup = item.jam_tutup
 
@@ -47,7 +38,6 @@ def restoran(request):
         restoran_list.append(
             {
                 "restoran": item,
-                "gambar_url": gambar_url,
                 "status": status,
                 "jam_buka": jam_buka.strftime("%H:%M"),
                 "jam_tutup": jam_tutup.strftime("%H:%M"),
@@ -119,27 +109,6 @@ def lihat_restoran(request, id):
     makanan = Makanan.objects.filter(restoran=restoran)
     minuman = Minuman.objects.filter(restoran=restoran)
 
-    restoran_list = {
-        "restoran": restoran,
-        "gambar_url": get_gambar_url(restoran),
-    }
-
-    makanan_list = [
-        {
-            "makanan": item,
-            "gambar_url": get_gambar_url(item),
-        }
-        for item in makanan
-    ]
-
-    minuman_list = [
-        {
-            "minuman": item,
-            "gambar_url": get_gambar_url(item),
-        }
-        for item in minuman
-    ]
-
     mengulas = (
         request.user.is_authenticated
         and request.user.peran == "pengulas"
@@ -161,9 +130,9 @@ def lihat_restoran(request, id):
         request,
         "restoran/detail/index.html",
         {
-            "restoran": restoran_list,
-            "makanan": makanan_list,
-            "minuman": minuman_list,
+            "restoran": restoran,
+            "makanan": makanan,
+            "minuman": minuman,
             "mengulas": mengulas,
             "status": status,
         },

@@ -8,28 +8,9 @@ from django.http import JsonResponse
 import json
 
 
-def get_gambar_url(item):
-    if hasattr(item, "gambar") and item.gambar:
-        if "raw.githubusercontent.com/D02-PBP-2024/mediafiles/" in item.gambar.url:
-            return str(item.gambar.url).replace("%3A", ":/").replace("/media/", "")
-        else:
-            return item.gambar.url
-    else:
-        return None
-
-
 def show_makanan(request):
     makanan = Makanan.objects.all()
-
-    makanan_list = [
-        {
-            "makanan": item,
-            "gambar_url": get_gambar_url(item),
-        }
-        for item in makanan
-    ]
-
-    paginator = Paginator(makanan_list, 6)
+    paginator = Paginator(makanan, 6)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
     list_kategori = Kategori.objects.all()
@@ -73,10 +54,7 @@ def detail_makanan(request, id):
     restoran = Restoran.objects.get(pk=makanan.restoran.id)
 
     context = {
-        "makanan": {
-            "makanan": makanan,
-            "gambar_url": get_gambar_url(makanan),
-        },
+        "makanan": makanan,
         "list_kategori": list_kategori,
         "restoran": restoran,
     }
@@ -136,7 +114,7 @@ def filter_by_kategori(request):
                 makanan = {
                     "id": makanan.id,
                     "nama": makanan.nama,
-                    "gambar": get_gambar_url(makanan),
+                    "gambar": makanan.gambar.url,
                     "harga": makanan.harga,
                     "kalori": makanan.kalori,
                     "deskripsi": makanan.deskripsi,

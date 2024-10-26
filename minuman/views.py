@@ -7,43 +7,24 @@ from restoran.models import Restoran
 from minuman.models import Minuman
 
 
-def get_gambar_url(item):
-    if hasattr(item, "gambar") and item.gambar:
-        if "raw.githubusercontent.com/D02-PBP-2024/mediafiles/" in item.gambar.url:
-            return str(item.gambar.url).replace("%3A", ":/").replace("/media/", "")
-        else:
-            return item.gambar.url
-    else:
-        return None
-
-
 def show_minuman(request):
     minuman = Minuman.objects.all()
 
-    context = {
-        "minuman": [
-            {
-                "minuman": item,
-                "gambar_url": get_gambar_url(item),
-            }
-            for item in minuman
-        ]
-    }
-    return render(request, "minuman/minuman_all/index.html", context)
+    return render(request, "minuman/minuman_all/index.html", {"minuman": minuman})
 
 
 def show_minuman_by_id(request, id):
     minuman = Minuman.objects.get(pk=id)
     restoran = Restoran.objects.get(pk=minuman.restoran.id)
 
-    context = {
-        "minuman": {
+    return render(
+        request,
+        "minuman/minuman_by_id/index.html",
+        {
             "minuman": minuman,
-            "gambar_url": get_gambar_url(minuman),
+            "restoran": restoran,
         },
-        "restoran": restoran,
-    }
-    return render(request, "minuman/minuman_by_id/index.html", context)
+    )
 
 
 @login_required(login_url="login")
@@ -116,7 +97,7 @@ def show_minuman_by_sort(request):
                 "nama": item.nama,
                 "harga": item.harga,
                 "restoran": item.restoran.nama,
-                "gambar": get_gambar_url(item),
+                "gambar": item.gambar.url,
             }
         )
 
