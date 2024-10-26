@@ -68,7 +68,7 @@ def tambah_makanan(request):
 
 def detail_makanan(request, id):
     makanan = get_object_or_404(Makanan, pk=id)
-    kategori = Kategori.objects.filter(makanan=makanan)
+    list_kategori = Kategori.objects.filter(makanan=makanan)
     restoran = Restoran.objects.get(pk=makanan.restoran.id)
 
     context = {
