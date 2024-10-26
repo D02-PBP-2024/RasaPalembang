@@ -9,7 +9,7 @@
 <div class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto min-h-screen">
     {% if request.user.is_authenticated and request.user.peran == "pemilik_restoran" %}
     <div class="mb-4 text-right">
-        <a href="{% url 'restoran:tambah' %}"
+        <a href="{% url 'restoran:tambah_restoran' %}"
             class="px-4 py-2 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300">
             + Tambah Restoran
         </a>
