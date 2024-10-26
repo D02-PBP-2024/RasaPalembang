@@ -24,9 +24,9 @@
                 <div class="text-sm leading-6">
                     <p class="font-semibold text-gray-900">
                       <a href="{% url 'detail_profile' forum.user.username %}">
-                        {{ forum.user.nama }}
+                        {{ forum.user.username }}
                       </a>
-                      <label class="ml-1 relative z-10 rounded-full bg-gray-50 px-2 py-0.5 font-medium text-gray-600 hover:bg-gray-100">{{ forum.user.poin }} poin</label>
+                      <label class="ml-1 relative z-10 rounded-full bg-gray-50 px-2 py-0.5 font-medium text-gray-600">{{ forum.user.poin }} poin</label>
                     </p>
                     <time datetime="{{ forum.tanggal_posting|date:'Y-m-d' }}" class="text-gray-500">
                         pada {{ forum.tanggal_posting|date:"d F Y" }}
@@ -45,7 +45,7 @@
             <p class="mt-4 ml-12 font-semibold text-[#4f9da6]">Balasan</p>
             <div id="balasan" class="ml-12 flex flex-col space-y-4">
                 {% for item in balasan %}
-                <div class="mt-2 flex items-start bg-gray-100 rounded-lg p-4 border-l-4 border-gray-300"> <!-- Garis vertikal di kiri -->
+                <div class="mt-2 flex gap-x-4 items-start bg-gray-100 rounded-lg p-4 border-l-4 border-gray-300"> <!-- Garis vertikal di kiri -->
                     <div>
                         {% if item.user.foto %}
                         <a href="{% url 'detail_profile' item.user.username %}" class="font-semibold text-gray-900">
@@ -57,11 +57,11 @@
                         </a>
                         {% endif %}
                     </div>
-                    <div class="flex-1">
-                        <div class="flex items-center gap-x-4 w-full">
+                    <div class="flex-1 w-full">
+                        <div class="flex items-center">
                             <p class="font-semibold text-gray-900">
-                                <a href="{% url 'detail_profile' item.user.username %}" class="text-s">{{ item.user.nama }}</a>
-                                <label class="ml-1 relative z-10 rounded-full bg-gray-50 px-2 py-0.5 text-xs font-medium text-gray-600 hover:bg-gray-100">{{ item.user.poin }} poin</label>
+                                <a href="{% url 'detail_profile' item.user.username %}" class="text-s">{{ item.user.username }}</a>
+                                <label class="ml-1 relative z-10 rounded-full bg-gray-50 px-2 py-0.5 text-xs font-medium text-gray-600">{{ item.user.poin }} poin</label>
                             </p>
                             <div class="ml-auto">
                                 {% if request.user.id == item.user.id %}

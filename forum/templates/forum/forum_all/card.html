@@ -19,7 +19,7 @@
       {% endif %}
     </div>
     <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600 break-all h-full">{{ forum.pesan }}</p>
-    <div class="relative mt-8 flex items-center gap-x-4 w-full">
+    <div class="relative mt-8 flex items-center gap-x-4 w-full ">
       {% if forum.user.foto %}
       <a href="{% url 'detail_profile' forum.user.username %}" class="font-semibold text-gray-900">
         <img src="/media/{{ forum.user.foto }}" alt="{{ forum.user.nama }}" class="h-10 w-10 rounded-full">
@@ -32,10 +32,10 @@
 
       <div class="text-sm leading-6">
         <div class="flex items-center gap-x-2">
-          <a href="{% url 'detail_profile' forum.user.username %}" class="font-semibold text-gray-900">
-            {{ forum.user }}
+          <a href="{% url 'detail_profile' forum.user.username %}" class="font-semibold text-gray-900 break-all">
+            {{ forum.user.username }}
           </a>
-          <div class="rounded-full bg-gray-50 px-2 py-0.5 font-medium text-gray-600">
+          <div class="rounded-full bg-gray-50 px-2 py-0.5 font-medium text-gray-600 whitespace-nowrap">
             {{ forum.user.poin }} poin
           </div>
         </div>
