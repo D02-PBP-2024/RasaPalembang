@@ -1,64 +1,30 @@
 {% load humanize %}
-<div class="flex flex-col sm:flex-row">
-    <div class="sm:basis-5/12 w-full h-full">
-        <a href="{% url 'minuman:show_minuman_by_id' minuman.minuman.id %}">
-            <div class="overflow-hidden rounded-lg shadow">
-                <div class="relative pt-[75%]">
-                    <img src="
-                        {% if 'raw.githubusercontent.com/D02-PBP-2024/mediafiles/' in minuman.minuman.gambar.url %}
-                        {{ minuman.gambar_url|cut:'/media/' }}
-                        {% else %}
-                        {{ minuman.minuman.gambar.url }}
-                        {% endif %}
-                        " class="object-cover absolute top-0 w-full h-full" alt="{{ minuman.minuman.nama }}">
-                </div>
+<div>
+    <a href="{% url 'minuman:show_minuman_by_id' minuman.minuman.id %}"
+        class="hover:brightness-110 transition duration-300">
+        <img src="
+            {% if 'raw.githubusercontent.com/D02-PBP-2024/mediafiles/' in minuman.minuman.gambar.url %}
+            {{ minuman.gambar_url|cut:'/media/' }}
+            {% else %}
+            {{ minuman.minuman.gambar.url }}
+            {% endif %}
+            " alt="{{ minuman.minuman.nama }}" class="w-full h-36 md:h-64 object-cover rounded-lg">
+        <div class="mt-2.5 flex flex-col gap-1">
+            <h1 class="md:text-lg font-semibold">{{ minuman.minuman.nama }}</h1>
+            <div>
+                <h2 class="max-md:text-sm flex items-center gap-2">
+                    <i
+                        class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
+                    Rp{{ minuman.minuman.harga|floatformat:0|intcomma }}
+                </h2>
+                <h3 class="max-md:text-sm flex items-start gap-2">
+                    <i
+                        class="fa-solid fa-utensils text-sm max-md:scale-90 mt-1 w-4 flex justify-center text-neutral-500"></i>
+                    <a href="{% url 'restoran:detail' minuman.minuman.restoran.id %}" class="hover:underline">
+                        {{ minuman.minuman.restoran }}
+                    </a>
+                </h3>
             </div>
-        </a>
-    </div>
-    <div class="sm:basis-7/12 sm:ml-8">
-        <div class="flex mt-4 sm:mt-0">
-            <a href="{% url 'minuman:show_minuman_by_id' minuman.minuman.id %}" class="pointer w-full">
-                <h1 class="font-bold text-3xl text-[#ff5757] hover:text-[#d04848]">{{ minuman.minuman.nama }}</h1>
-            </a>
-            <button
-                class="flex place-items-center border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-2 px-[9px] sm:px-4 rounded-full focus:outline-none focus:bg-[#4f9da6] focus:text-white">
-                <i class="fa-regular fa-heart"></i><span class="ml-2 hidden sm:inline">Favorit</span>
-            </button>
         </div>
-        <div class="mt-2">
-            <a href="{% url 'restoran:detail' minuman.minuman.restoran.id %}" class="hover:underline">
-                <i class="fa-solid fa-location-dot"></i><span class="ml-2">{{ minuman.minuman.restoran.nama }}</span>
-            </a>
-        </div>
-        <p class="mt-4">{{ minuman.minuman.deskripsi }}</p>
-        <ul role="list" class="space-y-4 text-gray-600 mt-4">
-            <li class="flex gap-x-3">
-                <span class="h-5 w-5 flex-none text-[#4f9da6]">
-                    <i class="fa-solid fa-rupiah-sign"></i>
-                </span>
-                <span>
-                    <strong class="font-semibold text-gray-900">Harga: </strong>
-                    Rp {{ minuman.minuman.harga|intcomma }}
-                </span>
-            </li>
-            <li class="flex gap-x-3">
-                <span class="h-5 w-5 flex-none text-[#4f9da6]">
-                    <i class="fa-solid fa-martini-glass-citrus"></i>
-                </span>
-                <span>
-                    <strong class="font-semibold text-gray-900">Ukuran: </strong>
-                    {{ minuman.minuman.ukuran|title }}
-                </span>
-            </li>
-            <li class="flex gap-x-3">
-                <span class="h-5 w-5 flex-none text-[#4f9da6]">
-                    <i class="fa-solid fa-cubes-stacked"></i>
-                </span>
-                <span>
-                    <strong class="font-semibold text-gray-900">Tingkat kemanisan: </strong>
-                    {{ minuman.minuman.tingkat_kemanisan }}%
-                </span>
-            </li>
-        </ul>
-    </div>
+    </a>
 </div>

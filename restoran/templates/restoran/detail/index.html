@@ -361,51 +361,62 @@
         button.classList.add('hidden')
     }
 
-    function showAddModal() {
-        const modal = document.getElementById('addReviewModal')
-        const modalContent = document.getElementById('addReviewModalContent')
 
-        modal.classList.remove('hidden')
+    const addModal = document.getElementById('addReviewModal')
+    const addModalContent = document.getElementById('addReviewModalContent')
+
+    function showAddModal() {
+        addModal.classList.remove('hidden')
         setTimeout(() => {
-            modalContent.classList.remove('opacity-0', 'scale-95')
-            modalContent.classList.add('opacity-100', 'scale-100')
+            addModalContent.classList.remove('opacity-0', 'scale-95')
+            addModalContent.classList.add('opacity-100', 'scale-100')
         }, 50)
     }
 
     function hideAddModal() {
-        const modal = document.getElementById('addReviewModal')
-        const modalContent = document.getElementById('addReviewModalContent')
-
-        modalContent.classList.remove('opacity-100', 'scale-100')
-        modalContent.classList.add('opacity-0', 'scale-95')
+        addModalContent.classList.remove('opacity-100', 'scale-100')
+        addModalContent.classList.add('opacity-0', 'scale-95')
 
         setTimeout(() => {
-            modal.classList.add('hidden')
+            addModal.classList.add('hidden')
         }, 150)
     }
 
-    function showEditModal() {
-        const modal = document.getElementById('editReviewModal')
-        const modalContent = document.getElementById('editReviewModalodalContent')
+    const editModal = document.getElementById('editReviewModal')
+    const editModalContent = document.getElementById('editReviewModalodalContent')
 
-        modal.classList.remove('hidden')
+    function showEditModal() {
+        editModal.classList.remove('hidden')
         setTimeout(() => {
-            modalContent.classList.remove('opacity-0', 'scale-95')
-            modalContent.classList.add('opacity-100', 'scale-100')
+            editModalContent.classList.remove('opacity-0', 'scale-95')
+            editModalContent.classList.add('opacity-100', 'scale-100')
         }, 50)
     }
 
     function hideEditModal() {
-        const modal = document.getElementById('editReviewModal')
-        const modalContent = document.getElementById('editReviewModalodalContent')
-
-        modalContent.classList.remove('opacity-100', 'scale-100')
-        modalContent.classList.add('opacity-0', 'scale-95')
+        editModalContent.classList.remove('opacity-100', 'scale-100')
+        editModalContent.classList.add('opacity-0', 'scale-95')
 
         setTimeout(() => {
-            modal.classList.add('hidden')
+            editModal.classList.add('hidden')
         }, 150)
     }
+
+    window.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && !addModal.classList.contains('hidden')) {
+            hideAddModal()
+        } else if (event.key === 'Escape' && !editModal.classList.contains('hidden')) {
+            hideEditModal()
+        }
+    })
+
+    window.addEventListener('click', function (event) {
+        if (event.target === addModal && !addModal.classList.contains('hidden')) {
+            hideAddModal()
+        } else if (event.target === editModal && !editModal.classList.contains('hidden')) {
+            hideEditModal()
+        }
+    })
 
     document.getElementById('cancelReviewButton').addEventListener('click', hideAddModal)
     document.getElementById('closeAddReviewModalButton').addEventListener('click', hideAddModal)
