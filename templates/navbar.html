@@ -12,7 +12,7 @@
                         class="max-w-36 sm:max-w-40 md:max-w-52">
                 </a>
                 <nav class="flex items-center justify-around gap-8 max-xl:hidden">
-                    <a href="" class="hover:text-neutral-600 transition flex gap-2.5 items-center">
+                    <a href="{% url 'makanan:show_makanan' %}" class="hover:text-neutral-600 transition flex gap-2.5 items-center">
                         <i class="fa-solid fa-bowl-food scale-90"></i>
                         <span>Makanan</span>
                     </a>
@@ -65,7 +65,7 @@
     </div>
     <div class="hidden xl:hidden bg-[#fafafa] py-2" id="mobile-menu">
         <nav class="flex flex-col">
-            <a href="" class="mx-auto w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center">
+            <a href="{% url 'makanan:show_makanan' %}" class="mx-auto w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center">
                 <i class="fa-solid fa-bowl-food scale-90"></i>
                 <span>Makanan</span>
             </a>

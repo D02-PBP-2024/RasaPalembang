@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Makanan, Kategori
 
-# Register your models here.
+admin.site.register(Makanan)
+admin.site.register(Kategori)

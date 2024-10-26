@@ -2,37 +2,40 @@
 {% load static %}
 
 {% block meta %}
-    <title>Forum Diskusi</title>
+<title>RasaPalembang | Forum Diskusi</title>
 {% endblock meta %}
 
-{% block content %} 
-<main class="px-5 md:px-10 lg:px-16 xl:px-24 py-5 md:py-10 w-full mx-auto">
+{% block content %}
+<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
     <div class="mt-8 mx-auto max-w-2xl lg:mx-0">
         <h2 class="text-pretty text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Forum Diskusi</h2>
         <p class="mt-2 text-lg leading-8 text-gray-600">Silakan berdiskusi!</p>
     </div>
     <div class="border-t border-gray-200 pt-10 sm:mt-2 sm:pt-4"></div>
     {% if request.user.peran != "pemilik_restoran" %}
-        <a href="{% url 'forum:create_forum' restoran.id %}" class="inline-flex items-center border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-1 px-4 rounded-xl focus:outline-none focus:bg-[#4f9da6] focus:text-white">
-            Tambah Forum
-        </a>
+    <a href="{% url 'forum:create_forum' restoran.id %}"
+        class="transition duration-300 inline-flex items-center border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-1 px-4 rounded-xl focus:outline-none focus:bg-[#4f9da6] focus:text-white">
+        Tambah Forum
+    </a>
     {% endif %}
     {% if forum %}
-        <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3 lg:mx-0 lg:max-w-none">
-            {% for item in forum reversed %}
-                {% include 'forum/forum_all/card.html' with forum=item %}
-            {% endfor %}
-        </div>
+    <div
+        class="mt-4 mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3 lg:mx-0 lg:max-w-none">
+        {% for item in forum reversed %}
+        {% include 'forum/forum_all/card.html' with forum=item %}
+        {% endfor %}
+    </div>
     {% else %}
-        <div class="px-3 sm:px-6 py-16 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14">
-            <div>
-                <img src="{% static 'images/empty-forum.png' %}" class="max-w-24 md:max-w-32">
-            </div>
-            <div>
-                <h1 class="text-center text-xl md:text-2xl font-bold">Belum ada forum untuk restoran ini</h1>
-                <p class="text-center text-gray-900 max-md:text-sm max-md:mt-2">Mari berbagi pengalaman atau pertanyaanmu dengan menulis di forum!</p>
-            </div>
+    <div class="px-3 sm:px-6 py-16 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14">
+        <div>
+            <img src="{% static 'images/empty-forum.png' %}" class="max-w-24 md:max-w-32">
         </div>
+        <div>
+            <h1 class="text-center text-xl md:text-2xl font-bold">Belum ada forum untuk restoran ini</h1>
+            <label class="text-center text-gray-900 max-md:text-sm max-md:mt-2">Mari berbagi pengalaman atau
+                pertanyaanmu dengan menulis di forum!</label>
+        </div>
+    </div>
     {% endif %}
 </main>
-{% endblock content %} 
+{% endblock content %}

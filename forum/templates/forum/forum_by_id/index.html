@@ -1,42 +1,79 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %} 
-<main class="px-5 md:px-10 lg:px-16 xl:px-24 py-5 md:py-10 w-full mx-auto">
+{% block meta %}
+<title>RasaPalembang | {{ forum.topik }}</title>
+{% endblock meta %}
+
+{% block content %}
+<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
     {% if forum %}
     <div class="mt-8 block bg-white ring-1 ring-gray-100 shadow-lg rounded-lg p-6 flex">
         <div class="w-full">
             <h2 class="text-3xl font-bold text-[#ff5757]">{{ forum.topik }}</h2>
-            <div class="mt-4 text-sm leading-6">
-                <p class="font-semibold text-gray-900">
-                  <a href="{% url 'detail_profile' request.user.username %}">
-                    {{ forum.user.nama }}
-                  </a>
-                  <a href="" class="ml-1 relative z-10 rounded-full bg-gray-50 px-2 py-0.5 font-medium text-gray-600 hover:bg-gray-100">{{ forum.user.poin }} poin</a>
-                </p>
-                <time datetime="{{ forum.tanggal_posting|date:'Y-m-d' }}" class="text-gray-500">
-                    pada {{ forum.tanggal_posting|date:"d F Y" }}
-                </time>
+            <div class="mt-4 flex gap-x-4 items-center">
+                {% if forum.user.foto %}
+                <a href="{% url 'detail_profile' forum.user.username %}" class="font-semibold text-gray-900">
+                    <img src="/media/{{ forum.user.foto }}" alt="{{ forum.user.nama }}" class="h-10 w-10 rounded-full">
+                </a>
+                {% else %}
+                <a href="{% url 'detail_profile' forum.user.username %}" class="font-semibold text-gray-900">
+                    <img alt="{{ forum.user.nama }}" src="{% static 'images/avatar.png' %}"
+                        class="w-10 h-10 rounded-full">
+                </a>
+                {% endif %}
+                <div class="text-sm leading-6">
+                    <p class="font-semibold text-gray-900">
+                        <a href="{% url 'detail_profile' forum.user.username %}">
+                            {{ forum.user.username }}
+                        </a>
+                        <label class="ml-1 relative z-10 rounded-full bg-gray-50 px-2 py-0.5 font-medium text-gray-600">
+                            {{ forum.user.poin }} poin
+                        </label>
+                    </p>
+                    <time datetime="{{ forum.tanggal_posting|date:'Y-m-d' }}" class="text-gray-500">
+                        pada {{ forum.tanggal_posting|date:"d F Y" }}
+                    </time>
+                </div>
             </div>
             <p class="mt-4 text-gray-500 mt-1">
                 {{ forum.pesan }}
             </p>
-            <a href="{% url 'forum:balas' forum.restoran.id forum.id %}" class="inline-flex items-center border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-1 px-4 mt-6 rounded-xl focus:outline-none focus:bg-[#4f9da6] focus:text-white">
+            {% if request.user != forum.user and request.user.peran == 'pengulas' %}
+            <a href="{% url 'forum:balas' forum.restoran.id forum.id %}"
+                class="inline-flex items-center border border-[#4f9da6] text-[#4f9da6] hover:bg-[#4f9da6] hover:text-white py-1 px-4 mt-6 rounded-xl focus:outline-none focus:bg-[#4f9da6] focus:text-white">
                 Balas Forum
             </a>
+            {% endif %}
             {% if balasan %}
             <p class="mt-4 ml-12 font-semibold text-[#4f9da6]">Balasan</p>
-            <div class="ml-12 flex flex-col space-y-4">
+            <div id="balasan" class="ml-12 flex flex-col space-y-4">
                 {% for item in balasan %}
-                <div class="mt-2 flex items-start bg-gray-100 rounded-lg p-4 border-l-4 border-gray-300"> <!-- Garis vertikal di kiri -->
-                    <div class="mr-4">
-                        <i class="fa-regular fa-comments fa-lg text-gray-500"></i>
+                <div class="mt-2 flex gap-x-4 items-start bg-gray-100 rounded-lg p-4 border-l-4 border-gray-300">
+                    <!-- Garis vertikal di kiri -->
+                    <div>
+                        {% if item.user.foto %}
+                        <a href="{% url 'detail_profile' item.user.username %}" class="font-semibold text-gray-900">
+                            <img src="/media/{{ forum.user.foto }}" alt="{{ item.user.nama }}"
+                                class="h-10 w-10 rounded-full">
+                        </a>
+                        {% else %}
+                        <a href="{% url 'detail_profile' item.user.username %}" class="font-semibold text-gray-900">
+                            <img alt="{{ item.user.nama }}" src="{% static 'images/avatar.png' %}"
+                                class="w-10 h-10 rounded-full">
+                        </a>
+                        {% endif %}
                     </div>
-                    <div class="flex-1">
-                        <div class="flex items-center gap-x-4 w-full">
+                    <div class="flex-1 w-full">
+                        <div class="flex items-center">
                             <p class="font-semibold text-gray-900">
-                                <a href="{% url 'detail_profile' item.user.username %}" class="text-s">{{ item.user.nama }}</a>
-                                <a class="ml-1 relative z-10 rounded-full bg-gray-50 px-2 py-0.5 text-xs font-medium text-gray-600 hover:bg-gray-100">{{ item.user.poin }} poin</a>
+                                <a href="{% url 'detail_profile' item.user.username %}" class="text-s">
+                                    {{ item.user.username }}
+                                </a>
+                                <label
+                                    class="ml-1 relative z-10 rounded-full bg-gray-50 px-2 py-0.5 text-xs font-medium text-gray-600">
+                                    {{ item.user.poin }} poin
+                                </label>
                             </p>
                             <div class="ml-auto">
                                 {% if request.user.id == item.user.id %}
@@ -46,8 +83,6 @@
                                 <a href="{% url 'forum:delete_balasan' forum.restoran.id forum.id item.id %}">
                                     <i class="fa-regular fa-trash-can ml-2"></i>
                                 </a>
-                                {% else %}
-                                <i class="fa-regular fa-thumbs-up self-center"></i>
                                 {% endif %}
                             </div>
                         </div>
@@ -66,7 +101,9 @@
                 </div>
                 <div>
                     <h1 class="text-center text-xl md:text-2xl font-bold">Belum ada balasan untuk forum ini</h1>
-                    <p class="text-center text-gray-900 max-md:text-sm max-md:mt-2">Mari berbagi pendapatmu tentang forum ini dengan menulis balasan!</p>
+                    <p class="text-center text-gray-900 max-md:text-sm max-md:mt-2">
+                        Mari berbagi pendapatmu tentang forum ini dengan menulis balasan!
+                    </p>
                 </div>
             </div>
             {% endif %}
@@ -74,5 +111,4 @@
     </div>
     {% endif %}
 </main>
-
-{% endblock content %} 
+{% endblock content %}

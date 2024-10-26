@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from forum.models import Forum, Balasan
 from forum.forms import ForumForm, BalasanForm
 from restoran.models import Restoran
-from authentication.models import User
 
 
 def show_forum(request, id_restoran):
@@ -12,18 +11,18 @@ def show_forum(request, id_restoran):
     context = {
         "forum": forum,
         "restoran": restoran
-        }
+    }
     
     return render(request, "forum/forum_all/index.html", context)
 
 
 def show_forum_by_id(request, id_restoran, id_forum):
     forum = Forum.objects.get(pk=id_forum)
-    balasan = Balasan.objects.filter(forum=id_forum).order_by("-vote")
+    balasan = Balasan.objects.filter(forum=id_forum)
     context = {
         "forum": forum,
         "balasan": balasan,
-        }
+    }
     return render(request, "forum/forum_by_id/index.html", context)
 
 
@@ -41,9 +40,9 @@ def create_forum(request, id_restoran):
         topik.restoran = restoran
         topik.save()
         return redirect('forum:show_forum', id_restoran=restoran.id)
-
-    # request.user.poin += 5
-    # request.user.save()
+    
+    request.user.poin += 5
+    request.user.save()
 
     context = {'form': form}
     return render(request, 'forum/tambah/index.html', context)
@@ -65,13 +64,13 @@ def balas(request, id_restoran, id_forum):
         balasan.save()
         return redirect('forum:show_forum_by_id', id_restoran=restoran.id, id_forum=forum.id)
 
-    # forum.user.poin += 5
-    # forum.user.save()
+    request.user.poin += 3
+    request.user.save()
 
     context = {
         'form': form,
         'forum': forum,
-        }
+    }
     return render(request, 'forum/balas/index.html', context)
 
 
@@ -87,7 +86,6 @@ def edit_forum(request, id_restoran, id_forum):
             return redirect('forum:show_forum', id_restoran=restoran.id)
         
     context = {"forum": forum}
-        
     return render(request, 'edit/edit_forum.html', context)
 
 
@@ -116,7 +114,6 @@ def edit_balasan(request, id_restoran, id_forum, id_balasan):
             return redirect('forum:show_forum_by_id', id_restoran=restoran.id, id_forum=forum.id)
 
     context = {"balasan": balasan}
-
     return render(request, "edit/edit_balasan.html", context)
 
 

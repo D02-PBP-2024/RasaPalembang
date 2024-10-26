@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %} 
-<main class="px-5 md:px-10 lg:px-16 xl:px-24 py-5 md:py-10 w-full mx-auto">
+{% block content %}
+<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
     <div class="mt-8">
         <h2 class="text-4xl font-bold text-center">Edit Balasan</h2>
     </div>
-    
+
     <div class="mt-4 block bg-white ring-1 ring-gray-100 shadow-lg rounded-lg p-6 flex">
         <div class="w-full">
             <form method="POST">
@@ -14,9 +14,8 @@
                 <div class="grid grid-cols-2 sm:gap-x-4 w-full">
                     <div class="mt-4 col-span-2 sm:col-span-2">
                         <label class="font-semibold pl-1" for="balasan">Pesan Balasan</label>
-                        <textarea name="pesan" required="" id="pesan"
-                          placeholder="Masukkan balasan untuk forum ini"
-                          class="w-full resize-none h-36 mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">{{ balasan.pesan }}</textarea>
+                        <textarea name="pesan" required="" id="pesan" placeholder="Masukkan balasan untuk forum ini"
+                            class="w-full resize-none h-36 mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">{{ balasan.pesan }}</textarea>
                     </div>
                 </div>
                 <button
@@ -29,4 +28,4 @@
     </div>
 </main>
 
-{% endblock content %} 
+{% endblock content %}
