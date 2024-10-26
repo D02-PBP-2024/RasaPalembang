@@ -10,8 +10,13 @@ import json
 
 def show_makanan(request):
     makanan = Makanan.objects.all()
+    list_kategori = Kategori.objects.all()
 
-    return render(request, "makanan/show/show_makanan.html", {"makanan": makanan})
+    return render(
+        request,
+        "makanan/show/show_makanan.html",
+        {"makanan": makanan, "list_kategori": list_kategori},
+    )
 
 
 @login_required(login_url="/login")
