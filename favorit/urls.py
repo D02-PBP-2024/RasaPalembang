@@ -1,5 +1,5 @@
 from django.urls import path
-from favorit.views import *
+from favorit.views import show_favorit, ubah_favorit, hapus_favorit, add_to_favorites
 
 app_name = "favorit"
 
