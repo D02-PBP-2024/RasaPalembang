@@ -52,13 +52,7 @@ def detail_makanan(request, id):
     mengubah = restoran.user == request.user
 
     context = {
-        "makanan": {
-            "nama": strip_tags(makanan.nama),
-            "deskripsi": strip_tags(makanan.deskripsi),
-            "gambar": makanan.gambar,
-            "harga": makanan.harga,
-            "kalori": makanan.kalori,
-        },
+        "makanan": makanan,
         "list_kategori": list_kategori,
         "restoran": restoran,
         "mengubah": mengubah,
