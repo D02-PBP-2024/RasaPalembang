@@ -33,7 +33,7 @@
     </div>
     <div id="minumanList" class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2 md:mt-4">
         {% for item in minuman %}
-        {% include 'minuman/minuman_all/card.html' with minuman=item %}
+        {% include 'minuman/show/card.html' with minuman=item %}
         {% endfor %}
     </div>
     {% else %}
