@@ -10,4 +10,6 @@ urlpatterns = [
     path("<uuid:id>/ubah/", ubah_restoran, name="ubah_restoran"),
     path("<uuid:id>/hapus/", hapus_restoran, name="hapus_restoran"),
     path("<uuid:id>/ulasan/", include("ulasan.urls")),
+    path('sort/', sort_restoran, name='sort_restoran'),
+
 ]
