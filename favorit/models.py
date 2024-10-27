@@ -21,3 +21,4 @@ class Favorit(models.Model):
     restoran = models.ForeignKey(
         Restoran, on_delete=models.CASCADE, blank=True, null=True
     )
+    
