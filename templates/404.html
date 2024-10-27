@@ -2,16 +2,20 @@
 {% load static %}
 
 {% block meta %}
-    <title>404 | RasaPalembang</title>
+<title>404 | RasaPalembang</title>
 {% endblock meta %}
 
 {% block content %}
 <main id="main" class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
     <div class="py-36 flex flex-col justify-center items-center">
         <img src="{% static 'images/404.png' %}" alt="404" class="max-md:w-full max-md:max-w-40 max-w-56">
-        <h1 class="text-center text-lg md:text-xl text-neutral-600 font-bold mt-2">Oops! Halaman yang Anda cari tidak ditemukan.</h1>
-        <p class="text-center max-md:text-sm text-neutral-500 mt-2">Mungkin sudah pindah, dihapus, atau tidak pernah ada.</p>
-        <a href="{% url 'landing' %}" class="max-md:text-sm font-semibold mt-4 px-5 py-2 bg-[#4f9da6] hover:bg-[#3b747a] transition text-white rounded-lg">Kembali ke Beranda</a>
+        <h1 class="text-center text-lg md:text-xl text-neutral-600 font-bold mt-2">Oops! Halaman yang Anda cari tidak
+            ditemukan.</h1>
+        <p class="text-center max-md:text-sm text-neutral-500 mt-2">Mungkin sudah pindah, dihapus, atau tidak pernah
+            ada.</p>
+        <a href="{% url 'landing' %}"
+            class="max-md:text-sm font-semibold mt-4 px-5 py-2 bg-[#4f9da6] hover:bg-[#3b747a] transition text-white rounded-lg">Kembali
+            ke Beranda</a>
     </div>
 </main>
 {% endblock %}

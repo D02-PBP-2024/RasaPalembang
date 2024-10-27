@@ -47,8 +47,8 @@ INSTALLED_APPS = [
     'restoran',
     'makanan',
     'minuman',
-    'forum',
     'ulasan',
+    'forum',
     'favorit',
 ]
 
