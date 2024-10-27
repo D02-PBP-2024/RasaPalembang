@@ -4,23 +4,23 @@
 <div class="max-w-3xl mx-auto p-5 font-sans">
     <h1 class="text-center text-4xl font-bold text-[#3b747a] mb-5">Daftar Favorit</h1>
 
-    <a href="{% url 'favorit:tambah_favorit' %}" 
-       class="bg-[#facf5a] text-[#3b747a] px-5 py-2 rounded-md font-bold inline-block mb-5 transition duration-200 hover:bg-[#c2a046]">
-       Tambah Favorit
-    </a>
-
     <ul class="list-none p-0">
-        {% for item in show_favorit %}
-        <li class="bg-gray-100 border border-gray-300 rounded-lg p-4 mb-4 shadow-md hover:shadow-lg transition-transform duration-300 transform hover:scale-105">
-            <strong class="text-lg text-[#d04848]">{{ item.makanan }} {{ item.minuman }} {{ item.restoran }}</strong>
+        {% for item in favorit %}
+        <li
+            class="bg-gray-100 border border-gray-300 rounded-lg p-4 mb-4 shadow-md hover:shadow-lg transition-transform duration-300 transform hover:scale-105">
+            <strong class="text-lg text-[#d04848]">
+                {% if item.makanan %} {{ item.makanan }} {% endif %}
+                {% if item.minuman %} {{ item.minuman }} {% endif %}
+                {% if item.restoran %} {{ item.restoran }} {% endif %}
+            </strong>
             <p class="text-gray-600 my-2">{{ item.catatan }}</p>
-            <a href="{% url 'favorit:ubah_favorit' item.id %}" 
-               class="bg-[#4f9da6] text-white px-4 py-2 rounded-md font-bold mr-3 transition duration-200 hover:bg-[#3b747a]">
-               Edit
+            <a href="{% url 'favorit:ubah_favorit' item.id %}"
+                class="bg-[#4f9da6] text-white px-4 py-2 rounded-md font-bold mr-3 transition duration-200 hover:bg-[#3b747a]">
+                Edit
             </a>
-            <a href="{% url 'favorit:hapus_favorit' item.id %}" 
-               class="bg-[#d04848] text-white px-4 py-2 rounded-md font-bold transition duration-200 hover:bg-[#a83030]">
-               Hapus
+            <a href="{% url 'favorit:hapus_favorit' item.id %}"
+                class="bg-[#d04848] text-white px-4 py-2 rounded-md font-bold transition duration-200 hover:bg-[#a83030]">
+                Hapus
             </a>
         </li>
         {% empty %}

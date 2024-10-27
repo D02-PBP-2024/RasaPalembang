@@ -88,7 +88,7 @@ def show_restoran(request):
 
     return render(
         request,
-        "restoran/restoran/index.html",
+        "restoran/show/index.html",
         {"page_obj": page_obj, "sort_by": sort_by, "order": order},
     )
 
@@ -120,7 +120,7 @@ def ubah_restoran(request, id):
     form = RestoranForm(request.POST or None, request.FILES or None, instance=restoran)
     if form.is_valid():
         form.save()
-        return redirect("restoran:show_restoran")
+        return redirect("restoran:detail_restoran", id=id)
     return render(request, "restoran/ubah/index.html", {"form": form})
 
 

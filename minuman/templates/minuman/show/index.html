@@ -9,22 +9,31 @@
 {% block content %}
 <main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
     {% if minuman %}
-    <div class="flex overflow-x-auto space-x-2">
-        <button id="all" class="flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-[#4f9da6] text-white">
-            Semua
-        </button>
-        <button id="cheap"
-            class="flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300">
-            Harga terendah
-        </button>
-        <button id="expensive"
-            class="flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300">
-            Harga tertinggi
-        </button>
+    <div class="flex justify-between overflow-x-auto space-x-2">
+        <div class="flex-shrink-0">
+            <button id="all" class="flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-[#4f9da6] text-white">
+                Semua
+            </button>
+            <button id="cheap"
+                class="flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300">
+                Harga terendah
+            </button>
+            <button id="expensive"
+                class="flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 hover:bg-gray-300">
+                Harga tertinggi
+            </button>
+        </div>
+        {% if request.user.is_authenticated and request.user.peran == "pemilik_restoran" %}
+        <a href="{% url 'minuman:tambah_minuman' %}"
+            class="flex-shrink-0 text-sm font-semibold justify-center items-center px-4 py-2 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300">
+            <i class="fa-solid fa-plus mr-1.5"></i>
+            <span>Tambah Minuman</span>
+        </a>
+        {% endif %}
     </div>
     <div id="minumanList" class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2 md:mt-4">
         {% for item in minuman %}
-        {% include 'minuman/minuman_all/card.html' with minuman=item %}
+        {% include 'minuman/show/card.html' with minuman=item %}
         {% endfor %}
     </div>
     {% else %}
@@ -80,9 +89,15 @@
                 data.minuman.forEach(item => {
                     minumanList.innerHTML += `
                     <div class="py-2">
-                        <a href="${item.id}"
-                           class="hover:brightness-110 transition duration-300">
-                            <img src="${item.gambar}" alt="${item.nama}" class="w-full h-36 md:h-64 object-cover rounded-lg">
+                        <a href="${item.id}" class="hover:brightness-110 transition duration-300">
+                            <div class="relative">
+                                <img src="${item.gambar}" alt="${item.nama}"
+                                    class="w-full h-36 md:h-64 object-cover rounded-lg">
+                                <a href="/favorit/tambah/minuman/${item.id}/"
+                                    class="absolute top-2.5 right-2.5 flex place-items-center transition text-white bg-[#4f9da6] hover:bg-[#3b747a] p-2.5 rounded-full focus:outline-none focus:bg-[#4f9da6] focus:text-white">
+                                    <i class="fa-regular fa-heart"></i>
+                                </a>
+                            </div>
                             <div class="mt-2.5 flex flex-col gap-1">
                                 <h1 class="md:text-lg font-semibold">${item.nama}</h1>
                                 <div>
@@ -92,7 +107,8 @@
                                         Rp${numberWithCommas(parseInt(item.harga))}
                                     </h2>
                                     <h3 class="max-md:text-sm flex items-start gap-2">
-                                        <i class="fa-solid fa-utensils text-sm max-md:scale-90 mt-1 w-4 flex justify-center text-neutral-500"></i>
+                                        <i
+                                            class="fa-solid fa-utensils text-sm max-md:scale-90 mt-1 w-4 flex justify-center text-neutral-500"></i>
                                         <a href="${item.id}" class="hover:underline">${item.restoran}</a>
                                     </h3>
                                 </div>

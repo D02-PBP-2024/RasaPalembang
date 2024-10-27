@@ -39,23 +39,21 @@
             <p class="mt-4 text-gray-500 mt-1">
                 {{ forum.pesan }}
             </p>
-            <div class="border-t border-gray-200 mt-4 pb-4"></div>
+            <div class="border-t border-gray-200 mt-4"></div>
 
-            <div id="balasan">
-            </div>
+            <div id="balasan"></div>
             {% if request.user.is_authenticated %}
             <div class="flex justify-end mt-4">
-                <button id="balas" class="text-[#4f9da6] hover:underline px-2">
+                <button id="balas" class="font-medium text-[#4f9da6] hover:underline px-2">
                     Balas
                 </button>
             </div>
-            {% endif %}
             <div class="hidden mt-2" id="formGroup">
                 <form method="POST" class="flex rounded-lg" id="formBalas">
                     {% csrf_token %}
                     <div class="w-full sm:ml-12">
                         <label class="pl-1 font-semibold hidden" for="pesan">Pesan Balasan</label>
-                        <textarea name="pesan" required="" id="pesan" placeholder="Masukkan balasan untuk forum ini" class="mt-2 h-36 w-full resize-none rounded bg-gray-100 px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]"></textarea>
+                        <textarea name="pesan" required="" id="pesan" placeholder="Masukkan balasan untuk forum ini" class="mt-2 pb-14 min-h-36 w-full resize-none rounded bg-gray-100 px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]"></textarea>
                     </div>
                 </form>
                 <div class="flex justify-end -mt-14 mr-2.5">
@@ -64,11 +62,14 @@
                     </button>
                 </div>
             </div>
+            {% endif %}
+            <div id="empty"></div>
         </div>
     </div>
     {% endif %}
 </main>
 <script>
+    {% if request.user.is_authenticated %}
     var balasButton = document.getElementById('balas')
     var formGroup = document.getElementById('formGroup')
     var submitButton = document.getElementById('submitBalasan')
@@ -77,6 +78,11 @@
     balasButton.addEventListener('click', function() {
         formGroup.classList.toggle('hidden')
         textArea.focus()
+    })
+
+    textArea.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight + 'px'
     })
 
     submitButton.addEventListener('click', function(event) {
@@ -94,16 +100,25 @@
         document.getElementById('formBalas').reset()
     }
 
+    window.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && !formGroup.classList.contains('hidden')) {
+            formGroup.classList.add('hidden')
+        }
+    })
+    {% endif %}
+
     var balasanList = document.getElementById('balasan')
+    var empty = document.getElementById('empty')
 
     function refreshBalasan() {
         fetch("{% url 'forum:show_balasan' forum.restoran.id forum.id %}")
             .then(response => response.json())
             .then(data => {
                 balasanList.innerHTML = ''
+                empty.innerHTML = ''
                 if (data.balasan.length === 0) {
-                    balasanList.className = 'px-3 sm:px-6 py-16 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14'
-                    balasanList.innerHTML = `
+                    empty.className = 'px-3 sm:px-6 py-16 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14'
+                    empty.innerHTML = `
                         <div class="px-3 sm:px-6 py-16 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14">
                             <div>
                                 <img src="/static/images/empty-forum.png" class="max-w-24 md:max-w-32">
@@ -118,7 +133,7 @@
                     `
                 }
                 else {
-                    balasanList.className = 'sm:ml-12 flex flex-col space-y-4'
+                    balasanList.className = 'sm:ml-12 flex flex-col space-y-4 mt-4'
                     data.balasan.forEach(item => {
                         balasanList.innerHTML += `
                         <div class="grid gap-x-4 items-start bg-gray-100 rounded-lg p-4 border-l-4 border-gray-300">
@@ -145,7 +160,7 @@
                                             </label>
                                         </p>
                                         <div class="ml-auto">
-                                            ${'{{ request.user.id }}' == item.userId ? `
+                                            ${'{{ request.user.id }}' === item.userId ? `
                                             <a href="edit_balasan/${ item.id }">
                                                 <i class="fa-solid fa-pen ml-2"></i>
                                             </a>
@@ -155,9 +170,9 @@
                                             ` : ''}
                                         </div>
                                     </div>
-                                    <time datetime="${new Date(item.tanggal).toLocaleString('id-ID', {year: 'numeric', month: 'long', day: 'numeric'})}" class="text-xs text-gray-500">
+                                    <p class="text-xs text-gray-500 leading-normal">
                                         pada ${new Date(item.tanggal).toLocaleString('id-ID', {year: 'numeric', month: 'long', day: 'numeric'})}
-                                    </time>
+                                    </p>
                                 </div>
                                 </div>
                                 <p class="mt-2 text-gray-700">${item.pesan}</p>
@@ -168,11 +183,5 @@
             })
     }
     refreshBalasan()
-
-    window.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' && !formGroup.classList.contains('hidden')) {
-            formGroup.classList.add('hidden')
-        }
-    })
 </script>
 {% endblock content %}

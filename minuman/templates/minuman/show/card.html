@@ -1,8 +1,14 @@
 {% load humanize %}
 <div class="py-2">
     <a href="{% url 'minuman:detail_minuman' minuman.id %}" class="hover:brightness-110 transition duration-300">
-        <img src="{{ minuman.gambar.url }}" alt="{{ minuman.nama }}"
-            class="w-full h-36 md:h-64 object-cover rounded-lg">
+        <div class="relative">
+            <img src="{{ minuman.gambar.url }}" alt="{{ minuman.nama }}"
+                class="w-full h-36 md:h-64 object-cover rounded-lg">
+            <a href="{% url 'favorit:add_to_favorites' 'minuman' minuman.id %}"
+                class="absolute top-2.5 right-2.5 flex place-items-center transition text-white bg-[#4f9da6] hover:bg-[#3b747a] p-2.5 rounded-full focus:outline-none focus:bg-[#4f9da6] focus:text-white">
+                <i class="fa-regular fa-heart"></i>
+            </a>
+        </div>
         <div class="mt-2.5 flex flex-col gap-1">
             <h1 class="md:text-lg font-semibold">{{ minuman.nama }}</h1>
             <div>
