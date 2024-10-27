@@ -39,7 +39,7 @@ class mainTest(TestCase):
         self.assertEqual(response.status_code, 302)
 
     def test_balasan_forum_no_login(self):
-        response = Client().get(f"/restoran/{self.restoran.id}/forum/{self.forum.id}/balas")
+        response = Client().post(f"/restoran/{self.restoran.id}/forum/{self.forum.id}/balas")
         self.assertEqual(response.status_code, 302)
 
     def test_delete_forum_no_login(self):
