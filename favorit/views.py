@@ -31,7 +31,14 @@ def ubah_favorit(request, favorit_id):
     else:
         form = FavoritForm(instance=favorit)
 
-    return render(request, "favorit/ubah/index.html", {"form": form})
+    return render(
+        request,
+        "favorit/ubah/index.html",
+        {
+            "form": form,
+            "favorit": favorit,
+        },
+    )
 
 
 @login_required(login_url="/login")
@@ -41,11 +48,8 @@ def hapus_favorit(request, favorit_id):
     """
     favorit = get_object_or_404(Favorit, id=favorit_id, user=request.user)
 
-    if request.method == "POST":
-        favorit.delete()
-        return redirect("favorit:show_favorit")
-
-    return render(request, "favorit/hapus/index.html", {"favorit": favorit})
+    favorit.delete()
+    return redirect("favorit:show_favorit")
 
 
 @login_required(login_url="/login")
@@ -71,8 +75,6 @@ def add_to_favorites(request, item_type, item_id):
         )
     else:
         return redirect("home")
-    
-    
 
     # Arahkan kembali ke halaman yang memanggil atau ke halaman favorit
     return redirect("favorit:show_favorit")
