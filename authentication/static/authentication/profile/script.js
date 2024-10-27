@@ -16,7 +16,7 @@ const modalContent = document.getElementById('modalContent');
 function showModal() {
     const modal = document.getElementById('modal');
     const modalContent = document.getElementById('modalContent');
-
+    document.getElementById('closeModalButton').focus();
     modal.classList.remove('hidden');
     setTimeout(() => {
         modalContent.classList.remove('opacity-0', 'scale-95');
@@ -30,7 +30,8 @@ function hideModal() {
 
     modalContent.classList.remove('opacity-100', 'scale-100');
     modalContent.classList.add('opacity-0', 'scale-95');
-
+    // document.getElementById('ubahProfileButton').focus()
+    console.log(document.getElementById('ubahProfileButton'))
     setTimeout(() => {
         modal.classList.add('hidden');
     }, 150);

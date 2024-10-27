@@ -12,7 +12,7 @@
         <h2 class="text-white text-sm md:text-base lg:text-xl max-w-lg md:max-w-3xl">Temukan kelezatan autentik
             Palembang, dari makanan tradisional hingga camilan khas yang menggugah selera.</h2>
         <a href="{% url 'restoran:show_restoran' %}"
-            class="rounded-full px-6 py-2 bg-[#eb4b4b] hover:bg-[#c93e3e] transition w-fit text-white flex justify-center items-center gap-3">
+            class="rounded-full px-6 py-2 bg-[#eb4b4b] hover:bg-[#c93e3e] transition w-fit text-white flex justify-center items-center gap-3 focus-visible:outline-none focus-visible:bg-[#d04848]">
             <div class="bg-white rounded-full w-3 h-3">
                 <div class="bg-white rounded-full w-3 h-3 animate-ping"></div>
             </div>
@@ -21,7 +21,7 @@
     </div>
     <a href="#main">
         <div
-            class="bg-[#facf5a] w-10 h-10 rounded-full cursor-pointer absolute bottom-5 left-[50%] -ml-5 z-40 flex justify-center items-center animate-bounce">
+            class="bg-[#facf5a] w-10 h-10 rounded-full cursor-pointer absolute bottom-5 left-[50%] -ml-5 z-40 flex justify-center items-center animate-bounce focus-visible:outline-none focus-visible:bg-[#c2a046]">
             <i class="fa-solid fa-arrow-down text-neutral-800"></i>
         </div>
     </a>
@@ -33,7 +33,7 @@
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2">
             {% for item in restoran %}
             <a href="{% url 'restoran:detail_restoran' item.restoran.id %}"
-                class="hover:brightness-110 transition duration-300 py-2">
+                class="hover:brightness-110 transition duration-300 my-2 focus-visible:outline-[#4f9da6]">
                 <img src="{{ item.restoran.gambar.url }}" alt="{{ item.restoran.nama }}"
                     class="w-full h-36 md:w-full h-36 md:h-64 object-cover rounded-lg">
                 <div class="mt-2.5 flex flex-col gap-1">
@@ -65,7 +65,7 @@
             {% for item in makanan %}
             <div class="py-2">
                 <a href="{% url 'makanan:detail_makanan' item.id %}"
-                    class="hover:brightness-110 transition duration-300">
+                    class="hover:brightness-110 transition duration-300 focus-visible:outline-[#4f9da6]">
                     <img src="{{ item.gambar.url }}" alt="{{ item.nama }}"
                         class="w-full h-36 md:h-64 object-cover rounded-lg">
                     <div class="mt-2.5 flex flex-col gap-1">
@@ -79,7 +79,7 @@
                             <h3 class="max-md:text-sm flex items-start gap-2">
                                 <i
                                     class="fa-solid fa-utensils text-sm max-md:scale-90 mt-1 w-4 flex justify-center text-neutral-500"></i>
-                                <a href="{% url 'restoran:detail_restoran' item.restoran.id %}" class="hover:underline">
+                                <a href="{% url 'restoran:detail_restoran' item.restoran.id %}" class="hover:underline focus-visible:outline-[#4f9da6]">
                                     {{ item.restoran }}
                                 </a>
                             </h3>
@@ -98,7 +98,7 @@
             {% for item in minuman %}
             <div class="py-2">
                 <a href="{% url 'minuman:detail_minuman' item.id %}"
-                    class="hover:brightness-110 transition duration-300">
+                    class="hover:brightness-110 transition duration-300 focus-visible:outline-[#4f9da6]">
                     <img src="{{ item.gambar.url }}" alt="{{ item.nama }}"
                         class="w-full h-36 md:h-64 object-cover rounded-lg">
                     <div class="mt-2.5 flex flex-col gap-1">
@@ -112,7 +112,7 @@
                             <h3 class="max-md:text-sm flex items-start gap-2">
                                 <i
                                     class="fa-solid fa-utensils text-sm max-md:scale-90 mt-1 w-4 flex justify-center text-neutral-500"></i>
-                                <a href="{% url 'restoran:detail_restoran' item.restoran.id %}" class="hover:underline">
+                                <a href="{% url 'restoran:detail_restoran' item.restoran.id %}" class="hover:underline focus-visible:outline-[#4f9da6]">
                                     {{ item.restoran }}
                                 </a>
                             </h3>
