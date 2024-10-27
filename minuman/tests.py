@@ -49,9 +49,9 @@ class mainTest(TestCase):
         self.assertEqual(response.status_code, 302)
 
     def test_edit_minuman_no_login(self):
-        response = self.client.get(f"/minuman/{self.minuman.id}/edit/")
+        response = self.client.get(f"/minuman/{self.minuman.id}/ubah/")
         self.assertEqual(response.status_code, 302)
 
     def test_hapus_minuman_no_login(self):
-        response = self.client.get(f"/minuman/{self.minuman.id}/delete/")
+        response = self.client.get(f"/minuman/{self.minuman.id}/hapus/")
         self.assertEqual(response.status_code, 302)

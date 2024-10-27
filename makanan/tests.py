@@ -46,5 +46,9 @@ class mainTest(TestCase):
         self.assertEqual(response.status_code, 302)
 
     def test_edit_makanan_no_login(self):
-        response = self.client.get(f"/makanan/{self.makanan.id}/edit")
+        response = self.client.get(f"/makanan/{self.makanan.id}/ubah/")
+        self.assertEqual(response.status_code, 302)
+
+    def test_edit_makanan_no_login(self):
+        response = self.client.get(f"/makanan/{self.makanan.id}/hapus/")
         self.assertEqual(response.status_code, 302)
