@@ -13,7 +13,7 @@
             <h2 class="text-3xl font-bold text-[#ff5757]">{{ forum.topik }}</h2>
             <div class="mt-4 flex gap-x-4 items-center">
                 {% if forum.user.foto %}
-                <a href="{% url 'detail_profile' forum.user.username %}" class="font-semibold text-gray-900 text-s">
+                <a href="{% url 'detail_profile' forum.user.username %}" class="shrink-0 font-semibold text-gray-900 text-s">
                     <img src="/media/{{ forum.user.foto }}" alt="{{ forum.user.nama }}" class="h-10 w-10 rounded-full">
                 </a>
                 {% else %}
@@ -23,20 +23,24 @@
                 </a>
                 {% endif %}
                 <div class="leading-6">
-                    <p class="flex flex-wrap font-semibold text-gray-900">
-                        <a href="{% url 'detail_profile' forum.user.username %}" class="mr-1">
+                    <p class="flex flex-col sm:flex-row font-semibold text-gray-900">
+                        <a href="{% url 'detail_profile' forum.user.username %}" class="mr-2">
                             {{ forum.user.nama }}
                         </a>
-                        <label class="text-sm relative z-10 rounded-full bg-gray-50 px-2 py-0.5 font-medium text-gray-600">
+                        <span class="text-neutral-500 text-sm flex items-center gap-1">
+                            <i class="fa-solid fa-coins text-xs" aria-hidden="true"></i>
                             {{ forum.user.poin }} poin
-                        </label>
+                        </span>
                     </p>
-                    <time datetime="{{ forum.tanggal_posting|date:'Y-m-d' }}" class="text-sm text-gray-500">
+                    <p class="text-sm text-gray-500 hidden sm:block">
                         pada {{ forum.tanggal_posting|date:"d F Y" }}
-                    </time>
+                    </p>
                 </div>
             </div>
-            <p class="mt-4 text-gray-500 mt-1">
+            <p class="mt-2 text-sm text-gray-500 block sm:hidden">
+                pada {{ forum.tanggal_posting|date:"d F Y" }}
+            </p>
+            <p class="mt-2 sm:mt-4 text-gray-500 mt-1">
                 {{ forum.pesan }}
             </p>
             <div class="border-t border-gray-200 mt-4"></div>
@@ -44,7 +48,7 @@
             <div id="balasan"></div>
             {% if request.user.is_authenticated %}
             <div class="flex justify-end mt-4">
-                <button id="balas" class="font-medium text-[#4f9da6] hover:underline px-2">
+                <button id="balas" class="font-medium text-[#4f9da6] hover:underline px-2 rounded-lg">
                     Balas
                 </button>
             </div>
@@ -52,13 +56,13 @@
                 <form method="POST" class="flex rounded-lg" id="formBalas">
                     {% csrf_token %}
                     <div class="w-full sm:ml-12">
-                        <label class="pl-1 font-semibold hidden" for="pesan">Pesan Balasan</label>
-                        <textarea name="pesan" required="" id="pesan" placeholder="Masukkan balasan untuk forum ini" class="mt-2 pb-14 min-h-36 w-full resize-none rounded bg-gray-100 px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]"></textarea>
+                        <label class="pl-2 font-semibold hidden" for="pesan">Pesan Balasan</label>
+                        <textarea name="pesan" required="" id="pesan" placeholder="Masukkan balasan untuk forum ini" class="mt-2 pb-14 min-h-36 w-full resize-none rounded-lg bg-gray-100 px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]"></textarea>
                     </div>
                 </form>
                 <div class="flex justify-end -mt-14 mr-2.5">
-                    <button id="submitBalasan" class="focus:shadow-outline rounded bg-[#4f9da6] px-4 py-2 font-semibold text-white shadow transition hover:bg-[#3b747a] hover:shadow-lg focus:bg-[#3b747a] focus:outline-none">
-                        Kirim
+                    <button id="submitBalasan" class="focus:shadow-outline rounded-lg bg-[#4f9da6] px-4 py-2 font-semibold text-white shadow transition hover:bg-[#3b747a] hover:shadow focus:bg-[#3b747a] focus:outline-none">
+                        <i class="fa-regular fa-paper-plane mr-2"></i>Kirim
                     </button>
                 </div>
             </div>
@@ -103,6 +107,7 @@
     window.addEventListener('keydown', function (event) {
         if (event.key === 'Escape' && !formGroup.classList.contains('hidden')) {
             formGroup.classList.add('hidden')
+            balasButton.focus()
         }
     })
     {% endif %}
@@ -137,7 +142,6 @@
                     data.balasan.forEach(item => {
                         balasanList.innerHTML += `
                         <div class="grid gap-x-4 items-start bg-gray-100 rounded-lg p-4 border-l-4 border-gray-300">
-                            <!-- Garis vertikal di kiri -->
                             <div class="flex w-full items-center">
                                 ${item.foto !== '' ? `
                                 <a href="/profile/${item.username}" class="items-center font-semibold text-gray-900">
@@ -150,17 +154,17 @@
                                 </a>`}
                                 <div class="ml-4 flex-1">
                                     <div class="flex items-center">
-                                        <p class="flex flex-wrap font-semibold text-sm text-gray-900">
+                                        <p class="flex flex-col sm:flex-row font-semibold text-sm text-gray-900">
                                             <a href="/profile/${item.username}" class="text-s mr-2">
                                                 ${item.nama}
                                             </a>
-                                            <label
-                                                class="relative z-10 rounded-full bg-gray-50 px-2 py-0.5 text-xs font-medium text-gray-600">
+                                            <span class="text-neutral-500 text-xs flex items-center gap-1">
+                                                <i class="fa-solid fa-coins text-xs" aria-hidden="true"></i>
                                                 ${item.poin} poin
-                                            </label>
+                                            </span>
                                         </p>
                                         <div class="ml-auto">
-                                            ${'{{ request.user.id }}' === item.userId ? `
+                                            ${'{{ request.user.id }}' == item.userId ? `
                                             <a href="edit_balasan/${ item.id }">
                                                 <i class="fa-solid fa-pen ml-2"></i>
                                             </a>
@@ -170,11 +174,14 @@
                                             ` : ''}
                                         </div>
                                     </div>
-                                    <p class="text-xs text-gray-500 leading-normal">
+                                    <p class="text-xs text-gray-500 leading-normal hidden sm:block">
                                         pada ${new Date(item.tanggal).toLocaleString('id-ID', {year: 'numeric', month: 'long', day: 'numeric'})}
                                     </p>
                                 </div>
                                 </div>
+                                <p class="mt-2 text-xs text-gray-500 leading-normal block sm:hidden">
+                                        pada ${new Date(item.tanggal).toLocaleString('id-ID', {year: 'numeric', month: 'long', day: 'numeric'})}
+                                    </p>
                                 <p class="mt-2 text-gray-700">${item.pesan}</p>
                         </div>
                         `

@@ -1,24 +1,21 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.http import JsonResponse, HttpResponseRedirect
 from django.core.paginator import Paginator
-from restoran.forms import RestoranForm
-from restoran.models import Restoran
 from django.db.models import Avg, F
-from makanan.models import Makanan
-from minuman.models import Minuman
 from django.utils import timezone
-from ulasan.models import Ulasan
-from django.urls import reverse
+from django.template.loader import render_to_string
 from .forms import RestoranForm
 from .models import Restoran
-
+from makanan.models import Makanan
+from minuman.models import Minuman
+from ulasan.models import Ulasan
+from django.utils.html import strip_tags
 
 def get_restoran_status(jam_buka, jam_tutup, current_time):
     if jam_buka < jam_tutup:
         return "Buka" if jam_buka <= current_time <= jam_tutup else "Tutup"
     return "Buka" if current_time >= jam_buka or current_time <= jam_tutup else "Tutup"
-
 
 def get_harga_range(restoran):
     makanan = Makanan.objects.filter(restoran=restoran)
@@ -41,9 +38,36 @@ def get_harga_range(restoran):
     else:
         return "$$$$"
 
-
 def show_restoran(request):
     current_time = timezone.localtime().time()
+    restoran_list = Restoran.objects.annotate(
+        rata_bintang=Avg("ulasan__nilai"),
+        avg_harga=Avg(F("makanan__harga") + F("minuman__harga")) / 2
+    ).order_by("nama")
+
+    restoran_data = []
+    for item in restoran_list:
+        if item.id:
+            status = get_restoran_status(item.jam_buka, item.jam_tutup, current_time)
+            ulasan_terbaik = Ulasan.objects.filter(restoran=item).order_by("-nilai")[:2]
+
+            restoran_data.append({
+                "restoran": item,
+                "status": status,
+                "jam_buka": item.jam_buka.strftime("%H:%M"),
+                "jam_tutup": item.jam_tutup.strftime("%H:%M"),
+                "rata_bintang": round(item.rata_bintang or 0, 1),
+                "harga_range": get_harga_range(item),
+                "ulasan_terbaik": ulasan_terbaik,
+            })
+
+    return render(
+        request,
+        "restoran/show/index.html",
+        {"restoran_data": restoran_data}, 
+    )
+
+def sort_restoran(request):
     sort_by = request.GET.get("sort", "default")
     order = request.GET.get("order", "asc")
 
@@ -53,9 +77,7 @@ def show_restoran(request):
     )
 
     if sort_by == "rating":
-        restoran_list = restoran_list.order_by(
-            "rata_bintang" if order == "asc" else "-rata_bintang"
-        )
+        restoran_list = restoran_list.order_by("rata_bintang" if order == "asc" else "-rata_bintang")
     elif sort_by == "harga":
         restoran_list = sorted(
             restoran_list, key=lambda x: get_harga_range(x), reverse=(order == "desc")
@@ -65,50 +87,42 @@ def show_restoran(request):
 
     restoran_data = []
     for item in restoran_list:
-        jam_buka = item.jam_buka
-        jam_tutup = item.jam_tutup
-        status = get_restoran_status(jam_buka, jam_tutup, current_time)
-        ulasan_terbaik = Ulasan.objects.filter(restoran=item).order_by("-nilai")[:2]
-
-        restoran_data.append(
-            {
+        if item.id:
+            status = get_restoran_status(item.jam_buka, item.jam_tutup, timezone.localtime().time())
+            ulasan_terbaik = Ulasan.objects.filter(restoran=item).order_by("-nilai")[:2]
+            restoran_data.append({
                 "restoran": item,
                 "status": status,
-                "jam_buka": jam_buka.strftime("%H:%M"),
-                "jam_tutup": jam_tutup.strftime("%H:%M"),
+                "jam_buka": item.jam_buka.strftime("%H:%M"),
+                "jam_tutup": item.jam_tutup.strftime("%H:%M"),
                 "rata_bintang": round(item.rata_bintang or 0, 1),
                 "harga_range": get_harga_range(item),
                 "ulasan_terbaik": ulasan_terbaik,
-            }
-        )
+            })
 
-    paginator = Paginator(restoran_data, 10)
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
+    restoran_list_html = render_to_string("restoran/show/restoran_list.html", {"restoran_data": restoran_data})
 
-    return render(
-        request,
-        "restoran/show/index.html",
-        {"page_obj": page_obj, "sort_by": sort_by, "order": order},
-    )
-
+    return JsonResponse({
+        "restoran_list_html": restoran_list_html,
+    })
 
 @login_required(login_url="/login")
 def tambah_restoran(request):
-    if request.user.peran != "pemilik_restoran":
-        return redirect("restoran:show_restoran")
-
-    if request.method == "POST":
+    if request.method == 'POST':
         form = RestoranForm(request.POST, request.FILES)
         if form.is_valid():
             restoran = form.save(commit=False)
+            restoran.nama = strip_tags(form.cleaned_data['nama'])
+            restoran.alamat = strip_tags(form.cleaned_data['alamat'])
+            restoran.nomor_telepon = strip_tags(form.cleaned_data['nomor_telepon'])
             restoran.user = request.user
             restoran.save()
-            return redirect("restoran:show_restoran")
+            return redirect('restoran:show_restoran')
     else:
         form = RestoranForm()
 
     return render(request, "restoran/tambah/index.html", {"form": form})
+
 
 
 @login_required(login_url="/login")

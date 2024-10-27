@@ -70,11 +70,11 @@
                     </ul>
                     <p class="mt-8">
                         Minuman ini tersedia di restoran
-                        <a href="{% url 'restoran:detail_restoran' restoran.id %}" class="hover:underline">
+                        <a href="{% url 'restoran:detail_restoran' restoran.id %}" class="hover:underline focus-visible:outline-[#4f9da6]">
                             {{ restoran.nama }}
                         </a>
                     </p>
-                    <a href="{% url 'restoran:detail_restoran' restoran.id %}">
+                    <a href="{% url 'restoran:detail_restoran' restoran.id %}" class="focus-visible:outline-[#4f9da6]">
                         <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-900">{{ restoran.nama }}</h2>
                     </a>
                     <ul role="list" class="mt-6 space-y-4 text-gray-600">

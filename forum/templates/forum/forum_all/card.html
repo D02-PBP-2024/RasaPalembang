@@ -2,48 +2,48 @@
 
 <article class="flex max-w-xl flex-col items-start block bg-white ring-1 ring-gray-100 shadow transition hover:shadow-lg relative p-6 flex px-4 py-4 rounded-lg overflow-hidden">
     <div class="flex items-center justify-between w-full">
-      <h3 class="mt-2 text-lg font-semibold leading-6 text-gray-900 hover:underline">
-          <a href="{% url 'forum:show_forum_by_id' forum.restoran.id forum.id %}">
-              {{ forum.topik }}
-          </a>
-      </h3>
-      {% if request.user == forum.user %}
-      <div class="mt-2 flex gap-x-2">
-          <a href="{% url 'forum:edit_forum' forum.restoran.id forum.id %}" class="ml-2">
-              <i class="fa-solid fa-pen"></i>
-          </a>
-          <a href="{% url 'forum:delete_forum' forum.restoran.id forum.id %}" class="">
-              <i class="fa-regular fa-trash-can"></i>
-          </a>
-      </div>
-      {% endif %}
-    </div>
-    <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600 break-all h-full">{{ forum.pesan }}</p>
-    <div class="relative mt-8 flex items-center gap-x-4 w-full ">
-      {% if forum.user.foto %}
-      <a href="{% url 'detail_profile' forum.user.username %}" class="font-semibold text-gray-900">
-        <img src="/media/{{ forum.user.foto }}" alt="{{ forum.user.nama }}" class="h-10 w-10 rounded-full">
-      </a>
-      {% else %}
-      <a href="{% url 'detail_profile' forum.user.username %}" class="font-semibold text-gray-900">
-        <img src="{% static 'images/avatar.png' %}" class="w-10 h-10 rounded-full">
-      </a>
-      {% endif %}
-
-      <div class="text-sm leading-6">
-        <div class="flex items-center gap-x-2">
-          <a href="{% url 'detail_profile' forum.user.username %}" class="font-semibold text-gray-900 break-all">
-            {{ forum.user.username }}
-          </a>
-          <div class="rounded-full bg-gray-50 px-2 py-0.5 font-medium text-gray-600 whitespace-nowrap">
-            {{ forum.user.poin }} poin
-          </div>
+        <h3 class="mt-2 text-lg font-semibold leading-6 text-gray-900 hover:underline">
+            <a href="{% url 'forum:show_forum_by_id' forum.restoran.id forum.id %}">
+            {{ forum.topik }}
+            </a>
+        </h3>
+        {% if request.user == forum.user %}
+        <div class="mt-2 flex gap-x-2">
+            <a href="{% url 'forum:edit_forum' forum.restoran.id forum.id %}" class="ml-2">
+            <i class="fa-solid fa-pen"></i>
+            </a>
+            <a href="{% url 'forum:delete_forum' forum.restoran.id forum.id %}" class="">
+            <i class="fa-regular fa-trash-can"></i>
+            </a>
         </div>
-        <p>
-          <time datetime="{{ forum.tanggal_posting|date:'Y-m-d' }}" class="text-gray-500">
-            {{ forum.tanggal_posting|date:"d F Y" }}
-          </time>
-        </p>
-      </div>
+        {% endif %}
     </div>
-  </article>
+    <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600 h-full">{{ forum.pesan }}</p>
+    <div class="relative mt-8 flex items-center gap-x-4 w-full">
+        {% if forum.user.foto %}
+        <a href="{% url 'detail_profile' forum.user.username %}" class="font-semibold text-gray-900">
+            <img src="/media/{{ forum.user.foto }}" alt="{{ forum.user.nama }}" class="h-10 w-10 rounded-full">
+        </a>
+        {% else %}
+        <a href="{% url 'detail_profile' forum.user.username %}" class="font-semibold text-gray-900">
+            <img class="w-10 h-10 rounded-full" src="{% static 'images/avatar.png' %}" alt="{{ forum.user.nama }}">
+        </a>
+        {% endif %}
+        <div class="text-sm leading-6">
+            <div class="flex items-center gap-x-2">
+                <a href="{% url 'detail_profile' forum.user.username %}" class="font-semibold text-gray-900 break-all">
+                    {{ forum.user.username }}
+                </a>
+                <span class="text-neutral-500 text-xs font-semibold flex items-center gap-1">
+                <i class="fa-solid fa-coins text-xs" aria-hidden="true"></i>
+                    {{ forum.user.poin}} poin
+                </span>
+            </div>
+            <p>
+                <time datetime="{{ forum.tanggal_posting|date:'Y-m-d' }}" class="text-gray-500">
+                    {{ forum.tanggal_posting|date:"d F Y" }}
+                </time>
+            </p>
+        </div>
+    </div>
+</article>

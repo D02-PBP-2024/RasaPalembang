@@ -23,12 +23,12 @@
             {% if profile.username == request.user.username %}
             <div class="mt-4 flex max-sm:flex-col max-sm:items-center h-min gap-1 sm:gap-2">
                 <a href="{% url 'logout' %}"
-                    class="flex justify-center items-center gap-2 w-full sm:w-max px-4 sm:px-8 py-1.5 sm:py-2 bg-[#eb4b4b] hover:bg-[#c93e3e] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
+                    class="flex justify-center items-center gap-2 w-full sm:w-max px-4 sm:px-8 py-1.5 sm:py-2 bg-[#eb4b4b] hover:bg-[#c93e3e] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition focus-visible:outline-none focus-visible:bg-[#d04848]">
                     <i class="fa-solid fa-arrow-right-from-bracket max-sm:scale-90"></i>
                     Keluar
                 </a>
                 <button data-modal-target="modal" data-modal-toggle="modal" onclick="showModal();"
-                    class="flex justify-center items-center gap-2 w-full sm:w-max px-4 sm:px-8 py-1.5 sm:py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
+                    class="flex justify-center items-center gap-2 w-full sm:w-max px-4 sm:px-8 py-1.5 sm:py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition focus-visible:outline-none focus-visible:bg-[#3b747a]">
                     <i class="fa-regular fa-pen-to-square max-sm:scale-90"></i>
                     Ubah Profil
                 </button>
@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-    {% if ulasan %}
+    {% if profile.peran == "pengulas" and ulasan %}
     <div class="mt-8">
         <h1 class="font-bold text-2xl">Ulasan</h1>
         <div class="flex flex-col gap-5 mt-4">
@@ -134,6 +134,102 @@
     </div>
     {% endif %}
     {% include 'authentication/detail_profile/modal.html' %}
+    {% if profile.peran == "pemilik_restoran" and restoran %}
+        <h1 class="mt-8 font-bold text-2xl">Restoran</h1>
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+        {% for item in restoran %}
+            <div>
+                <a href="{% url 'restoran:detail_restoran' item.id %}" class="block bg-white border rounded-lg overflow-hidden transition hover:shadow-lg focus-visible:outline-[#4f9da6]">
+                    <div class="w-full h-48 overflow-hidden">
+                        {% if item.gambar %}
+                        <img src="{{ item.gambar }}" alt="{{ item.nama }}"
+                            class="w-full h-full object-cover">
+                        {% else %}
+                        <img src="{% static 'images/no-image.jpg' %}" alt="No image" class="w-full h-full object-cover">
+                        {% endif %}
+                    </div>
+
+                    <div class="p-4">
+                        <h2 class="text-lg font-semibold text-gray-700">{{ item.nama }}
+                            <span class="text-gray-500 mt-1">
+                                <span class="text-lg font-semibold">{{ item.harga_range }}</span>
+                            </span>
+                        </h2>
+
+                        <div class="flex items-center text-yellow-500">
+                            {% if item.rata_bintang == 0 %}
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            {% else %}
+                            {% if item.rata_bintang >= 1 %}
+                            <i class="fas fa-star"></i>
+                            {% else %}
+                            {% if item.rata_bintang >= 0.5 %}
+                            <i class="fas fa-star-half-alt"></i>
+                            {% else %}
+                            <i class="far fa-star"></i>
+                            {% endif %}
+                            {% endif %}
+
+                            {% if item.rata_bintang >= 2 %}
+                            <i class="fas fa-star"></i>
+                            {% else %}
+                            {% if item.rata_bintang >= 1.5 %}
+                            <i class="fas fa-star-half-alt"></i>
+                            {% else %}
+                            <i class="far fa-star"></i>
+                            {% endif %}
+                            {% endif %}
+
+                            {% if item.rata_bintang >= 3 %}
+                            <i class="fas fa-star"></i>
+                            {% else %}
+                            {% if item.rata_bintang >= 2.5 %}
+                            <i class="fas fa-star-half-alt"></i>
+                            {% else %}
+                            <i class="far fa-star"></i>
+                            {% endif %}
+                            {% endif %}
+
+                            {% if item.rata_bintang >= 4 %}
+                            <i class="fas fa-star"></i>
+                            {% else %}
+                            {% if item.rata_bintang >= 3.5 %}
+                            <i class="fas fa-star-half-alt"></i>
+                            {% else %}
+                            <i class="far fa-star"></i>
+                            {% endif %}
+                            {% endif %}
+
+                            {% if item.rata_bintang >= 5 %}
+                            <i class="fas fa-star"></i>
+                            {% else %}
+                            {% if item.rata_bintang >= 4.5 %}
+                            <i class="fas fa-star-half-alt"></i>
+                            {% else %}
+                            <i class="far fa-star"></i>
+                            {% endif %}
+                            {% endif %}
+                            {% endif %}
+                            <span class="ml-2 text-gray-500">({{ item.rata_bintang|floatformat:1 }}/5.0)</span>
+                        </div>
+
+                        <p class="text-gray-500 mt-1">
+                            <i class="fas fa-clock mr-2"></i>
+                            {{ item.jam_buka|date:"H:i" }} - {{ item.jam_tutup|date:"H:i" }}
+                            <span class="{% if item.status == 'Buka' %}text-green-500{% else %}text-red-500{% endif %}">
+                                {{ item.status }}
+                            </span>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+        </div>
+    {% endif %}
 </main>
 {% endblock %}
 {% block script %}

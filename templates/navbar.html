@@ -4,48 +4,48 @@
         <div
             class="relative mx-auto flex h-[64px] w-[calc(100%-32px)] max-w-[1818px] items-center justify-between md:w-[calc(100%-72px)]">
             <div class="flex flex-1 gap-3 md:gap-6 xl:gap-10">
-                <button class="xl:hidden text-base sm:text-lg mobile-menu-button">
+                <button class="xl:hidden text-base sm:text-lg mobile-menu-button focus-visible:outline-[#4f9da6]">
                     <i class="fa-solid fa-bars -translate-y-[1.5px]"></i>
                 </button>
-                <a href="/" class="flex items-center">
+                <a href="/" class="flex items-center focus-visible:outline-[#4f9da6]">
                     <img src="{% static 'images/logo.png' %}" alt="RasaPalembang"
                         class="max-w-36 sm:max-w-40 md:max-w-52">
                 </a>
                 <nav class="flex items-center justify-around gap-8 max-xl:hidden">
                     <a href="{% url 'makanan:show_makanan' %}"
-                        class="hover:text-neutral-600 transition flex gap-2.5 items-center">
+                        class="hover:text-neutral-600 transition flex gap-2.5 items-center focus-visible:outline-[#4f9da6]">
                         <i class="fa-solid fa-bowl-food scale-90"></i>
                         <span>Makanan</span>
                     </a>
                     <a href="{% url 'minuman:show_minuman' %}"
-                        class="hover:text-neutral-600 transition flex gap-2.5 items-center">
+                        class="hover:text-neutral-600 transition flex gap-2.5 items-center focus-visible:outline-[#4f9da6]">
                         <i class="fa-solid fa-martini-glass-citrus scale-90"></i>
                         <span>Minuman</span>
                     </a>
                     <a href="{% url 'restoran:show_restoran' %}"
-                        class="hover:text-neutral-600 transition flex gap-2.5 items-center">
+                        class="hover:text-neutral-600 transition flex gap-2.5 items-center focus-visible:outline-[#4f9da6]">
                         <i class="fa-solid fa-utensils scale-90"></i>
                         <span>Restoran</span>
                     </a>
                 </nav>
                 <form action="/cari/" method="GET" class="flex max-lg:hidden text-neutral-600 flex-1 text-sm">
-                    <button type="submit" class="px-4 py-1.5 rounded-l-lg bg-neutral-200/50">
+                    <button type="submit" class="px-4 py-1.5 rounded-l-lg bg-neutral-200/50 focus-visible:outline-[#4f9da6]">
                         <i class="fa-solid fa-magnifying-glass scale-90"></i>
                     </button>
                     <input
-                        class="focus:outline-none rounded-r-lg bg-neutral-200/50 pr-4 py-1.5 max-xl:flex-1 xl:w-72 2xl:w-96"
+                        class="rounded-r-lg bg-neutral-200/50 pr-4 py-1.5 max-xl:flex-1 xl:w-72 2xl:w-96 focus-visible:outline-none"
                         placeholder="Cari restoran, makanan, atau minuman apapun" type="text" name="q">
                 </form>
             </div>
             <div class="flex items-center gap-1 md:gap-2 md:pl-4 xl:pl-0 max-sm:text-xs max-md:text-sm">
                 {% if request.user.is_authenticated %}
                 <a href="{% url 'favorit:show_favorit' %}"
-                    class="h-fit max-sm:hidden flex gap-2 items-center justify-center bg-[#eb4b4b] hover:bg-[#c93e3e] text-white text-sm rounded-lg transition duration-300 rounded-lg-xl px-2 md:px-3 py-1.5 font-semibold">
+                    class="h-fit max-sm:hidden flex gap-2 items-center justify-center bg-[#eb4b4b] hover:bg-[#c93e3e] text-white text-sm rounded-lg transition duration-300 rounded-lg-xl px-2 md:px-3 py-1.5 font-semibold focus-visible:outline-none focus-visible:bg-[#d04848]">
                     <i class="fa-regular fa-heart"></i>
                     <span class="pb-0.5">Favorit</span>
                 </a>
                 <a href="{% url 'detail_profile' request.user.username %}"
-                    class="flex gap-2 items-center justify-center hover:bg-neutral-200/50 rounded-lg transition duration-300 rounded-lg-xl px-2 md:px-3 py-1.5 text-base font-semibold">
+                    class="flex gap-2 items-center justify-center hover:bg-neutral-200/50 rounded-lg transition duration-300 rounded-lg-xl px-2 md:px-3 py-1.5 text-base font-semibold focus-visible:outline-[#4f9da6]">
                     <img src="{% if request.user.foto %} {{ request.user.foto.url }} {% else %} {% static 'images/avatar.png' %} {% endif %}"
                         alt="avatar" class="w-6 h-6 rounded-full border border-[#4f9da6]">
                     <span class="pb-0.5">
@@ -53,36 +53,44 @@
                     </span>
                 </a>
                 {% else %}
-                <a href="{% url 'login' %}" class="flex items-center px-3 md:px-5 py-1.5 font-semibold text-[#ff5757]">
+                <a href="{% url 'login' %}" class="flex items-center px-3 md:px-5 py-1.5 font-semibold text-[#ff5757] rounded-lg focus-visible:outline-[#4f9da6]">
                     <span>Masuk</span>
                 </a>
                 <a href="{% url 'signup' %}"
-                    class="flex items-center bg-[#ff5757] hover:bg-[#de4b4b] transition rounded-lg px-3 md:px-5 py-1.5 font-semibold text-white">
+                    class="flex items-center bg-[#ff5757] hover:bg-[#de4b4b] transition rounded-lg px-3 md:px-5 py-1.5 font-semibold text-white focus-visible:outline-none focus-visible:bg-[#d04848]">
                     <span>Daftar</span>
                 </a>
                 {% endif %}
             </div>
         </div>
     </div>
-    <div class="hidden xl:hidden bg-[#fafafa] py-2" id="mobile-menu">
-        <nav class="flex flex-col">
+    <div class="hidden xl:hidden bg-[#fafafa] shadow" id="mobile-menu">
+        <nav class="flex flex-col divide-y">
+            <form action="/cari/" method="GET" class="flex px-4 py-4 text-neutral-600 flex-1 text-sm">
+                <button type="submit" class="px-4 py-1.5 rounded-l-lg bg-neutral-200/50 focus-visible:outline-[#4f9da6]">
+                    <i class="fa-solid fa-magnifying-glass scale-90"></i>
+                </button>
+                <input
+                    class="rounded-r-lg bg-neutral-200/50 pr-4 py-1.5 max-xl:flex-1 xl:w-72 2xl:w-96 focus-visible:outline-none"
+                    placeholder="Cari restoran, makanan, atau minuman apapun" type="text" name="q">
+            </form>
             <a href="{% url 'makanan:show_makanan' %}"
-                class="mx-auto w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center">
+                class="mx-auto w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center focus-visible:outline-[#4f9da6]">
                 <i class="fa-solid fa-bowl-food scale-90"></i>
                 <span>Makanan</span>
             </a>
             <a href="{% url 'minuman:show_minuman' %}"
-                class="mx-auto border w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center">
+                class="mx-auto w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center focus-visible:outline-[#4f9da6]">
                 <i class="fa-solid fa-martini-glass-citrus scale-90"></i>
                 <span>Minuman</span>
             </a>
             <a href="{% url 'restoran:show_restoran' %}"
-                class="mx-auto border w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center">
+                class="mx-auto w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center focus-visible:outline-[#4f9da6]">
                 <i class="fa-solid fa-utensils scale-90"></i>
                 <span>Restoran</span>
             </a>
             <a href="{% url 'favorit:show_favorit' %}"
-                class="mx-auto w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center">
+                class="mx-auto w-full px-4 py-4 hover:text-neutral-600 transition flex gap-2.5 items-center focus-visible:outline-[#4f9da6]">
                 <i class="fa-solid fa-heart scale-90"></i>
                 <span>Favorit</span>
             </a>
@@ -90,10 +98,16 @@
     </div>
 </header>
 <script>
-    const btn = document.querySelector("button.mobile-menu-button");
-    const menu = document.querySelector("#mobile-menu");
+    const btn = document.querySelector('button.mobile-menu-button');
+    const menu = document.querySelector('#mobile-menu');
 
-    btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
     });
+
+    window.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && !menu.classList.contains('hidden')) {
+            menu.classList.add('hidden');
+        }
+    })
 </script>

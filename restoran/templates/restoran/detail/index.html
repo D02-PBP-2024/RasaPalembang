@@ -45,19 +45,19 @@
         <div class="w-full flex max-sm:flex-col gap-2">
             {% if mengulas %}
             <button id="reviewButton" data-modal-target="modal" data-modal-toggle="modal" onclick="showAddModal()"
-                class="flex justify-center items-center gap-2 w-full w-full lg:w-fit px-4 sm:px-5 py-2 bg-[#eb4b4b] hover:bg-[#c93e3e] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
+                class="flex justify-center items-center gap-2 w-full w-full lg:w-fit px-4 sm:px-5 py-2 bg-[#eb4b4b] hover:bg-[#c93e3e] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition focus-visible:outline-none focus-visible:bg-[#d04848]">
                 <i class="fa-regular fa-star max-sm:scale-90"></i>
                 Tuliskan Ulasan
             </button>
             {% endif %}
             <a href="{% url 'forum:show_forum' restoran.id %}"
-                class="flex justify-center items-center gap-2 w-full w-full lg:w-fit px-4 sm:px-5 py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
+                class="flex justify-center items-center gap-2 w-full w-full lg:w-fit px-4 sm:px-5 py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition focus-visible:outline-none focus-visible:bg-[#3b747a]">
                 <i class="fa-regular fa-comments max-sm:scale-90"></i>
                 Diskusikan di Forum
             </a>
             {% if user.is_authenticated %}
             <a href="{% url 'favorit:add_to_favorites' 'restoran' restoran.id %}"
-                class="flex justify-center items-center gap-2 w-full w-full lg:w-fit px-4 sm:px-5 py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
+                class="flex justify-center items-center gap-2 w-full w-full lg:w-fit px-4 sm:px-5 py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition focus-visible:outline-none focus-visible:bg-[#3b747a]">
                 <i class="fa-regular fa-heart max-sm:scale-90"></i>
                 Simpan Favorit
             </a>
@@ -66,14 +66,14 @@
         {% if request.user == restoran.user %}
         <div class="w-full flex max-sm:flex-col lg:justify-end gap-2">
             <a href="{% url 'restoran:ubah_restoran' restoran.id %}"
-                class="flex justify-center items-center gap-2 w-full w-full lg:w-fit px-4 sm:px-5 py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
+                class="flex justify-center items-center gap-2 w-full w-full lg:w-fit px-4 sm:px-5 py-2 bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition focus-visible:outline-none focus-visible:bg-[#3b747a]">
                 <i class="fa-regular fa-pen-to-square text-sm"></i>
                 Ubah Restoran
             </a>
-            <form method="POST" action="{% url 'restoran:hapus_restoran' restoran.id %}"
-                class="flex justify-center items-center gap-2 w-full lg:w-fit px-4 sm:px-5 py-2 bg-[#eb4b4b] hover:bg-[#c93e3e] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition">
+            <form method="POST" action="{% url 'restoran:hapus_restoran' restoran.id %}">
                 {% csrf_token %}
-                <button type="submit" class="flex justify-center items-center gap-2 w-full">
+                <button type="submit"
+                    class="flex justify-center items-center gap-2 w-full w-full lg:w-fit px-4 sm:px-5 py-2 bg-[#ff5757] hover:bg-[#d04848] hover:shadow rounded-lg font-semibold text-white text-center max-sm:text-sm transition focus-visible:outline-none focus-visible:bg-[#d04848]">
                     <i class="fa-regular fa-trash-can text-sm"></i>
                     Hapus Restoran
                 </button>
@@ -102,10 +102,9 @@
                 class="p-2 sm:p-3 border border-neutral-100 shadow-lg shadow-neutral-100 rounded-xl w-full mt-4 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 max-h-[420px] md:max-h-[520px] overflow-auto pr-2 md:pr-4">
                 {% for item in makanan %}
                 <div
-                    class="border border-neutral-100 shadow-lg shadow-neutral-100 hover:shadow-neutral-200 rounded-xl transition">
+                    class="border border-neutral-100 shadow-lg shadow-neutral-100 hover:shadow-neutral-200 rounded-xl transition overflow-hidden">
                     <a href="{% url 'makanan:detail_makanan' item.id %}">
-                        <img src="{{ item.gambar.url }}" alt='{{ item.nama }}'
-                            class='rounded-lg w-full h-40 md:h-56 object-cover'>
+                        <img src="{{ item.gambar.url }}" alt='{{ item.nama }}' class="w-full h-40 md:h-56 object-cover">
                         <div class="p-3 md:p-4">
                             <h1 class="md:text-lg font-bold">{{ item.nama }}</h1>
                             <h1 class="text-neutral-500 max-md:text-sm font-semibold">
@@ -117,10 +116,9 @@
                 {% endfor %}
                 {% for item in minuman %}
                 <div
-                    class="border border-neutral-100 shadow-lg shadow-neutral-100 hover:shadow-neutral-200 rounded-xl transition">
+                    class="border border-neutral-100 shadow-lg shadow-neutral-100 hover:shadow-neutral-200 rounded-xl transition overflow-hidden">
                     <a href="{% url 'minuman:detail_minuman' item.id %}">
-                        <img src="{{ item.gambar.url }}" alt='{{ item.nama }}'
-                            class='rounded-lg w-full h-40 md:h-56 object-cover'>
+                        <img src="{{ item.gambar.url }}" alt='{{ item.nama }}' class="w-full h-40 md:h-56 object-cover">
                         <div class="p-3 md:p-4">
                             <h1 class="md:text-lg font-bold">{{ item.nama }}</h1>
                             <h1 class="text-neutral-500 max-md:text-sm font-semibold">
@@ -281,6 +279,9 @@
         } else {
             classNameString = 'mt-5 flex flex-col justify-center gap-4'
             reviews.forEach((item) => {
+                if (item.user.username == '{{ user.username }}') {
+                    setEditRating(item.nilai)
+                }
                 created_at = new Date(item.created_at)
                 if (item.user.username == '{{ user.username }}') {
                     document.querySelector('#editReviewForm textarea').innerHTML = item.deskripsi
@@ -295,11 +296,11 @@
                 }
                 let optionButtonHtml = `
                     <div class='flex flex-wrap gap-2'>
-                        <button onclick='showEditModal()' class='max-sm:flex-grow flex justify-center items-center w-fit bg-[#4f9da6] hover:bg-[#3b747a] transition text-white py-2 px-5 rounded-lg text-sm font-semibold'>
+                        <button onclick='showEditModal()' class='max-sm:flex-grow flex justify-center items-center w-fit bg-[#4f9da6] hover:bg-[#3b747a] transition text-white py-2 px-5 rounded-lg text-sm font-semibold focus-visible:outline-none focus-visible:bg-[#3b747a]'>
                             <i class='fa-regular fa-pen-to-square text-xs mr-2'></i>
                             <span class='text-center'>Ubah ulasan</span>
                         </button>
-                        <a href='{% url 'restoran:ulasan:hapus_ulasan' restoran.id %}' class='max-sm:flex-grow flex justify-center items-center w-fit bg-[#eb4b4b] hover:bg-[#c93e3e] transition text-white py-2 px-5 rounded-lg text-sm font-semibold'>
+                        <a href='{% url 'restoran:ulasan:hapus_ulasan' restoran.id %}' class='max-sm:flex-grow flex justify-center items-center w-fit bg-[#eb4b4b] hover:bg-[#c93e3e] transition text-white py-2 px-5 rounded-lg text-sm font-semibold focus-visible:outline-none focus-visible:bg-[#d04848]'>
                             <i class='fa-regular fa-trash-can text-xs mr-2'></i>
                             <span class='text-center'>Hapus ulasan</span>
                         </a>

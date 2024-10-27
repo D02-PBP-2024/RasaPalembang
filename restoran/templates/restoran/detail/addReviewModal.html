@@ -6,7 +6,7 @@
         <div class="flex items-center justify-between p-4 border-b rounded-t">
             <h3 class="text-xl font-semibold text-gray-900">Ulas restoran</h3>
             <button type="button"
-                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 transition rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 transition rounded-lg text-sm p-1.5 ml-auto inline-flex items-center focus-visible:outline-[#4f9da6]"
                 id="closeAddReviewModalButton">
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +23,7 @@
                 class="w-full max-w-md md:max-w-2xl mx-auto py-2 px-2 rounded-2xl">
                 {% csrf_token %}
                 <div>
-                    <label class="text-sm pl-3">
+                    <label class="text-sm pl-2">
                         Nilai
                     </label>
                     <div class="mt-2 bg-gray-100 rounded-lg px-4 py-3.5 w-full text-lg flex gap-2">
@@ -46,12 +46,12 @@
                     <input type="number" name="nilai" required="" id="id_nilai_add" value="3" class="hidden">
                 </div>
                 <div class="mt-4">
-                    <label class="text-sm pl-3" for="id_deskripsi">
+                    <label class="text-sm pl-2" for="id_deskripsi">
                         Deskripsi
                     </label>
                     <textarea name="deskripsi" cols="40" rows="3" required="" id="id_deskripsi"
                         placeholder="Ceritakan pengalaman Anda..."
-                        class="resize-none mt-2 bg-gray-100 rounded-lg focus-visible:outline-none px-4 py-3.5 w-full placeholder:text-[#808080]"></textarea>
+                        class="resize-none mt-2 bg-gray-100 rounded-lg px-4 py-3.5 w-full placeholder:text-[#808080] focus-visible:outline-[#4f9da6]"></textarea>
                 </div>
             </form>
         </div>
@@ -59,13 +59,13 @@
         <div
             class="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2 p-6 border-t border-gray-200 rounded-b justify-center md:justify-end">
             <button type="button"
-                class="bg-[#eb4b4b] hover:bg-[#c93e3e] hover:shadow transition text-white font-semibold px-8 py-2 rounded-lg"
+                class="bg-[#eb4b4b] hover:bg-[#c93e3e] hover:shadow transition text-white font-semibold px-8 py-2 rounded-lg focus-visible:outline-none focus-visible:bg-[#d04848]"
                 id="cancelReviewButton">
                 <i class="fa-solid fa-xmark mr-2"></i>
                 Kembali
             </button>
             <button type="submit" id="submitAddReviewForm" form="addReviewForm"
-                class="bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow transition text-white font-semibold px-8 py-2 rounded-lg">
+                class="bg-[#4f9da6] hover:bg-[#3b747a] hover:shadow transition text-white font-semibold px-8 py-2 rounded-lg focus-visible:outline-none focus-visible:bg-[#3b747a]">
                 <i class="fa-regular fa-floppy-disk mr-2"></i>
                 Simpan
             </button>
