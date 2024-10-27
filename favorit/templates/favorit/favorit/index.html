@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load humanize %}
 
 {% block content %}
-<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
+<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto min-h-[72vh]">
     <h1 class="text-2xl font-bold mb-5">Daftar Favorit Anda</h1>
+    {% if favorit %}
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2 md:mt-4">
         {% for item in favorit %}
         <div class="py-2">
@@ -100,11 +102,20 @@
                 {% endif %}
             </div>
         </div>
-        {% empty %}
-        <li class="bg-gray-100 border border-gray-300 rounded-lg p-4 text-gray-600 italic">
-            Anda belum menambahkan favorit apapun.
-        </li>
         {% endfor %}
     </div>
+    {% else %}
+    <div class="px-3 sm:px-6 py-16 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14">
+        <div>
+            <img src="{% static 'images/empty-makanan.png' %}" alt="Belum ada makanan" class="max-w-24 md:max-w-32">
+        </div>
+        <div>
+            <h1 class="text-center text-xl md:text-2xl font-bold">Belum Ada Favorit</h1>
+            <p class="text-center text-gray-900 max-md:text-sm max-md:mt-2">
+                Ayo, tambahkan restoran, makanan, atau minuman favorit Anda!
+            </p>
+        </div>
+    </div>
+    {% endif %}
 </main>
 {% endblock %}

@@ -1,100 +1,102 @@
 {% load static %}
 
+{% if restoran_data %}
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-    {% if restoran_data %}
-        {% for item in restoran_data %}
-        {% if item.restoran.id %}
-        <a href="{% url 'restoran:detail_restoran' item.restoran.id %}" class="block bg-white shadow-md rounded-lg overflow-hidden transition hover:shadow-lg">
-            <div class="w-full h-48 overflow-hidden">
-                {% if item.restoran.gambar %}
-                <img src="{{ item.restoran.gambar.url }}" alt="{{ item.restoran.nama }}" class="w-full h-full object-cover">
-                {% else %}
-                <img src="{% static 'images/no-image.jpg' %}" alt="No image" class="w-full h-full object-cover">
-                {% endif %}
-            </div>
-
-            <div class="p-4">
-                <h2 class="text-lg font-semibold text-gray-700">{{ item.restoran.nama }}
-                    <span class="text-gray-500 mt-1">
-                        <span class="text-lg font-semibold">{{ item.harga_range }}</span>
-                    </span>
-                </h2>
-
-                <div class="flex items-center text-yellow-500">
-                    {% if item.rata_bintang == 0 %}
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    {% else %}
-                        {% if item.rata_bintang >= 1 %}
-                            <i class="fas fa-star"></i>
-                        {% elif item.rata_bintang >= 0.5 %}
-                            <i class="fas fa-star-half-alt"></i>
-                        {% else %}
-                            <i class="far fa-star"></i>
-                        {% endif %}
-
-                        {% if item.rata_bintang >= 2 %}
-                            <i class="fas fa-star"></i>
-                        {% elif item.rata_bintang >= 1.5 %}
-                            <i class="fas fa-star-half-alt"></i>
-                        {% else %}
-                            <i class="far fa-star"></i>
-                        {% endif %}
-
-                        {% if item.rata_bintang >= 3 %}
-                            <i class="fas fa-star"></i>
-                        {% elif item.rata_bintang >= 2.5 %}
-                            <i class="fas fa-star-half-alt"></i>
-                        {% else %}
-                            <i class="far fa-star"></i>
-                        {% endif %}
-
-                        {% if item.rata_bintang >= 4 %}
-                            <i class="fas fa-star"></i>
-                        {% elif item.rata_bintang >= 3.5 %}
-                            <i class="fas fa-star-half-alt"></i>
-                        {% else %}
-                            <i class="far fa-star"></i>
-                        {% endif %}
-
-                        {% if item.rata_bintang >= 5 %}
-                            <i class="fas fa-star"></i>
-                        {% elif item.rata_bintang >= 4.5 %}
-                            <i class="fas fa-star-half-alt"></i>
-                        {% else %}
-                            <i class="far fa-star"></i>
-                        {% endif %}
-                    {% endif %}
-                    <span class="ml-2 text-gray-500">({{ item.rata_bintang|floatformat:1 }}/5.0)</span>
-                </div>
-
-                <p class="text-gray-500 mt-1">
-                    <i class="fas fa-clock mr-2"></i>
-                    {{ item.jam_buka }} - {{ item.jam_tutup }}
-                    <span class="{% if item.status == 'Buka' %}text-green-500{% else %}text-red-500{% endif %}">{{ item.status }}</span>
-                </p>
-
-                <div class="mt-4">
-                    {% for ulasan in item.ulasan_terbaik %}
-                    <div>
-                        <blockquote class="italic text-gray-600">“{{ ulasan.deskripsi|slice:":50" }}…”</blockquote>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </a>
-        {% endif %}
-        {% endfor %}
-    {% else %}
-        <div class="flex flex-col items-center py-16">
-            <img src="{% static 'images/empty-restoran.png' %}" class="w-32 h-32 mb-6">
-            <h1 class="text-center text-xl md:text-2xl font-bold">Belum ada restoran yang tersedia</h1>
-            <p class="text-center text-gray-900 text-sm mt-2">
-                Segera kembali, berbagai restoran menarik akan segera hadir!
-            </p>
+    {% for item in restoran_data %}
+    {% if item.restoran.id %}
+    <a href="{% url 'restoran:detail_restoran' item.restoran.id %}"
+        class="block bg-white shadow-md rounded-lg overflow-hidden transition hover:shadow-lg">
+        <div class="w-full h-48 overflow-hidden">
+            {% if item.restoran.gambar %}
+            <img src="{{ item.restoran.gambar.url }}" alt="{{ item.restoran.nama }}" class="w-full h-full object-cover">
+            {% else %}
+            <img src="{% static 'images/no-image.jpg' %}" alt="No image" class="w-full h-full object-cover">
+            {% endif %}
         </div>
+
+        <div class="p-4">
+            <h2 class="text-lg font-semibold text-gray-700">{{ item.restoran.nama }}
+                <span class="text-gray-500 mt-1">
+                    <span class="text-lg font-semibold">{{ item.harga_range }}</span>
+                </span>
+            </h2>
+
+            <div class="flex items-center text-yellow-500">
+                {% if item.rata_bintang == 0 %}
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                {% else %}
+                {% if item.rata_bintang >= 1 %}
+                <i class="fas fa-star"></i>
+                {% elif item.rata_bintang >= 0.5 %}
+                <i class="fas fa-star-half-alt"></i>
+                {% else %}
+                <i class="far fa-star"></i>
+                {% endif %}
+
+                {% if item.rata_bintang >= 2 %}
+                <i class="fas fa-star"></i>
+                {% elif item.rata_bintang >= 1.5 %}
+                <i class="fas fa-star-half-alt"></i>
+                {% else %}
+                <i class="far fa-star"></i>
+                {% endif %}
+
+                {% if item.rata_bintang >= 3 %}
+                <i class="fas fa-star"></i>
+                {% elif item.rata_bintang >= 2.5 %}
+                <i class="fas fa-star-half-alt"></i>
+                {% else %}
+                <i class="far fa-star"></i>
+                {% endif %}
+
+                {% if item.rata_bintang >= 4 %}
+                <i class="fas fa-star"></i>
+                {% elif item.rata_bintang >= 3.5 %}
+                <i class="fas fa-star-half-alt"></i>
+                {% else %}
+                <i class="far fa-star"></i>
+                {% endif %}
+
+                {% if item.rata_bintang >= 5 %}
+                <i class="fas fa-star"></i>
+                {% elif item.rata_bintang >= 4.5 %}
+                <i class="fas fa-star-half-alt"></i>
+                {% else %}
+                <i class="far fa-star"></i>
+                {% endif %}
+                {% endif %}
+                <span class="ml-2 text-gray-500">({{ item.rata_bintang|floatformat:1 }}/5.0)</span>
+            </div>
+
+            <p class="text-gray-500 mt-1">
+                <i class="fas fa-clock mr-2"></i>
+                {{ item.jam_buka }} - {{ item.jam_tutup }}
+                <span class="{% if item.status == 'Buka' %}text-green-500{% else %}text-red-500{% endif %}">{{
+                    item.status }}</span>
+            </p>
+
+            <div class="mt-4">
+                {% for ulasan in item.ulasan_terbaik %}
+                <div>
+                    <blockquote class="italic text-gray-600">“{{ ulasan.deskripsi|slice:":50" }}…”</blockquote>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </a>
     {% endif %}
+    {% endfor %}
 </div>
+{% else %}
+<div class="flex flex-col items-center py-16">
+    <img src="{% static 'images/empty-restoran.png' %}" class="w-32 h-32 mb-6">
+    <h1 class="text-center text-xl md:text-2xl font-bold">Belum ada restoran yang tersedia</h1>
+    <p class="text-center text-gray-900 text-sm mt-2">
+        Segera kembali, berbagai restoran menarik akan segera hadir!
+    </p>
+</div>
+{% endif %}

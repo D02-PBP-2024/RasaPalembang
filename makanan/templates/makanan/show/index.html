@@ -6,7 +6,8 @@
 {% endblock meta %}
 
 {% block content %}
-<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
+<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto min-h-[72vh]">
+    {% if makanan %}
     <div class="flex justify-between relative">
         <button id="filterButton"
             class="flex justify-center items-center px-4 py-2 bg-neutral-200/80 hover:bg-neutral-300/80 transition rounded-lg text-sm text-gray-600 font-semibold">
@@ -38,7 +39,6 @@
         </a>
         {% endif %}
     </div>
-    {% if makanan %}
     <div id="makananList" class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2 md:mt-4">
         {% for item in makanan %}
         {% include 'makanan/show/card.html' with makanan=item %}
