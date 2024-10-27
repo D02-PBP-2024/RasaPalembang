@@ -12,6 +12,7 @@ from ulasan.models import Ulasan
 from django.urls import reverse
 from .forms import RestoranForm
 from .models import Restoran
+from django.utils.html import strip_tags
 
 
 def get_restoran_status(jam_buka, jam_tutup, current_time):
@@ -92,23 +93,23 @@ def show_restoran(request):
         {"page_obj": page_obj, "sort_by": sort_by, "order": order},
     )
 
-
 @login_required(login_url="/login")
 def tambah_restoran(request):
-    if request.user.peran != "pemilik_restoran":
-        return redirect("restoran:show_restoran")
-
-    if request.method == "POST":
+    if request.method == 'POST':
         form = RestoranForm(request.POST, request.FILES)
         if form.is_valid():
             restoran = form.save(commit=False)
+            restoran.nama = strip_tags(form.cleaned_data['nama'])
+            restoran.alamat = strip_tags(form.cleaned_data['alamat'])
+            restoran.nomor_telepon = strip_tags(form.cleaned_data['nomor_telepon'])
             restoran.user = request.user
             restoran.save()
-            return redirect("restoran:show_restoran")
+            return redirect('restoran:show_restoran')
     else:
         form = RestoranForm()
 
     return render(request, "restoran/tambah/index.html", {"form": form})
+
 
 
 @login_required(login_url="/login")
