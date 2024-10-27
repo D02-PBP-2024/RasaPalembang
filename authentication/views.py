@@ -6,6 +6,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from authentication.models import User
 from django.contrib import messages
 from django.core import serializers
+
+from restoran.models import Restoran
 from ulasan.models import Ulasan
 import datetime
 import django
@@ -61,10 +63,37 @@ def profile(request):
 def detail_profile(request, username):
     user = get_object_or_404(User, username=username)
 
-    ulasan = Ulasan.objects.filter(user=user)
+    ulasan_all = Ulasan.objects.all()
+    ulasan = ulasan_all.filter(user=user)
+    restoran = Restoran.objects.filter(user=user)
+
+    list_restoran = []
+    for resto in restoran:
+        bintang = 0
+        banyak_ulasan = 0
+        for item in ulasan_all.filter(restoran=resto):
+            bintang += item.nilai
+            banyak_ulasan += 1
+
+        if banyak_ulasan == 0:
+            bintang = 0
+        else:
+            bintang = bintang / banyak_ulasan
+
+        list_restoran.append({
+            "id": resto.id,
+            "nama": resto.nama,
+            "alamat": resto.alamat,
+            "jam_buka": resto.jam_buka,
+            "jam_tutup": resto.jam_tutup,
+            "nomor_telepon": resto.nomor_telepon,
+            "gambar": resto.gambar.url if resto.gambar else "",
+            "rata_bintang": bintang,
+        })
+
 
     return render(
         request,
         "authentication/detail_profile/index.html",
-        {"profile": user, "ulasan": ulasan},
+        {"profile": user, "ulasan": ulasan, "restoran": list_restoran},
     )
