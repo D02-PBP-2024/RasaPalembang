@@ -18,7 +18,7 @@
         </div>
         {% endif %}
     </div>
-    <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600 break-all h-full">{{ forum.pesan }}</p>
+    <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600 h-full">{{ forum.pesan }}</p>
     <div class="relative mt-8 flex items-center gap-x-4 w-full">
         {% if forum.user.foto %}
         <a href="{% url 'detail_profile' forum.user.username %}" class="font-semibold text-gray-900">

@@ -25,7 +25,7 @@
         </div>
         {% if request.user.is_authenticated and request.user.peran == "pemilik_restoran" %}
         <a href="{% url 'minuman:tambah_minuman' %}"
-            class="flex-shrink-0 text-sm font-semibold justify-center items-center px-4 py-2 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300">
+            class="flex-shrink-0 text-sm font-semibold justify-center items-center px-4 py-2 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300 focus-visible:outline-none focus-visible:bg-[#3b747a]">
             <i class="fa-solid fa-plus mr-1.5"></i>
             <span>Tambah Minuman</span>
         </a>
