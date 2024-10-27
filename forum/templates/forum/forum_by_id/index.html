@@ -43,11 +43,13 @@
 
             <div id="balasan">
             </div>
+            {% if request.user.is_authenticated %}
             <div class="flex justify-end mt-4">
                 <button id="balas" class="text-[#4f9da6] hover:underline px-2">
                     Balas
                 </button>
             </div>
+            {% endif %}
             <div class="hidden mt-2" id="formGroup">
                 <form method="POST" class="flex rounded-lg" id="formBalas">
                     {% csrf_token %}
