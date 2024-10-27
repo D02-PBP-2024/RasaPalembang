@@ -48,7 +48,7 @@
             <div id="balasan"></div>
             {% if request.user.is_authenticated %}
             <div class="flex justify-end mt-4">
-                <button id="balas" class="font-medium text-[#4f9da6] hover:underline px-2">
+                <button id="balas" class="font-medium text-[#4f9da6] hover:underline px-2 rounded-lg">
                     Balas
                 </button>
             </div>
@@ -56,13 +56,13 @@
                 <form method="POST" class="flex rounded-lg" id="formBalas">
                     {% csrf_token %}
                     <div class="w-full sm:ml-12">
-                        <label class="pl-1 font-semibold hidden" for="pesan">Pesan Balasan</label>
-                        <textarea name="pesan" required="" id="pesan" placeholder="Masukkan balasan untuk forum ini" class="mt-2 pb-14 min-h-36 w-full resize-none rounded bg-gray-100 px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]"></textarea>
+                        <label class="pl-2 font-semibold hidden" for="pesan">Pesan Balasan</label>
+                        <textarea name="pesan" required="" id="pesan" placeholder="Masukkan balasan untuk forum ini" class="mt-2 pb-14 min-h-36 w-full resize-none rounded-lg bg-gray-100 px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]"></textarea>
                     </div>
                 </form>
                 <div class="flex justify-end -mt-14 mr-2.5">
-                    <button id="submitBalasan" class="focus:shadow-outline rounded bg-[#4f9da6] px-4 py-2 font-semibold text-white shadow transition hover:bg-[#3b747a] hover:shadow-lg focus:bg-[#3b747a] focus:outline-none">
-                        Kirim
+                    <button id="submitBalasan" class="focus:shadow-outline rounded-lg bg-[#4f9da6] px-4 py-2 font-semibold text-white shadow transition hover:bg-[#3b747a] hover:shadow focus:bg-[#3b747a] focus:outline-none">
+                        <i class="fa-regular fa-paper-plane mr-2"></i>Kirim
                     </button>
                 </div>
             </div>
