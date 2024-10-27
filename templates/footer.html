@@ -5,35 +5,39 @@
             <img src="{% static 'images/logo.png' %}" alt="RasaPalembang" class="max-w-56">
         </a>
         <div class="flex gap-5 text-xl">
-            <a href="" class="focus-visible:outline-[#4f9da6]">
-                <i class="fa-brands fa-facebook"></i>
-            </a>
-            <a href="" class="focus-visible:outline-[#4f9da6]">
+            <a href="https://instagram.com/rasapalembang.pbp" class="focus-visible:outline-[#4f9da6]" target="_blank">
                 <i class="fa-brands fa-instagram"></i>
             </a>
-            <a href="" class="focus-visible:outline-[#4f9da6]">
-                <i class="fa-brands fa-line"></i>
-            </a>
-            <a href="" class="focus-visible:outline-[#4f9da6]">
+            <a href="https://x.com/rasapalembang.pbp" class="focus-visible:outline-[#4f9da6]" target="_blank">
                 <i class="fa-brands fa-twitter"></i>
             </a>
-            <a href="" class="focus-visible:outline-[#4f9da6]">
+            <a class="focus-visible:outline-[#4f9da6] text-neutral-400">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a class="focus-visible:outline-[#4f9da6] text-neutral-400">
+                <i class="fa-brands fa-line"></i>
+            </a>
+            <a class="focus-visible:outline-[#4f9da6] text-neutral-400">
                 <i class="fa-brands fa-youtube"></i>
             </a>
         </div>
     </div>
     <nav
         class="max-sm:mx-auto mt-8 flex flex-wrap items-center justify-center sm:justify-start gap-x-5 gap-y-1 max-w-56 sm:max-w-64 lg:max-w-72 max-md:text-sm">
-        <a href="{% url 'makanan:show_makanan' %}" class="hover:text-neutral-600 transition focus-visible:outline-[#4f9da6]">
+        <a href="{% url 'makanan:show_makanan' %}"
+            class="hover:text-neutral-600 transition focus-visible:outline-[#4f9da6]">
             <span>Makanan</span>
         </a>
-        <a href="{% url 'minuman:show_minuman' %}" class="hover:text-neutral-600 transition focus-visible:outline-[#4f9da6]">
+        <a href="{% url 'minuman:show_minuman' %}"
+            class="hover:text-neutral-600 transition focus-visible:outline-[#4f9da6]">
             <span>Minuman</span>
         </a>
-        <a href="{% url 'restoran:show_restoran' %}" class="hover:text-neutral-600 transition focus-visible:outline-[#4f9da6]">
+        <a href="{% url 'restoran:show_restoran' %}"
+            class="hover:text-neutral-600 transition focus-visible:outline-[#4f9da6]">
             <span>Restoran</span>
         </a>
-        <a href="{% url 'favorit:show_favorit' %}" class="hover:text-neutral-600 transition focus-visible:outline-[#4f9da6]">
+        <a href="{% url 'favorit:show_favorit' %}"
+            class="hover:text-neutral-600 transition focus-visible:outline-[#4f9da6]">
             <span>Favorit</span>
         </a>
     </nav>
