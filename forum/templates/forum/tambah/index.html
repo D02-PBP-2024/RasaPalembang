@@ -15,14 +15,14 @@
         <div class="w-full">
             <form method="POST">
                 {% csrf_token %}
-                <div class="grid grid-cols-2 sm:gap-x-4 w-full">
-                    <div class="mt-4 col-span-2 sm:col-span-1">
+                <div class="w-full">
+                    <div class="mt-4 ">
                         <label class="text-sm font-semibold pl-1" for="topik">Topik</label>
                         <input type="text" name="topik" maxlength="255" required="" id="topik"
                             placeholder="Masukkan topik forum"
                             class="w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">
                     </div>
-                    <div class="mt-4 col-span-2 sm:col-span-2">
+                    <div class="mt-4">
                         <label class="text-sm font-semibold pl-1" for="pesan">Pesan</label>
                         <textarea name="pesan" required="" id="pesan" placeholder="Masukkan pesan"
                             class="w-full resize-none h-36 mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]"></textarea>
