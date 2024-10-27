@@ -107,6 +107,7 @@
     window.addEventListener('keydown', function (event) {
         if (event.key === 'Escape' && !formGroup.classList.contains('hidden')) {
             formGroup.classList.add('hidden')
+            balasButton.focus()
         }
     })
     {% endif %}
