@@ -29,7 +29,7 @@ class mainTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_tambah_favorit_no_login(self):
-        response = Client().get("/favorit/tambah/")
+        response = Client().get(f"/favorit/tambah/makanan/{self.restoran.id}/")
         self.assertEqual(response.status_code, 302)
 
     def test_edit_favorit_no_login(self):
