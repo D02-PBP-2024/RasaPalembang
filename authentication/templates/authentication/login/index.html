@@ -16,7 +16,7 @@
         </div>
         <div class="md:h-full md:px-24 py-8 md:py-12 max-md:w-full max-md:max-w-96">
             <div class="w-min max-md:mx-auto">
-                <a href="/">
+                <a href="/" class="focus-visible:outline-[#4f9da6]">
                     <img src="{% static 'images/logo.png' %}" alt="RasaPalembang" class="max-w-64 -translate-x-1">
                 </a>
             </div>
@@ -24,23 +24,23 @@
             <form method="POST" class="mt-6">
                 {% csrf_token %}
                 <div class="mt-4">
-                    <label class="text-sm pl-3">
+                    <label class="text-sm pl-2" for="id_username">
                         Username
                     </label>
                     <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username"
                         autofocus="" required="" id="id_username" placeholder="Masukkan username"
-                        class="mt-2 bg-gray-100 rounded-lg focus-visible:outline-none px-4 py-3.5 w-full md:min-w-[420px] placeholder:text-[#808080]">
+                        class="mt-2 bg-gray-100 rounded-lg px-4 py-3.5 w-full md:min-w-[420px] placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">
                 </div>
                 <div class="mt-4">
-                    <label class="text-sm pl-3">
+                    <label class="text-sm pl-2" for="id_password">
                         Kata Sandi
                     </label>
                     <input type="password" name="password" autocomplete="new-password" required="" id="id_password"
                         placeholder="Masukkan kata sandi"
-                        class="mt-2 bg-gray-100 rounded-lg focus-visible:outline-none px-4 py-3.5 w-full md:min-w-[420px] placeholder:text-[#808080]">
+                        class="mt-2 bg-gray-100 rounded-lg px-4 py-3.5 w-full md:min-w-[420px] placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">
                 </div>
                 <button
-                    class="mt-8 shadow hover:shadow-lg bg-[#4f9da6] hover:bg-[#3b747a] transition focus:shadow-outline focus:outline-none text-white font-semibold py-2 w-full rounded-lg"
+                    class="mt-8 shadow hover:shadow bg-[#4f9da6] hover:bg-[#3b747a] transition focus:shadow-outline focus:outline-none focus:bg-[#3b747a] text-white font-semibold py-2 w-full rounded-lg"
                     type="submit">
                     Masuk
                 </button>
@@ -54,7 +54,7 @@
             </form>
             <h3 class="text-center mt-4">
                 Belum memiliki akun?
-                <a href="{% url 'signup' %}" class="text-[#ff5757] font-semibold">Daftar sekarang</a>
+                <a href="{% url 'signup' %}" class="text-[#ff5757] font-semibold focus-visible:outline-[#4f9da6]">Daftar sekarang</a>
             </h3>
         </div>
     </main>

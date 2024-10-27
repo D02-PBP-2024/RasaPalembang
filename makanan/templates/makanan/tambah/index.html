@@ -7,42 +7,47 @@
 
 {% block content %}
 <main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
-    <h2 class="mt-8 text-xl font-semibold">Tambah Makanan Baru</h2>
+    <h2 class="text-xl font-semibold">Tambah Makanan Baru</h2>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="grid grid-cols-2 sm:gap-x-4 w-full">
             <div class="mt-4 col-span-2 sm:col-span-1">
-                <label class="text-sm pl-3" for="nama">Nama Makanan</label>
-                {{ form.nama|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
+                <label class="text-sm pl-2" for="nama">Nama</label>
+                <input type="text" name="nama" maxlength="255" required="" id="nama" placeholder="Masukkan nama makanan"
+                    class="w-full mt-2 bg-gray-100 rounded-lg px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">
             </div>
             <div class="mt-4 col-span-2 sm:col-span-1">
-                <label class="text-sm pl-3" for="harga">Harga</label>
-                {{ form.harga|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
+                <label class="text-sm pl-2" for="harga">Harga</label>
+                <input type="number" name="harga" required="" id="harga" placeholder="Masukkan harga makanan"
+                    class="w-full mt-2 bg-gray-100 rounded-lg px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">
             </div>
         </div>
         <div class="mt-4">
-            <label class="text-sm pl-3" for="deskripsi">Deskripsi</label>
-            {{ form.deskripsi|add_class:"w-full resize-none h-36 mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
+            <label class="text-sm pl-2" for="deskripsi">Deskripsi</label>
+            <textarea name="deskripsi" required="" id="deskripsi" placeholder="Masukkan deskripsi minuman"
+                class="w-full resize-none h-36 mt-2 bg-gray-100 rounded-lg px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]"></textarea>
         </div>
         <div class="grid grid-cols-2 sm:gap-x-4 w-full">
             <div class="mt-4 col-span-2 sm:col-span-1">
-                <label class="text-sm pl-3" for="kalori">Kalori</label>
-                {{ form.kalori|add_class:"w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]" }}
+                <label class="text-sm pl-2" for="kalori">Kalori</label>
+                <input type="number" name="kalori" required="" id="kalori"
+                    placeholder="Masukkan kalori makanan"
+                    class="w-full mt-2 bg-gray-100 rounded-lg px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">
             </div>
             <div class="mt-4 col-span-2 sm:col-span-1">
-                <label class="text-sm pl-3" for="gambar">Gambar</label>
+                <label class="text-sm pl-2" for="gambar">Gambar</label>
                 <div class="mt-2 flex items-center">
                     <label for="id_gambar"
-                        class="w-full overflow-hidden relative cursor-pointer bg-gray-100 rounded font-medium text-[#4f9da6] hover:text-[#3b747a] px-4 py-3.5 text-center focus-visible:outline-[#4f9da6]">
+                        class="w-full overflow-hidden relative cursor-pointer bg-gray-100 rounded-lg font-medium text-[#4f9da6] hover:text-[#3b747a] px-4 py-3.5 text-center focus-visible:outline-[#4f9da6]">
                         <span id="gambar-file">Upload gambar</span>
                         {{ form.gambar|add_class:"sr-only" }}
                     </label>
                 </div>
             </div>
             <div class="mt-4 col-span-2 sm:col-span-1">
-                <label class="text-sm pl-3" for="restoran">Restoran</label>
+                <label class="text-sm pl-2" for="restoran">Restoran</label>
                 <select name="restoran" required="" id="restoran"
-                    class="w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">
+                    class="w-full mt-2 bg-gray-100 rounded-lg px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">
                     <option value="" selected="">Pilih restoran</option>
                     {% if restoran %}
                     {% for item in restoran %}
@@ -52,7 +57,7 @@
                 </select>
             </div>
             <div class="mt-4 col-span-2 sm:col-span-1">
-                <label class="text-sm pl-3">Kategori</label>
+                <label class="text-sm pl-2">Kategori</label>
                 <div class="flex flex-wrap gap-2 mt-2">
                     {% for kategori in form.kategori.field.queryset %}
                     <div class="bg-neutral-200/80 font-semibold rounded-full px-4 md:px-5 py-1 md:py-1.5 text-xs md:text-sm cursor-pointer select-none"
@@ -66,9 +71,10 @@
             </div>
         </div>
         <button
-            class="mt-8 shadow hover:shadow-lg bg-[#4f9da6] hover:bg-[#3b747a] transition focus:shadow-outline focus:bg-[#3b747a] focus:outline-none text-white font-semibold py-2 px-4 rounded"
-            type="submit">
-            Simpan
+                class="mt-8 shadow hover:shadow bg-[#4f9da6] hover:bg-[#3b747a] transition focus:shadow-outline focus:bg-[#3b747a] focus:outline-none text-white font-semibold py-2 px-4 rounded-lg"
+                type="submit">
+                <i class="fa-regular fa-floppy-disk mr-2"></i>
+                Simpan
         </button>
     </form>
 </main>
