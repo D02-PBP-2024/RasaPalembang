@@ -7,8 +7,8 @@
 
 {% block content %}
 <div class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto min-h-[72vh]">
-    {% if restoran_data %}
     <div class="mb-5 flex gap-2 justify-between">
+        {% if restoran_data %}
         <select id="sortSelect"
             class="flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-neutral-200/80 hover:bg-neutral-300/80 text-gray-600 focus-visible:outline-[#4f9da6]">
             <option value="default">Urutkan Berdasarkan</option>
@@ -17,6 +17,7 @@
             <option value="harga_asc">Harga Terendah</option>
             <option value="harga_desc">Harga Tertinggi</option>
         </select>
+        {% endif %}
         {% if request.user.is_authenticated and request.user.peran == "pemilik_restoran" %}
         <a href="{% url 'restoran:tambah_restoran' %}"
             class="flex-shrink-0 text-sm font-semibold justify-center items-center px-4 py-2 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300 focus-visible:outline-none focus-visible:bg-[#3b747a]">
@@ -25,7 +26,6 @@
         </a>
         {% endif %}
     </div>
-    {% endif %}
 
     <div id="restoran-list">
         {% include "restoran/show/restoran_list.html" with restoran_data=restoran_data %}
