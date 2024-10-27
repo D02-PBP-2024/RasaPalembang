@@ -71,6 +71,8 @@ def add_to_favorites(request, item_type, item_id):
         )
     else:
         return redirect("home")
+    
+    
 
     # Arahkan kembali ke halaman yang memanggil atau ke halaman favorit
     return redirect("favorit:show_favorit")
