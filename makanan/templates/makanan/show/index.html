@@ -6,8 +6,9 @@
 {% endblock meta %}
 
 {% block content %}
-<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
+<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto min-h-[72vh]">
     <div class="flex justify-between relative">
+        {% if makanan %}
         <button id="filterButton"
             class="flex justify-center items-center px-4 py-2 bg-neutral-200/80 hover:bg-neutral-300/80 transition rounded-lg text-sm text-gray-600 font-semibold">
             <i class="fa fa-filter mr-2"></i>
@@ -30,6 +31,7 @@
                 </button>
             </div>
         </div>
+        {% endif %}
         {% if request.user.is_authenticated and request.user.peran == "pemilik_restoran" %}
         <a href="{% url 'makanan:tambah_makanan' %}"
             class="flex-shrink-0 text-sm font-semibold justify-center items-center px-4 py-2 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300 focus-visible:outline-none focus-visible:bg-[#3b747a]">

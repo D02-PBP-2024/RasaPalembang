@@ -7,9 +7,9 @@
 {% endblock meta %}
 
 {% block content %}
-<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
-    {% if minuman %}
+<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto min-h-[72vh]">
     <div class="flex justify-between overflow-x-auto space-x-2">
+        {% if minuman %}
         <div class="flex-shrink-0">
             <button id="all" class="flex-shrink-0 px-4 py-2 rounded-md text-sm font-semibold bg-[#4f9da6] text-white">
                 Semua
@@ -23,6 +23,7 @@
                 Harga tertinggi
             </button>
         </div>
+        {% endif %}
         {% if request.user.is_authenticated and request.user.peran == "pemilik_restoran" %}
         <a href="{% url 'minuman:tambah_minuman' %}"
             class="flex-shrink-0 text-sm font-semibold justify-center items-center px-4 py-2 bg-[#4f9da6] hover:bg-[#3b747a] text-white font-semibold rounded-lg shadow-md transition duration-300 focus-visible:outline-none focus-visible:bg-[#3b747a]">
@@ -31,6 +32,7 @@
         </a>
         {% endif %}
     </div>
+    {% if minuman %}
     <div id="minumanList" class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2 md:mt-4">
         {% for item in minuman %}
         {% include 'minuman/show/card.html' with minuman=item %}
