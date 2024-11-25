@@ -37,4 +37,4 @@ def minuman_by_restoran(request, id):
         except ObjectDoesNotExist:
             return JsonResponse({"Message": "Restoran Not Found"}, status=404)
     else:
-        return JsonResponse({"Message": "Restoran Not Found"}, status=404)
+        return JsonResponse({"Message": "Method Not Allowed"}, status=405)
