@@ -1,7 +1,7 @@
 import json
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.serializers import serialize
-from django.http import JsonResponse, HttpResponse
+from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from minuman.models import Minuman
 from restoran.models import Restoran
@@ -16,7 +16,7 @@ def minuman_by_restoran(request, id):
             data = serialize("json", minuman)
             return HttpResponse(data, content_type="application/json", status=200)
         except ObjectDoesNotExist:
-            return JsonResponse({"Message": "Restoran Not Found"}, status=404)
+            return HttpResponse(status=404)
     elif request.method == "POST":
         try:
             # TODO (untuk syauqi): Validasi pemillik restoran yang dapat menambah
@@ -33,8 +33,9 @@ def minuman_by_restoran(request, id):
                 tingkat_kemanisan=int(data["tingkat_kemanisan"]),
             )
             minuman.save()
-            return JsonResponse({"Message": "Minuman Created Successfully"}, status=201)
+            data = serialize("json", [minuman])
+            return HttpResponse(data, content_type="application/json", status=201)
         except ObjectDoesNotExist:
-            return JsonResponse({"Message": "Restoran Not Found"}, status=404)
+            return HttpResponse(status=404)
     else:
-        return JsonResponse({"Message": "Method Not Allowed"}, status=405)
+        return HttpResponse(status=405)

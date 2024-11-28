@@ -1,6 +1,6 @@
 import json
 from django.core.exceptions import ObjectDoesNotExist
-from django.http import JsonResponse, HttpResponse
+from django.http import HttpResponse
 from django.core.serializers import serialize
 from django.views.decorators.csrf import csrf_exempt
 from minuman.models import Minuman
@@ -13,7 +13,7 @@ def minuman(request):
         data = serialize("json", minuman)
         return HttpResponse(data, content_type="application/json", status=200)
     else:
-        return JsonResponse({"Message": "Method Not Allowed"}, status=405)
+        return HttpResponse(status=405)
 
 
 @csrf_exempt
@@ -24,7 +24,7 @@ def minuman_by_id(request, id):
             data = serialize("json", [minuman])
             return HttpResponse(data, content_type="application/json", status=200)
         except ObjectDoesNotExist:
-            return JsonResponse({"Message": "Minuman Not Found"}, status=404)
+            return HttpResponse(status=404)
     elif request.method == "PUT":
         try:
             minuman = Minuman.objects.get(pk=id)
@@ -38,16 +38,17 @@ def minuman_by_id(request, id):
             minuman.ukuran = data["ukuran"]
             minuman.tingkat_kemanisan = int(data["tingkat_kemanisan"])
             minuman.save()
-            return JsonResponse({"Message": "Minuman Updated Successfully"}, status=200)
+            data = serialize("json", [minuman])
+            return HttpResponse(data, content_type="application/json", status=200)
         except ObjectDoesNotExist:
-            return JsonResponse({"Message": "Minuman Not Found"}, status=404)
+            return HttpResponse(status=404)
     elif request.method == "DELETE":
         try:
             minuman = Minuman.objects.get(pk=id)
             # TODO: Validasi pemillik minuman yang dapat menghapus
             minuman.delete()
-            return JsonResponse({"Message": "Minuman Deleted Successfully"}, status=200)
+            return HttpResponse(status=200)
         except ObjectDoesNotExist:
-            return JsonResponse({"Message": "Minuman Not Found"}, status=404)
+            return HttpResponse(status=404)
     else:
-        return JsonResponse({"Message": "Method Not Allowed"}, status=405)
+        return HttpResponse(status=405)
