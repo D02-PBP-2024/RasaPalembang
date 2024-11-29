@@ -49,8 +49,10 @@ urlpatterns = (
             r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}
         ),
         # RasaPalembang API
-        path("v1/register/", v1.register, name="register"),
-        path("v1/profile/<slug:username>/", v1.profile_by_username, name="profile_by_username"),
+        path("v1/register/", v1.register, name="v1_register"),
+        path("v1/login/", v1.login, name="v1_login"),
+        path("v1/logout/", v1.logout, name="v1_logout"),
+        path("v1/profile/<slug:username>/", v1.profile_by_username, name="v1_profile_by_username"),
         path("v1/restoran/", include("restoran.v1_urls")),
         path("v1/minuman/", include("minuman.v1_urls")),
     ]
