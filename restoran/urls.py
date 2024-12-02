@@ -11,5 +11,5 @@ urlpatterns = [
     path("<uuid:id>/hapus/", hapus_restoran, name="hapus_restoran"),
     path("<uuid:id>/ulasan/", include("ulasan.urls")),
     path('sort/', sort_restoran, name='sort_restoran'),
-
+    path('create/', create_restoran_flutter, name='create_restoran'),
 ]

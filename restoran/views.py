@@ -11,6 +11,10 @@ from makanan.models import Makanan
 from minuman.models import Minuman
 from ulasan.models import Ulasan
 from django.utils.html import strip_tags
+from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
+import json
+from django.http import JsonResponse
 
 def get_restoran_status(jam_buka, jam_tutup, current_time):
     if jam_buka < jam_tutup:
@@ -184,3 +188,23 @@ def lihat_restoran(request, id):
             "status": status,
         },
     )
+
+@csrf_exempt
+def create_restoran_flutter(request):
+    if request.method == 'POST':
+
+        data = json.loads(request.body)
+        new_restoran = Restoran.objects.create(
+            user=request.user,
+            nama=data["nama"],
+            alamat=data["alamat"],
+            jam_buka=data["jam buka"],
+            jam_tutup=data["jam tutup"],
+            nomor_telepon=data["nomor telepon"]
+        )
+
+        new_restoran.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
