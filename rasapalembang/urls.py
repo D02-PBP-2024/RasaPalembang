@@ -49,6 +49,8 @@ urlpatterns = (
         ),
         path("v1/restoran/", include("restoran.v1_urls")),
         path("v1/minuman/", include("minuman.v1_urls")),
+        path("v1/forum/", include("forum.v1_urls_forum")),
+        path("v1/balasan/", include("forum.v1_urls_balasan")),
     ]
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
