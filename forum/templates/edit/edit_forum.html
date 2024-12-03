@@ -17,21 +17,21 @@
                 {% csrf_token %}
                 <div class="w-full">
                     <div class="mt-4">
-                        <label class="text-sm font-semibold pl-1" for="topik">Topik</label>
+                        <label class="text-sm pl-2" for="topik">Topik</label>
                         <input type="text" name="topik" maxlength="255" required="" id="topik"
                             placeholder="Masukkan topik forum" value="{{ forum.topik }}"
                             class="w-full mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">
                     </div>
                     <div class="mt-4">
-                        <label class="text-sm font-semibold pl-1" for="pesan">Pesan</label>
+                        <label class="text-sm pl-2" for="pesan">Pesan</label>
                         <textarea name="pesan" required="" id="pesan" placeholder="Masukkan pesan"
-                            class="w-full resize-none h-36 mt-2 bg-gray-100 rounded px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">{{ forum.pesan }}</textarea>
+                            class="w-full resize-none h-36 mt-2 bg-gray-100 rounded-lg px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">{{ forum.pesan }}</textarea>
                     </div>
                 </div>
                 <button
-                    class="mt-8 shadow hover:shadow-lg bg-[#4f9da6] hover:bg-[#3b747a] transition focus:shadow-outline focus:bg-[#3b747a] focus:outline-none text-white font-semibold py-2 px-4 rounded"
+                    class="mt-8 shadow hover:shadow-lg bg-[#4f9da6] hover:bg-[#3b747a] transition focus:shadow-outline focus:bg-[#3b747a] focus:outline-none text-white font-semibold py-2 px-4 rounded-lg"
                     type="submit">
-                    Simpan
+                    <i class="fa-regular fa-floppy-disk mr-2"></i>Simpan
                 </button>
             </form>
         </div>

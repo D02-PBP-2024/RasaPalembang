@@ -1,23 +1,125 @@
 {% extends 'base.html' %}
+{% load humanize %}
+
+{% block meta %}
+<title>Ubah Favorit | Rasa Palembang</title>
+{% endblock meta %}
 
 {% block content %}
-<div class="max-w-lg mx-auto p-8 bg-gray-100 border border-gray-300 rounded-lg shadow-lg font-sans">
-    <h1 class="text-[#3b747a] text-2xl font-bold text-center mb-5">Edit Favorit</h1>
-
-    <form method="POST" class="mb-5">
-        {% csrf_token %}
-        <div class="flex flex-col gap-4">
-            {{ form.as_p }}
+<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
+    <div class="flex items-center max-lg:flex-col gap-8 min-h-[72vh]">
+        <div class="w-full">
+            {% if favorit.restoran %}
+            <div class="lg:pr-4">
+                <div class="flex mt-2">
+                    <h1 class="w-full text-2xl md:text-3xl font-semibold tracking-tight text-gray-900">
+                        Ubah Favorit Restoran {{ favorit.restoran.nama }}
+                    </h1>
+                </div>
+                <p class="mt-4 leading-8 text-gray-700">{{ favorit.restoran.deskripsi }}</p>
+                <div class="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg my-4">
+                    <ul role="list" class="space-y-4 text-gray-600">
+                        <li class="flex gap-x-3">
+                            <span class="h-5 w-5 flex-none text-[#4f9da6]">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </span>
+                            <span>
+                                <strong class="font-semibold text-gray-900">Alamat: </strong>
+                                {{ favorit.restoran.alamat }}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+            {% if favorit.makanan %}
+            <div class="lg:pr-4">
+                <div class="flex mt-2">
+                    <h1 class="w-full text-2xl md:text-3xl font-semibold tracking-tight text-gray-900">
+                        Ubah Favorit Makanan {{ favorit.makanan.nama }}
+                    </h1>
+                </div>
+                <p class="mt-4 leading-8 text-gray-700">{{ favorit.makanan.deskripsi }}</p>
+                <div class="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg my-4">
+                    <ul role="list" class="space-y-4 text-gray-600">
+                        <li class="flex gap-x-3">
+                            <span class="h-5 w-5 flex-none text-[#4f9da6]">
+                                <i class="fa-solid fa-rupiah-sign"></i>
+                            </span>
+                            <span>
+                                <strong class="font-semibold text-gray-900">Harga: </strong>
+                                Rp{{ favorit.makanan.harga|intcomma }}
+                            </span>
+                        </li>
+                        <li class="flex gap-x-3">
+                            <span class="h-5 w-5 flex-none text-[#4f9da6]">
+                                <i class="fa-solid fa-utensils"></i>
+                            </span>
+                            <span>
+                                <strong class="font-semibold text-gray-900">Kalori: </strong>
+                                {{ favorit.makanan.kalori }} kkal
+                            </span>
+                        </li>
+                        <li class="flex gap-x-3">
+                            <span class="h-5 w-5 flex-none text-[#4f9da6]">
+                                <i class="fa-solid fa-bars"></i>
+                            </span>
+                            <span class="flex flex-wrap gap-3">
+                                <strong class="font-semibold text-gray-900">Kategori: </strong>
+                                <span class="flex flex-wrap gap-2">
+                                    {% for item in favorit.makanan.kategori.all %}
+                                    <span
+                                        class="bg-[#eb4b4b] text-white font-semibold rounded-full px-4 md:px-5 py-1 md:py-1.5 text-xs md:text-sm select-none">
+                                        {{ item.nama }}
+                                    </span>
+                                    {% endfor %}
+                                </span>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+            {% if favorit.minuman %}
+            <div class="lg:pr-4">
+                <div class="flex mt-2">
+                    <h1 class="w-full text-2xl md:text-3xl font-semibold tracking-tight text-gray-900">
+                        Ubah Favorit Minuman {{ favorit.minuman.nama }}
+                    </h1>
+                </div>
+                <p class="mt-4 leading-8 text-gray-700">{{ favorit.minuman.deskripsi }}</p>
+                <div class="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg my-4">
+                    <ul role="list" class="space-y-4 text-gray-600">
+                        <li class="flex gap-x-3">
+                            <span class="h-5 w-5 flex-none text-[#4f9da6]">
+                                <i class="fa-solid fa-rupiah-sign"></i>
+                            </span>
+                            <span>
+                                <strong class="font-semibold text-gray-900">Harga: </strong>
+                                Rp{{ favorit.minuman.harga|intcomma }}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
         </div>
-        <button type="submit" 
-                class="w-full bg-[#4f9da6] text-white py-2 rounded-md font-bold mt-4 transition duration-200 hover:bg-[#3b747a]">
-            Perbarui Favorit
-        </button>
-    </form>
-
-    <a href="{% url 'favorit:show_favorit' %}" 
-       class="block text-center bg-[#d04848] text-white py-2 rounded-md font-bold transition duration-200 hover:bg-[#a83030]">
-       Kembali ke Daftar Favorit
-    </a>
-</div>
-{% endblock %}
+        <div class="w-full">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div>
+                    <label class="text-sm pl-2" for="catatan">Catatan</label>
+                    <textarea name="catatan" required="" id="catatan" placeholder="Masukkan catatan favorit"
+                        class="w-full resize-none h-36 mt-2 bg-gray-100 rounded-lg px-4 py-3.5 placeholder:text-[#808080] focus-visible:outline-[#4f9da6]">{{ favorit.catatan }}</textarea>
+                </div>
+                <button
+                    class="mt-4 shadow hover:shadow bg-[#4f9da6] hover:bg-[#3b747a] transition focus:shadow-outline focus:bg-[#3b747a] focus:outline-none text-white font-semibold py-2 px-4 rounded-lg"
+                    type="submit">
+                    <i class="fa-regular fa-floppy-disk mr-2"></i>
+                    Simpan
+                </button>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock content %}

@@ -1,83 +1,121 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load humanize %}
 
 {% block content %}
-<div class="max-w-6xl mx-auto p-5 font-sans">
-    <h1 class="text-center text-4xl font-bold text-[#3b747a] mb-5">Daftar Favorit</h1>
-
-    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-0">
+<main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto min-h-[72vh]">
+    <h1 class="text-2xl font-bold mb-5">Daftar Favorit Anda</h1>
+    {% if favorit %}
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 mt-2 md:mt-4">
         {% for item in favorit %}
-        <li class="bg-gray-100 border border-gray-300 rounded-lg p-4 shadow-md hover:shadow-lg transition-transform duration-300 transform hover:scale-105">
-            <div class="relative py-2">
+        <div class="py-2">
+            <div class="relative">
                 {% if item.makanan %}
-                <a href="{% url 'makanan:detail_makanan' item.makanan.id %}" class="hover:brightness-110 transition duration-300">
+                <a href="{% url 'makanan:detail_makanan' item.makanan.id %}"
+                    class="hover:brightness-110 transition duration-300">
                     <!-- Gambar Produk -->
-                    <img src="{{ item.makanan.gambar.url }}" alt="{{ item.makanan.nama }}" class="w-full h-36 md:h-64 object-cover rounded-lg">
+                    <div class="relative">
+                        <img src="{{ item.makanan.gambar.url }}" alt="{{ item.makanan.nama }}"
+                            class="w-full h-36 md:h-64 object-cover rounded-lg">
+                        <div class="absolute top-2.5 right-2.5 flex gap-1.5 text-white">
+                            <a href="{% url 'favorit:ubah_favorit' item.id %}"
+                                class="bg-[#4f9da6] transition duration-200 hover:bg-[#3b747a] flex place-items-center transition p-2.5 rounded-full">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
+                            <a href="{% url 'favorit:hapus_favorit' item.id %}"
+                                class="bg-[#4f9da6] transition duration-200 hover:bg-[#3b747a] flex place-items-center transition p-2.5 rounded-full">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </a>
+                        </div>
+                    </div>
                     <!-- Informasi Produk -->
                     <div class="mt-2.5 flex flex-col gap-1">
                         <h1 class="md:text-lg font-semibold">{{ item.makanan.nama }}</h1>
-                        <div>
-                            <h2 class="max-md:text-sm flex items-center gap-2">
-                                <i class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                                Rp{{ item.makanan.harga|floatformat:0|intcomma }}
-                            </h2>
-                            <h3 class="max-md:text-sm flex items-start gap-2">
-                                <i class="fa-solid fa-utensils text-sm max-md:scale-90 mt-1 w-4 flex justify-center text-neutral-500"></i>
-                                <a href="{% url 'restoran:detail_restoran' item.makanan.restoran.id %}" class="hover:underline">
-                                    {{ item.makanan.restoran.nama }}
-                                </a>
-                            </h3>
-                        </div>
+                        <h4 class="text-neutral-500 max-md:text-sm">
+                            {% if item.catatan %}
+                            {{ item.catatan }}
+                            {% else %}
+                            Belum ada catatan.
+                            {% endif %}
+                        </h4>
                     </div>
                 </a>
                 {% elif item.minuman %}
-                <a href="{% url 'minuman:detail_minuman' item.minuman.id %}" class="hover:brightness-110 transition duration-300">
+                <a href="{% url 'minuman:detail_minuman' item.minuman.id %}"
+                    class="hover:brightness-110 transition duration-300">
                     <!-- Gambar Produk -->
-                    <img src="{{ item.minuman.gambar.url }}" alt="{{ item.minuman.nama }}" class="w-full h-36 md:h-64 object-cover rounded-lg">
+                    <div class="relative">
+                        <img src="{{ item.minuman.gambar.url }}" alt="{{ item.minuman.nama }}"
+                            class="w-full h-36 md:h-64 object-cover rounded-lg">
+                        <div class="absolute top-2.5 right-2.5 flex gap-1.5 text-white">
+                            <a href="{% url 'favorit:ubah_favorit' item.id %}"
+                                class="bg-[#4f9da6] transition duration-200 hover:bg-[#3b747a] flex place-items-center transition p-2.5 rounded-full">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
+                            <a href="{% url 'favorit:hapus_favorit' item.id %}"
+                                class="bg-[#4f9da6] transition duration-200 hover:bg-[#3b747a] flex place-items-center transition p-2.5 rounded-full">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </a>
+                        </div>
+                    </div>
                     <!-- Informasi Produk -->
                     <div class="mt-2.5 flex flex-col gap-1">
                         <h1 class="md:text-lg font-semibold">{{ item.minuman.nama }}</h1>
-                        <div>
-                            <h2 class="max-md:text-sm flex items-center gap-2">
-                                <i class="fa-solid fa-dollar-sign text-sm max-md:scale-90 w-4 flex justify-center text-neutral-500"></i>
-                                Rp{{ item.minuman.harga|floatformat:0|intcomma }}
-                            </h2>
-                            <h3 class="max-md:text-sm flex items-start gap-2">
-                                <i class="fa-solid fa-utensils text-sm max-md:scale-90 mt-1 w-4 flex justify-center text-neutral-500"></i>
-                                <a href="{% url 'restoran:detail_restoran' item.minuman.restoran.id %}" class="hover:underline">
-                                    {{ item.minuman.restoran.nama }}
-                                </a>
-                            </h3>
-                        </div>
+                        <h4 class="text-neutral-500 max-md:text-sm">
+                            {% if item.catatan %}
+                            {{ item.catatan }}
+                            {% else %}
+                            Belum ada catatan.
+                            {% endif %}
+                        </h4>
                     </div>
                 </a>
                 {% elif item.restoran %}
-                <a href="{% url 'restoran:detail_restoran' item.restoran.id %}" class="hover:brightness-110 transition duration-300">
-                    <!-- Gambar Restoran -->
-                    <img src="{{ item.restoran.gambar.url }}" alt="{{ item.restoran.nama }}" class="w-full h-36 md:h-64 object-cover rounded-lg">
-                    <!-- Informasi Restoran -->
+                <a href="{% url 'restoran:detail_restoran' item.restoran.id %}"
+                    class="hover:brightness-110 transition duration-300">
+                    <div class="relative">
+                        <img src="{{ item.restoran.gambar.url }}" alt="{{ item.restoran.nama }}"
+                            class="w-full h-36 md:h-64 object-cover rounded-lg">
+                        <div class="absolute top-2.5 right-2.5 flex gap-1.5 text-white">
+                            <a href="{% url 'favorit:ubah_favorit' item.id %}"
+                                class="bg-[#4f9da6] transition duration-200 hover:bg-[#3b747a] flex place-items-center transition p-2.5 rounded-full">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
+                            <a href="{% url 'favorit:hapus_favorit' item.id %}"
+                                class="bg-[#4f9da6] transition duration-200 hover:bg-[#3b747a] flex place-items-center transition p-2.5 rounded-full">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Informasi Produk -->
                     <div class="mt-2.5 flex flex-col gap-1">
                         <h1 class="md:text-lg font-semibold">{{ item.restoran.nama }}</h1>
+                        <h4 class="text-neutral-500 max-md:text-sm">
+                            {% if item.catatan %}
+                            {{ item.catatan }}
+                            {% else %}
+                            Belum ada catatan.
+                            {% endif %}
+                        </h4>
                     </div>
                 </a>
                 {% endif %}
-                
-                <!-- Tombol Edit dan Hapus -->
-                <div class="mt-4 flex space-x-2">
-                    <a href="{% url 'favorit:ubah_favorit' item.id %}" class="bg-[#4f9da6] text-white px-4 py-2 rounded-md font-bold transition duration-200 hover:bg-[#3b747a]">
-                        Edit
-                    </a>
-                    <a href="{% url 'favorit:hapus_favorit' item.id %}" class="bg-[#d04848] text-white px-4 py-2 rounded-md font-bold transition duration-200 hover:bg-[#a83030]">
-                        Hapus
-                    </a>
-                </div>
             </div>
-        </li>
-        {% empty %}
-        <li class="bg-gray-100 border border-gray-300 rounded-lg p-4 text-gray-600 italic">
-            Anda belum menambahkan favorit apapun.
-        </li>
+        </div>
         {% endfor %}
-    </ul>
-</div>
+    </div>
+    {% else %}
+    <div class="px-3 sm:px-6 py-16 w-full flex max-md:flex-col justify-center items-center gap-4 md:gap-14">
+        <div>
+            <img src="{% static 'images/empty-makanan.png' %}" alt="Belum ada makanan" class="max-w-24 md:max-w-32">
+        </div>
+        <div>
+            <h1 class="text-center text-xl md:text-2xl font-bold">Belum Ada Favorit</h1>
+            <p class="text-center text-gray-900 max-md:text-sm max-md:mt-2">
+                Ayo, tambahkan restoran, makanan, atau minuman favorit Anda!
+            </p>
+        </div>
+    </div>
+    {% endif %}
+</main>
 {% endblock %}
