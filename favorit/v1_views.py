@@ -66,7 +66,7 @@ def api_favorit_detail(request, id_favorit):
         favorit.delete()
         return JsonResponse({"status": "success"}, status=200)
 
-    return JsonResponse({"error": "Favorit tidak ditemukan."}, status=405)
+    return JsonResponse({"error": "Favorit tidak ditemukan."}, status=404)
 
 @csrf_exempt
 def api_add_makanan_to_favorites(request, id_makanan):
