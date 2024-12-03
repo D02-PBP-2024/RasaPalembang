@@ -33,7 +33,7 @@ def minuman_by_id(request, id_minuman):
     """
     GET: Menampilkan minuman berdasarkan id
     - Tidak memerlukan login
-    - Semua role memiliki hak askes ke method ini
+    - Semua role memiliki hak akses ke method ini
     * Format request: -
     * Format response: application/json
 
