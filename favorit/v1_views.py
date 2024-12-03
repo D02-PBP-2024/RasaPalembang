@@ -12,25 +12,34 @@ def api_show_favorit(request):
     """
     API endpoint to show the list of favorites for the logged-in user.
     """
+    if not request.user.is_authenticated:
+        return JsonResponse({"message": "User tidak terautentikasi."}, status=401)
+
     favorit = Favorit.objects.filter(user=request.user)
     favorit_list = [
         {
-            "id": fav.id,
-            "makanan": fav.makanan.nama if fav.makanan else None,
-            "minuman": fav.minuman.nama if fav.minuman else None,
-            "restoran": fav.restoran.nama if fav.restoran else None,
-            "catatan": fav.catatan,
+            "pk": fav.id,
+            "fields": {
+                "catatan": fav.catatan,
+                "user": fav.user.id,
+                "makanan": fav.makanan.id if fav.makanan else None,
+                "minuman": fav.minuman.id if fav.minuman else None,
+                "restoran": fav.restoran.id if fav.restoran else None,
+            }
         }
         for fav in favorit
     ]
     return JsonResponse({"favorit": favorit_list}, status=200)
 
 @csrf_exempt
-def api_favorit_detail(request, favorit_id):
+def api_favorit_detail(request, id_favorit):
     """
     API endpoint to handle GET, PUT, and DELETE requests for a favorite item by ID.
     """
-    favorit = get_object_or_404(Favorit, id=favorit_id, user=request.user)
+    if not request.user.is_authenticated:
+        return JsonResponse({"message": "User tidak terautentikasi."}, status=401)
+
+    favorit = get_object_or_404(Favorit, id=id_favorit, user=request.user)
 
     if request.method == "GET":
         return JsonResponse({
@@ -42,7 +51,11 @@ def api_favorit_detail(request, favorit_id):
         }, status=200)
 
     elif request.method == "PUT":
-        data = json.loads(request.body)
+        try:
+            data = json.loads(request.body)
+        except json.JSONDecodeError:
+            return JsonResponse({"error": "Input tidak valid."}, status=400)
+
         form = FavoritForm(data, instance=favorit)
         if form.is_valid():
             form.save()
@@ -53,37 +66,37 @@ def api_favorit_detail(request, favorit_id):
         favorit.delete()
         return JsonResponse({"status": "success"}, status=200)
 
-    return JsonResponse({"error": "Invalid request method"}, status=405)
+    return JsonResponse({"error": "Favorit tidak ditemukan."}, status=405)
 
 @csrf_exempt
-def api_add_makanan_to_favorites(request, item_id):
+def api_add_makanan_to_favorites(request, id_makanan):
     """
     API endpoint to add a makanan to the user's favorites.
     """
     if request.method == "POST":
-        item = get_object_or_404(Makanan, id=item_id)
+        item = get_object_or_404(Makanan, id=id_makanan)
         favorit, created = Favorit.objects.get_or_create(user=request.user, makanan=item)
         return JsonResponse({"status": "success", "created": created}, status=200)
-    return JsonResponse({"error": "Invalid request method"}, status=405)
+    return JsonResponse({"error": "Method tidak diizinkan."}, status=405)
 
 @csrf_exempt
-def api_add_minuman_to_favorites(request, item_id):
+def api_add_minuman_to_favorites(request, id_minuman):
     """
     API endpoint to add a minuman to the user's favorites.
     """
     if request.method == "POST":
-        item = get_object_or_404(Minuman, id=item_id)
+        item = get_object_or_404(Minuman, id=id_minuman)
         favorit, created = Favorit.objects.get_or_create(user=request.user, minuman=item)
         return JsonResponse({"status": "success", "created": created}, status=200)
-    return JsonResponse({"error": "Invalid request method"}, status=405)
+    return JsonResponse({"error": "Method tidak diizinkan."}, status=405)
 
 @csrf_exempt
-def api_add_restoran_to_favorites(request, item_id):
+def api_add_restoran_to_favorites(request, id_restoran):
     """
     API endpoint to add a restoran to the user's favorites.
     """
     if request.method == "POST":
-        item = get_object_or_404(Restoran, id=item_id)
+        item = get_object_or_404(Restoran, id=id_restoran)
         favorit, created = Favorit.objects.get_or_create(user=request.user, restoran=item)
         return JsonResponse({"status": "success", "created": created}, status=200)
-    return JsonResponse({"error": "Invalid request method"}, status=405)
+    return JsonResponse({"error": "Method tidak diizinkan."}, status=405)
