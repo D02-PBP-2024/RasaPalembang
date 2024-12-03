@@ -55,7 +55,6 @@ urlpatterns = (
         path("v1/profile/<slug:username>/", v1.profile_by_username, name="v1_profile_by_username"),
         path("v1/restoran/", include("restoran.v1_urls")),
         path("v1/minuman/", include("minuman.v1_urls")),
-        path("v1/favorit/", include("favorit.v1_urls")),
         path("v1/forum/", include("forum.v1_urls_forum")),
         path("v1/balasan/", include("forum.v1_urls_balasan")),
     ]
