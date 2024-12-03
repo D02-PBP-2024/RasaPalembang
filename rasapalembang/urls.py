@@ -55,6 +55,7 @@ urlpatterns = (
         path("v1/profile/<slug:username>/", v1.profile_by_username, name="v1_profile_by_username"),
         path("v1/restoran/", include("restoran.v1_urls")),
         path("v1/minuman/", include("minuman.v1_urls")),
+        path("v1/favorit/", include("favorit.v1_urls")),
     ]
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
