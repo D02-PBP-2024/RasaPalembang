@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from restoran.models import Restoran
 from authentication.models import User
-from restoran.utils import restoran_data, validasi_input
+from restoran.utils import restoran_data
 from datetime import datetime
 
 @csrf_exempt
