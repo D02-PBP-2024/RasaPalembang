@@ -1,6 +1,6 @@
 import json
 from authentication.models import User
-from authentication.utils import user_data
+from authentication.utils import format_response, user_data
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import JsonResponse
@@ -22,8 +22,8 @@ def register(request):
             data = json.loads(request.body)
             nama = data["nama"]
             username = data["username"]
-            password = data["password"]
-            password_konfirmasi = data["password_konfirmasi"]
+            password1 = data["password1"]
+            password2 = data["password2"]
             peran = data["peran"]
         except json.JSONDecodeError:
             return JsonResponse({"message": "Input tidak valid."}, status=403)
@@ -31,7 +31,7 @@ def register(request):
             return JsonResponse({"message": "Input tidak lengkap."}, status=403)
 
         # Memastikan password sesuai dengan password_konfirmasi
-        if password != password_konfirmasi:
+        if password1 != password2:
             return JsonResponse({"message": "Password tidak cocok."}, status=400)
 
         # Memastikan username tersedia
@@ -48,14 +48,14 @@ def register(request):
             username=username,
             peran=peran,
         )
-        user.set_password(password)
+        user.set_password(password1)
         user.save()
 
         # Memberikan user baru sesi
         auth_login(request, user)
 
         # Mengembalikan data user yang baru didaftarkan
-        data = user_data(user, "Berhasil mendaftar.")
+        data = format_response(201, "User berhasil didaftarkan.", user_data(user))
         return JsonResponse(data, status=201)
     else:
         return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
@@ -73,11 +73,8 @@ def login(request):
     if request.method == "POST":
         # Decode request body yang berupa application/json
         try:
-            data = json.loads(request.body)
-            username = data["username"]
-            password = data["password"]
-        except json.JSONDecodeError:
-            return JsonResponse({"message": "Input tidak valid."}, status=403)
+            username = request.POST["username"]
+            password = request.POST["password"]
         except KeyError:
             return JsonResponse({"message": "Input tidak lengkap."}, status=403)
 
@@ -96,7 +93,7 @@ def login(request):
         auth_login(request, user)
 
         # Mengembalikan data user yang baru saja login
-        data = user_data(user, "Login berhasil.")
+        data = format_response(200, "Login berhasil.", user_data(user))
         return JsonResponse(data, status=200)
     else:
         return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
