@@ -188,23 +188,3 @@ def lihat_restoran(request, id):
             "status": status,
         },
     )
-
-@csrf_exempt
-def create_restoran_flutter(request):
-    if request.method == 'POST':
-
-        data = json.loads(request.body)
-        new_restoran = Restoran.objects.create(
-            user=request.user,
-            nama=data["nama"],
-            alamat=data["alamat"],
-            jam_buka=data["jam buka"],
-            jam_tutup=data["jam tutup"],
-            nomor_telepon=data["nomor telepon"]
-        )
-
-        new_restoran.save()
-
-        return JsonResponse({"status": "success"}, status=200)
-    else:
-        return JsonResponse({"status": "error"}, status=401)
