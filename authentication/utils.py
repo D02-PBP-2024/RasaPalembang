@@ -1,7 +1,7 @@
 # Method untuk mengembalikan response dalam format yang sama
-def format_response(status, message, data=None):
+def format_response(success, message, data=None):
     response = {
-        "status": status,
+        "success": success,
         "message": message,
     }
 

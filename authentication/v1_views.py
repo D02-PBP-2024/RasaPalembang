@@ -26,21 +26,31 @@ def register(request):
             password2 = data["password2"]
             peran = data["peran"]
         except json.JSONDecodeError:
-            return JsonResponse({"message": "Input tidak valid."}, status=403)
+            return JsonResponse(
+                format_response(False, "Input tidak valid."), status=403
+            )
         except KeyError:
-            return JsonResponse({"message": "Input tidak lengkap."}, status=403)
+            return JsonResponse(
+                format_response(False, "Input tidak lengkap."), status=403
+            )
 
         # Memastikan password sesuai dengan password_konfirmasi
         if password1 != password2:
-            return JsonResponse({"message": "Password tidak cocok."}, status=400)
+            return JsonResponse(
+                format_response(False, "Password tidak cocok."), status=400
+            )
 
         # Memastikan username tersedia
         if User.objects.filter(username=username).exists():
-            return JsonResponse({"message": "Username sudah digunakan."}, status=400)
+            return JsonResponse(
+                format_response(False, "Username sudah digunakan."), status=400
+            )
 
         # Memastikan input peran antara `pengulas` atau `pemilik_restoran`
         if peran != "pengulas" and peran != "pemilik_restoran":
-            return JsonResponse({"message": "Input peran tidak valid."}, status=403)
+            return JsonResponse(
+                format_response(False, "Input peran tidak valid."), status=403
+            )
 
         # Menambahkan user baru
         user = User.objects.create(
@@ -55,10 +65,14 @@ def register(request):
         auth_login(request, user)
 
         # Mengembalikan data user yang baru didaftarkan
-        data = format_response(201, "User berhasil didaftarkan.", user_data(user))
-        return JsonResponse(data, status=201)
+        return JsonResponse(
+            format_response(True, "User berhasil didaftarkan.", user_data(user)),
+            status=201,
+        )
     else:
-        return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
+        return JsonResponse(
+            format_response(False, "Method tidak diizinkan."), status=405
+        )
 
 
 @csrf_exempt
@@ -73,30 +87,41 @@ def login(request):
     if request.method == "POST":
         # Decode request body yang berupa application/json
         try:
-            username = request.POST["username"]
-            password = request.POST["password"]
+            data = json.loads(request.body)
+            username = data["username"]
+            password = data["password"]
+        except json.JSONDecodeError:
+            return JsonResponse(
+                format_response(False, "Input tidak valid."), status=403
+            )
         except KeyError:
-            return JsonResponse({"message": "Input tidak lengkap."}, status=403)
+            return JsonResponse(
+                format_response(False, "Input tidak lengkap."), status=403
+            )
 
         # Mengambil user dengan username=`input username` dan password=`input password`
         user = authenticate(username=username, password=password)
 
         # Memastikan user tersedia
         if user is None:
-            return JsonResponse({"message": "Login gagal."}, status=401)
+            return JsonResponse(format_response(False, "Login gagal."), status=401)
 
         # Memastikan user tidak dinonaktifkan
         if not user.is_active:
-            return JsonResponse({"message": "User dinonaktifkan."}, status=401)
+            return JsonResponse(
+                format_response(False, "User dinonaktifkan."), status=401
+            )
 
         # Memberikan user sesi
         auth_login(request, user)
 
         # Mengembalikan data user yang baru saja login
-        data = format_response(200, "Login berhasil.", user_data(user))
+        data = format_response(True, "Login berhasil.", user_data(user))
         return JsonResponse(data, status=200)
     else:
-        return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
+        return JsonResponse(
+            format_response(False, "Method tidak diizinkan."), status=405
+        )
 
 
 @csrf_exempt
