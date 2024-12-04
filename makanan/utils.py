@@ -12,7 +12,7 @@ def makanan_data(makanan, message=None):
             "gambar": makanan.gambar.url if makanan.gambar else "",
             "kalori": makanan.kalori,
             "restoran": makanan.restoran.pk,
-            "kategori": makanan.kategori.pk,
+            "kategori": [kategori.pk for kategori in makanan.kategori.all()],
         }
     }
 
