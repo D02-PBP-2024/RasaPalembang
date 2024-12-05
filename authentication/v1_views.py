@@ -136,16 +136,20 @@ def logout(request):
     if request.method == "POST":
         # Memastikan user terautentikasi
         if not request.user.is_authenticated:
-            return JsonResponse({"message": "User tidak terautentikasi."}, status=401)
+            return JsonResponse(
+                format_response(False, "User tidak terautentikasi."), status=401
+            )
 
         # Mengembalikan data user yang baru saja logout
-        data = user_data(request.user, "Logout berhasil.")
+        data = format_response(True, "Logout berhasil.", user_data(request.user))
 
         # Menghapus sesi user
         auth_logout(request)
         return JsonResponse(data, status=200)
     else:
-        return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
+        return JsonResponse(
+            format_response(False, "Method tidak diizinkan."), status=405
+        )
 
 
 @csrf_exempt
@@ -168,25 +172,33 @@ def profile_by_username(request, username):
         try:
             user = User.objects.get(username=username)
         except ObjectDoesNotExist:
-            return JsonResponse({"message": "User tidak ditemukan."}, status=404)
+            return JsonResponse(
+                format_response(False, "User tidak ditemukan."), status=404
+            )
 
         # Mengembalikan data user berdasarkan username
-        data = user_data(user)
+        data = format_response(True, "Berhasil mendapatkan data user.", user_data(user))
         return JsonResponse(data, status=200)
     elif request.method == "POST":
         # Memastikan user terautentikasi
         if not request.user.is_authenticated:
-            return JsonResponse({"message": "User tidak terautentikasi."}, status=401)
+            return JsonResponse(
+                format_response(False, "User tidak terautentikasi."), status=401
+            )
 
         # Memastikan username user yang memiliki sesi sama dengan username pada url
         if request.user.username != username:
-            return JsonResponse({"message": "Tindakan tidak diizinkan."}, status=401)
+            return JsonResponse(
+                format_response(False, "Tindakan tidak diizinkan."), status=401
+            )
 
         # Mengambil objek user yang sedang memiliki sesi
         try:
             user = User.objects.get(pk=request.user.id)
         except ObjectDoesNotExist:
-            return JsonResponse({"message": "User tidak ditemukan."}, status=404)
+            return JsonResponse(
+                format_response(False, "User tidak ditemukan."), status=404
+            )
 
         # Decode request body yang berupa multipart/form-data
         nama = request.POST.get("nama")
@@ -195,7 +207,9 @@ def profile_by_username(request, username):
 
         # Memastikan seluruh input lengkap kecuali foto
         if nama is None or deskripsi is None:
-            return JsonResponse({"message": "Input tidak lengkap."}, status=403)
+            return JsonResponse(
+                format_response(False, "Input tidak lengkap."), status=403
+            )
 
         # Mengubah data user
         user.nama = nama
@@ -205,7 +219,9 @@ def profile_by_username(request, username):
         user.save()
 
         # Mengembalikan data user yang telah diubah
-        data = user_data(user, "User berhasil diubah.")
+        data = format_response(True, "User berhasil diubah.", user_data(user))
         return JsonResponse(data, status=200)
     else:
-        return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
+        return JsonResponse(
+            format_response(False, "Method tidak diizinkan."), status=405
+        )
