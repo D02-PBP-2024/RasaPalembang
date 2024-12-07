@@ -49,6 +49,7 @@ def makanan_by_id(request, id_makanan):
     * Format request: -
     * Format response: application/json
     """
+    
     if request.method == "GET":
         # Mengambil objek makanan berdasarkan id
         try:
@@ -129,7 +130,7 @@ def makanan_by_id(request, id_makanan):
         # Mengambil objek makanan berdasarkan id dan restoran yang memiliki makanan tersebut
         try:
             makanan = Makanan.objects.get(pk=id_makanan)
-            restoran = Restoran.objects.get(pk=Makanan.restoran.id)
+            restoran = Restoran.objects.get(pk=makanan.restoran.id)
         except ObjectDoesNotExist:
             return JsonResponse({"message": "makanan tidak ditemukan."}, status=404)
 
@@ -160,7 +161,15 @@ def makanan_by_restoran(request, id_restoran):
     - Hanya role `pemilik_restoran` dan `si pemilik makanan` yang memiliki akses ke method ini
     * Format request: multipart/form-data
     * Format response: application/json
+
+    DELETE: Menghapus makanan
+    - Memerlukan login
+    - Hanya role `pemilik_restoran` dan `si pemilik makanan` yang memiliki akses ke method ini
+    * Format request: -
+    * Format response: application/json
+    
     """
+
     if request.method == "GET":
         # Mengambil objek restoran berdasarkan id dan makanan yang dimiliki oleh restoran tersebut
         try:
