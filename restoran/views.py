@@ -11,6 +11,10 @@ from makanan.models import Makanan
 from minuman.models import Minuman
 from ulasan.models import Ulasan
 from django.utils.html import strip_tags
+from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
+import json
+from django.http import JsonResponse
 
 def get_restoran_status(jam_buka, jam_tutup, current_time):
     if jam_buka < jam_tutup:
