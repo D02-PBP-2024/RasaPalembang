@@ -22,17 +22,15 @@ def makanan_data(makanan, message=None):
     return data
 
 def validasi_input(harga, kalori):
-    # Harga yang valid adalah 0 dan bilangan bulat positif
-    harga_pattern = r"^[0-9]\d*$"
-    # Kalori yang valid adalah bilangan bulat positif
-    kalori_pattern = r"^[0-9]\d*$"
+    # Harga dan kalori yang valid adalah 0 dan bilangan bulat positif
+    harga_dan_kalori_pattern = r"^[0-9]\d*$"
 
     # Memastikan input harga dan kalori valid
     message = ""
-    if not re.match(harga_pattern, harga):
+    if not re.match(harga_dan_kalori_pattern, harga):
         message += "harga"
     
-    if not re.match(kalori_pattern, kalori):
+    if not re.match(harga_dan_kalori_pattern, kalori):
         if message != "":
             message += " dan kalori"
         else:
