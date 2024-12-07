@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from minuman.models import Minuman
 from minuman.utils import minuman_data, validasi_input
 from restoran.models import Restoran
+from minuman.views import show_minuman
 
 
 @csrf_exempt
@@ -140,5 +141,28 @@ def minuman_by_id(request, id_minuman):
         # Menghapus minuman
         minuman.delete()
         return JsonResponse(data, status=200)
+    else:
+        return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
+
+@csrf_exempt
+def favorit_by_minuman(request, id_minuman):
+    if request.method == "POST":
+        # Memastikan user terautentikasi
+        if not request.user.is_authenticated:
+            return JsonResponse({"message": "User tidak terautentikasi."}, status=401)
+
+        # Memastikan peran user adalah `pengulas` atau `pemilik_restoran`
+        if request.user.peran not in ["pengulas", "pemilik_restoran"]:
+            return JsonResponse({"message": "Tindakan tidak diizinkan."}, status=403)
+
+        # Mengambil objek minuman berdasarkan id
+        try:
+            minuman = Minuman.objects.get(pk=id_minuman)
+        except ObjectDoesNotExist:
+            return JsonResponse({"message": "Minuman tidak ditemukan."}, status=404)
+        
+        # Mengembalikan data minuman yang telah ditambahkan
+        data = show_minuman(minuman, "Berhasil menambah restoran.")
+        return JsonResponse(data, status=201)
     else:
         return JsonResponse({"message": "Method tidak diizinkan."}, status=405)

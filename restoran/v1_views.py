@@ -5,6 +5,9 @@ from django.views.decorators.csrf import csrf_exempt
 from minuman.models import Minuman
 from minuman.utils import minuman_data, validasi_input
 from forum.models import Forum
+from favorit.models import Favorit
+from favorit.utils import favorit_data
+from restoran.views import show_restoran
 from forum.utils import forum_data
 from restoran.models import Restoran
 
@@ -158,6 +161,34 @@ def forum_by_restoran(request, id_restoran):
         )
         forum.save()
         data = forum_data(forum, "Berhasil menambah forum.")
+        return JsonResponse(data, status=201)
+    else:
+        return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
+
+
+@csrf_exempt
+def favorit_by_restoran(request, id_restoran):
+    if request.method == "POST":
+        # Memastikan user terautentikasi
+        if not request.user.is_authenticated:
+            return JsonResponse({"message": "User tidak terautentikasi."}, status=401)
+
+        # Memastikan peran user adalah `pemilik_restoran`
+        if request.user.peran != "pemilik_restoran":
+            return JsonResponse({"message": "Tindakan tidak diizinkan."}, status=403)
+        
+        # Memastikan peran user adalah `pengulas`
+        if request.user.peran != "pengulas":
+            return JsonResponse({"message": "Tindakan tidak diizinkan."}, status=403)
+
+        # Mengambil objek restoran berdasarkan id
+        try:
+            restoran = Restoran.objects.get(pk=id_restoran)
+        except ObjectDoesNotExist:
+            return JsonResponse({"message": "Restoran tidak ditemukan."}, status=404)
+        
+        # Mengembalikan data restoran yang telah ditambahkan
+        data = show_restoran(restoran, "Berhasil menambah restoran.")
         return JsonResponse(data, status=201)
     else:
         return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
