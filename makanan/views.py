@@ -5,6 +5,7 @@ from makanan.forms import MakananForm
 from restoran.models import Restoran
 from django.http import JsonResponse
 import json
+from django.utils.html import strip_tags
 
 
 def show_makanan(request):
@@ -22,13 +23,15 @@ def show_makanan(request):
 def tambah_makanan(request):
     if request.user.peran != "pemilik_restoran":
         return redirect("makanan:show_makanan")
-
+    
     restoran = Restoran.objects.filter(user=request.user)
 
     if request.method == "POST":
         form = MakananForm(request.POST, request.FILES)
         if form.is_valid():
             makanan = form.save(commit=False)
+            makanan.nama = strip_tags(makanan.nama)
+            makanan.deskripsi = strip_tags(makanan.deskripsi)
             makanan.save()
             form.save_m2m()
             return redirect("makanan:show_makanan")
