@@ -9,6 +9,7 @@ from favorit.utils import favorit_data
 from django.views.decorators.csrf import csrf_exempt
 import json
 
+
 @csrf_exempt
 def favorit(request):
     """
@@ -25,7 +26,7 @@ def favorit(request):
         
     if request.method == "GET":
         # Mengambil seluruh objek favorit
-        favorit = Favorit.objects.all()
+        favorit = Favorit.objects.filter(user=request.user)
 
         # Mengembalikan data seluruh favorit
         data = []

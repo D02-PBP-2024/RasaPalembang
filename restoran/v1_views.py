@@ -5,6 +5,7 @@ from restoran.models import Restoran
 from authentication.models import User
 from restoran.utils import restoran_data
 from datetime import datetime
+from favorit.models import Favorit
 
 
 @csrf_exempt

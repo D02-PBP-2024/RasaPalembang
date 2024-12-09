@@ -1,6 +1,3 @@
-import re
-
-
 # Method untuk mengembalikan data minuman
 def favorit_data(favorit, message=None):
     data = {

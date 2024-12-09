@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from makanan.models import Kategori, Makanan
 from makanan.utils import makanan_data, validasi_input
 from restoran.models import Restoran
+from favorit.models import Favorit
 
 
 @csrf_exempt
