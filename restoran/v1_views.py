@@ -1,51 +1,108 @@
-import json
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from minuman.models import Minuman
-from minuman.utils import minuman_data, validasi_input
-from forum.models import Forum
-from favorit.models import Favorit
-from favorit.utils import favorit_data
-from restoran.views import show_restoran
-from forum.utils import forum_data
 from restoran.models import Restoran
+from authentication.models import User
+from restoran.utils import restoran_data
+from datetime import datetime
 
 
 @csrf_exempt
-def minuman_by_restoran(request, id_restoran):
+def restoran(request):
     """
-    GET: Menampilkan minuman yang dimiliki oleh sebuah restoran
-    - Tidak memerlukan login
-    - Semua role memiliki hak akses ke method ini
-    * Format request: -
-    * Format response: List of application/json
-
-    POST: Menambahkan minuman ke sebuah restoran
+    POST: Menambahkan restoran baru.
     - Memerlukan login
-    - Hanya role `pemilik_restoran` dan `si pemilik minuman` yang memiliki akses ke method ini
-    * Format request: multipart/form-data
-    * Format response: application/json
+    - Hanya role `pemilik_restoran` yang memiliki akses ke method ini
     """
-    if request.method == "GET":
-        # Mengambil objek restoran berdasarkan id dan minuman yang dimiliki oleh restoran tersebut
-        try:
-            restoran = Restoran.objects.get(pk=id_restoran)
-            minuman = Minuman.objects.filter(restoran=restoran)
-        except ObjectDoesNotExist:
-            return JsonResponse({"message": "Restoran tidak ditemukan."}, status=404)
-
-        # Mengembalikan data seluruh minuman di sebuah restoran
-        data = []
-        for m in minuman:
-            data.append(minuman_data(m))
-        return JsonResponse(data, safe=False, status=200)
-    elif request.method == "POST":
-        # Memastikan user terautentikasi
+    if request.method == "POST":
         if not request.user.is_authenticated:
             return JsonResponse({"message": "User tidak terautentikasi."}, status=401)
 
-        # Memastikan peran user adalah `pemilik_restoran`
+        if request.user.peran != "pemilik_restoran":
+            return JsonResponse({"message": "Tindakan tidak diizinkan."}, status=403)
+
+        # Ambil data dari form
+        nama = request.POST.get("nama")
+        alamat = request.POST.get("alamat")
+        jam_buka = request.POST.get("jam_buka")
+        jam_tutup = request.POST.get("jam_tutup")
+        nomor_telepon = request.POST.get("nomor_telepon")
+        gambar = request.FILES.get("gambar")
+        username = request.POST.get("user")  # Ambil username user yang mengirimkan
+
+        # Validasi input
+        if not nama or not alamat:
+            return JsonResponse({"message": "Input tidak lengkap."}, status=400)
+
+        # Convert jam_buka dan jam_tutup ke objek waktu jika berupa string
+        try:
+            jam_buka = datetime.strptime(jam_buka, "%H:%M").time()
+            jam_tutup = datetime.strptime(jam_tutup, "%H:%M").time()
+        except ValueError:
+            return JsonResponse({"message": "Format waktu tidak valid."}, status=400)
+
+        try:
+            user = User.objects.get(username=username)  # Cari user berdasarkan username
+        except User.DoesNotExist:
+            return JsonResponse({"message": "User tidak ditemukan."}, status=404)
+
+        # Membuat restoran baru
+        restoran = Restoran(
+            nama=nama,
+            alamat=alamat,
+            jam_buka=jam_buka,
+            jam_tutup=jam_tutup,
+            nomor_telepon=nomor_telepon,
+            gambar=gambar,
+            user=user
+        )
+        restoran.save()
+
+        # Response
+        data = restoran_data(restoran, "Restoran berhasil ditambahkan.")
+        return JsonResponse(data, status=201)
+    else:
+        return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
+
+
+@csrf_exempt
+def restoran_by_id(request, id_restoran):
+    """
+    GET: Menampilkan restoran berdasarkan id
+    - Tidak memerlukan login
+    - Semua role memiliki hak akses ke method ini
+    * Format request: -
+    * Format response: application/json
+
+    POST: Mengubah restoran menggunakan multipart/form-data
+    - Memerlukan login
+    - Hanya role `pemilik_restoran` yang memiliki akses ke method ini
+    * Format request: multipart/form-data
+    * Format response: application/json
+
+    DELETE: Menghapus restoran
+    - Memerlukan login
+    - Hanya role `pemilik_restoran` yang memiliki akses ke method ini
+    * Format request: -
+    * Format response: application/json
+    """
+    if request.method == "GET":
+        # Mencari restoran berdasarkan id
+        try:
+            restoran = Restoran.objects.get(pk=id_restoran)
+        except ObjectDoesNotExist:
+            return JsonResponse({"message": "Restoran tidak ditemukan."}, status=404)
+
+        # Mengembalikan data restoran
+        data = restoran_data(restoran)
+        return JsonResponse(data, status=200)
+    
+    elif request.method == "POST":
+        # Memeriksa apakah user sudah terautentikasi
+        if not request.user.is_authenticated:
+            return JsonResponse({"message": "User tidak terautentikasi."}, status=401)
+
+        # Memeriksa apakah user memiliki peran sebagai 'pemilik_restoran'
         if request.user.peran != "pemilik_restoran":
             return JsonResponse({"message": "Tindakan tidak diizinkan."}, status=403)
 
@@ -55,140 +112,84 @@ def minuman_by_restoran(request, id_restoran):
         except ObjectDoesNotExist:
             return JsonResponse({"message": "Restoran tidak ditemukan."}, status=404)
 
-        # Memastikan user adalah `si pemilik minuman`
+        # Memeriksa apakah user yang sedang login adalah pemilik restoran
         if request.user.id != restoran.user.id:
             return JsonResponse({"message": "Tindakan tidak diizinkan."}, status=403)
 
-        # Decode request body yang berupa multipart/form-data
+        # Mendapatkan data dari form data (POST)
         nama = request.POST.get("nama")
-        harga = request.POST.get("harga")
-        deskripsi = request.POST.get("deskripsi")
+        alamat = request.POST.get("alamat")
+        jam_buka = request.POST.get("jam_buka")
+        jam_tutup = request.POST.get("jam_tutup")
+        nomor_telepon = request.POST.get("nomor_telepon")
         gambar = request.FILES.get("gambar")
-        ukuran = request.POST.get("ukuran")
-        tingkat_kemanisan = request.POST.get("tingkat_kemanisan")
-        restoran = restoran
 
-        # Memastikan seluruh input lengkap
-        if (nama is None
-                or harga is None
-                or deskripsi is None
-                or gambar is None
-                or ukuran is None
-                or tingkat_kemanisan is None):
+        # Validasi input
+        if not nama or not alamat:
             return JsonResponse({"message": "Input tidak lengkap."}, status=400)
 
-        # Memastikan input harga, tingkat_kemanisan, dan ukuran valid
-        message = validasi_input(harga, ukuran, tingkat_kemanisan)
+        # Memperbarui data restoran
+        restoran.nama = nama
+        restoran.alamat = alamat
+        if jam_buka: restoran.jam_buka = jam_buka
+        if jam_tutup: restoran.jam_tutup = jam_tutup
+        if nomor_telepon: restoran.nomor_telepon = nomor_telepon
+        if gambar: restoran.gambar = gambar
+        restoran.save()
 
-        if message != "":
-            return JsonResponse({"message": f"Input {message} tidak valid."}, status=400)
-
-        # Menambahkan minuman baru
-        minuman = Minuman.objects.create(
-            nama=nama,
-            harga=int(harga),
-            deskripsi=deskripsi,
-            gambar=gambar,
-            ukuran=ukuran,
-            tingkat_kemanisan=int(tingkat_kemanisan),
-            restoran=restoran,
-        )
-        minuman.save()
-
-        # Mengembalikan data minuman yang telah ditambahkan
-        data = minuman_data(minuman, "Berhasil menambah minuman.")
-        return JsonResponse(data, status=201)
-    else:
-        return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
-
-
-@csrf_exempt
-def forum_by_restoran(request, id_restoran):
-    """
-    GET: Menampilkan forum yang dimiliki oleh sebuah restoran
-    - Tidak memerlukan login
-    - Semua role memiliki hak akses ke method ini
-    * Format request: -
-    * Format response: List of application/json
-
-    POST: Menambahkan forum ke sebuah restoran
-    - Memerlukan login
-    - Hanya role `pengulas` yang memiliki akses ke method ini
-    * Format request: application/json
-    * Format response: application/json
-    """
-    if request.method == "GET":
-        try:
-            restoran = Restoran.objects.get(pk=id_restoran)
-            forum = Forum.objects.filter(restoran=restoran)
-        except ObjectDoesNotExist:
-            return JsonResponse({"message": "Restoran tidak ditemukan."}, status=404)
-        
-        # Mengembalikan data seluruh forum dari sebuah restoran
-        data = []
-        for f in forum:
-            data.append(forum_data(f))
-        return JsonResponse(data, safe=False, status=200)
-    elif request.method == "POST":
-        # Memastikan user terautentikasi
+        # Mengembalikan response dengan data restoran yang berhasil diperbarui
+        data = restoran_data(restoran, "Restoran berhasil diubah.")
+        return JsonResponse(data, status=200)
+    
+    elif request.method == "DELETE":
+        # Memeriksa apakah user sudah terautentikasi
         if not request.user.is_authenticated:
             return JsonResponse({"message": "User tidak terautentikasi."}, status=401)
 
-        # Memastikan peran user adalah `pengulas`
-        if request.user.peran != "pengulas":
-            return JsonResponse({"message": "Tindakan tidak diizinkan."}, status=403)
-        
-        # Mengambil objek restoran berdasarkan id
-        try:
-            restoran = Restoran.objects.get(pk=id_restoran)
-        except ObjectDoesNotExist:
-            return JsonResponse({"message": "Restoran tidak ditemukan."}, status=404)
-        
-        try:
-            data = json.loads(request.body)
-            topik = data["topik"]
-            pesan = data["pesan"]
-        except json.JSONDecodeError:
-            return JsonResponse({"message": "Input tidak valid."}, status=403)
-        except KeyError:
-            return JsonResponse({"message": "Input tidak lengkap."}, status=403)
-        
-        forum = Forum.objects.create(
-            topik=topik,
-            pesan=pesan,
-            restoran=restoran,
-            user=request.user,
-        )
-        forum.save()
-        data = forum_data(forum, "Berhasil menambah forum.")
-        return JsonResponse(data, status=201)
-    else:
-        return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
-
-
-@csrf_exempt
-def favorit_by_restoran(request, id_restoran):
-    if request.method == "POST":
-        # Memastikan user terautentikasi
-        if not request.user.is_authenticated:
-            return JsonResponse({"message": "User tidak terautentikasi."}, status=401)
-
-        # Memastikan peran user adalah `pemilik_restoran`
+        # Memeriksa apakah user memiliki peran sebagai 'pemilik_restoran'
         if request.user.peran != "pemilik_restoran":
             return JsonResponse({"message": "Tindakan tidak diizinkan."}, status=403)
-        
-        # Memastikan peran user adalah `pengulas`
-        if request.user.peran != "pengulas":
-            return JsonResponse({"message": "Tindakan tidak diizinkan."}, status=403)
 
         # Mengambil objek restoran berdasarkan id
         try:
             restoran = Restoran.objects.get(pk=id_restoran)
         except ObjectDoesNotExist:
             return JsonResponse({"message": "Restoran tidak ditemukan."}, status=404)
-        
-        # Mengembalikan data restoran yang telah ditambahkan
-        data = show_restoran(restoran, "Berhasil menambah restoran.")
-        return JsonResponse(data, status=201)
+
+        # Memeriksa apakah user yang sedang login adalah pemilik restoran
+        if request.user.id != restoran.user.id:
+            return JsonResponse({"message": "Tindakan tidak diizinkan."}, status=403)
+
+        # Menghapus restoran
+        restoran.delete()
+        return JsonResponse({"message": "Restoran berhasil dihapus."}, status=200)
+    
     else:
         return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
+
+def restoran_by_user(request, username):
+    try:
+        user = User.objects.get(username=username)  # Mengambil user berdasarkan username
+    except User.DoesNotExist:
+        return JsonResponse({"message": "User tidak ditemukan."}, status=404)
+
+    # Mendapatkan restoran yang dimiliki oleh user ini
+    restoran_list = Restoran.objects.filter(user=user)
+
+    if not restoran_list:
+        return JsonResponse({"message": "Tidak ada restoran untuk user ini."}, status=404)
+
+    restoran_data = [
+        {
+            "id": str(restoran.id),
+            "nama": restoran.nama,
+            "alamat": restoran.alamat,
+            "jam_buka": restoran.jam_buka.strftime("%H:%M"),
+            "jam_tutup": restoran.jam_tutup.strftime("%H:%M"),
+            "nomor_telepon": restoran.nomor_telepon,
+            "gambar": restoran.gambar.url if restoran.gambar else None,
+        }
+        for restoran in restoran_list
+    ]
+
+    return JsonResponse({"restoran": restoran_data})

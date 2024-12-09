@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
-{% load widget_tweaks %}
 
 {% block meta %}
 <title>Tambah Makanan | Rasa Palembang</title>
 {% endblock meta %}
-
 {% block content %}
 <main class="px-4 md:px-14 lg:px-24 xl:px-36 py-5 md:py-8 w-full mx-auto">
     <h2 class="text-xl font-semibold">Tambah Makanan Baru</h2>
@@ -40,7 +38,7 @@
                     <label for="id_gambar"
                         class="w-full overflow-hidden relative cursor-pointer bg-gray-100 rounded-lg font-medium text-[#4f9da6] hover:text-[#3b747a] px-4 py-3.5 text-center focus-visible:outline-[#4f9da6]">
                         <span id="gambar-file">Upload gambar</span>
-                        {{ form.gambar|add_class:"sr-only" }}
+                        <input type="file" name="gambar" accept="image/*" required="" id="id_gambar" class="sr-only">
                     </label>
                 </div>
             </div>
