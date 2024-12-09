@@ -246,3 +246,6 @@ def makanan_by_restoran(request, id_restoran):
         return JsonResponse(data, status=201)
     else:
         return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
+    
+
+

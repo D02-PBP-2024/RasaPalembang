@@ -6,6 +6,7 @@ from authentication.models import User
 from restoran.utils import restoran_data
 from datetime import datetime
 
+
 @csrf_exempt
 def restoran(request):
     """
