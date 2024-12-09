@@ -88,18 +88,22 @@ def minuman_by_id(request, id_minuman):
         tingkat_kemanisan = request.POST.get("tingkat_kemanisan")
 
         # Memastikan seluruh input lengkap kecuali gambar
-        if (nama is None
-                or harga is None
-                or deskripsi is None
-                or ukuran is None
-                or tingkat_kemanisan is None):
+        if (
+            nama is None
+            or harga is None
+            or deskripsi is None
+            or ukuran is None
+            or tingkat_kemanisan is None
+        ):
             return JsonResponse({"message": "Input tidak lengkap."}, status=400)
 
         # Memastikan input harga, tingkat_kemanisan, dan ukuran valid
         message = validasi_input(harga, ukuran, tingkat_kemanisan)
 
         if message != "":
-            return JsonResponse({"message": f"Input {message} tidak valid."}, status=400)
+            return JsonResponse(
+                {"message": f"Input {message} tidak valid."}, status=400
+            )
 
         # Mengubah data minuman
         minuman.nama = nama
@@ -201,19 +205,23 @@ def minuman_by_restoran(request, id_restoran):
         restoran = restoran
 
         # Memastikan seluruh input lengkap
-        if (nama is None
-                or harga is None
-                or deskripsi is None
-                or gambar is None
-                or ukuran is None
-                or tingkat_kemanisan is None):
+        if (
+            nama is None
+            or harga is None
+            or deskripsi is None
+            or gambar is None
+            or ukuran is None
+            or tingkat_kemanisan is None
+        ):
             return JsonResponse({"message": "Input tidak lengkap."}, status=400)
 
         # Memastikan input harga, tingkat_kemanisan, dan ukuran valid
         message = validasi_input(harga, ukuran, tingkat_kemanisan)
 
         if message != "":
-            return JsonResponse({"message": f"Input {message} tidak valid."}, status=400)
+            return JsonResponse(
+                {"message": f"Input {message} tidak valid."}, status=400
+            )
 
         # Menambahkan minuman baru
         minuman = Minuman.objects.create(
