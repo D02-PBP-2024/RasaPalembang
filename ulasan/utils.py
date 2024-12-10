@@ -20,6 +20,9 @@ def ulasan_data(ulasan, message=None):
 
 # Method untuk validasi input nilai
 def validasi_input(nilai):
+    # Memastikan nilai adalah integer
+    nilai = int(nilai)
+
     # Nilai yang valid adalah 0 sampai 5
     if nilai < 0 or nilai > 5:
         return "nilai"

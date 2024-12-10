@@ -12,7 +12,7 @@ def format_response(success, message, data=None):
 
 
 # Method untuk mengembalikan data user yang diperlukan
-def user_data(user):
+def user_data(user, ulasan=None, restoran=None):
     data = {
         "pk": user.pk,
         "username": user.username,
@@ -23,5 +23,11 @@ def user_data(user):
         "poin": user.poin,
         "date_joined": user.date_joined,
     }
+
+    if ulasan is not None:
+        data["ulasan"] = ulasan
+
+    if restoran is not None:
+        data["restoran"] = restoran
 
     return data

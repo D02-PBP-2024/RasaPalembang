@@ -8,43 +8,9 @@ from ulasan.models import Ulasan
 
 
 @csrf_exempt
-def ulasan_by_username(request, username):
-    """
-    GET: Menampilkan ulasan berdasarkan username
-    - Tidak memerlukan login
-    - Semua role memiliki hak akses ke method ini
-    * Format request: -
-    * Format response: application/json
-    """
-    try:
-        user = User.objects.get(
-            username=username
-        )  # Mengambil user berdasarkan username
-    except User.DoesNotExist:
-        return JsonResponse({"message": "User tidak ditemukan."}, status=404)
-
-    # Mendapatkan ulasan yang dimiliki oleh user ini
-    ulasan_list = Ulasan.objects.filter(user=user)
-
-    if not ulasan_list:
-        return JsonResponse({"message": "Tidak ada ulasan untuk user ini."}, status=404)
-
-    ulasan_data = [
-        {
-            "id": str(ulasan.id),
-            "nilai": ulasan.nilai,
-            "deskripsi": ulasan.deskripsi,
-        }
-        for ulasan in ulasan_list
-    ]
-
-    return JsonResponse({"ulasan": ulasan_data})
-
-
-@csrf_exempt
 def ulasan_by_id(request, id_ulasan):
     """
-    PUT: Mengubah ulasan menggunakan multipart/form-data
+    POST: Mengubah ulasan menggunakan multipart/form-data
     - Memerlukan login
     - Hanya role `pengulas` yang memiliki akses ke method ini
     * Format request: multipart/form-data
@@ -56,17 +22,7 @@ def ulasan_by_id(request, id_ulasan):
     * Format request: -
     * Format response: application/json
     """
-    if request.method == "GET":
-        # Mengambil objek ulasan berdasarkan id
-        try:
-            ulasan = Ulasan.objects.get(pk=id_ulasan)
-        except ObjectDoesNotExist:
-            return JsonResponse({"message": "Ulasan tidak ditemukan."}, status=404)
-
-        # Mengembalikan data ulasan berdasarkan id
-        data = ulasan_data(ulasan)
-        return JsonResponse(data, status=200)
-    elif request.method == "PUT":
+    if request.method == "POST":
         # Memastikan user terautentikasi
         if not request.user.is_authenticated:
             return JsonResponse({"message": "User tidak terautentikasi."}, status=401)

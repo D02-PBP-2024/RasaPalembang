@@ -176,8 +176,36 @@ def profile_by_username(request, username):
                 format_response(False, "User tidak ditemukan."), status=404
             )
 
+        ulasan = None
+        restoran = None
+        if user.peran == "pengulas":
+            # Mengambil ulasan yang ditulis oleh user
+            ulasan = [
+                {
+                    "pk": u.pk,
+                    "restoran": u.restoran.nama,
+                    "nilai": u.nilai,
+                    "deskripsi": u.deskripsi,
+                    "created_at": u.created_at,
+                }
+                for u in user.ulasan_set.all()
+            ]
+        elif user.peran == "pemilik_restoran":
+            # Mengambil restoran yang dimiliki oleh user
+            restoran = [
+                {
+                    "pk": r.pk,
+                    "nama": r.nama,
+                    "jam_buka": r.jam_buka.strftime("%H:%M"),
+                    "jam_tutup": r.jam_tutup.strftime("%H:%M"),
+                }
+                for r in user.restoran_set.all()
+            ]
+
         # Mengembalikan data user berdasarkan username
-        data = format_response(True, "Berhasil mendapatkan data user.", user_data(user))
+        data = format_response(
+            True, "Berhasil mendapatkan data user.", user_data(user, ulasan, restoran)
+        )
         return JsonResponse(data, status=200)
     elif request.method == "POST":
         # Memastikan user terautentikasi
