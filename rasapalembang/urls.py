@@ -56,6 +56,7 @@ urlpatterns = (
         path("v1/restoran/", include("restoran.v1_urls")),
         path("v1/minuman/", include("minuman.v1_urls")),
         path("v1/makanan/", include("makanan.v1_urls")),
+        path("v1/favorit/", include("favorit.v1_urls")),
         path("v1/forum/", include("forum.v1_urls_forum")),
         path("v1/balasan/", include("forum.v1_urls_balasan")),
         path("v1/ulasan/", include("ulasan.v1_urls")),
