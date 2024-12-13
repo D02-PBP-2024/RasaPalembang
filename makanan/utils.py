@@ -1,4 +1,5 @@
 import re
+from restoran.utils import restoran_data
 
 
 # Method untuk mengembalikan data makanan
@@ -11,7 +12,7 @@ def makanan_data(makanan, message=None):
             "deskripsi": makanan.deskripsi,
             "gambar": makanan.gambar.url if makanan.gambar else "",
             "kalori": makanan.kalori,
-            "restoran": makanan.restoran.pk,
+            "restoran": restoran_data(makanan.restoran),
             "kategori": [kategori.pk for kategori in makanan.kategori.all()],
         }
     }
@@ -20,6 +21,7 @@ def makanan_data(makanan, message=None):
         data["message"] = message
 
     return data
+
 
 def validasi_input(harga, kalori):
     # Harga dan kalori yang valid adalah 0 dan bilangan bulat positif
