@@ -1,18 +1,5 @@
-# Method untuk mengembalikan response dalam format yang sama
-def format_response(success, message, data=None):
-    response = {
-        "success": success,
-        "message": message,
-    }
-
-    if data is not None:
-        response["data"] = data
-
-    return response
-
-
 # Method untuk mengembalikan data user yang diperlukan
-def user_data(user):
+def user_data(user, message=None):
     data = {
         "pk": user.pk,
         "username": user.username,
@@ -23,5 +10,6 @@ def user_data(user):
         "poin": user.poin,
         "date_joined": user.date_joined,
     }
-
+    if message is not None:
+        data["message"] = message
     return data
