@@ -1,4 +1,5 @@
 import re
+from restoran.utils import restoran_data
 
 
 # Method untuk mengembalikan data minuman
@@ -12,7 +13,7 @@ def minuman_data(minuman, message=None):
             "gambar": minuman.gambar.url if minuman.gambar else "",
             "ukuran": minuman.ukuran,
             "tingkat_kemanisan": minuman.tingkat_kemanisan,
-            "restoran": minuman.restoran.pk,
+            "restoran": restoran_data(minuman.restoran),
         }
     }
 
