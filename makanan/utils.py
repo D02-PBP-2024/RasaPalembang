@@ -1,5 +1,5 @@
-import re
 from restoran.utils import restoran_data
+import re
 
 
 # Method untuk mengembalikan data makanan
@@ -14,7 +14,7 @@ def makanan_data(makanan, message=None):
             "kalori": makanan.kalori,
             "restoran": restoran_data(makanan.restoran),
             "kategori": [kategori.pk for kategori in makanan.kategori.all()],
-        }
+        },
     }
 
     if message is not None:
@@ -31,11 +31,11 @@ def validasi_input(harga, kalori):
     message = ""
     if not re.match(harga_dan_kalori_pattern, harga):
         message += "harga"
-    
+
     if not re.match(harga_dan_kalori_pattern, kalori):
         if message != "":
             message += " dan kalori"
         else:
             message += "kalori"
-    
+
     return message

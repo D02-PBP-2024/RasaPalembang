@@ -1,5 +1,5 @@
-import re
 from restoran.utils import restoran_data
+import re
 
 
 # Method untuk mengembalikan data minuman
@@ -14,7 +14,7 @@ def minuman_data(minuman, message=None):
             "ukuran": minuman.ukuran,
             "tingkat_kemanisan": minuman.tingkat_kemanisan,
             "restoran": restoran_data(minuman.restoran),
-        }
+        },
     }
 
     if message is not None:

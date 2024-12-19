@@ -1,6 +1,6 @@
-from django.urls import path
 from minuman.v1_views import minuman, minuman_by_id
 from favorit.v1_views import favorit_by_minuman
+from django.urls import path
 
 app_name = "v1_minuman"
 

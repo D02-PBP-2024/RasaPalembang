@@ -130,7 +130,9 @@ def favorit_by_makanan(request, id_makanan):
             return JsonResponse({"message": "Makanan tidak ditemukan."}, status=404)
 
         # Membuat atau mendapatkan instance favorit
-        favorit, created = Favorit.objects.get_or_create(user=request.user, makanan=item)
+        favorit, created = Favorit.objects.get_or_create(
+            user=request.user, makanan=item
+        )
 
         if not created:
             return JsonResponse({"message": "Makanan sudah ditambahkan."}, status=400)
@@ -163,7 +165,9 @@ def favorit_by_minuman(request, id_minuman):
             return JsonResponse({"message": "Minuman tidak ditemukan."}, status=404)
 
         # Tambahkan minuman ke favorit pengguna
-        favorit, created = Favorit.objects.get_or_create(user=request.user, minuman=item)
+        favorit, created = Favorit.objects.get_or_create(
+            user=request.user, minuman=item
+        )
 
         if not created:
             return JsonResponse({"message": "Minuman sudah ditambahkan."}, status=400)
@@ -195,7 +199,9 @@ def favorit_by_restoran(request, id_restoran):
             return JsonResponse({"message": "Restoran tidak ditemukan."}, status=404)
 
         # Membuat atau mendapatkan objek Favorit
-        favorit, created = Favorit.objects.get_or_create(user=request.user, restoran=item)
+        favorit, created = Favorit.objects.get_or_create(
+            user=request.user, restoran=item
+        )
 
         if not created:
             return JsonResponse({"message": "Restoran sudah ditambahkan."}, status=400)

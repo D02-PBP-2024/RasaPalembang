@@ -9,14 +9,15 @@ def forum_data(forum, message=None):
             "pesan": forum.pesan,
             "tanggal_posting": forum.tanggal_posting,
             "user": user_data(forum.user),
-            "restoran": forum.restoran.pk
-        }
+            "restoran": forum.restoran.pk,
+        },
     }
 
     if message is not None:
         data["message"] = message
 
     return data
+
 
 # Method untuk mengembalikan data balasan
 def balasan_data(balasan, message=None):
@@ -26,8 +27,8 @@ def balasan_data(balasan, message=None):
             "pesan": balasan.pesan,
             "tanggal_posting": balasan.tanggal_posting,
             "user": user_data(balasan.user),
-            "forum": balasan.forum.pk
-        }
+            "forum": balasan.forum.pk,
+        },
     }
 
     if message is not None:

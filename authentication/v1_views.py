@@ -1,10 +1,10 @@
-import json
-from authentication.models import User
-from authentication.utils import user_data
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.core.exceptions import ObjectDoesNotExist
-from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from authentication.utils import user_data
+from authentication.models import User
+from django.http import JsonResponse
+import json
 
 
 @csrf_exempt

@@ -10,7 +10,7 @@ def user_data(user, message=None):
             "foto": user.foto.url if user.foto else "",
             "poin": user.poin,
             "date_joined": user.date_joined,
-        }
+        },
     }
     if message is not None:
         data["message"] = message

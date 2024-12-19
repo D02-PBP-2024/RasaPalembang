@@ -8,7 +8,7 @@ def favorit_data(favorit, message=None):
             "makanan": favorit.makanan.id if favorit.makanan else None,
             "minuman": favorit.minuman.id if favorit.minuman else None,
             "restoran": favorit.restoran.id if favorit.restoran else None,
-        }
+        },
     }
 
     if message is not None:

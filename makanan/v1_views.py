@@ -1,8 +1,8 @@
+from makanan.utils import makanan_data, validasi_input
 from django.core.exceptions import ObjectDoesNotExist
-from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from makanan.models import Kategori, Makanan
-from makanan.utils import makanan_data, validasi_input
+from django.http import JsonResponse
 from restoran.models import Restoran
 
 
@@ -49,7 +49,7 @@ def makanan_by_id(request, id_makanan):
     * Format request: -
     * Format response: application/json
     """
-    
+
     if request.method == "GET":
         # Mengambil objek makanan berdasarkan id
         try:
@@ -89,18 +89,22 @@ def makanan_by_id(request, id_makanan):
         kategori_ids = request.POST.getlist("kategori")
 
         # Memastikan seluruh input lengkap kecuali gambar
-        if (nama is None
-                or harga is None
-                or deskripsi is None
-                or kalori is None
-                or kategori_ids is None):
+        if (
+            nama is None
+            or harga is None
+            or deskripsi is None
+            or kalori is None
+            or kategori_ids is None
+        ):
             return JsonResponse({"message": "Input tidak lengkap."}, status=400)
 
         # Memastikan input harga dan kalori
         message = validasi_input(harga, kalori)
 
         if message != "":
-            return JsonResponse({"message": f"Input {message} tidak valid."}, status=400)
+            return JsonResponse(
+                {"message": f"Input {message} tidak valid."}, status=400
+            )
 
         # Mengubah data makanan
         makanan.nama = nama
@@ -147,6 +151,7 @@ def makanan_by_id(request, id_makanan):
     else:
         return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
 
+
 @csrf_exempt
 def makanan_by_restoran(request, id_restoran):
     """
@@ -167,7 +172,7 @@ def makanan_by_restoran(request, id_restoran):
     - Hanya role `pemilik_restoran` dan `si pemilik makanan` yang memiliki akses ke method ini
     * Format request: -
     * Format response: application/json
-    
+
     """
 
     if request.method == "GET":
@@ -212,19 +217,23 @@ def makanan_by_restoran(request, id_restoran):
         restoran = restoran
 
         # Memastikan seluruh input lengkap
-        if (nama is None
-                or harga is None
-                or deskripsi is None
-                or gambar is None
-                or kalori is None
-                or kategori_ids is None):
+        if (
+            nama is None
+            or harga is None
+            or deskripsi is None
+            or gambar is None
+            or kalori is None
+            or kategori_ids is None
+        ):
             return JsonResponse({"message": "Input tidak lengkap."}, status=400)
 
         # Memastikan input harga, tingkat_kemanisan, dan ukuran valid
         message = validasi_input(harga, kalori)
 
         if message != "":
-            return JsonResponse({"message": f"Input {message} tidak valid."}, status=400)
+            return JsonResponse(
+                {"message": f"Input {message} tidak valid."}, status=400
+            )
 
         kategori_objects = Kategori.objects.filter(id__in=kategori_ids)
 
@@ -246,6 +255,3 @@ def makanan_by_restoran(request, id_restoran):
         return JsonResponse(data, status=201)
     else:
         return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
-    
-
-
