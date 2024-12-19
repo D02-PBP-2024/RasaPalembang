@@ -2512,7 +2512,7 @@
         "model": "authentication.user",
         "pk": 1,
         "fields": {
-            "password": "pbkdf2_sha256$870000$yPOLC2JGnnNeMtprgpYWlM$wETbhAWroJtDl2QkJc45UJ8FNWkOsHJoAe44614A8Kg=",
+            "password": "pbkdf2_sha256$870000$Wd8iYrAMMnHCezxUDxahrC$9sqk+k6yb0zn+Rm7UjmHib8FyjNwfZIbwqX8msVf83A=",
             "last_login": null,
             "is_superuser": false,
             "username": "andi_setiawan",
@@ -2525,7 +2525,7 @@
             "nama": "Andi Setiawan",
             "peran": "pemilik_restoran",
             "poin": 0,
-            "deskripsi": null,
+            "deskripsi": "",
             "foto": "",
             "groups": [],
             "user_permissions": []
@@ -2535,7 +2535,7 @@
         "model": "authentication.user",
         "pk": 2,
         "fields": {
-            "password": "pbkdf2_sha256$870000$kohMT69EboHmFd98r3Ve2c$afWyBFvCatNXVEfV6QOlquTu15HhXkxNGcZN+/C85YE=",
+            "password": "pbkdf2_sha256$870000$Wd8iYrAMMnHCezxUDxahrC$9sqk+k6yb0zn+Rm7UjmHib8FyjNwfZIbwqX8msVf83A=",
             "last_login": null,
             "is_superuser": false,
             "username": "siti_nur",
@@ -2548,7 +2548,7 @@
             "nama": "Siti Nurhaliza",
             "peran": "pemilik_restoran",
             "poin": 0,
-            "deskripsi": null,
+            "deskripsi": "",
             "foto": "",
             "groups": [],
             "user_permissions": []
@@ -2558,7 +2558,7 @@
         "model": "authentication.user",
         "pk": 3,
         "fields": {
-            "password": "pbkdf2_sha256$870000$UACaLcME3oGPwWGepvBpqd$JOw2zcbeaDx4iC0A7oAUCc/gipLfu5/jU4uTk4S5FR4=",
+            "password": "pbkdf2_sha256$870000$Wd8iYrAMMnHCezxUDxahrC$9sqk+k6yb0zn+Rm7UjmHib8FyjNwfZIbwqX8msVf83A=",
             "last_login": null,
             "is_superuser": false,
             "username": "budi_san",
@@ -2571,7 +2571,7 @@
             "nama": "Budi Santoso",
             "peran": "pemilik_restoran",
             "poin": 0,
-            "deskripsi": null,
+            "deskripsi": "",
             "foto": "",
             "groups": [],
             "user_permissions": []
@@ -2581,7 +2581,7 @@
         "model": "authentication.user",
         "pk": 4,
         "fields": {
-            "password": "pbkdf2_sha256$870000$VV7NkMyW7MP7sZWP6u071b$kJfoecGZMakIZwKSNR7KhA0gi1G98gh9lFhdPyz76Ig=",
+            "password": "pbkdf2_sha256$870000$Wd8iYrAMMnHCezxUDxahrC$9sqk+k6yb0zn+Rm7UjmHib8FyjNwfZIbwqX8msVf83A=",
             "last_login": null,
             "is_superuser": false,
             "username": "maria.j",
@@ -2594,7 +2594,7 @@
             "nama": "Maria Johnson",
             "peran": "pemilik_restoran",
             "poin": 0,
-            "deskripsi": null,
+            "deskripsi": "",
             "foto": "",
             "groups": [],
             "user_permissions": []
@@ -2604,7 +2604,7 @@
         "model": "authentication.user",
         "pk": 5,
         "fields": {
-            "password": "pbkdf2_sha256$870000$RC6pRmVgur6X4EgxYIGiXx$QpPn7UsffBvuWjaZX8yg0BFh948Gpyx5L65rDDP6oBU=",
+            "password": "pbkdf2_sha256$870000$Wd8iYrAMMnHCezxUDxahrC$9sqk+k6yb0zn+Rm7UjmHib8FyjNwfZIbwqX8msVf83A=",
             "last_login": null,
             "is_superuser": false,
             "username": "rina_aulia",
@@ -2617,7 +2617,7 @@
             "nama": "Rina Aulia",
             "peran": "pemilik_restoran",
             "poin": 0,
-            "deskripsi": null,
+            "deskripsi": "",
             "foto": "",
             "groups": [],
             "user_permissions": []
@@ -2627,7 +2627,7 @@
         "model": "authentication.user",
         "pk": 6,
         "fields": {
-            "password": "pbkdf2_sha256$870000$CNzwxc31T2ehi3N89Z4GHX$B+SQciuFUPRmZTd08M3fQTJJDjvImQYIPwtR68pxQt0=",
+            "password": "pbkdf2_sha256$870000$Wd8iYrAMMnHCezxUDxahrC$9sqk+k6yb0zn+Rm7UjmHib8FyjNwfZIbwqX8msVf83A=",
             "last_login": null,
             "is_superuser": false,
             "username": "joko_p",
@@ -2640,7 +2640,7 @@
             "nama": "Joko Prasetyo",
             "peran": "pemilik_restoran",
             "poin": 0,
-            "deskripsi": null,
+            "deskripsi": "",
             "foto": "",
             "groups": [],
             "user_permissions": []
@@ -2650,7 +2650,7 @@
         "model": "authentication.user",
         "pk": 7,
         "fields": {
-            "password": "pbkdf2_sha256$870000$MF6wEkrVGeQOaUzcmAoF4E$lyENPS0X35Gne21UCuD4k6H6V3A3sbaVZ5VlpxgeNBg=",
+            "password": "pbkdf2_sha256$870000$Wd8iYrAMMnHCezxUDxahrC$9sqk+k6yb0zn+Rm7UjmHib8FyjNwfZIbwqX8msVf83A=",
             "last_login": null,
             "is_superuser": false,
             "username": "tania.s",
@@ -2663,7 +2663,7 @@
             "nama": "Tania Safira",
             "peran": "pemilik_restoran",
             "poin": 0,
-            "deskripsi": null,
+            "deskripsi": "",
             "foto": "",
             "groups": [],
             "user_permissions": []
@@ -2673,7 +2673,7 @@
         "model": "authentication.user",
         "pk": 8,
         "fields": {
-            "password": "pbkdf2_sha256$870000$nfTg5W2dZPQ5HxxnGicq86$9k5bFfJWnijEjTgSINLA6g3BSEs+KHxBCufRYbsuwZ0=",
+            "password": "pbkdf2_sha256$870000$Wd8iYrAMMnHCezxUDxahrC$9sqk+k6yb0zn+Rm7UjmHib8FyjNwfZIbwqX8msVf83A=",
             "last_login": null,
             "is_superuser": false,
             "username": "fajar_h",
@@ -2686,7 +2686,7 @@
             "nama": "Fajar Hidayat",
             "peran": "pemilik_restoran",
             "poin": 0,
-            "deskripsi": null,
+            "deskripsi": "",
             "foto": "",
             "groups": [],
             "user_permissions": []
@@ -2696,7 +2696,7 @@
         "model": "authentication.user",
         "pk": 9,
         "fields": {
-            "password": "pbkdf2_sha256$870000$QzlivaDVRk4FTMMq1IVO6Z$mGdbjAb1K9URH25mYmZn/Ev7G3V46EASJIOLT/gM5MU=",
+            "password": "pbkdf2_sha256$870000$Wd8iYrAMMnHCezxUDxahrC$9sqk+k6yb0zn+Rm7UjmHib8FyjNwfZIbwqX8msVf83A=",
             "last_login": null,
             "is_superuser": false,
             "username": "lila_m",
@@ -2709,7 +2709,7 @@
             "nama": "Lila Mustika",
             "peran": "pemilik_restoran",
             "poin": 0,
-            "deskripsi": null,
+            "deskripsi": "",
             "foto": "",
             "groups": [],
             "user_permissions": []
@@ -2719,7 +2719,7 @@
         "model": "authentication.user",
         "pk": 10,
         "fields": {
-            "password": "pbkdf2_sha256$870000$qAkIit81IvHmRoDu4d3dll$Mr5IAzY8RRgD6Sd2E33BY0rXnusXV08eK/jxo6fofX8=",
+            "password": "pbkdf2_sha256$870000$Wd8iYrAMMnHCezxUDxahrC$9sqk+k6yb0zn+Rm7UjmHib8FyjNwfZIbwqX8msVf83A=",
             "last_login": null,
             "is_superuser": false,
             "username": "ahmadjaya",
@@ -2732,7 +2732,7 @@
             "nama": "Ahmad Jaya",
             "peran": "pemilik_restoran",
             "poin": 0,
-            "deskripsi": null,
+            "deskripsi": "",
             "foto": "",
             "groups": [],
             "user_permissions": []
@@ -2742,7 +2742,7 @@
         "model": "authentication.user",
         "pk": 11,
         "fields": {
-            "password": "pbkdf2_sha256$870000$u1flI1nBJ52F0YRReZLUjx$a44nFwUl/Y/OhaF2wARtFuDRsZhU8W1DR4USDDEZFH0=",
+            "password": "pbkdf2_sha256$870000$Wd8iYrAMMnHCezxUDxahrC$9sqk+k6yb0zn+Rm7UjmHib8FyjNwfZIbwqX8msVf83A=",
             "last_login": "2024-10-26T09:33:10.574Z",
             "is_superuser": false,
             "username": "faziltirtana",
@@ -2765,7 +2765,7 @@
         "model": "authentication.user",
         "pk": 12,
         "fields": {
-            "password": "pbkdf2_sha256$870000$N4ddb0OKuwSfzN8U4vqRzy$luvJUJ3Yz/taSokTQ8QxdbViE+3UVYeKzsASSBMIFYE=",
+            "password": "pbkdf2_sha256$870000$Wd8iYrAMMnHCezxUDxahrC$9sqk+k6yb0zn+Rm7UjmHib8FyjNwfZIbwqX8msVf83A=",
             "last_login": "2024-10-26T09:37:02.342Z",
             "is_superuser": false,
             "username": "damar",
@@ -2788,7 +2788,7 @@
         "model": "authentication.user",
         "pk": 13,
         "fields": {
-            "password": "pbkdf2_sha256$870000$gKactt8r70EFehTJcp21Eg$52ghsj01zuUMdOBsb3RZyhyE/EGFMMzNSReYt9Q4e4o=",
+            "password": "pbkdf2_sha256$870000$Wd8iYrAMMnHCezxUDxahrC$9sqk+k6yb0zn+Rm7UjmHib8FyjNwfZIbwqX8msVf83A=",
             "last_login": "2024-10-26T09:32:26.955Z",
             "is_superuser": false,
             "username": "syauqiyasman",
@@ -2811,7 +2811,7 @@
         "model": "authentication.user",
         "pk": 14,
         "fields": {
-            "password": "pbkdf2_sha256$870000$jDIOUt6bsdvNxmJhYpucH2$B+tHICvM2KnyNop1uclRayUAKzjcqPeFjiLPYCZetM8=",
+            "password": "pbkdf2_sha256$870000$Wd8iYrAMMnHCezxUDxahrC$9sqk+k6yb0zn+Rm7UjmHib8FyjNwfZIbwqX8msVf83A=",
             "last_login": "2024-10-26T09:30:55.926Z",
             "is_superuser": false,
             "username": "mdlnecg",
@@ -2834,7 +2834,7 @@
         "model": "authentication.user",
         "pk": 15,
         "fields": {
-            "password": "pbkdf2_sha256$870000$SDPDQTFgp6sqh60vqpaaH8$HiZgtAttW6yPmHERXN2RO91Xqj5mxw3SqhspXecRJHA=",
+            "password": "pbkdf2_sha256$870000$Wd8iYrAMMnHCezxUDxahrC$9sqk+k6yb0zn+Rm7UjmHib8FyjNwfZIbwqX8msVf83A=",
             "last_login": "2024-10-26T09:38:43.356Z",
             "is_superuser": false,
             "username": "bemo",
@@ -2857,7 +2857,7 @@
         "model": "authentication.user",
         "pk": 16,
         "fields": {
-            "password": "pbkdf2_sha256$870000$taakWk06NXbdcexoMAMSKi$rAmHeI+JH21zzoGO+vyiuw+32AoJBUUJIYQIU72yiMc=",
+            "password": "pbkdf2_sha256$870000$Wd8iYrAMMnHCezxUDxahrC$9sqk+k6yb0zn+Rm7UjmHib8FyjNwfZIbwqX8msVf83A=",
             "last_login": "2024-10-26T09:28:46.546Z",
             "is_superuser": false,
             "username": "andiaqsa",

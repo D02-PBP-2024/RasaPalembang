@@ -1,3 +1,5 @@
+from authentication.utils import user_data
+
 # Method untuk mengembalikan data forum
 def forum_data(forum, message=None):
     data = {
@@ -6,15 +8,16 @@ def forum_data(forum, message=None):
             "topik": forum.topik,
             "pesan": forum.pesan,
             "tanggal_posting": forum.tanggal_posting,
-            "user": forum.user.pk,
-            "restoran": forum.restoran.pk
-        }
+            "user": user_data(forum.user),
+            "restoran": forum.restoran.pk,
+        },
     }
 
     if message is not None:
         data["message"] = message
 
     return data
+
 
 # Method untuk mengembalikan data balasan
 def balasan_data(balasan, message=None):
@@ -23,9 +26,9 @@ def balasan_data(balasan, message=None):
         "fields": {
             "pesan": balasan.pesan,
             "tanggal_posting": balasan.tanggal_posting,
-            "user": balasan.user.pk,
-            "forum": balasan.forum.pk
-        }
+            "user": user_data(balasan.user),
+            "forum": balasan.forum.pk,
+        },
     }
 
     if message is not None:

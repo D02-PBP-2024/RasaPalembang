@@ -1,19 +1,35 @@
 from django.core.exceptions import ObjectDoesNotExist
-from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from restoran.models import Restoran
-from authentication.models import User
 from restoran.utils import restoran_data
+from authentication.models import User
+from django.http import JsonResponse
+from restoran.models import Restoran
 from datetime import datetime
+
 
 @csrf_exempt
 def restoran(request):
     """
+    GET: Menampilkan seluruh restoran
+    - Tidak memerlukan login
+    - Semua role memiliki hak akses ke method ini
+    * Format request: -
+    * Format response: List of application/json
+
     POST: Menambahkan restoran baru.
     - Memerlukan login
     - Hanya role `pemilik_restoran` yang memiliki akses ke method ini
     """
-    if request.method == "POST":
+    if request.method == "GET":
+        # Mengambil seluruh objek restoran
+        restoran = Restoran.objects.all()
+
+        # Mengembalikan data seluruh restoran
+        data = []
+        for r in restoran:
+            data.append(restoran_data(r))
+        return JsonResponse(data, safe=False, status=200)
+    elif request.method == "POST":
         if not request.user.is_authenticated:
             return JsonResponse({"message": "User tidak terautentikasi."}, status=401)
 
@@ -53,7 +69,7 @@ def restoran(request):
             jam_tutup=jam_tutup,
             nomor_telepon=nomor_telepon,
             gambar=gambar,
-            user=user
+            user=user,
         )
         restoran.save()
 
@@ -95,7 +111,7 @@ def restoran_by_id(request, id_restoran):
         # Mengembalikan data restoran
         data = restoran_data(restoran)
         return JsonResponse(data, status=200)
-    
+
     elif request.method == "POST":
         # Memeriksa apakah user sudah terautentikasi
         if not request.user.is_authenticated:
@@ -130,16 +146,20 @@ def restoran_by_id(request, id_restoran):
         # Memperbarui data restoran
         restoran.nama = nama
         restoran.alamat = alamat
-        if jam_buka: restoran.jam_buka = jam_buka
-        if jam_tutup: restoran.jam_tutup = jam_tutup
-        if nomor_telepon: restoran.nomor_telepon = nomor_telepon
-        if gambar: restoran.gambar = gambar
+        if jam_buka:
+            restoran.jam_buka = jam_buka
+        if jam_tutup:
+            restoran.jam_tutup = jam_tutup
+        if nomor_telepon:
+            restoran.nomor_telepon = nomor_telepon
+        if gambar:
+            restoran.gambar = gambar
         restoran.save()
 
         # Mengembalikan response dengan data restoran yang berhasil diperbarui
         data = restoran_data(restoran, "Restoran berhasil diubah.")
         return JsonResponse(data, status=200)
-    
+
     elif request.method == "DELETE":
         # Memeriksa apakah user sudah terautentikasi
         if not request.user.is_authenticated:
@@ -162,13 +182,16 @@ def restoran_by_id(request, id_restoran):
         # Menghapus restoran
         restoran.delete()
         return JsonResponse({"message": "Restoran berhasil dihapus."}, status=200)
-    
+
     else:
         return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
 
+
 def restoran_by_user(request, username):
     try:
-        user = User.objects.get(username=username)  # Mengambil user berdasarkan username
+        user = User.objects.get(
+            username=username
+        )  # Mengambil user berdasarkan username
     except User.DoesNotExist:
         return JsonResponse({"message": "User tidak ditemukan."}, status=404)
 
@@ -176,7 +199,9 @@ def restoran_by_user(request, username):
     restoran_list = Restoran.objects.filter(user=user)
 
     if not restoran_list:
-        return JsonResponse({"message": "Tidak ada restoran untuk user ini."}, status=404)
+        return JsonResponse(
+            {"message": "Tidak ada restoran untuk user ini."}, status=404
+        )
 
     restoran_data = [
         {
