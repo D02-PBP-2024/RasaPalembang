@@ -1,6 +1,3 @@
-import re
-
-
 # Method untuk mengembalikan data ulasan
 def ulasan_data(ulasan, message=None):
     data = {
@@ -9,7 +6,7 @@ def ulasan_data(ulasan, message=None):
             "nilai": ulasan.nilai,
             "deskripsi": ulasan.deskripsi,
             "user": ulasan.user.username,
-        }
+        },
     }
 
     if message is not None:

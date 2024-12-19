@@ -1,8 +1,8 @@
 from django.core.exceptions import ObjectDoesNotExist
-from authentication.models import User
-from restoran.models import Restoran
 from ulasan.utils import ulasan_data, validasi_input
 from django.views.decorators.csrf import csrf_exempt
+from authentication.models import User
+from restoran.models import Restoran
 from django.http import JsonResponse
 from ulasan.models import Ulasan
 
@@ -92,6 +92,40 @@ def ulasan_by_id(request, id_ulasan):
         return JsonResponse(data, status=200)
     else:
         return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
+
+
+@csrf_exempt
+def ulasan_by_username(request, username):
+    """
+    GET: Menampilkan ulasan berdasarkan username
+    - Tidak memerlukan login
+    - Semua role memiliki hak akses ke method ini
+    * Format request: -
+    * Format response: application/json
+    """
+
+    if request.method == "GET":
+        # Mengambil objek user dengan username sama dengan username pada url
+        try:
+            user = User.objects.get(username=username)
+        except ObjectDoesNotExist:
+            return JsonResponse({"message": "User tidak ditemukan."}, status=404)
+
+        ulasan = None
+        if user.peran == "pengulas":
+            # Mengambil ulasan yang ditulis oleh user
+            try:
+                ulasan = Ulasan.objects.filter(user=user)
+            except ObjectDoesNotExist:
+                return JsonResponse({"message": "Ulasan tidak ditemukan."}, status=404)
+        else:
+            return JsonResponse({"message": "User bukan pengulas."}, status=400)
+
+        # Mengembalikan data seluruh ulasan berdasarkan username
+        data = []
+        for m in ulasan:
+            data.append(ulasan_data(m))
+        return JsonResponse(data, safe=False, status=200)
 
 
 @csrf_exempt
