@@ -10,11 +10,26 @@ from datetime import datetime
 @csrf_exempt
 def restoran(request):
     """
+    GET: Menampilkan seluruh restoran
+    - Tidak memerlukan login
+    - Semua role memiliki hak akses ke method ini
+    * Format request: -
+    * Format response: List of application/json
+
     POST: Menambahkan restoran baru.
     - Memerlukan login
     - Hanya role `pemilik_restoran` yang memiliki akses ke method ini
     """
-    if request.method == "POST":
+    if request.method == "GET":
+        # Mengambil seluruh objek restoran
+        restoran = Restoran.objects.all()
+
+        # Mengembalikan data seluruh restoran
+        data = []
+        for r in restoran:
+            data.append(restoran_data(r))
+        return JsonResponse(data, safe=False, status=200)
+    elif request.method == "POST":
         if not request.user.is_authenticated:
             return JsonResponse({"message": "User tidak terautentikasi."}, status=401)
 
