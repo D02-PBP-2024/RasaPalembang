@@ -1,6 +1,7 @@
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
 from restoran.models import Restoran
 from authentication.models import User
 from restoran.utils import restoran_data
@@ -208,3 +209,32 @@ def restoran_by_user(request, username):
     ]
 
     return JsonResponse({"restoran": restoran_data})
+
+@csrf_exempt
+@require_POST
+def get_user_flutter(request):
+    try:
+        if request.method == 'POST':
+            if not request.user.is_authenticated:
+                return JsonResponse({"status": "error", "message": "User is not authenticated"}, status=401)
+            
+            user = request.user
+            
+            profile_pic = user.foto.url if user.foto else ""
+
+            print("test")
+            return JsonResponse({
+                'status': 'success',
+                'id': user.id,
+                'nama': user.nama,
+                'username': user.username,
+                'email': user.email,
+                'peran': user.peran,
+                'poin': user.poin,
+                'deskripsi': user.deskripsi or "",
+                'foto': profile_pic,
+            })
+        else:
+            return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
+    except:
+        return JsonResponse({"status": "error"}, status=404)
