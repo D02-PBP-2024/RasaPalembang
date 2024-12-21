@@ -44,7 +44,6 @@ def restoran(request):
         jam_tutup = request.POST.get("jam_tutup")
         nomor_telepon = request.POST.get("nomor_telepon")
         gambar = request.FILES.get("gambar")
-        username = request.POST.get("user")  # Ambil username user yang mengirimkan
 
         # Validasi input
         if not nama or not alamat:
@@ -57,11 +56,6 @@ def restoran(request):
         except ValueError:
             return JsonResponse({"message": "Format waktu tidak valid."}, status=400)
 
-        try:
-            user = User.objects.get(username=username)  # Cari user berdasarkan username
-        except User.DoesNotExist:
-            return JsonResponse({"message": "User tidak ditemukan."}, status=404)
-
         # Membuat restoran baru
         restoran = Restoran(
             nama=nama,
@@ -70,7 +64,7 @@ def restoran(request):
             jam_tutup=jam_tutup,
             nomor_telepon=nomor_telepon,
             gambar=gambar,
-            user=user
+            user=request.user,
         )
         restoran.save()
 
@@ -184,31 +178,24 @@ def restoran_by_id(request, id_restoran):
         return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
 
 def restoran_by_user(request, username):
-    try:
-        user = User.objects.get(username=username)  # Mengambil user berdasarkan username
-    except User.DoesNotExist:
-        return JsonResponse({"message": "User tidak ditemukan."}, status=404)
+    if request.method == "GET":
+        try:
+            user = User.objects.get(username=username)  # Mengambil user berdasarkan username
+        except User.DoesNotExist:
+            return JsonResponse({"message": "User tidak ditemukan."}, status=404)
 
-    # Mendapatkan restoran yang dimiliki oleh user ini
-    restoran_list = Restoran.objects.filter(user=user)
+        # Mendapatkan restoran yang dimiliki oleh user ini
+        restoran = Restoran.objects.filter(user=user)
 
-    if not restoran_list:
-        return JsonResponse({"message": "Tidak ada restoran untuk user ini."}, status=404)
+        if user.peran != "pemilik_restoran":
+            return JsonResponse({"message": "User tidak memiliki restoran."}, status=404)
 
-    restoran_data = [
-        {
-            "id": str(restoran.id),
-            "nama": restoran.nama,
-            "alamat": restoran.alamat,
-            "jam_buka": restoran.jam_buka.strftime("%H:%M"),
-            "jam_tutup": restoran.jam_tutup.strftime("%H:%M"),
-            "nomor_telepon": restoran.nomor_telepon,
-            "gambar": restoran.gambar.url if restoran.gambar else None,
-        }
-        for restoran in restoran_list
-    ]
-
-    return JsonResponse({"restoran": restoran_data})
+        data = []
+        for r in restoran:
+            data.append(restoran_data(r))
+        return JsonResponse(data, safe=False, status=200)
+    else:
+        return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
 
 @csrf_exempt
 @require_POST
