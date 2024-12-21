@@ -27,6 +27,13 @@ def makanan(request):
     else:
         return JsonResponse({"message": "Method tidak diizinkan."}, status=405)
 
+@csrf_exempt
+def kategori_list(request):
+    """
+    Mengembalikan daftar kategori dalam format JSON.
+    """
+    kategori = Kategori.objects.all().values('id', 'nama')
+    return JsonResponse(list(kategori), safe=False)
 
 @csrf_exempt
 def makanan_by_id(request, id_makanan):
@@ -86,7 +93,9 @@ def makanan_by_id(request, id_makanan):
         deskripsi = request.POST.get("deskripsi")
         gambar = request.FILES.get("gambar")
         kalori = request.POST.get("kalori")
-        kategori_ids = request.POST.getlist("kategori")
+        kategori_ids = request.POST.get("kategori", "")  # Ambil data kategori
+        kategori_ids = kategori_ids.split(",")  # Ubah string CSV menjadi list
+        kategori_ids = [id.strip() for id in kategori_ids if id.strip()]  # Bersihkan spasi ekstra
 
         # Memastikan seluruh input lengkap kecuali gambar
         if (nama is None
@@ -108,7 +117,7 @@ def makanan_by_id(request, id_makanan):
         makanan.deskripsi = deskripsi
         if gambar is not None:
             makanan.gambar = gambar
-        makanan.kalori = kalori
+        makanan.kalori = int(kalori)
 
         kategori_objects = Kategori.objects.filter(pk__in=kategori_ids)
         makanan.kategori.set(kategori_objects)  # Mengaitkan kategori dengan makanan
@@ -208,7 +217,10 @@ def makanan_by_restoran(request, id_restoran):
         deskripsi = request.POST.get("deskripsi")
         gambar = request.FILES.get("gambar")
         kalori = request.POST.get("kalori")
-        kategori_ids = request.POST.getlist("kategori")
+        kategori_ids = request.POST.get("kategori", "")  # Ambil data kategori
+        kategori_ids = kategori_ids.split(",")  # Ubah string CSV menjadi list
+        kategori_ids = [id.strip() for id in kategori_ids if id.strip()]  # Bersihkan spasi ekstra
+
         restoran = restoran
 
         # Memastikan seluruh input lengkap
@@ -234,7 +246,7 @@ def makanan_by_restoran(request, id_restoran):
             harga=int(harga),
             deskripsi=deskripsi,
             gambar=gambar,
-            kalori=kalori,
+            kalori=int(kalori),
             restoran=restoran,
         )
 
