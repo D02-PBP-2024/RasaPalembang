@@ -209,7 +209,6 @@ def get_user_flutter(request):
             
             profile_pic = user.foto.url if user.foto else ""
 
-            print("test")
             return JsonResponse({
                 'status': 'success',
                 'id': user.id,

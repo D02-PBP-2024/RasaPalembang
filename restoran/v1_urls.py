@@ -1,7 +1,7 @@
 from django.urls import path
 from makanan.v1_views import makanan_by_restoran
 from minuman.v1_views import minuman_by_restoran
-from restoran.v1_views import restoran, restoran_by_id, get
+from restoran.v1_views import restoran, restoran_by_id, get_user_flutter
 from ulasan.v1_views import ulasan_by_restoran
 from forum.v1_views import forum_by_restoran
 from favorit.v1_views import favorit_by_restoran
