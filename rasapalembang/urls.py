@@ -15,6 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path, include, re_path
+
+import restoran.v1_views
 from rasapalembang.views import landing, cari
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -52,7 +54,8 @@ urlpatterns = (
         path("v1/register/", v1.register, name="v1_register"),
         path("v1/login/", v1.login, name="v1_login"),
         path("v1/logout/", v1.logout, name="v1_logout"),
-        path("v1/profile/<slug:username>/", v1.profile_by_username, name="v1_profile_by_username"),
+        path("v1/profile/<str:username>/", v1.profile_by_username, name="v1_profile_by_username"),
+        path("v1/profile/<str:username>/restoran/", restoran.v1_views.restoran_by_user, name="v1_restoran_by_user"),
         path("v1/restoran/", include("restoran.v1_urls")),
         path("v1/minuman/", include("minuman.v1_urls")),
         path("v1/makanan/", include("makanan.v1_urls")),
